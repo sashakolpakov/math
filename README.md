@@ -49,3 +49,19 @@ Exceptions to this fixed procedure include work on a zero-free region for the Ri
 We will preserve the public release history of this collection. Corrections and revisions will be recorded as new versions, with previously released versions remaining accessible. 
 
 To cite the individual manuscript, use the BibTeX block in its directory. 
+
+## External contribution proposed for review
+
+An additional model-assisted contribution on arithmetic trace rigidity is
+available in the [contributed manuscript catalogue](CONTENTS.md#external-contribution-arithmetic-trace-rigidity).
+The manuscript *Trace Sparsity and Arithmeticity for Compact Hyperbolic
+Surfaces* presents a proof of a critical trace-growth criterion implying
+the compact Sarnak bounded-clustering and Schmutz linear-growth conjectures.
+Discussions and model prompting were carried out by Alexander Kolpakov
+(UATX) and Nikolay Bogachev (University of Toronto).
+
+The [accompanying Lean project](lean/ArithmeticTraceRigidity/README.md)
+verifies selected identities and deductions from explicit hypotheses. It has
+its own pinned toolchain and documents the scope of this partial
+formalization. This external submission is presented for review separately
+from the collection counts above.

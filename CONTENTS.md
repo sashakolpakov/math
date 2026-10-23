@@ -9140,3 +9140,21 @@ We prove a uniform interior $`C^{1,\alpha_d}`$ estimate for bounded infinity-har
 </td>
 </tr></tbody>
 </table>
+
+## External contribution: arithmetic trace rigidity
+
+**Discussions and model prompting:** Alexander Kolpakov (UATX) and Nikolay
+Bogachev (University of Toronto).
+
+This external contribution is proposed for mathematical review and is listed
+separately from the internal-model collection totals above.
+
+| Manuscript | Result and supporting materials |
+|---|---|
+| [Trace Sparsity and Arithmeticity for Compact Hyperbolic Surfaces](preprints/Trace-Sparsity-and-Arithmeticity-for-Compact-Hyperbolic-Surfaces-October-23-2026/compact-trace-rigidity.pdf) | Arithmeticity from signed trace-growth exponent at most one; consequences for the compact Sarnak bounded-clustering and Schmutz linear-growth conjectures. [Source, citation, and build instructions](preprints/Trace-Sparsity-and-Arithmeticity-for-Compact-Hyperbolic-Surfaces-October-23-2026/README.md). |
+
+[Lean verification](lean/ArithmeticTraceRigidity/README.md) covers selected
+identities and conditional deductions for the focused compact manuscript.
+The external analytic, geometric, and arithmetic inputs and their manuscript
+proofs are not formalized. The package retains its pinned Lean 4.32.2
+configuration independently of the main library.

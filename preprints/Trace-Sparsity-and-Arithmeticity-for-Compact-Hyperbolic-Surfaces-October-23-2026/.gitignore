@@ -1,0 +1,4 @@
+build/*
+!build/*.tex
+!build/*.bib
+!build/.latexmkrc
