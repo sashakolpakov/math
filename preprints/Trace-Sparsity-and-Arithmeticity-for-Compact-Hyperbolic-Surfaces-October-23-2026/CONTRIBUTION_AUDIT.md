@@ -33,7 +33,9 @@ contains research notes, a provenance/influence ledger, manuscript audit
 records, sources, and verification documentation. No original model
 conversation export was found there.
 
-The new summary identifies the records used. It does not fabricate original
+The summary's provenance identifies its source revision and record types.
+The public PDF presents a schematic research brief and mathematical outline.
+It does not fabricate original
 prompts, message sequences, verbatim model reasoning, model names, compute
 statistics, or an independently authenticated chronology. The audit log's
 references to review passes are reported as project records and are not
@@ -92,10 +94,22 @@ material for this one paper; no other manuscript has been reintroduced.
 
 Results for this candidate: 43 added or changed paths passed the artifact
 checker; all five privacy regression checks passed; the 31-page manuscript
-and the three-page summary each matched two isolated rebuilds. Final TeX
+and the two-page summary each matched two isolated rebuilds. Final TeX
 logs had no unresolved citations/references, duplicate labels, missing
-glyphs, hyperref warnings, or overfull boxes. All three summary pages were
+glyphs, hyperref warnings, or overfull boxes. Both summary pages were
 visually inspected.
+
+## Public summary editorial review
+
+The public PDF was shortened to two pages. It presents an explicitly
+schematic research brief, five development stages, the central mathematical
+mechanism, and the scope of the Lean checks. Internal working-file
+inventories, detailed repair histories, and operational discussion were
+removed from that presentation. It includes no prompt quotations or chat
+turns. The account-identifier check covers the known account handle,
+local account name, public Git account email, and account number, with
+the private values kept outside the repository. The named contributor
+credits remain intentional.
 
 ## Repeating the checks
 

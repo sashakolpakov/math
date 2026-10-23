@@ -15,22 +15,17 @@ only *Trace Sparsity and Arithmeticity for Compact Hyperbolic Surfaces*.
 It is an editorial account of those records. It contains no verbatim model
 quotations or reconstructed chat turns.
 
-The underlying records are identified by the source revision in the
-[provenance document](../lean/ArithmeticTraceRigidity/PROVENANCE.md):
-
-| Record | Use in the summary |
-|---|---|
-| PROVENANCE_INFLUENCE_LEDGER.md | Documented inherited ideas, unsuccessful approaches, and the moving-element pivot. |
-| AUDIT_LOG.md | Recorded repairs, exposition audits, and limits of the Lean verification. |
-| CRITICAL_PATH_AUDIT.md | Dependency boundary and external mathematical inputs. |
-| FINAL_ARITHMETICITY_DEDUCTION.md | Takeuchi, Thurston, and the compact conjecture consequences. |
-| SPECTRAL_COUNTING_BRIDGE.md, LOCAL_SQUARE_DENSITY_PROOF.md | Supporting notes for the congruence-counting and sieve stages. |
+The PDF gives a schematic research brief, the main stages of the mathematical
+development, the resulting proof mechanism, and the scope of the Lean checks.
+Its source revision is identified in the
+[provenance document](../lean/ArithmeticTraceRigidity/PROVENANCE.md).
+Source-coverage details are kept in the
+[contribution audit](../preprints/Trace-Sparsity-and-Arithmeticity-for-Compact-Hyperbolic-Surfaces-October-23-2026/CONTRIBUTION_AUDIT.md).
 
 No original conversation export was available in the audited project tree.
-Consequently, prompt wording, individual model turns, model identity,
-runtime, token counts, and compute expenditure are not authenticated by this
-summary. It does not assert the evaluation procedure used for OpenAI's
-internal-model collection.
+The research brief is an editorial description of the task, not an original
+prompt quotation. Exact dialogue and model-run statistics are not
+authenticated by this summary.
 
 ## Privacy boundary
 
@@ -38,6 +33,10 @@ The summary omits account handles, account identifiers, email addresses,
 conversation and session identifiers, share links, local filesystem paths,
 credentials, and export headers. The contributor names and affiliations
 above are intentional public attribution.
+
+The public PDF omits internal working-file names, detailed repair logs,
+prompt recipes, and operational information. It retains the mathematical
+problem, the strategic change, the proof outline, and verification scope.
 
 Source-repository attribution and public Git authorship remain in the
 contribution's provenance. The fork itself is public and identifies its
