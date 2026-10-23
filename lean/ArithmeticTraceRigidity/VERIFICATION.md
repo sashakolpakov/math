@@ -30,3 +30,13 @@ These are artifact, source-preservation, and Lean build checks. The
 formalization's mathematical scope is described in the README and
 manuscript map: it checks selected calculations and deductions from explicit
 hypotheses, rather than the complete geometric arithmeticity proof.
+
+## Structure and privacy audit
+
+The [contribution audit](../../preprints/Trace-Sparsity-and-Arithmeticity-for-Compact-Hyperbolic-Surfaces-October-23-2026/CONTRIBUTION_AUDIT.md)
+adds a retrospective development summary, an explicit source/privacy
+boundary, and text/PDF release checks. The corrected manuscript build
+command explicitly loads its fixed-clock configuration. The manuscript
+and summary PDFs each matched two isolated clean rebuilds using the
+recorded TeX toolchain. The manuscript retains identical extracted text
+on all 31 pages, and the Lean source files were not changed by this audit.

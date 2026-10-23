@@ -65,3 +65,9 @@ verifies selected identities and deductions from explicit hypotheses. It has
 its own pinned toolchain and documents the scope of this partial
 formalization. This external submission is presented for review separately
 from the collection counts above.
+
+An [abridged development summary](reasoning_traces/compact-trace-rigidity.pdf)
+reports the research history documented in the project's notes. Its
+[source and coverage statement](reasoning_traces/compact-trace-rigidity.md)
+identifies it as a retrospective account and describes the omission of
+account and session metadata.

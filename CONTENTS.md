@@ -9158,3 +9158,8 @@ identities and conditional deductions for the focused compact manuscript.
 The external analytic, geometric, and arithmetic inputs and their manuscript
 proofs are not formalized. The package retains its pinned Lean 4.32.2
 configuration independently of the main library.
+
+An [abridged development summary](reasoning_traces/compact-trace-rigidity.pdf)
+accompanies this manuscript. It is a retrospective account based on project
+records; its [source and privacy statement](reasoning_traces/compact-trace-rigidity.md)
+documents the coverage and account-metadata boundary.

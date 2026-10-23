@@ -29,3 +29,9 @@ The formalization checks selected identities and deductions from explicit
 analytic, geometric, and arithmetic hypotheses. It does not formalize the
 entire geometric arithmeticity theorem.
 See [the manuscript map](MANUSCRIPT_MAP.md) for the declaration-level scope.
+
+An [abridged development summary](../../reasoning_traces/compact-trace-rigidity.md)
+was prepared from the source project's notes and audit records. Its
+retrospective account contains no verbatim model quotations and omits
+account and session metadata. No original conversation export was present
+in the audited source tree.

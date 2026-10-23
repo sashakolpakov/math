@@ -8,6 +8,13 @@ and Mathlib revisions. Run the commands below from this directory, rather
 than from the parent Lean library, which uses a different toolchain.
 [Provenance and adaptation details](PROVENANCE.md) identify the source revision.
 
+The package is built from its own directory. It is outside the parent
+library's default build and has no upstream Comparator configuration.
+The main-result formalization catalogue is unchanged because this project
+checks selected calculations and conditional implications. The
+[contribution audit](../../preprints/Trace-Sparsity-and-Arithmeticity-for-Compact-Hyperbolic-Surfaces-October-23-2026/CONTRIBUTION_AUDIT.md)
+documents this integration boundary.
+
 To build and audit the project together:
 
 ```sh

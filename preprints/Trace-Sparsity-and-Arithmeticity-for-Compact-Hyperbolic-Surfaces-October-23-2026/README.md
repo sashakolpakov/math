@@ -20,6 +20,13 @@ hypotheses. Its [manuscript map](../../lean/ArithmeticTraceRigidity/MANUSCRIPT_M
 identifies what is checked. The full geometric arithmeticity proof is not
 formalized in Lean.
 
+The [abridged development summary](../../reasoning_traces/compact-trace-rigidity.pdf)
+describes the research history recorded in the project notes. Its
+[source and privacy statement](../../reasoning_traces/compact-trace-rigidity.md)
+explains the retrospective scope and the omission of account and session
+metadata. [The contribution audit](CONTRIBUTION_AUDIT.md) compares the
+package with the upstream conventions and documents verification limits.
+
 ## Citation
 
 ```bibtex
@@ -37,7 +44,7 @@ formalized in Lean.
 From this manuscript directory, with TeX Live and Latexmk installed:
 
 ```sh
-latexmk -cd -pdf -interaction=nonstopmode -halt-on-error build/compact-trace-rigidity.tex
+latexmk -r build/.latexmkrc -cd -pdf -interaction=nonstopmode -halt-on-error build/compact-trace-rigidity.tex
 cp build/compact-trace-rigidity.pdf compact-trace-rigidity.pdf
 ```
 
@@ -45,3 +52,16 @@ cp build/compact-trace-rigidity.pdf compact-trace-rigidity.pdf
 contributed PDF, source, bibliography, and build configuration.
 [Provenance](../../lean/ArithmeticTraceRigidity/PROVENANCE.md) identifies the
 source revision and contribution-specific adaptations.
+
+To repeat the contribution's scope, privacy, checksum, link, and clean-build
+checks from this directory:
+
+```sh
+python3 -m pip install -r audit/requirements.txt
+python3 audit/check_release.py --self-test
+python3 audit/check_release.py --rebuild
+```
+
+The contribution audit explains the optional private-identifier list. The Lean
+package remains a standalone build with its own toolchain; it has no
+upstream Comparator configuration.
