@@ -1,0 +1,71 @@
+{
+  "source_repository": "https://github.com/sashakolpakov/StickNumbers",
+  "source_revision": "1609e1b38204b85363a7d2ef9222386596c30a50",
+  "candidate_includes_working_tree_changes": false,
+  "candidate_date": "2026-10-23",
+  "source_sha256": {
+    "ACKNOWLEDGMENTS.md": "3d9acfa2e6e31acf2b72f4f15205be7cc76848bb3132dc816ef6c6df156509db",
+    "CITATION.cff": "ce2e29bf88ad1307f4b742f8d0e41784302b6dc54b4e3243c5701f4842af0895",
+    "NOVELTY_AUDIT.md": "3bed5cb5bf7a82e9c08d0f274f8c46783ecd4a0ba168bdb8bd1b3e34d0bfce41",
+    "corpus/CONTRIBUTION_AUDIT.md": "a0387a24cf507a17a8ff6357c44fe4725d97447e3d6f61826bc8970f31a56f80",
+    "corpus/MATHEMATICAL_AUDIT.md": "20726cbaa6b15207c9c3d5e81173376525d2d16479c47484e9ed9ee702469ae5",
+    "corpus/development-summary.md": "ba7cce021a6be4331a142d620cf9567d84f4bb0fc57c2daccc0925114db1c5a6",
+    "corpus/development-summary.pdf": "f3cbeafd53d79d100fdf3f3d4a05795cbb0f1f7376fc6a53e943edbeaa56f765",
+    "corpus/development-summary.tex": "fa1011e82a855733eceeadd37476de56192e1069cd7b5e194d270b82eb0b5424",
+    "formal/MANUSCRIPT_MAP.md": "bbc279507f7d7fd9a090098796e4bec4a4ffd6328c608e4e417fa978e5948b5d",
+    "formal/Makefile": "a6f717737c46bed06be0fd111da4d706fc841104c9617a6a49bbecee14db096c",
+    "formal/README.md": "d2a96e515b6a1b824d70be71be41f4e6e74e92854c86876e2fc4f4003f7c78a0",
+    "formal/StickKnots.lean": "5034cddedeeba4853e622d31515b740f49922782400f5d0bd96d3e5c5416b6cd",
+    "formal/StickKnots/AsymptoticCertificate.lean": "2165a00ae5dbef4dbbea900d7ca00e3e35d2ce22f736d8dd5fcd16d9de417dfb",
+    "formal/StickKnots/CertificationLogic.lean": "dd446549351c54c8e633898e552e606a3fc18ac53c347c611d3c91a5fedb71ec",
+    "formal/StickKnots/Counting.lean": "ede7adf7d748b85a3ef23912056c0ea30b56760e51c8180f9c015ccb9573cf45",
+    "formal/StickKnots/DoublyAlternating.lean": "cf0fb1f0d2b254193bcdb76a349adcdafae8c3b5ffa99092fcafaf00f52f38d4",
+    "formal/StickKnots/FewnomialBound.lean": "86e8f65b958e7a16699fa8c207ba6570bc18fd41383823d0cc5c4fe167fe4814",
+    "formal/StickKnots/Geometry.lean": "80613bd032fae04dee08d75fff6b7434942dd9731c69e0cb3d97d44819acf987",
+    "formal/StickKnots/LowerCertification.lean": "2dca449284ce760c4ebb72c5d89d618260c151120daf1661b3a56d98359206ee",
+    "formal/StickKnots/ManuscriptArithmetic.lean": "c6f4bd32a91199b80fd55e008f435c74b66647dc421c83e4a76f04db30083715",
+    "formal/StickKnots/PolygonalCore.lean": "36e6acb3b8ea3f285cc8651c8522d11664b270635fadc60d2e6fe965a6ad0ed6",
+    "formal/StickKnots/StickUpperCertificate.lean": "884b37d60841b40a15034b30f73a0cf296005c2048843cee1975be86e8641020",
+    "formal/StickKnots/StrongLower.lean": "d80e63a4425ca2a35bde3bd2b92b3cfc9ae1d82dd517637afb34ee2d621a2317",
+    "formal/VERIFICATION.md": "22a11c4ac6ba0d6f591f680cac57fc17ab871be871fbb925d6350d2ea89b5796",
+    "formal/lake-manifest.json": "3b3496993526baf2983ee79cffb783b32a3e600f6f7bc4b6a168e04b2945b207",
+    "formal/lakefile.toml": "614e9888982800bab72f74f25b6f12a53781b1273529fd3ebff950b43cc7b776",
+    "formal/lean-toolchain": "2773c517aa90b66ea8a2c52bddddf84393157797f8341be0df45294fff7fd32e",
+    "formal/scripts/check_certificate.py": "25ad1565ad21afa65ef7c5a4f83f58a980d27af5421ec18da9e6b429f50c10d8",
+    "manuscript/.latexmkrc": "13962bbbef8ef2d052a6c466491ad26cf70de870b16412ff508e0e68ebd4170a",
+    "manuscript/knot_fewnomials.pdf": "cbaa0579ba4c30d8d1b2759de339b1cc5cadce047523663a4af119952b87b1fd",
+    "manuscript/knot_fewnomials.tex": "8414671f628b6958beba327b666db6cff11237bf938bc91c64b3b79068af03a2",
+    "scripts/check_corpus.py": "de5ce762660e2baf553d01c9fde17689ac8415ef657ad5f8ef49dccc8580ce02",
+    "scripts/repro/fewnomial_bound_audit.py": "382af3987fd9289a2deb8cd3b8c70db5b42069dd624c91fee943d8f1f8faa40e"
+  },
+  "lean": {
+    "version": "4.32.0",
+    "source_files": 12,
+    "compiled_axiom_audits": 17,
+    "command": "make verify",
+    "status": "pass"
+  },
+  "validation": {
+    "finite_audit": "pass",
+    "latex_warnings": "none",
+    "clean_pdf_rebuilds_per_artifact": 2,
+    "summary_renamed_rebuild": "pass",
+    "source_pipeline_command": "python3 scripts/prepare_corpus.py",
+    "source_pipeline_status": "pass",
+    "export_summary_editorial_review": "pass",
+    "fresh_timestamp_pdf_rebuilds_per_artifact": 2
+  },
+  "tex_toolchain": "Latexmk, John Collins, 15 June 2025. Version 4.87",
+  "source_worktree_clean": true,
+  "upstream_base_revision": "1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+  "export_adaptations": [
+    "Document paths and provenance updated for a clean source snapshot.",
+    "Public development summary edited into a schematic overview with no original dialogue or account metadata.",
+    "Artifact checker accepts known generated local build files and an external private-identifier list.",
+    "Audit dependency pinned to pypdf 6.13.0."
+  ],
+  "pdf_pages": {
+    "manuscript": 16,
+    "development_summary": 2
+  }
+}

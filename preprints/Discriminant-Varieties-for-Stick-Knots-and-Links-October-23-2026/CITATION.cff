@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: >-
+  If you use this repository, please cite the accompanying manuscript.
+title: StickNumbers
+type: software
+version: 0.1.0
+date-released: 2026-08-02
+authors:
+  - family-names: Kolpakov
+    given-names: Alexander
+  - family-names: Rivin
+    given-names: Igor
+repository-code: https://github.com/sashakolpakov/StickNumbers
+url: https://sashakolpakov.github.io/StickNumbers/
+keywords:
+  - knot theory
+  - stick number
+  - polygonal knots
+  - semialgebraic geometry
+  - Lean 4
+preferred-citation:
+  type: article
+  title: Discriminant Varieties for Stick Knots and Links
+  authors:
+    - family-names: Kolpakov
+      given-names: Alexander
+    - family-names: Rivin
+      given-names: Igor
+  year: 2026

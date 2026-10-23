@@ -9140,3 +9140,23 @@ We prove a uniform interior $`C^{1,\alpha_d}`$ estimate for bounded infinity-har
 </td>
 </tr></tbody>
 </table>
+
+## External contribution: stick-knot counting
+
+**Manuscript authors:** Alexander Kolpakov and Igor Rivin.
+
+This external model-assisted contribution is proposed for mathematical review
+and listed separately from the internal-model collection totals.
+
+| Manuscript | Result and supporting materials |
+|---|---|
+| [Discriminant Varieties for Stick Knots and Links](preprints/Discriminant-Varieties-for-Stick-Knots-and-Links-October-23-2026/knot_fewnomials.pdf) | To the authors' knowledge, the first explicit determination of the sharp logarithmic growth order by stick budget, with lower exponent 2/3 and upper exponent 3. [Source, citation and build](preprints/Discriminant-Varieties-for-Stick-Knots-and-Links-October-23-2026/README.md). |
+
+[Standalone Lean certificate](lean/StickKnots/README.md) checks the principal
+internal deductions from explicit external mathematical inputs, including
+the optimized floor/log deficit. The [manuscript map](lean/StickKnots/MANUSCRIPT_MAP.md)
+documents the exact boundary. The package has its own Lean 4.32.0 pins.
+
+A [retrospective development summary](reasoning_traces/stick-knot-counting.pdf)
+is accompanied by a [source and coverage statement](reasoning_traces/stick-knot-counting.md).
+It is not an original conversation transcript.

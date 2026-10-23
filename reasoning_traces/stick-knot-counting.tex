@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Development summary: stick-knot counting},
+ pdfauthor={},pdfsubject={Retrospective account based on project records}}
+\ifdefined\pdftrailerid\pdftrailerid{}\fi
+\setlength{\emergencystretch}{2em}
+\title{Development summary: stick-knot counting}
+\author{}
+\date{23 October 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Manuscript authors: Alexander Kolpakov and Igor Rivin.}
+This retrospective account summarizes the released manuscript and its
+supporting mathematical documentation. It is not a transcript or a reconstruction of model
+turns. No original conversation export was available in the source tree.
+
+\section*{Schematic research brief}
+The task is to determine the growth of the number of ordinary knot types
+realizable with a budget of at most $N$ straight sticks. A schematic research
+brief is to find an upper bound from polygon geometry, a complementary lower
+construction, and a precise account of the mathematical inputs. This is an
+editorial description of the task, not a quotation of an original prompt.
+
+For the set $\mathcal K_N$ of these knot types, the manuscript presents
+\[
+ N^{(2/3+o(1))N}\le |\mathcal K_N|\le N^{3N+o(N)},
+ \qquad \log |\mathcal K_N|=\Theta(N\log N).
+\]
+This determines the logarithmic growth order. It does not determine a leading
+constant or an asymptotic equivalent for the number of knot types.
+
+\section*{Mathematical development}
+\begin{enumerate}
+\item \textbf{Turn knot geometry into a low-degree wall problem.}
+  Describe an $N$-vertex polygon by $3N$ real coordinates. Cubic determinants
+  detect the possible intersection of nonincident edges, while quartic
+  squared cross products exclude collapsed or overlapping adjacent edges.
+  The number of walls grows only quadratically in $N$.
+\item \textbf{Pass from chambers to knot types.}
+  Every bounded-stick knot has a generic representative in the wall-free
+  open locus. Knot type is constant along paths, so a surjection from
+  connected components gives an upper bound for the knot population.
+\item \textbf{Keep the factorial saving in the component count.}
+  Apply the refined real-algebraic component estimate with its partial
+  binomial sum retained. The dimension factorial changes the relevant
+  base from quadratic to linear in $N$, producing the upper exponent 3.
+\item \textbf{Build a large family of distinct braid words.}
+  Four independent permutations on $k$ letters give at least $(k!)^4$
+  doubly alternating permutations on $4k$ letters. Starting and finishing
+  conditions make the corresponding words distinct normal forms.
+\item \textbf{Control the endpoint and stick costs.}
+  Pigeonhole by endpoint permutation and append a common correcting factor
+  to obtain distinct pure braids with controlled length. Transfer these to
+  knots through the cited braid-to-knot and arc-to-stick results, including
+  the bounded loss on forgetting orientation.
+\item \textbf{Optimize and check the counting deductions.}
+  Suitable fixed word lengths give every lower coefficient below $2/3$.
+  A logarithmically varying word length yields the refined lower deficit
+  $-(2/3)N\log\log N-O(N)$. The resulting upper and lower estimates give
+  the common $N\log N$ scale for the logarithm.
+\end{enumerate}
+
+The upper argument counts discriminant chambers directly. It is independent
+of related strong-geometry reconstruction results. The manuscript states
+its priority claim with the qualification ``to our knowledge'' and keeps
+the original real-algebraic, braid, and knot-theoretic inputs attributed.
+
+\section*{Verification and scope}
+The standalone Lean project uses actual polygon coordinates, wall
+polynomials, paths and components, permutation words, endpoint fibers, and
+a bounded-stick subtype of a supplied knot interface. It checks the internal
+finite and asymptotic deductions, including the optimized floor/log estimate.
+
+Ambient-isotopy invariance, the Barone--Basu component theorem, structural
+Garside facts, the pure-braid-to-knot injection, the arc-to-stick inequality,
+and orientation reversal enter through explicit external mathematical
+hypotheses. The classical ambient-isotopy quotient and the auxiliary link
+construction are outside the formal target. The formal certificate is
+conditional on those stated inputs.
+
+The manuscript authors are Alexander Kolpakov and Igor Rivin. Their existing
+acknowledgment reports GPT-5.6-sol assistance as a research and coding tool.
+This summary describes released project records; it does not authenticate
+an original model conversation. Account and session metadata, credentials,
+local paths, detailed repair logs, and operational information are omitted.
+
+\end{document}

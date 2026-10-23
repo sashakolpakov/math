@@ -1,0 +1,4 @@
+build/*
+!build/*.tex
+!build/.latexmkrc
+audit/__pycache__/

@@ -49,3 +49,19 @@ Exceptions to this fixed procedure include work on a zero-free region for the Ri
 We will preserve the public release history of this collection. Corrections and revisions will be recorded as new versions, with previously released versions remaining accessible. 
 
 To cite the individual manuscript, use the BibTeX block in its directory. 
+
+## External contribution proposed for review
+
+An external model-assisted contribution on stick-knot counting is available
+in the [contributed manuscript catalogue](CONTENTS.md#external-contribution-stick-knot-counting).
+The manuscript *Discriminant Varieties for Stick Knots and Links*, by
+Alexander Kolpakov and Igor Rivin, presents upper and lower bounds giving
+the sharp logarithmic growth order of the number of knot types under a
+stick budget. The authors' existing model-assistance acknowledgment is
+preserved.
+
+The contribution includes a [standalone conditional Lean certificate](lean/StickKnots/README.md)
+and an [abridged development summary](reasoning_traces/stick-knot-counting.pdf)
+with a [source and privacy statement](reasoning_traces/stick-knot-counting.md).
+It is presented for mathematical review separately from the internal-model
+collection totals above.
