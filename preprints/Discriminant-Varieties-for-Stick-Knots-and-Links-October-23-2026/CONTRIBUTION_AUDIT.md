@@ -1,3 +1,5 @@
+> Attribution update, 27 October 2026: the contributor supplied the discussion/model-prompting credit for Alexander Kolpakov (UATX). This export now adds that credit in the manuscript, Lean headers and documentation using the Sarnak wording; all mathematical content and existing manuscript authors are preserved. The historical audit below predates this credit.
+
 > Export note: this is a source-project audit record. The candidate changes
 > described below were subsequently committed in source revision
 > `1609e1b38204b85363a7d2ef9222386596c30a50`. This contribution uses that clean snapshot;

@@ -4,6 +4,8 @@
 
 **Manuscript authors:** Alexander Kolpakov and Igor Rivin.
 
+**Discussions and model prompting:** Alexander Kolpakov (UATX).
+
 The public PDF gives a schematic research brief, the main mathematical
 stages, and the scope of the conditional Lean certificate for
 *Discriminant Varieties for Stick Knots and Links*. It is a retrospective

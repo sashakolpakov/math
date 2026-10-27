@@ -2,6 +2,8 @@
 
 **Authors:** Alexander Kolpakov and Igor Rivin.
 
+**Discussions and model prompting:** Alexander Kolpakov (UATX).
+
 **Manuscript and contribution date:** October 23, 2026.
 
 The manuscript presents quantitative bounds for the number of ordinary knot
@@ -47,7 +49,8 @@ audits accompany the package.
   year = {2026},
   eprint = {2608.01277},
   archivePrefix = {arXiv},
-  note = {Repository revision dated October 23, 2026; differs from arXiv v1},
+  note = {Repository revision dated October 23, 2026; differs from arXiv v1.
+          Discussions and model prompting: Alexander Kolpakov (UATX)},
   url = {https://github.com/sashakolpakov/StickNumbers}
 }
 ```

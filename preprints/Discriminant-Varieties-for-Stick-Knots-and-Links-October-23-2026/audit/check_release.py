@@ -104,6 +104,34 @@ def check(root: Path, private_identifiers: tuple[str, ...] = ()) -> dict:
                     action = obj.get("/A", {})
                     if action and action.get("/S") not in {"/URI", "/GoTo"}:
                         raise ValueError(f"Unexpected PDF action in {relative}")
+    header = (
+        "/-\nDiscussions and model prompting: Alexander Kolpakov (UATX).\n\n"
+        "Source: sashakolpakov/StickNumbers, commit\n"
+        "1609e1b38204b85363a7d2ef9222386596c30a50.\n-/\n\n"
+    )
+    formal = root / "lean" / "StickKnots"
+    lean_sources = [p for p in formal.rglob("*.lean") if ".lake" not in p.parts]
+    for path in lean_sources:
+        body = path.read_text()
+        if not body.startswith(header):
+            raise ValueError("Lean source is missing the discussion/model-prompting credit")
+        original = "formal/" + path.relative_to(formal).as_posix()
+        if hashlib.sha256(body[len(header):].encode()).hexdigest() != manifest["source_sha256"][original]:
+            raise ValueError("Lean proof body differs from the recorded source")
+    acknowledgment = (
+        r"\thanks{This working paper was developed through discussions and model "
+        r"prompting by \mbox{Alexander Kolpakov (UATX)}.}"
+    )
+    body = (paper / "build/knot_fewnomials.tex").read_text()
+    if body.count(acknowledgment) != 1:
+        raise ValueError("Manuscript discussion/model-prompting credit is missing or duplicated")
+    original = body.replace(acknowledgment, "", 1)
+    if hashlib.sha256(original.encode()).hexdigest() != manifest["source_sha256"]["manuscript/knot_fewnomials.tex"]:
+        raise ValueError("Mathematical manuscript source differs from the recorded source")
+    for path in [paper / "knot_fewnomials.pdf", root / "reasoning_traces/stick-knot-counting.pdf"]:
+        extracted = " ".join(" ".join(p.extract_text() or "" for p in PdfReader(path).pages).split())
+        if "AlexanderKolpakov(UATX)" not in re.sub(r"\s+", "", extracted):
+            raise ValueError("PDF is missing the discussion/model-prompting credit")
     return {"artifacts": len(actual), "relative_links": links,
             "source_revision": manifest["source_revision"],
             "private_identifier_count": len(private_identifiers), "status": "pass"}

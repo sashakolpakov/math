@@ -8,6 +8,7 @@ date-released: 2026-08-02
 authors:
   - family-names: Kolpakov
     given-names: Alexander
+    affiliation: UATX
   - family-names: Rivin
     given-names: Igor
 repository-code: https://github.com/sashakolpakov/StickNumbers
@@ -24,6 +25,7 @@ preferred-citation:
   authors:
     - family-names: Kolpakov
       given-names: Alexander
+      affiliation: UATX
     - family-names: Rivin
       given-names: Igor
   year: 2026

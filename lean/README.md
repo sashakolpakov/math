@@ -9,7 +9,8 @@ The external [stick-knot counting package](StickKnots/README.md) is a standalone
 Lean 4.32.0 project checking the principal internal counting deductions from
 explicit external mathematical inputs. Build it separately with `make verify`
 from its own directory. It has no parent Comparator target; its README and
-manuscript map document the formalization boundary.
+manuscript map document the formalization boundary. Discussions and model
+prompting: Alexander Kolpakov (UATX).
 
 ## Technical note: mmap
 

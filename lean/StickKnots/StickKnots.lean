@@ -1,3 +1,10 @@
+/-
+Discussions and model prompting: Alexander Kolpakov (UATX).
+
+Source: sashakolpakov/StickNumbers, commit
+1609e1b38204b85363a7d2ef9222386596c30a50.
+-/
+
 import StickKnots.AsymptoticCertificate
 import StickKnots.CertificationLogic
 import StickKnots.Counting

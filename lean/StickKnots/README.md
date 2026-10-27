@@ -1,5 +1,7 @@
 # Lean certification boundary
 
+**Discussions and model prompting:** Alexander Kolpakov (UATX).
+
 This directory contains the Lean 4.32/mathlib certification accompanying
 `../../preprints/Discriminant-Varieties-for-Stick-Knots-and-Links-October-23-2026/build/knot_fewnomials.tex`.  It has no `sorry`, `admit`,
 `native_decide`, or project-specific `axiom` declarations.

@@ -52,6 +52,8 @@ To cite the individual manuscript, use the BibTeX block in its directory.
 
 ## External contribution proposed for review
 
+**Discussions and model prompting:** Alexander Kolpakov (UATX).
+
 An external model-assisted contribution on stick-knot counting is available
 in the [contributed manuscript catalogue](CONTENTS.md#external-contribution-stick-knot-counting).
 The manuscript *Discriminant Varieties for Stick Knots and Links*, by

@@ -1,3 +1,10 @@
+/-
+Discussions and model prompting: Alexander Kolpakov (UATX).
+
+Source: sashakolpakov/StickNumbers, commit
+1609e1b38204b85363a7d2ef9222386596c30a50.
+-/
+
 import Mathlib.Analysis.Complex.ExponentialBounds
 import Mathlib.Analysis.Real.Pi.Bounds
 import Mathlib.Analysis.SpecialFunctions.Stirling

@@ -9145,6 +9145,8 @@ We prove a uniform interior $`C^{1,\alpha_d}`$ estimate for bounded infinity-har
 
 **Manuscript authors:** Alexander Kolpakov and Igor Rivin.
 
+**Discussions and model prompting:** Alexander Kolpakov (UATX).
+
 This external model-assisted contribution is proposed for mathematical review
 and listed separately from the internal-model collection totals.
 

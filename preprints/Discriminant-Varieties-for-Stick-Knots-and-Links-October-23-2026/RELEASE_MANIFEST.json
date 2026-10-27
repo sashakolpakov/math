@@ -53,7 +53,9 @@
     "source_pipeline_command": "python3 scripts/prepare_corpus.py",
     "source_pipeline_status": "pass",
     "export_summary_editorial_review": "pass",
-    "fresh_timestamp_pdf_rebuilds_per_artifact": 2
+    "fresh_timestamp_pdf_rebuilds_per_artifact": 2,
+    "attribution_only_update": "Mathematical text and Lean proof bodies checked against original source hashes after removing the credit additions.",
+    "source_and_pdf_privacy_review": "pass"
   },
   "tex_toolchain": "Latexmk, John Collins, 15 June 2025. Version 4.87",
   "source_worktree_clean": true,
@@ -62,10 +64,18 @@
     "Document paths and provenance updated for a clean source snapshot.",
     "Public development summary edited into a schematic overview with no original dialogue or account metadata.",
     "Artifact checker accepts known generated local build files and an external private-identifier list.",
-    "Audit dependency pinned to pypdf 6.13.0."
+    "Audit dependency pinned to pypdf 6.13.0.",
+    "Contributor-supplied discussion/model-prompting credit for Alexander Kolpakov (UATX) added to the manuscript acknowledgment, Lean comment headers and documentation; original manuscript authors retained."
   ],
   "pdf_pages": {
     "manuscript": 16,
     "development_summary": 2
-  }
+  },
+  "attribution_updated": "2026-10-27",
+  "discussions_and_model_prompting": [
+    {
+      "name": "Alexander Kolpakov",
+      "affiliation": "UATX"
+    }
+  ]
 }

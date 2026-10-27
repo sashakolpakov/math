@@ -1,5 +1,7 @@
 # Acknowledgments
 
+**Discussions and model prompting:** Alexander Kolpakov (UATX).
+
 The authors, Alexander Kolpakov and Igor Rivin, used OpenAI's GPT-5.6-sol as a
 research and coding assistant to help strengthen the results, improve the
 exposition, and generate and audit the Python and Lean 4 code accompanying the
