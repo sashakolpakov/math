@@ -9165,3 +9165,23 @@ We give a deterministic algorithm for exactly counting the satisfying assignment
 </td>
 </tr></tbody>
 </table>
+
+## External contribution: spherical Regge scissors congruence
+
+**Discussions and model prompting:** Alexander Kolpakov (UATX).
+
+This external contribution is proposed for mathematical review and listed
+separately from the internal-model collection totals.
+
+| Manuscript | Result and supporting materials |
+|---|---|
+| [The Spherical Regge Scissors Theorem: A Conditional Proof through an Explicit Weight-Two Contract](preprints/The-Spherical-Regge-Scissors-Theorem-October-27-2026/spherical-regge-scissors.pdf) | Conditional finite equidecomposition from the explicit E1–E8 package; the relative motivic bridge E2–E5 remains unresolved. [Source, citation and build](preprints/The-Spherical-Regge-Scissors-Theorem-October-27-2026/README.md). |
+
+The [standalone Lean package](lean/SphericalReggeScissors/README.md) checks
+the finite algebra and the implication from a supplied proof contract. Its
+[manuscript map](lean/SphericalReggeScissors/MANUSCRIPT_MAP.md) records the
+formalization boundary. It retains its own Lean 4.32.2 dependency pins.
+
+A [retrospective development summary](reasoning_traces/spherical-regge-scissors.pdf)
+is accompanied by a [source and privacy statement](reasoning_traces/spherical-regge-scissors.md).
+It is not an original conversation transcript.

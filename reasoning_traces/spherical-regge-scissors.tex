@@ -1,0 +1,88 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Development summary: spherical Regge scissors congruence},
+ pdfauthor={},pdfsubject={Retrospective account based on released project records}}
+\ifdefined\pdftrailerid\pdftrailerid{}\fi
+\setlength{\emergencystretch}{2em}
+\title{Development summary:\\spherical Regge scissors congruence}
+\author{}
+\date{27 October 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Discussions and model prompting: Alexander Kolpakov (UATX).}
+This retrospective account describes the focused conditional manuscript and
+its mathematical documentation. It is not a transcript or a reconstruction
+of model turns. No original conversation export or authenticated model
+identifier was supplied with the focused release.
+
+\section*{Schematic research brief}
+The target is to show that a nondegenerate spherical tetrahedron and its
+elementary Regge mate admit finite geodesic dissections with pieces paired
+by spherical isometries. A schematic brief is to identify the relevant
+scissors-class defect, separate the finite algebra from the deeper
+comparison theorems, and make every required input explicit. This is an
+editorial description of the task, not a quotation of an original prompt.
+
+The released result is conditional: the conclusion follows from the
+numbered package E1--E8. The relative motivic and comparison bridge E2--E5
+has not been constructed. The unconditional spherical Regge scissors
+theorem is therefore not established by this contribution.
+
+\section*{Mathematical route}
+\begin{enumerate}
+\item \textbf{Encode the elementary Regge operation.}
+  The four moving lengths and angles transform by
+  $R=\tfrac12J-I$, where $J$ is the all-ones matrix. Prove the matrix
+  involution and orthogonality. Phase variables turn the corresponding
+  angle transformation into $a_i\mapsto\tau/a_i$ with
+  $\tau^2=\prod_i a_i$.
+\item \textbf{Check the orientation-cover algebra.}
+  Expand the Gram determinant, prove its relevant coefficient
+  polynomials invariant under the phase substitution, and verify the
+  two rational chart inverses and their cover on the stated open locus.
+  Check the fixed-phase polynomial and its deck transformation.
+\item \textbf{Expose the relative mathematical input.}
+  Specify relative framed quadric coefficients, a strict three-weight
+  setting, and the primitive-kernel comparison with
+  $H^1(U,\mathbb Q(2))$. The proposed vanishing argument depends on
+  the exact relative package; descriptions of its intended meaning do
+  not supply that construction.
+\item \textbf{Derive the finite channel cancellation.}
+  The four moving channels cancel through $H^tH=4I$; the two fixed
+  channels agree. Given the six-channel coproduct formula and descent
+  in E4, the universal defect is primitive. E3 then forces it to vanish.
+\item \textbf{Follow specialization to the spherical class.}
+  Use the supplied commuting square, endpoint comparison, field-level
+  injections and presentation comparison to kill the reduced scissors
+  defect. Suspension, equal volume, area classification and cancellation
+  then give a finite equidecomposition under the remaining inputs.
+\item \textbf{Check the implication and its boundary.}
+  Match every labeled manuscript item and every external-contract field
+  to the formal declarations. Keep the unconstructed relative bridge
+  explicit in the theorem statement and in the public account.
+\end{enumerate}
+
+\section*{Formal certificate and remaining work}
+The Lean project checks the matrix, phase, determinant, chart, deck and
+tensor algebra, followed by the kernel and scissors-group deductions. Its
+main theorem takes a supplied \texttt{ProofContract} and returns a typed
+finite-list equidecomposition certificate. Its abstract geometric
+predicates and carriers are interpretation obligations; they do not build
+actual spherical tetrahedra, motives or scissors groups from foundations.
+
+The unresolved E2--E5 work includes constructing the relative face objects,
+establishing the strict three-weight/primitive comparison, proving the
+relative coproduct and Artin descent, and matching the specialized endpoint
+with the field-level coefficient with the required signs and frames.
+Published field-level results do not by themselves supply this exact
+relative package. The Lean axiom audit checks the conditional implication,
+not the existence of a geometric instance of its hypotheses.
+
+The contributor supplied the discussion/model-prompting credit above.
+This account authenticates no original dialogue or model run. Private
+account and session metadata, credentials, local paths, detailed repair
+logs and operational information are omitted.
+\end{document}

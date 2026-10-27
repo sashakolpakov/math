@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "items": [
+    {
+      "label": "cp:thm-main",
+      "kind": "lean",
+      "targets": ["spherical_regge_scissors"],
+      "explanation": "Lean checks the complete implication from ProofContract to finite equidecomposability."
+    },
+    {
+      "label": "cp:def-angle-gram",
+      "kind": "definition",
+      "targets": ["gramMatrix", "gramEntry"],
+      "explanation": "The matrix and Laurent entry are defined; geometric realization by facet normals is outside the algebraic model."
+    },
+    {
+      "label": "cp:lem-regge-matrix",
+      "kind": "lean",
+      "targets": ["reggeMatrix_transpose", "reggeMatrix_mul_self", "reggeMatrix_orthogonal", "reggeMatrix_mulVec_const", "reggeMatrix_mulVec_of_sum_eq_zero"],
+      "explanation": "All displayed matrix and eigenspace identities are kernel checked."
+    },
+    {
+      "label": "cp:thm-regge-input",
+      "kind": "external",
+      "targets": ["ProofContract", "regge_volume", "split_formula_reggeMate"],
+      "explanation": "E1 supplies geometric realization, the action on physical angles and lengths, and volume equality."
+    },
+    {
+      "label": "cp:lem-algebraic-regge-involution",
+      "kind": "lean",
+      "targets": ["PhasePoint.regge", "PhasePoint.regge_involutive", "reggePhase_product"],
+      "explanation": "Lean checks preservation of the phase hypersurface and involutivity in every commutative group."
+    },
+    {
+      "label": "cp:lem-determinant-quadratic",
+      "kind": "lean",
+      "targets": ["gramMatrix_det", "gramMatrix_det_quadratic", "determinantB_regge_invariant", "determinantC_regge_invariant"],
+      "explanation": "The actual four-by-four determinant and both Laurent coefficient invariances are proved."
+    },
+    {
+      "label": "cp:lem-rational-charts",
+      "kind": "mixed",
+      "targets": ["minus_chart_formula", "plus_chart_formula", "chart_cover"],
+      "explanation": "Lean checks both inverse formulas and coverage of the locus where s and w are nonzero; the principal-open scheme isomorphism and function-field language are standard algebraic-geometry consequences not modeled here."
+    },
+    {
+      "label": "cp:def-U",
+      "kind": "definition",
+      "targets": ["ProofContract"],
+      "explanation": "The principal-open construction is specified in the manuscript; Lean begins from the resulting typed contract rather than formalizing schemes."
+    },
+    {
+      "label": "cp:prop-physical-point-on-chart",
+      "kind": "external",
+      "targets": ["ProofContract"],
+      "explanation": "Positivity and physical realization are geometric boundary facts; the chart-cover polynomial used in the argument is checked separately."
+    },
+    {
+      "label": "cp:prop-fixed-p-cover",
+      "kind": "mixed",
+      "targets": ["fixedPhasePolynomial", "fixedPhase_discriminant", "fixedPhase_inv_eq_deck", "fixedPhase_deck_involutive", "fixedPhase_deck_preserves_root"],
+      "explanation": "All coordinate algebra is checked; scheme-level finite etaleness after discriminant localization is an external standard fact."
+    },
+    {
+      "label": "cp:def-face-motive",
+      "kind": "external",
+      "targets": ["RelativeObject", "isAlternatingFaceObject"],
+      "explanation": "The formula specifies E2; neither Mathlib nor this project constructs the relative motivic category."
+    },
+    {
+      "label": "cp:def-coefficient-contract",
+      "kind": "definition",
+      "targets": ["MotivicInputs", "CoproductBridge", "SpecializationInputs"],
+      "explanation": "The manuscript's linear contract is represented by three explicit Lean structures."
+    },
+    {
+      "label": "cp:lem-three-level-framed",
+      "kind": "lean",
+      "targets": ["primitive_eq_zero"],
+      "explanation": "Lean proves that the primitive comparison and endpoint vanishing force the coefficient to vanish."
+    },
+    {
+      "label": "cp:lem-split-strata",
+      "kind": "mixed",
+      "targets": ["phase_vector_isotropic", "alternating_mul_symmetric_square", "normalizedBinaryInvolution_square", "isAlternatingFaceObject"],
+      "explanation": "Lean checks the binary matrix identities; global hyperbolic splitting and relative family regularity remain geometric inputs to E2--E4."
+    },
+    {
+      "label": "cp:prop-weight-calculation",
+      "kind": "external",
+      "targets": ["hasExactThreeGradedPieces", "strict_three_weight_heart_constructed", "primitiveComparison", "h1_vanishes"],
+      "explanation": "E3 exposes the graded-piece, strict-heart, primitive-comparison, and arithmetic-vanishing obligations separately."
+    },
+    {
+      "label": "cp:lem-regge-tensor-cancellation",
+      "kind": "lean",
+      "targets": ["hadamard_tensor_cancellation", "regge_tensor_cancellation", "six_channel_tensor_invariance"],
+      "explanation": "Lean proves the half-phase and normalized full-channel identities."
+    },
+    {
+      "label": "cp:lem-coproduct-zero",
+      "kind": "lean",
+      "targets": ["coproduct_eq_of_six_channel_calculation", "coproduct_of_regge_difference_eq_zero", "contract_quadric_dual_defect_is_primitive", "finite_etale_sign_trace_injective"],
+      "explanation": "The zero-coproduct conclusion is derived from the checked tensor equality and E4's formula/descent bridge; the typed specialization square then derives fibre-kernel membership."
+    },
+    {
+      "label": "cp:thm-relative-defect-zero",
+      "kind": "lean",
+      "targets": ["universal_framed_defect_vanishes", "contract_universal_defect_zero"],
+      "explanation": "Lean combines the coproduct theorem with E3's primitive comparison."
+    },
+    {
+      "label": "cp:thm-goncharov-weight-two",
+      "kind": "external",
+      "targets": ["goncharov", "goncharov_injective"],
+      "explanation": "E6 supplies c_G on the primitive subgroup and its injectivity."
+    },
+    {
+      "label": "cp:lem-spherical-presentations",
+      "kind": "external",
+      "targets": ["spherical", "spherical_injective", "presentationComparison"],
+      "explanation": "E6 supplies the injection and E7 separately supplies the presentation equivalence."
+    },
+    {
+      "label": "cp:lem-fibre-comparison",
+      "kind": "external",
+      "targets": ["fibre_endpoint_eq_cG"],
+      "explanation": "E5 names equality of classes with every sign, frame, twist, and duality convention."
+    },
+    {
+      "label": "cp:prop-reduced-scissors-zero",
+      "kind": "lean",
+      "targets": ["goncharov_spherical_defect_vanishes", "reduced_rational_defect_vanishes_of_presentation", "integral_reduced_defect_vanishes", "contract_reduced_defect_zero"],
+      "explanation": "Lean checks the endpoint, injectivity, presentation-transport, and rationalization diagram chase."
+    }
+  ]
+}

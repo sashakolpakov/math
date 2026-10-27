@@ -1,0 +1,68 @@
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=green!40!black,
+  urlcolor=blue!65!black]{hyperref}
+\hypersetup{
+  pdftitle={The Spherical Regge Scissors Theorem: A Conditional Proof through an Explicit Weight-Two Contract},
+  pdfauthor={}}
+
+\input{paper/macros}
+
+\newcommand{\Gm}{\mathbf G_m}
+\newcommand{\DM}{\operatorname{DM}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\Tr}{\operatorname{Tr}}
+
+\allowdisplaybreaks
+
+\title[The spherical Regge theorem]
+  {The Spherical Regge Scissors Theorem:\\
+   A Conditional Proof through an Explicit Weight-Two Contract}
+\author{}
+\date{Research draft, 27 September 2026}
+
+\thanks{This working paper was developed through discussions and model prompting by \mbox{Alexander Kolpakov (UATX)}}
+
+\begin{document}
+
+\begin{abstract}
+We give a conditional proof that every nondegenerate spherical tetrahedron
+is scissors congruent to each elementary Regge mate.  The hypotheses are an
+explicit theorem package separating published field-level results from the
+relative motivic and comparison bridge still required over the rational
+parameter space.  Internally we derive the monomial Regge action on angle
+phases, rationalize the orientation double cover, prove the finite
+four-channel tensor cancellation, and carry out the primitive-kernel and
+scissors-group diagram chases.  We explain the relative quadric motive that
+the external package is intended to supply, including its three weight
+pieces, coproduct, Artin descent, and fibre comparison, without treating
+those assertions as consequences of ordinary homology.  An accompanying
+Lean development checks the internal algebra and conditional implication
+without project axioms; it represents every motivic and scissors-theoretic
+input by a named field of the proof contract.
+\end{abstract}
+
+\maketitle
+\enlargethispage{20pt}
+\tableofcontents
+
+\input{paper/sections/01_statement}
+\input{paper/sections/02_phase_charts}
+\input{paper/sections/03_motivic_dictionary}
+\input{paper/sections/04_relative_rigidity}
+\input{paper/sections/05_specialization_scissors}
+
+\bibliographystyle{alpha}
+\bibliography{paper/biblio}
+
+\end{document}

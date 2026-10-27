@@ -1,0 +1,207 @@
+{
+  "candidate_includes_working_tree_changes": false,
+  "contribution_date": "2026-10-27",
+  "discussions_and_model_prompting": [
+    {
+      "affiliation": "UATX",
+      "name": "Alexander Kolpakov"
+    }
+  ],
+  "export_adaptations": [
+    "Contributor-supplied discussion/model-prompting acknowledgment and first-page layout allowance added to the manuscript; Lean comment headers added; source author field remains blank.",
+    "Documentation, audit-script paths and standalone verification instructions adapted for the contribution layout.",
+    "A two-page retrospective development summary supplied without original dialogue, account metadata or an authenticated model identity.",
+    "Current artifact manifest, checksum inventory and pypdf-based privacy/source-equivalence checks added; historical source manifest retained separately."
+  ],
+  "lean": {
+    "command": "make verify",
+    "compiled_axiom_audits": 22,
+    "contract_fields": 77,
+    "manuscript_items": 22,
+    "mathlib_revision": "905b95818eb32af7874a58b427f50c1711a5e96c",
+    "source_files": 11,
+    "status": "pass",
+    "version": "4.32.2"
+  },
+  "manuscript_date": "2026-09-27",
+  "mathematical_status": "Conditional implication from E1-E8; the relative motivic bridge E2-E5 remains unresolved.",
+  "pdf_build_clock": {
+    "development_summary": "2026-10-27T00:00:00Z",
+    "manuscript": "2026-09-27T00:00:00Z"
+  },
+  "pdf_pages": {
+    "preprints/The-Spherical-Regge-Scissors-Theorem-October-27-2026/spherical-regge-scissors.pdf": 25,
+    "reasoning_traces/spherical-regge-scissors.pdf": 2
+  },
+  "source_equivalence": {
+    "lean/SphericalReggeScissors/SphericalReggeScissors.lean": {
+      "adaptation": "lean_credit_header",
+      "sha256": "613284725eb4a80aef2c87ab4d3d6994286c27aa3c441e297c8212f8f1f19e40",
+      "source_path": "formal/SphericalReggeScissors.lean"
+    },
+    "lean/SphericalReggeScissors/SphericalReggeScissors/AxiomAudit.lean": {
+      "adaptation": "lean_credit_header",
+      "sha256": "126a230be095e0bd19f303b4814f4feea90539358d5b887ae1adf520ea34bd48",
+      "source_path": "formal/SphericalReggeScissors/AxiomAudit.lean"
+    },
+    "lean/SphericalReggeScissors/SphericalReggeScissors/ContractAudit.lean": {
+      "adaptation": "lean_credit_header",
+      "sha256": "2ae102f7eea3f2f67c52e9e29c30dc0bd41c0b76cb3e60f2116581749ac7e5b3",
+      "source_path": "formal/SphericalReggeScissors/ContractAudit.lean"
+    },
+    "lean/SphericalReggeScissors/SphericalReggeScissors/CoproductAlgebra.lean": {
+      "adaptation": "lean_credit_header",
+      "sha256": "a0629de45b5cebdf54600f84f2128adc4609903c4ef02af6139ff5f24a97c8d7",
+      "source_path": "formal/SphericalReggeScissors/CoproductAlgebra.lean"
+    },
+    "lean/SphericalReggeScissors/SphericalReggeScissors/ExternalInputs.lean": {
+      "adaptation": "lean_credit_header",
+      "sha256": "9e102dcc664ceefd65dafe29d6ab42f6ad81cb05ad84c63f4a0ad0f151746c4f",
+      "source_path": "formal/SphericalReggeScissors/ExternalInputs.lean"
+    },
+    "lean/SphericalReggeScissors/SphericalReggeScissors/Main.lean": {
+      "adaptation": "lean_credit_header",
+      "sha256": "2b206adb57a4a8c94a7c1dcb0eb5d6252e676f9344d31ddfaf8771d057d4848d",
+      "source_path": "formal/SphericalReggeScissors/Main.lean"
+    },
+    "lean/SphericalReggeScissors/SphericalReggeScissors/OrientationChart.lean": {
+      "adaptation": "lean_credit_header",
+      "sha256": "10a9e70dd10e217d68c8d8f80707a638fd8a68d851bcec83f2fec96cd334fbf0",
+      "source_path": "formal/SphericalReggeScissors/OrientationChart.lean"
+    },
+    "lean/SphericalReggeScissors/SphericalReggeScissors/PhaseAction.lean": {
+      "adaptation": "lean_credit_header",
+      "sha256": "a2b4e50a61cb359d86e488d8c0f0c14f2f32f65507d683ed7405eb800692031c",
+      "source_path": "formal/SphericalReggeScissors/PhaseAction.lean"
+    },
+    "lean/SphericalReggeScissors/SphericalReggeScissors/ReggeMatrix.lean": {
+      "adaptation": "lean_credit_header",
+      "sha256": "584706082f9b31a3a9526395da7b3073fbb641c0bc73b0703484ef88762c9a01",
+      "source_path": "formal/SphericalReggeScissors/ReggeMatrix.lean"
+    },
+    "lean/SphericalReggeScissors/SphericalReggeScissors/Scissors.lean": {
+      "adaptation": "lean_credit_header",
+      "sha256": "31dea94dcbe4c9d6be21eaa2a859e1b05135c1bed7b9c228232ad6cdf15a2493",
+      "source_path": "formal/SphericalReggeScissors/Scissors.lean"
+    },
+    "lean/SphericalReggeScissors/SphericalReggeScissors/ThreeWeight.lean": {
+      "adaptation": "lean_credit_header",
+      "sha256": "1e0dac5feea87b1248a451c941ed5d59c5bb8bd88783102b191c3eae5abe5742",
+      "source_path": "formal/SphericalReggeScissors/ThreeWeight.lean"
+    },
+    "lean/SphericalReggeScissors/lake-manifest.json": {
+      "adaptation": "verbatim",
+      "sha256": "70aec88f71f0a5e6604c5a476608a446d0f3abc274ec6443fb57056d0c9c34f7",
+      "source_path": "formal/lake-manifest.json"
+    },
+    "lean/SphericalReggeScissors/lakefile.toml": {
+      "adaptation": "verbatim",
+      "sha256": "72cde1d76db4d3c9a293c09630ff2508673118ceeb1c4d52e80aadbcc996fe2f",
+      "source_path": "formal/lakefile.toml"
+    },
+    "lean/SphericalReggeScissors/lean-toolchain": {
+      "adaptation": "verbatim",
+      "sha256": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273",
+      "source_path": "formal/lean-toolchain"
+    },
+    "preprints/The-Spherical-Regge-Scissors-Theorem-October-27-2026/build/.latexmkrc": {
+      "adaptation": "verbatim",
+      "sha256": "a12b95b17080e7d3e3de4af7baa85378ee4821a75557e34b5ee146bd9aaf5948",
+      "source_path": ".latexmkrc"
+    },
+    "preprints/The-Spherical-Regge-Scissors-Theorem-October-27-2026/build/paper/biblio.bib": {
+      "adaptation": "verbatim",
+      "sha256": "f3f76cbd51f48eb5d8649a68e19d093c0a67aa830a671af8f40a5db90c6a05da",
+      "source_path": "paper/biblio.bib"
+    },
+    "preprints/The-Spherical-Regge-Scissors-Theorem-October-27-2026/build/paper/macros.tex": {
+      "adaptation": "verbatim",
+      "sha256": "c245f383641f4895078ce32d574df11ddb7ea8cb434370921cbfb47add6a582a",
+      "source_path": "paper/macros.tex"
+    },
+    "preprints/The-Spherical-Regge-Scissors-Theorem-October-27-2026/build/paper/sections/01_statement.tex": {
+      "adaptation": "verbatim",
+      "sha256": "7f88975f43b36f5e41f37d318126de0a47a0661b97bfa8c76a682ecbdb157c56",
+      "source_path": "paper/sections/01_statement.tex"
+    },
+    "preprints/The-Spherical-Regge-Scissors-Theorem-October-27-2026/build/paper/sections/02_phase_charts.tex": {
+      "adaptation": "verbatim",
+      "sha256": "f9f1ea5038a35f842131f824b93285d78b8dcd34feea51bc9f420b2a86bed955",
+      "source_path": "paper/sections/02_phase_charts.tex"
+    },
+    "preprints/The-Spherical-Regge-Scissors-Theorem-October-27-2026/build/paper/sections/03_motivic_dictionary.tex": {
+      "adaptation": "verbatim",
+      "sha256": "3277b2a413835f2ace70fe33d33d6f5f0a80661320993d9b25c0d17e7103a153",
+      "source_path": "paper/sections/03_motivic_dictionary.tex"
+    },
+    "preprints/The-Spherical-Regge-Scissors-Theorem-October-27-2026/build/paper/sections/04_relative_rigidity.tex": {
+      "adaptation": "verbatim",
+      "sha256": "3e62b993329327b8fd3306966a9bffcb0543149e0697ec2a7c57848aa5052549",
+      "source_path": "paper/sections/04_relative_rigidity.tex"
+    },
+    "preprints/The-Spherical-Regge-Scissors-Theorem-October-27-2026/build/paper/sections/05_specialization_scissors.tex": {
+      "adaptation": "verbatim",
+      "sha256": "29f2d2b9357150383efa70245dd15dad8981d0f82d14907c13f6f6561e0ba20b",
+      "source_path": "paper/sections/05_specialization_scissors.tex"
+    },
+    "preprints/The-Spherical-Regge-Scissors-Theorem-October-27-2026/build/paper/spherical-regge-scissors.tex": {
+      "adaptation": "tex_acknowledgment",
+      "sha256": "5fcc3e6638694221d3bcc6113e5913b37be3fe5199d576b8e9f163911d85ffb4",
+      "source_path": "paper/spherical-regge-scissors.tex"
+    }
+  },
+  "source_repository": "https://github.com/sashakolpakov/spherical-regge-scissors",
+  "source_revision": "d40eb8990bcf1ba5525435f8517e9ba5c202b549",
+  "source_sha256": {
+    ".latexmkrc": "a12b95b17080e7d3e3de4af7baa85378ee4821a75557e34b5ee146bd9aaf5948",
+    "CRITICAL_PATH_AUDIT.md": "448f29e91d5d0aca541fbaf01ae305d009f80dc2a76ae20265fcf6809dfd0e76",
+    "RELEASE_MANIFEST.md": "ecd7a9740f261b40c339f1d633687c1273551fa43df532e526f0b46d8f984031",
+    "SELF_CONTAINEDNESS_AUDIT.md": "020b564120d58ce3b81dfae28d5300e67e2644b291065890a23aaafde6ae819a",
+    "STATUS.md": "173e562989d0e0971427a87f341c8f947a28d944652bc9abcdc6157c36007d05",
+    "formal/MANUSCRIPT_MAP.md": "790101194ef86c0efee40a6344f2914212a76877c89b6a1861e23a555ddf1bac",
+    "formal/README.md": "671e09b6f82881a55b21d42a271a2c31c81b49bed323c3ef972453e8ee5db820",
+    "formal/SphericalReggeScissors.lean": "613284725eb4a80aef2c87ab4d3d6994286c27aa3c441e297c8212f8f1f19e40",
+    "formal/SphericalReggeScissors/AxiomAudit.lean": "126a230be095e0bd19f303b4814f4feea90539358d5b887ae1adf520ea34bd48",
+    "formal/SphericalReggeScissors/ContractAudit.lean": "2ae102f7eea3f2f67c52e9e29c30dc0bd41c0b76cb3e60f2116581749ac7e5b3",
+    "formal/SphericalReggeScissors/CoproductAlgebra.lean": "a0629de45b5cebdf54600f84f2128adc4609903c4ef02af6139ff5f24a97c8d7",
+    "formal/SphericalReggeScissors/ExternalInputs.lean": "9e102dcc664ceefd65dafe29d6ab42f6ad81cb05ad84c63f4a0ad0f151746c4f",
+    "formal/SphericalReggeScissors/Main.lean": "2b206adb57a4a8c94a7c1dcb0eb5d6252e676f9344d31ddfaf8771d057d4848d",
+    "formal/SphericalReggeScissors/OrientationChart.lean": "10a9e70dd10e217d68c8d8f80707a638fd8a68d851bcec83f2fec96cd334fbf0",
+    "formal/SphericalReggeScissors/PhaseAction.lean": "a2b4e50a61cb359d86e488d8c0f0c14f2f32f65507d683ed7405eb800692031c",
+    "formal/SphericalReggeScissors/ReggeMatrix.lean": "584706082f9b31a3a9526395da7b3073fbb641c0bc73b0703484ef88762c9a01",
+    "formal/SphericalReggeScissors/Scissors.lean": "31dea94dcbe4c9d6be21eaa2a859e1b05135c1bed7b9c228232ad6cdf15a2493",
+    "formal/SphericalReggeScissors/ThreeWeight.lean": "1e0dac5feea87b1248a451c941ed5d59c5bb8bd88783102b191c3eae5abe5742",
+    "formal/contract_map.json": "94d0a8ab2819c941f3dba15226e860244fe6736ee5aa16623373b43146d09828",
+    "formal/coverage.json": "342b450f8dcee080f799a400d5a34e77fba3fbafe942164b6816df8abb89ebe2",
+    "formal/lake-manifest.json": "70aec88f71f0a5e6604c5a476608a446d0f3abc274ec6443fb57056d0c9c34f7",
+    "formal/lakefile.toml": "72cde1d76db4d3c9a293c09630ff2508673118ceeb1c4d52e80aadbcc996fe2f",
+    "formal/lean-toolchain": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273",
+    "paper/biblio.bib": "f3f76cbd51f48eb5d8649a68e19d093c0a67aa830a671af8f40a5db90c6a05da",
+    "paper/macros.tex": "c245f383641f4895078ce32d574df11ddb7ea8cb434370921cbfb47add6a582a",
+    "paper/sections/01_statement.tex": "7f88975f43b36f5e41f37d318126de0a47a0661b97bfa8c76a682ecbdb157c56",
+    "paper/sections/02_phase_charts.tex": "f9f1ea5038a35f842131f824b93285d78b8dcd34feea51bc9f420b2a86bed955",
+    "paper/sections/03_motivic_dictionary.tex": "3277b2a413835f2ace70fe33d33d6f5f0a80661320993d9b25c0d17e7103a153",
+    "paper/sections/04_relative_rigidity.tex": "3e62b993329327b8fd3306966a9bffcb0543149e0697ec2a7c57848aa5052549",
+    "paper/sections/05_specialization_scissors.tex": "29f2d2b9357150383efa70245dd15dad8981d0f82d14907c13f6f6561e0ba20b",
+    "paper/spherical-regge-scissors.tex": "5fcc3e6638694221d3bcc6113e5913b37be3fe5199d576b8e9f163911d85ffb4",
+    "scripts/check_bibliography.py": "258a547b9c7f81c11180d10ec8e3bb3cf9b1e988fcd072608dc44eb465cea2d6",
+    "scripts/check_contract_parity.py": "b0d586f6d8d27fae45686efc690adb46dc9deacac31d7ab890043ab46be55d32",
+    "scripts/check_formal_coverage.py": "7b1f33742826a01c7284dee51ca87330a8fe37ec57a41e95d950986c6ac96b46",
+    "scripts/check_lean_axioms.py": "6f1b8c22d357315273be0682c7c174e615a80b4f799422c4332fcba93174952c",
+    "scripts/check_lean_source.py": "017eb0c9d2b19d492000c3130adead25956a3f86c8b8dce065610f02a67ae658",
+    "scripts/check_pdf_reproducibility.py": "c137c58e7b665bb15f6d4ac8f9ccd8d41b69140509054c896dedd09a88789311"
+  },
+  "source_worktree_clean": true,
+  "tex_toolchain": "Latexmk, John Collins, 15 June 2025. Version 4.87",
+  "upstream_base_revision": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "validation": {
+    "export_summary_editorial_review": "pass",
+    "fresh_timestamp_pdf_rebuilds_per_artifact": 2,
+    "integrated_lean_status": "pass",
+    "latex_warnings": "none",
+    "source_and_pdf_privacy_review": "pass",
+    "source_equivalence": "23 mathematical source and dependency inputs preserved after declared credit/layout adaptations",
+    "source_pipeline_command": "make verify",
+    "source_pipeline_status": "pass"
+  }
+}

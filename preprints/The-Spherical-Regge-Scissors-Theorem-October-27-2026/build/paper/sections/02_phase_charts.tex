@@ -1,0 +1,597 @@
+\section{From spherical angles to rational orientation charts}
+\label{cp:sec-phase-charts}
+
+This section replaces the trigonometric Regge transformation by an
+algebraic family.  There are three steps.  First, exponentiating the
+dihedral angles turns the linear Regge transformation into a monomial
+involution of an algebraic torus.  Second, adjoining a square root of the
+Gram determinant retains the orientation of the associated quadric.  Third,
+a change of variable rationalizes this double cover.  The only angle phase
+which is lost in the rationalization is recovered by one explicit quadratic
+finite \'etale cover.
+
+No motivic input is used in this section.
+
+\subsection{The spherical angle Gram matrix}
+\label{cp:subsec-angle-gram}
+
+Let \(T\subset S^3\) be a nondegenerate spherical tetrahedron contained in
+an open hemisphere.  Write its four facets as \(F_0,\ldots,F_3\), and let
+\(n_i\in S^3\subset\mathbf R^4\) be the outward unit normal to \(F_i\).
+If \(F_i\) and \(F_j\) meet at interior dihedral angle
+\(\theta_{ij}\in(0,\pi)\), then their outward normals meet at the
+supplementary angle.  Hence
+\begin{equation}
+ n_i\mathbin{\cdot}n_j=-\cos\theta_{ij}.
+ \label{cp:eq-normal-angle}
+\end{equation}
+The geometric edge at which these facets meet is indexed by the
+complementary pair of vertices.  We use the facet-pair labels \(ij\), since
+they are the natural labels for the Gram matrix.  Complementing all six
+labels preserves opposite pairs and merely changes the edge-label
+convention.
+
+\begin{definition}[Angle Gram matrix]
+\label{cp:def-angle-gram}
+The angle Gram matrix of \(T\) is
+\begin{equation}
+ G(T)=(g_{ij})_{0\leq i,j\leq3},\qquad
+ g_{ii}=1,\qquad g_{ij}=-\cos\theta_{ij}\quad(i\ne j).
+ \label{cp:eq-angle-gram}
+\end{equation}
+\end{definition}
+
+If \(N\) is the matrix with columns \(n_0,\ldots,n_3\), then
+\(G=N^tN\).  In particular, a nondegenerate spherical tetrahedron has
+\begin{equation}
+ G>0,\qquad \det G=(\det N)^2>0.
+ \label{cp:eq-spherical-gram-positive}
+\end{equation}
+The positivity is used only to locate the physical real locus.  All
+algebraic constructions below allow the entries of \(G\) to be complex.
+
+Fix the opposite Gram positions \(01\) and \(23\).  In the cyclic order
+\begin{equation}
+ (01,02,12,23,13,03),
+ \label{cp:eq-edge-order}
+\end{equation}
+write the two fixed angles as \(\theta_{01},\theta_{23}\) and the four
+moving angles as
+\begin{equation}
+ \boldsymbol\theta
+   =(\theta_{02},\theta_{12},\theta_{13},\theta_{03})^t.
+ \label{cp:eq-moving-angle-vector}
+\end{equation}
+Put \(\mathbf 1=(1,1,1,1)^t\), let
+\(J_4=\mathbf1\mathbf1^t\), and define
+\begin{equation}
+ R=\frac12J_4-I_4.
+ \label{cp:eq-regge-matrix}
+\end{equation}
+If
+\begin{equation}
+ S=\frac12(\theta_{02}+\theta_{12}+\theta_{13}+\theta_{03}),
+ \label{cp:eq-regge-semisum}
+\end{equation}
+then
+\begin{equation}
+ R\boldsymbol\theta
+ =
+ (S-\theta_{02},S-\theta_{12},S-\theta_{13},S-\theta_{03})^t.
+ \label{cp:eq-linear-regge-action}
+\end{equation}
+
+\begin{lemma}[Elementary properties of the Regge matrix]
+\label{cp:lem-regge-matrix}
+The matrix \(R\) is a symmetric orthogonal involution:
+\[
+ R^t=R,\qquad R^2=I_4.
+\]
+It is the identity on \(\mathbf Q\mathbf1\) and minus the identity on
+\(\mathbf1^\perp\).
+\end{lemma}
+
+\begin{proof}
+Since \(J_4^2=4J_4\),
+\[
+ R^2=\frac14J_4^2-J_4+I_4=I_4.
+\]
+Symmetry is immediate.  Also \(R\mathbf1=\mathbf1\), whereas
+\(J_4v=0\) and hence \(Rv=-v\) for \(v\in\mathbf1^\perp\).
+\end{proof}
+
+\begin{theorem}[Geometric Regge input]
+\label{cp:thm-regge-input}
+An elementary Regge move fixes \(\theta_{01},\theta_{23}\) and replaces
+\(\boldsymbol\theta\) by \(R\boldsymbol\theta\).  The same matrix acts on
+the corresponding four edge lengths, and the two tetrahedra have equal
+volume.
+\end{theorem}
+
+\begin{proof}
+This is the constant-curvature Regge theorem of Akopyan and Izmestiev
+\cite[Theorem~1]{AkopyanIzmestiev2019}.  Only the angle statement is needed
+in the present section.
+\end{proof}
+
+\subsection{Phase coordinates and the meaning of ``monomial''}
+\label{cp:subsec-phase-coordinates}
+
+For a physical tetrahedron define its six angle phases by
+\begin{equation}
+ \begin{aligned}
+ p&=e^{i\theta_{01}},&
+ a&=e^{i\theta_{02}},&
+ b&=e^{i\theta_{12}},\\
+ q&=e^{i\theta_{23}},&
+ c&=e^{i\theta_{13}},&
+ d&=e^{i\theta_{03}},
+ \end{aligned}
+ \qquad \tau=e^{iS}.
+ \label{cp:eq-angle-phases}
+\end{equation}
+Then
+\begin{equation}
+ \tau^2=abcd.
+ \label{cp:eq-phase-relation}
+\end{equation}
+Exponentiating \eqref{cp:eq-linear-regge-action} gives
+\begin{equation}
+ (p,a,b,q,c,d,\tau)\longmapsto
+ \left(p,\frac\tau a,\frac\tau b,q,
+              \frac\tau c,\frac\tau d,\tau\right).
+ \label{cp:eq-monomial-regge-action}
+\end{equation}
+This is the exact meaning of the phrase ``the Regge transformation acts
+monomially.''  A Laurent monomial in variables \(z_1,\ldots,z_m\) is a
+product \(z_1^{n_1}\cdots z_m^{n_m}\) with integral exponents.  Every new
+coordinate in \eqref{cp:eq-monomial-regge-action} is such a Laurent
+monomial.  The additive formula \(S-\theta\) has become the multiplicative
+formula \(\tau/a\).  Thus no choice of logarithm occurs in the algebraic
+formula.
+
+To make that observation scheme-theoretic, set
+\begin{equation}
+ \mathcal X=
+ \operatorname{Spec}
+ \frac{\mathbf Q[p^{\pm1},a^{\pm1},b^{\pm1},q^{\pm1},
+                         c^{\pm1},d^{\pm1},\tau^{\pm1}]}
+      {(\tau^2-abcd)}.
+ \label{cp:eq-phase-torus}
+\end{equation}
+Here \(\Spec R\) means the affine algebraic space whose regular functions
+form the ring \(R\), and \(\mathbf G_m=\Spec\Q[u,u^{-1}]\) is the affine
+line with the point \(u=0\) removed.  Thus an \(F\)-point of
+\(\mathcal X\), for a field \(F\supset\Q\), is simply a tuple of nonzero
+elements of \(F\) satisfying \(\tau^2=abcd\).  This notation packages
+polynomial identities and changes of coordinates; no extra geometric
+hypothesis is hidden in it.
+Eliminating \(d=\tau^2/(abc)\) identifies \(\mathcal X\) with the
+six-dimensional algebraic torus \(\mathbf G_m^6\).  Physical phase data form
+a real-analytic subset of \(\mathcal X(\mathbf C)\), characterized in part
+by \(|p|=|a|=\cdots=|q|=1\).  We enlarge to all complex points because
+\(\mathcal X\), unlike the physical locus, is an algebraic parameter space
+defined over \(\mathbf Q\).
+
+\begin{lemma}[Algebraic Regge involution]
+\label{cp:lem-algebraic-regge-involution}
+Formula \eqref{cp:eq-monomial-regge-action} defines an involutive
+automorphism \(\mathcal R:\mathcal X\to\mathcal X\).
+\end{lemma}
+
+\begin{proof}
+The product of the four transformed moving phases is
+\[
+ \frac{\tau^4}{abcd}=\tau^2,
+\]
+so the defining relation of \(\mathcal X\) is preserved.  Applying the map
+twice sends, for example, \(a\) to \(\tau/(\tau/a)=a\), and similarly for
+the other coordinates.  The fixed coordinates remain fixed.
+\end{proof}
+
+The phase \(u=e^{i\theta}\) recovers the corresponding Gram entry without
+choosing \(\theta\):
+\begin{equation}
+ -\cos\theta=-\frac{u+u^{-1}}2.
+ \label{cp:eq-phase-to-cosine}
+\end{equation}
+Accordingly put
+\begin{equation}
+ \begin{gathered}
+ x=-\frac{p+p^{-1}}2,\qquad
+ A=-\frac{a+a^{-1}}2,\qquad
+ B=-\frac{b+b^{-1}}2,\\
+ y=-\frac{q+q^{-1}}2,\qquad
+ C=-\frac{c+c^{-1}}2,\qquad
+ D=-\frac{d+d^{-1}}2.
+ \end{gathered}
+ \label{cp:eq-phase-gram-entries}
+\end{equation}
+In the order fixed above, the universal angle Gram matrix is
+\begin{equation}
+ G=
+ \begin{pmatrix}
+  1&x&A&D\\
+  x&1&B&C\\
+  A&B&1&y\\
+  D&C&y&1
+ \end{pmatrix}.
+ \label{cp:eq-gram}
+\end{equation}
+At a physical point this specializes to \eqref{cp:eq-angle-gram}.
+
+\subsection{The determinant orientation cover}
+\label{cp:subsec-orientation-cover}
+
+On the open subset of \(\mathcal X\) where \(\det G\ne0\), adjoin a
+variable \(w\) satisfying
+\begin{equation}
+ w^2=\det G.
+ \label{cp:eq-orientation-root}
+\end{equation}
+Because the characteristic is zero and \(w\ne0\), this is a finite
+\'{e}tale double cover.  Its deck involution is \(w\mapsto-w\).
+A finite \'{e}tale map is the algebraic analogue of a finite covering
+without branch points.  Here this is elementary: the defining polynomial is
+\(w^2-\det G\), and its derivative \(2w\) is invertible on the chosen open,
+so its two roots never collide.
+
+The terminology ``orientation cover'' refers to the projective quadric
+which will be attached to \(G\) later.  A smooth quadric surface over an
+algebraically closed field has two families of maximal isotropic lines.  For
+a four-dimensional quadratic form, choosing a square root of its
+determinant distinguishes these two families; changing the sign of the root
+interchanges them.  Thus \(w\), rather than the matrix \(G\) alone, retains
+the orientation needed by the quadric-scissors construction.  At a physical
+spherical point we use the positive real root \(w=\sqrt{\det G}\).
+
+The determinant is Regge invariant.  We now prove this in a form which also
+rationalizes the orientation cover.
+
+Keep \(a,b,c,\tau,q\) as independent invertible variables and eliminate
+\begin{equation}
+ d=\frac{\tau^2}{abc}.
+ \label{cp:eq-eliminate-d}
+\end{equation}
+We temporarily forget the phase \(p\), retaining only its cosine coordinate
+\(x\).  Define
+\begin{equation}
+ s=\frac{q-q^{-1}}2,
+ \qquad y=-\frac{q+q^{-1}}2.
+ \label{cp:eq-q-and-s}
+\end{equation}
+Then
+\begin{equation}
+ 1-y^2=-s^2.
+ \label{cp:eq-y-s-relation}
+\end{equation}
+The asymmetry between \(p\) and \(q\) is deliberate: we descend \(p\) to
+\(x\), while the retained phase \(q\) supplies the square root \(s\) in
+\eqref{cp:eq-y-s-relation}.
+
+Define
+\begin{align}
+ \mathcal B&=2\{AB+DC-y(AC+DB)\},
+ \label{cp:eq-determinant-B}\\
+ \mathcal C&=1-A^2-B^2-C^2-D^2-y^2
+       +2y(AD+BC)+(AC-BD)^2.
+ \label{cp:eq-determinant-C}
+\end{align}
+
+\begin{lemma}[Determinant quadratic and Regge invariance]
+\label{cp:lem-determinant-quadratic}
+For the matrix \eqref{cp:eq-gram},
+\begin{equation}
+ \det G=s^2x^2+\mathcal Bx+\mathcal C.
+ \label{cp:eq-determinant-quadratic}
+\end{equation}
+Under the monomial Regge substitution
+\begin{equation}
+ (a,b,c,d)\longmapsto
+ \left(\frac\tau a,\frac\tau b,
+       \frac\tau c,\frac\tau d\right),
+ \label{cp:eq-moving-phase-regge}
+\end{equation}
+with \(p,q,\tau\) fixed, one has
+\begin{equation}
+ \mathcal B^R=\mathcal B,\qquad
+ \mathcal C^R=\mathcal C.
+ \label{cp:eq-determinant-coefficient-invariance}
+\end{equation}
+Consequently \(\det G^R=\det G\), and the Regge involution has the lift
+\begin{equation}
+ (G,w)\longmapsto(G^R,w)
+ \label{cp:eq-oriented-regge-lift}
+\end{equation}
+which does not change the chosen determinant root.
+\end{lemma}
+
+\begin{proof}
+Expand the determinant of \eqref{cp:eq-gram} as a polynomial
+in \(x\).  Its quadratic coefficient is
+\(-(1-y^2)=s^2\), its linear coefficient is
+\(2\{AB+DC-y(AC+DB)\}\), and its constant coefficient is the expression in
+\eqref{cp:eq-determinant-C}.  This proves
+\eqref{cp:eq-determinant-quadratic}.
+
+For the invariance assertion, put
+\[
+ h(u)=\frac{u+u^{-1}}2
+\]
+and introduce
+\begin{align*}
+ I_1&=AB+CD,& I_2&=AC+BD,& I_3&=AD+BC,\\
+ K&=A^2+B^2+C^2+D^2+4ABCD.
+\end{align*}
+The elementary product-to-sum identity
+\[
+ 2h(u)h(v)=h(uv)+h(u/v)
+\]
+is an identity of Laurent polynomials.  Under
+\(a'=\tau/a,\ldots,d'=\tau/d\), the relation \(abcd=\tau^2\) gives
+\[
+ a'b'=cd,\quad c'd'=ab,\quad
+ a'/b'=b/a,\quad c'/d'=d/c.
+\]
+Since \(h(u^{-1})=h(u)\), the product-to-sum identity shows that
+\(I_1^R=I_1\).  Applying the same argument to the partitions
+\(ac\mid bd\) and \(ad\mid bc\) gives \(I_2^R=I_2\) and \(I_3^R=I_3\).
+
+It remains to treat \(K\).  Set
+\[
+ P=h(ab),\quad Q=h(cd),\quad r=h(a/b),\quad s_0=h(c/d).
+\]
+Direct applications of the same product-to-sum identity give
+\[
+\begin{aligned}
+ h(a)^2+h(b)^2&=1+Pr,\\
+ h(c)^2+h(d)^2&=1+Qs_0,\\
+ 4h(a)h(b)h(c)h(d)&=(P+r)(Q+s_0).
+\end{aligned}
+\]
+Because \(A=-h(a),\ldots,D=-h(d)\), it follows that
+\[
+ K=2+PQ+rs_0+(P+Q)(r+s_0).
+\]
+The Regge substitution swaps \(P,Q\) and fixes \(r,s_0\), so \(K^R=K\).
+Finally,
+\[
+ \frac{\mathcal B}{2}=I_1-yI_2,\qquad
+ \mathcal C=1-y^2+2yI_3+I_2^2-K,
+\]
+where the second equality uses
+\((AC-BD)^2=(AC+BD)^2-4ABCD\).  Thus
+\(\mathcal B^R=\mathcal B\) and \(\mathcal C^R=\mathcal C\) inside the
+Laurent coordinate ring of \(\mathcal X\), not merely on the physical
+locus.  Since \(x,y,s\) are fixed, the determinant quadratics coincide.
+Keeping the same root \(w\) therefore gives the displayed lift.
+\end{proof}
+
+\subsection{Rational charts on the orientation cover}
+\label{cp:subsec-rational-charts}
+
+Let
+\[
+ S_0=\mathbf Q[a^{\pm1},b^{\pm1},c^{\pm1},
+                       \tau^{\pm1},q^{\pm1}],
+\]
+and regard \(d,A,B,C,D,y,s,\mathcal B,\mathcal C\) as the elements of
+\(S_0\) defined above.  The descended orientation space is the affine
+hypersurface
+\begin{equation}
+ \mathcal Y=
+ \operatorname{Spec}
+ \frac{S_0[x,w]}
+      {(w^2-s^2x^2-\mathcal Bx-\mathcal C)}.
+ \label{cp:eq-descended-orientation-space}
+\end{equation}
+The orientation cover of the phase torus maps to \(\mathcal Y\) by
+\(x=-(p+p^{-1})/2\).  The point of passing to \(\mathcal Y\) is that it is
+rational, although the original equation visibly contains a square root.
+
+\begin{proposition}[Two rational orientation charts]
+\label{cp:lem-rational-charts}
+Put
+\begin{equation}
+ r=w-sx,\qquad r_+=w+sx.
+ \label{cp:eq-rational-chart-coordinates}
+\end{equation}
+On the principal open set where \(2sr-\mathcal B\ne0\), one has
+\begin{equation}
+ x=\frac{\mathcal C-r^2}{2sr-\mathcal B},
+ \qquad w=r+sx.
+ \label{cp:eq-minus-rational-chart}
+\end{equation}
+On the principal open set where \(-2sr_+-\mathcal B\ne0\), one has
+\begin{equation}
+ x=\frac{\mathcal C-r_+^2}{-2sr_+-\mathcal B},
+ \qquad w=r_+-sx.
+ \label{cp:eq-plus-rational-chart}
+\end{equation}
+Each formula identifies the indicated part of \(\mathcal Y\) with an open
+subset of \(\mathbf G_m^5\times\mathbf A^1\).  In particular, its function
+field is purely transcendental:
+\begin{equation}
+ \mathbf Q(a,b,c,\tau,q,r)
+ \quad\text{or}\quad
+ \mathbf Q(a,b,c,\tau,q,r_+).
+ \label{cp:eq-chart-function-fields}
+\end{equation}
+On the locus \(sw\ne0\), the two charts cover \(\mathcal Y\).
+\end{proposition}
+
+\begin{proof}
+Substitute \(w=r+sx\) into
+\eqref{cp:eq-determinant-quadratic}:
+\[
+ r^2+2rsx+s^2x^2=s^2x^2+\mathcal Bx+\mathcal C.
+\]
+After cancellation of the quadratic terms,
+\[
+ (2sr-\mathcal B)x=\mathcal C-r^2,
+\]
+which is \eqref{cp:eq-minus-rational-chart}.  Conversely, the two formulas
+in \eqref{cp:eq-minus-rational-chart} satisfy both
+\(r=w-sx\) and the defining equation of \(\mathcal Y\); hence they give
+mutually inverse coordinate maps on the stated principal opens.  The proof
+of \eqref{cp:eq-plus-rational-chart} is identical after substituting
+\(w=r_+-sx\).
+
+It remains to check coverage.  Written in the original coordinates, the
+two denominators are
+\[
+ 2s(w-sx)-\mathcal B,\qquad
+ -2s(w+sx)-\mathcal B.
+\]
+If both vanished, subtracting the second equation from the first would give
+\(4sw=0\).  This is impossible on the locus \(sw\ne0\).
+\end{proof}
+
+The change of variable has a simple geometric-algebraic interpretation.
+The equation \(w^2=s^2x^2+\mathcal Bx+\mathcal C\) is a conic in the
+\((x,w)\)-plane over the field
+\(\mathbf Q(a,b,c,\tau,q)\).  The coordinates \(r=w-sx\) and
+\(r_+=w+sx\) subtract one or the other asymptotic linear part.  This cancels
+the \(x^2\)-term and leaves an equation linear in \(x\).  No continuity or
+density argument is involved.
+
+By Lemma~\ref{cp:lem-determinant-quadratic}, the Regge involution fixes
+\(x,w,q,s,\mathcal B,\mathcal C\).  It therefore fixes \(r\) and \(r_+\)
+and preserves both rational charts.  The two oriented Gram matrices
+\((G,w)\) and \((G^R,w)\) are defined over the same chart.
+
+\subsection{The universal open set}
+\label{cp:subsec-universal-open}
+
+The rational chart contains points which do not represent nondegenerate
+tetrahedra, and it also contains matrices with degenerate coordinate
+restrictions.  These unwanted points lie on algebraic divisors and may be
+removed once and for all.
+
+Fix one of the two charts in
+Proposition~\ref{cp:lem-rational-charts}.
+
+For a regular function \(f\), the \emph{principal open}
+\(D(f)\) is obtained by removing its zero set, equivalently by adjoining
+\(f^{-1}\) to the coordinate ring.  The \emph{function field} of an
+irreducible affine variety is the field of fractions of its coordinate
+ring.  Shrinking to a nonempty principal open changes the ring of regular
+functions but not this field of rational functions.
+
+\begin{definition}[Universal open]
+\label{cp:def-U}
+Let \(U\) be the Regge-stable principal open obtained by requiring:
+\begin{enumerate}
+\item the displayed chart denominator, \(s\), \(w\), and \(1-x^2\) are
+      nonzero;
+\item \(G\) and \(G^R\) are nonsingular; and
+\item every proper principal restriction of \(G\) and \(G^R\) which occurs
+      as a coordinate face is nonsingular.
+\end{enumerate}
+Equivalently, take the product of these finitely many functions and their
+Regge transforms and invert that product.  This makes the definition
+manifestly Regge stable.  Subsequent constructions may shrink \(U\) further
+by finitely many Regge-stable nonvanishing conditions; such a shrinking does
+not change its function field.
+\end{definition}
+
+Since a rational chart is an open subset of
+\(\mathbf G_m^5\times\mathbf A^1\), every nonempty such \(U\) is smooth and
+irreducible, and
+\begin{equation}
+ \mathbf Q(U)=\mathbf Q(a,b,c,\tau,q,r)
+ \quad\text{or}\quad
+ \mathbf Q(a,b,c,\tau,q,r_+).
+ \label{cp:eq-universal-open-function-field}
+\end{equation}
+The word ``universal'' does not mean that every complex point of \(U\) is a
+convex spherical tetrahedron.  It means that \(G\), \(G^R\), their common
+orientation root, and the Regge involution are all defined simultaneously
+over one algebraic base.  The physical spherical pairs form a distinguished
+real locus inside its complex points.
+
+\begin{proposition}[Every physical pair lies on a rational chart]
+\label{cp:prop-physical-point-on-chart}
+Let \(T,T^R\subset S^3\) be a nondegenerate spherical Regge pair.  Choose
+the physical phases \eqref{cp:eq-angle-phases} and the positive root
+\(w=\sqrt{\det G(T)}\).  Then the resulting oriented point belongs to at
+least one of the two rational charts.  After shrinking that chart as above,
+it is a complex point of a universal open \(U\), and its Regge mate is the
+image of that point under \(\mathcal R\).
+\end{proposition}
+
+\begin{proof}
+Because \(0<\theta_{23}<\pi\),
+\[
+ s=\frac{e^{i\theta_{23}}-e^{-i\theta_{23}}}{2}
+   =i\sin\theta_{23}\ne0.
+\]
+Nondegeneracy and positive definiteness give \(w>0\).  Thus \(sw\ne0\),
+and Proposition~\ref{cp:lem-rational-charts} puts the point on
+at least one chart.  All principal restrictions of a positive-definite
+matrix are positive definite; the same applies to the nondegenerate
+spherical mate.  Hence none of the functions removed in the definition of
+\(U\) vanishes at the pair.  The common-root lift
+\eqref{cp:eq-oriented-regge-lift} identifies the second oriented matrix with
+the Regge image of the first.
+\end{proof}
+
+This is the step which removes any algebraicity restriction on an individual
+tetrahedron.  Its angles may be transcendental: they merely specify a
+complex point of the algebraic family \(U\).  The later argument will prove
+one identity over \(U\) and then pull that identity back to this point.
+
+\subsection{Recovering the omitted fixed phase}
+\label{cp:subsec-fixed-p-cover}
+
+The functions \(a,b,c,q,d=\tau^2/(abc)\) are already defined on \(U\).
+The only original angle phase which is not a function on \(U\) is \(p\),
+because the rational chart remembers only
+\[
+ x=-\frac{p+p^{-1}}2.
+\]
+Equivalently, \(p\) satisfies
+\begin{equation}
+ p^2+2xp+1=0.
+ \label{cp:eq-fixed-p-quadratic}
+\end{equation}
+
+\begin{proposition}[The fixed-phase cover]
+\label{cp:prop-fixed-p-cover}
+Define
+\begin{equation}
+ \pi:U_p=
+ \operatorname{Spec}
+ \frac{\mathcal O_U[p]}{(p^2+2xp+1)}
+ \longrightarrow U.
+ \label{cp:eq-p-cover}
+\end{equation}
+Then \(\pi\) is finite \'etale of degree two.  Its nontrivial deck
+transformation is
+\begin{equation}
+ p\longmapsto p^{-1}=-2x-p.
+ \label{cp:eq-fixed-p-deck}
+\end{equation}
+The cover is common to \(G\) and \(G^R\), because the Regge transformation
+fixes the \(01\)-angle and hence fixes \(x\).
+\end{proposition}
+
+\begin{proof}
+The polynomial in \eqref{cp:eq-fixed-p-quadratic} is monic of degree two, so
+\(U_p\) is finite locally free of rank two over \(U\).  Its discriminant is
+\begin{equation}
+ (2x)^2-4=4(x^2-1).
+ \label{cp:eq-fixed-p-discriminant}
+\end{equation}
+The function \(1-x^2\) was inverted in the definition of \(U\); hence the
+discriminant is a unit and the cover is \'etale.  The product of
+the two roots is one, so the second root is \(p^{-1}\), and their sum is
+\(-2x\), giving \eqref{cp:eq-fixed-p-deck}.  Finally, \(x\) is fixed by the
+Regge involution.
+\end{proof}
+
+On a physical fibre the two points of \(U_p\) are
+\(e^{i\theta_{01}}\) and \(e^{-i\theta_{01}}\).  The cover may split after
+base change, but it need not split over \(U\) itself.  This two-sheeted
+fixed-phase datum is the sole residual effect of descending from the full
+phase torus to the rational orientation chart.

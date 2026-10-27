@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "groups": [
+    {
+      "structure": "MotivicInputs",
+      "fields": ["RelativeObject", "coefficient", "isAlternatingFaceObject", "coproduct"],
+      "inputs": ["E2"],
+      "explanation": "E2 supplies the relative objects, their framed coefficients, and the linear reduced coproduct."
+    },
+    {
+      "structure": "MotivicInputs",
+      "fields": ["hasExactThreeGradedPieces", "strictThreeWeightHeart", "strict_three_weight_heart_constructed", "primitiveComparison", "h1_vanishes"],
+      "inputs": ["E3"],
+      "explanation": "E3 supplies the exact filtration, strict heart, primitive comparison, and endpoint vanishing."
+    },
+    {
+      "structure": "CoproductBridge",
+      "fields": ["relativeOriginal", "relativeReggeMate"],
+      "inputs": ["E2"],
+      "explanation": "These are the two relative coefficients constructed by E2."
+    },
+    {
+      "structure": "CoproductBridge",
+      "fields": ["splitPullback", "finite_etale_sign_trace_injective", "movingLeft", "movingRight", "fixedLeft₀", "fixedLeft₁", "fixedRight₀", "fixedRight₁", "split_formula_original", "split_formula_reggeMate"],
+      "inputs": ["E4"],
+      "explanation": "E4 gives the six channels, exact formulas, and sign-Artin descent; Lean derives their equality."
+    },
+    {
+      "structure": "SpecializationInputs",
+      "fields": ["specialize", "endpoint"],
+      "inputs": ["E5"],
+      "explanation": "E5 types coefficient specialization and the endpoint as linear maps."
+    },
+    {
+      "structure": "SpecializationInputs",
+      "fields": ["middleSpecialize", "quadricCoproduct"],
+      "inputs": ["E4"],
+      "explanation": "E4 supplies the two sides of the coproduct-specialization square."
+    },
+    {
+      "structure": "SpecializationInputs",
+      "fields": ["goncharov", "goncharov_injective"],
+      "inputs": ["E6"],
+      "explanation": "E6 supplies c_G on the actual field-level coproduct kernel and its injectivity."
+    },
+    {
+      "structure": "SpecializationInputs",
+      "fields": ["duality", "spherical", "duality_involutive", "spherical_injective"],
+      "inputs": ["E6"],
+      "explanation": "E6 supplies projective duality and the spherical-to-quadric injection."
+    },
+    {
+      "structure": "ScissorsInputs",
+      "fields": ["suspension", "reduction", "exact_at_full"],
+      "inputs": ["E8"],
+      "explanation": "E8 supplies the full-to-reduced suspension exactness used in the final lift."
+    },
+    {
+      "structure": "ScissorsInputs",
+      "fields": ["rationalize", "rationalization_injective"],
+      "inputs": ["E8"],
+      "explanation": "E8 explicitly supplies the rationalization map and its injectivity."
+    },
+    {
+      "structure": "ScissorsInputs",
+      "fields": ["area", "volume", "suspension_volume", "area_injective"],
+      "inputs": ["E8"],
+      "explanation": "E8 supplies the additive invariants and the suspension normalization."
+    },
+    {
+      "structure": "ScissorsInputs",
+      "fields": ["scissorsClass", "decomposes", "pieceIsometric", "cancellation"],
+      "inputs": ["E8"],
+      "explanation": "E8 interprets classes and upgrades equality to a finite-list decomposition with paired isometric pieces."
+    },
+    {
+      "structure": "GeometricReggeInputs",
+      "fields": ["isNondegeneratePhysicalReggePair", "hasGeometricAngleAndLengthAction"],
+      "inputs": ["E1"],
+      "explanation": "E1 certifies the physical Regge pair and the common action on angles and lengths."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["motivic"],
+      "inputs": ["E2", "E3"],
+      "explanation": "This selector bundles the E2--E3 relative coefficient and primitive-kernel data."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["coproductBridge"],
+      "inputs": ["E4"],
+      "explanation": "This selector bundles E4's channel formulas and descent."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["specialization"],
+      "inputs": ["E4", "E5", "E6"],
+      "explanation": "This selector bundles the field-level specialization and comparison maps."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["scissors"],
+      "inputs": ["E8"],
+      "explanation": "This selector bundles E8's geometric scissors interface."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["relativeOriginalObject", "relativeReggeMateObject", "original_face_object_constructed", "reggeMate_face_object_constructed", "relative_original_coefficient", "relative_reggeMate_coefficient"],
+      "inputs": ["E2"],
+      "explanation": "E2 identifies the two actual relative face objects with the two coefficients in the coproduct bridge."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["original_exact_three_graded_pieces", "reggeMate_exact_three_graded_pieces"],
+      "inputs": ["E3"],
+      "explanation": "E3 certifies the exact three graded pieces for both objects."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["presentationComparison", "presentation_defect_comparison"],
+      "inputs": ["E7"],
+      "explanation": "E7 supplies both the presentation isomorphism and its value on the Regge defect."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["original", "reggeMate", "geometry", "physical_regge_pair_realized", "geometric_angle_length_action_certified", "regge_volume"],
+      "inputs": ["E1"],
+      "explanation": "E1 supplies the chosen physical pair, action certificate, and volume equality."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["universalDefect", "universal_defect_is_difference"],
+      "inputs": ["E2"],
+      "explanation": "E2 identifies the universal defect with the difference of the two relative coefficients."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["quadricDualDefect", "quadric_coproduct_specialization"],
+      "inputs": ["E4"],
+      "explanation": "E4 identifies the field-level quadric defect's coproduct with specialization of the relative coproduct."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["fibre_endpoint_eq_cG"],
+      "inputs": ["E5"],
+      "explanation": "E5 equates the specialized endpoint with c_G once the derived kernel membership is supplied."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["goncharovSphericalDefect", "duality_comparison"],
+      "inputs": ["E6"],
+      "explanation": "E6 identifies projective duality on the particular spherical Regge defect."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["reducedRationalDefect"],
+      "inputs": ["E7"],
+      "explanation": "E7 supplies the rationalized geometric defect compared with Goncharov's presentation."
+    },
+    {
+      "structure": "ProofContract",
+      "fields": ["reducedDefect", "rationalization_comparison", "reduced_comparison"],
+      "inputs": ["E8"],
+      "explanation": "E8 relates the integral reduced and full scissors defects to their rationalized images."
+    }
+  ]
+}

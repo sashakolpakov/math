@@ -1,0 +1,246 @@
+\section{The universal defect and its coproduct}
+\label{cp:sec-relative-rigidity}
+
+Fix a physical point on one of the two charts supplied by
+Proposition~\ref{cp:prop-physical-point-on-chart}.  Shrink its connected
+principal open \(U\), without removing that point, so that all matrices,
+cross-ratios, and finite root covers mentioned below are regular.  This
+does not change the function field
+\(\Q(t_1,\ldots,t_6)\) of the chart.
+
+\subsection{The matrix geometry behind the motivic input}
+
+Let \(G\) and \(G^R\) be the universal angle Gram matrices with their common
+determinant root \(w\).  We work with the projectively dual coordinate
+quadrics
+\[
+ Q_G:\ z^tGz=0,\qquad Q_{G^R}:\ z^tG^Rz=0.
+\]
+The following calculation explains the shape of the three-weight package.
+It does not construct that package.
+
+\begin{lemma}[Coordinate-stratum calculation]
+\label{cp:lem-split-strata}
+At the level of quadratic forms, \(Q_G\) and \(Q_{G^R}\) are hyperbolic on
+\(U\); every coordinate rank-three restriction has an isotropic line.  Five
+coordinate binary restrictions have their two isotropic points displayed by
+the phases \(a,b,c,d,q\).  The sixth has isotropic points over the common
+quadratic cover
+\[
+ U_p=U[p]/(p^2+2xp+1),
+\]
+whose deck transformation is \(p\mapsto p^{-1}\).
+\end{lemma}
+
+\begin{proof}
+For a unit \(u\), put \(g=-(u+u^{-1})/2\).  Then \((1,u)\) is isotropic
+for
+\[
+ \begin{pmatrix}1&g\\g&1\end{pmatrix},
+\qquad 1+2gu+u^2=0.
+\]
+In particular, the \(q\)-block is a hyperbolic plane.  Its binary Schur
+complement \(C\) in \(G\) satisfies
+\[
+ \det C=\frac{\det G}{1-y^2}
+       =-\left(\frac ws\right)^2,
+\qquad s=\frac{q-q^{-1}}2.
+\]
+Put \(t=w/s\), \(J_0=\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)\),
+and \(J=t^{-1}J_0C\).  The identities
+\[
+ (J_0C)^2=-\det(C)I,\qquad J^2=I,\qquad J^tC+CJ=0
+\]
+show that the two eigenlines of \(J\) are isotropic and paired perfectly by
+\(C\).  Thus the complementary plane, and hence the rank-four form, is
+hyperbolic.  The same \(q,s,w\) are fixed by Regge, so the calculation also
+applies to \(G^R\).
+
+Every coordinate rank-three restriction contains one of the displayed
+binary blocks and hence an isotropic vector.  The five phase variables give
+the two roots of five binary restrictions.  The remaining restriction has
+equation \(p+p^{-1}=-2x\), equivalently \(p^2+2xp+1=0\), and
+Proposition~\ref{cp:prop-fixed-p-cover} gives its deck transformation.
+\end{proof}
+
+Passing from this calculation to relative motives of all strata, including
+regularity, functorial localization, frames, and the reduced sign-Artin
+summand, is part of Inputs \textup{(E2)--(E4)}.  We do not relabel that
+passage as a proof by localization.
+
+\subsection{The relative coefficient supplied by the contract}
+
+Apply Input~\textup{(E2)} to the two oriented families.  In the notation of
+Definition~\ref{cp:def-coefficient-contract}, set
+\[
+ c_G=c_U(G),\qquad c_R=c_U(G^R),\qquad
+ \delta_U^\vee=c_G-c_R\in A_{02}(U).
+\]
+The superscript \(\vee\) records projective duality
+\(Q_{G^{-1}}\leftrightarrow Q_G\); it is not the internal dual used in the
+intended face motive.
+
+Input~\textup{(E3)} supplies the following statement.  It is displayed as
+an external proposition so that its logical status cannot be mistaken.
+
+\begin{proposition}[External three-weight package]
+\label{cp:prop-weight-calculation}
+The two coefficients have endpoint types \((0,2)\), their middle terms are
+five Tate channels and one possible sign-Artin channel, and
+\[
+ \operatorname{prim}_U:
+ \ker\overline\Delta_U\xrightarrow{\sim}H^1(U,\Q(2))
+\]
+is an isomorphism.  Moreover \(H^1(U,\Q(2))=0\).
+\end{proposition}
+
+This proposition is Input~\textup{(E3)}, not a theorem proved from the
+coordinate-stratum calculation.  Its proposed motivic graded pieces are
+\[
+ \Q_U(0),\qquad \Q_U(1)^{\oplus5}\oplus\chi(1),\qquad\Q_U(2),
+\]
+and its proposed vanishing route is Equation
+\eqref{cp:eq-weight-two-rigidity-route}.
+
+\subsection{Length--angle channels}
+
+Input~\textup{(E4)} identifies the reduced coproduct of a dual oriented
+quadric coefficient with
+\begin{equation}
+ \overline\Delta_U c_G=\sum_e L_e\otimes A_e,
+ \label{cp:eq-angle-length-coproduct}
+\end{equation}
+one term for each physical edge.  The angle factor comes from a coordinate
+binary section and the length factor from its complementary binary Schur
+form.  This ordering is important: it is \(L_e\otimes A_e\).
+
+Here is the elementary cross-ratio normalization.  For
+\[
+ r(z_1,z_2,z_3,z_4)
+ =\frac{(z_1-z_3)(z_2-z_4)}
+        {(z_1-z_4)(z_2-z_3)}
+\]
+and two real rays of angle \(\phi\), use slopes \(0,\tan\phi\) and order the
+isotropic directions as \(-\mathrm i,\mathrm i\).  Direct substitution gives
+\[
+ r(-\mathrm i,\mathrm i,0,\tan\phi)
+ =\frac{1+\mathrm i\tan\phi}{1-\mathrm i\tan\phi}
+ =e^{2\mathrm i\phi}.
+\]
+Thus, with compatible orientations,
+\begin{equation}
+ A_e=e^{2\mathrm i\vartheta_e},
+ \qquad L_e=e^{2\mathrm i\ell_e}.
+ \label{cp:eq-cross-ratio-phases}
+\end{equation}
+Swapping the two isotropic directions inverts the cross-ratio.  Input
+\textup{(E4)} asserts that its relative formula uses exactly these
+orientations and that the same convention survives specialization.
+
+\subsection{The internal tensor calculation}
+
+Let
+\[
+ R=\frac12J_4-I_4,\qquad H=2R=J_4-2I_4.
+\]
+Section~\ref{cp:sec-phase-charts} proves \(R^tR=I_4\), hence
+\begin{equation}
+ H^tH=4I_4.
+ \label{cp:eq-H-orthogonal}
+\end{equation}
+For the four moving edges, choose half-phases
+\[
+ A_i=B_i^2,\qquad L_i=Y_i^2.
+\]
+The universalization clause of Input~\textup{(E4)} says that, on a common
+finite splitting cover, the real Regge relations of Input~\textup{(E1)}
+extend to the algebraic identities
+\begin{equation}
+ A_i^R=\prod_jB_j^{H_{ij}},
+ \qquad
+ L_i^R=\prod_jY_j^{H_{ij}}.
+ \label{cp:eq-monomial-angle-length}
+\end{equation}
+This clause includes the Zariski-density argument and the algebraic recovery
+of length phases from cofactors; neither is silently inferred from the
+formal matrix identity.
+
+\begin{lemma}[Regge tensor cancellation]
+\label{cp:lem-regge-tensor-cancellation}
+Let \(B_1,\ldots,B_4\) and \(Y_1,\ldots,Y_4\) lie in abelian multiplicative
+groups, tensor those groups over \(\mathbf Z\), and then tensor with
+\(\Q\).  If \(A_i=B_i^2\), \(L_i=Y_i^2\), and the transformed terms obey
+\eqref{cp:eq-monomial-angle-length}, then
+\[
+ \sum_i L_i^R\otimes A_i^R=\sum_iL_i\otimes A_i.
+\]
+\end{lemma}
+
+\begin{proof}
+Write a multiplicative group additively inside its tensor product.  Then
+\([u^m]=m[u]\), so Equation~\eqref{cp:eq-monomial-angle-length} and
+\(H^tH=4I_4\) give
+\[
+ \begin{aligned}
+ \sum_i L_i^R\otimes A_i^R
+ &=\sum_{i,j,k}H_{ik}H_{ij}\,[Y_k]\otimes[B_j]\\
+ &=4\sum_j[Y_j]\otimes[B_j]\\
+ &=\sum_j[Y_j^2]\otimes[B_j^2]
+  =\sum_jL_j\otimes A_j.
+ \end{aligned}
+\]
+Changing a square root changes its class by two-torsion, which disappears
+after tensoring with \(\Q\).
+\end{proof}
+
+This is the entire Regge-specific coproduct computation.  Lean proves both
+this half-phase form using \(H\) and the equivalent full-channel form using
+the normalized matrix \(R=H/2\).  The latter is the identity connected
+directly to the six-channel coproduct contract.
+
+\subsection{Primitive and universal vanishing}
+
+\begin{lemma}[Vanishing of the middle coproduct]
+\label{cp:lem-coproduct-zero}
+Under Inputs \textup{(E1), (E2), and (E4)},
+\[
+ \overline\Delta_U(\delta_U^\vee)=0.
+\]
+At every complex point \(s:\Spec\C\to U\), the specialized dual
+quadric-scissors defect is primitive as well.
+\end{lemma}
+
+\begin{proof}
+The two channels belonging to the selected opposite edge pair agree
+term-by-term because Regge fixes the corresponding lengths and angles.  On
+the common splitting cover, the remaining four channels agree by
+Lemma~\ref{cp:lem-regge-tensor-cancellation}.  The descent clause of Input
+\textup{(E4)} says that pullback is injective on the five Tate channels and,
+using normalized twisted trace, on the possible sign-Artin channel.  Hence
+the equality descends to \(A_{11}(U)\).  The coproduct-specialization square
+in the same input carries this zero to Goncharov's field-level coproduct.
+Thus the specialized defect lies in its kernel; this is exactly the proof
+term which licenses applying \(c_G\), rather than an independently assumed
+primitive label.
+\end{proof}
+
+\begin{theorem}[Vanishing of the universal framed defect]
+\label{cp:thm-relative-defect-zero}
+Under Inputs \textup{(E1)--(E4)},
+\[
+ \delta_U^\vee=0\qquad\text{in }A_{02}(U).
+\]
+\end{theorem}
+
+\begin{proof}
+Lemma~\ref{cp:lem-coproduct-zero} makes the defect primitive.
+Proposition~\ref{cp:prop-weight-calculation} supplies the weight-two
+coefficient contract.  Lemma~\ref{cp:lem-three-level-framed} therefore
+gives \(\delta_U^\vee=0\).
+\end{proof}
+
+The proof of this theorem is now transparently divided.  Orthogonality and
+the tensor cancellation are internal and machine checked.  Construction of
+the relative coefficients, the universalization and descent of their
+coproduct, and primitive \(=\) motivic extension are the named external
+clauses.

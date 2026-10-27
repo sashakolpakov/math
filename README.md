@@ -51,3 +51,20 @@ Exceptions to this fixed procedure include work on a zero-free region for the Ri
 We will preserve the public release history of this collection. Corrections and revisions will be recorded as new versions, with previously released versions remaining accessible. 
 
 To cite the individual manuscript, use the BibTeX block in its directory. 
+
+## External contribution proposed for review
+
+An external contribution on spherical Regge scissors congruence is listed
+in the [contributed manuscript catalogue](CONTENTS.md#external-contribution-spherical-regge-scissors-congruence).
+**Discussions and model prompting:** Alexander Kolpakov (UATX).
+
+The [working paper](preprints/The-Spherical-Regge-Scissors-Theorem-October-27-2026/README.md) proves the implication from
+an explicit theorem package E1–E8 to a finite equidecomposition. The relative
+motivic and comparison bridge E2–E5 remains unresolved, so the contribution
+does not establish the unconditional spherical Regge scissors theorem.
+
+A [standalone conditional Lean package](lean/SphericalReggeScissors/README.md)
+and [retrospective development summary](reasoning_traces/spherical-regge-scissors.pdf)
+accompany the paper. The [source and privacy statement](reasoning_traces/spherical-regge-scissors.md)
+describes the summary's coverage. This external proposal is listed separately
+from the internal-model collection totals above.

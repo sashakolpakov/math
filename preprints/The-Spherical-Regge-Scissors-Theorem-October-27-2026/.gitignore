@@ -1,0 +1,7 @@
+build/paper/*
+!build/paper/*.tex
+!build/paper/*.bib
+!build/paper/sections/
+build/paper/sections/*
+!build/paper/sections/*.tex
+audit/__pycache__/

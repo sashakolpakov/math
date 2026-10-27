@@ -1,0 +1,324 @@
+\section{The motivic dictionary and the exact interface}
+\label{cp:sec-motivic-dictionary}
+
+This section explains the intended geometry behind Inputs
+\textup{(E2)--(E5)} and then restates those inputs as ordinary linear
+algebra.  It is intentionally not presented as a construction of a relative
+category of motives.  A reader interested only in the logical proof may
+start at Subsection~\ref{cp:subsec-linear-contract}.
+
+\subsection{From a spherical simplex to an oriented quadric simplex}
+\label{cp:subsec-quadric-simplex}
+
+Let \(U\) be one of the smooth rational opens of Section
+\ref{cp:sec-phase-charts}.  Over it we have a rank-four trivial bundle and
+two symmetric invertible matrices \(G,G^R\).  The equation
+\[
+ Q_G:\quad z^tGz=0
+\]
+defines a relative quadric in \(\mathbf P^3_U\); the four coordinate
+hyperplanes \(M_i=\{z_i=0\}\) are its ordered faces.
+
+The spherical tetrahedron first produces \(Q_{G^{-1}}\).  Projective
+duality replaces it by \(Q_G\): if \(x=Gy\), then
+\[
+ x^tG^{-1}x=y^tGy,
+ \qquad e_j^tG^{-1}x=y_j.
+\]
+Thus the polar faces become coordinate faces.  This elementary change of
+coordinates explains why Section~\ref{cp:sec-relative-rigidity} calculates
+with \(G\), although Goncharov's spherical generator is written using
+\(G^{-1}\).  Input~\textup{(E6)} includes the assertion that projective
+duality is an involution on the relevant quadric-scissors group.
+
+A smooth quadric surface over an algebraically closed field has two
+families of maximal isotropic lines, called its two rulings.  An orientation
+is a choice between them.  For a matrix quadric, a square root
+\(w^2=\det G\) distinguishes the choices; changing \(w\) interchanges them.
+This is why the parameter space in Section~\ref{cp:sec-phase-charts} is the
+determinant double cover.
+
+\subsection{What a motive is}
+\label{cp:subsec-what-is-a-motive}
+
+Ordinary cohomology sends a space directly to groups or vector spaces.  A
+motive is intended to be a universal algebraic object from which several
+cohomology theories---Betti, de Rham, Hodge, or \'{e}tale, for
+example---are obtained by realization functors.  One keeps the object
+itself because the proof needs operations which a list of Betti numbers
+forgets: pullback in a family, tensor products, duality, Tate twists,
+localization triangles, filtrations, and extension classes.
+
+The customary ambient notation is
+\[
+ \DM(U)_\Q.
+\]
+Morally, this is a rational, symmetric monoidal, stable category generated
+by smooth \(U\)-schemes and localization.  The unit is \(\Q_U(0)\); the Tate
+object is \(\Q_U(1)\); shifts are denoted by \([m]\).  In such a category
+motivic cohomology is the Hom group
+\begin{equation}
+ H^m(U,\Q(n))=
+ \operatorname{Hom}_{\DM(U)_\Q}
+ \bigl(\Q_U(0),\Q_U(n)[m]\bigr).
+ \label{cp:eq-motivic-cohomology-definition}
+\end{equation}
+This formula explains the notation used later.  It does not, by itself,
+construct the category or prove any comparison theorem.
+
+Why not replace every motive by a complex of rational vector spaces?  That
+replacement destroys the obstruction on which the proof depends.  The
+category of rational vector spaces is semisimple, so
+\[
+ \operatorname{Ext}^1_{\operatorname{Vect}_\Q}(\Q,\Q)=0,
+\]
+and every bounded complex is quasi-isomorphic to the direct sum of its
+cohomology groups.  A nontrivial motivic extension
+\[
+ 0\longrightarrow\Q(2)\longrightarrow E\longrightarrow
+ \Q(0)\longrightarrow0
+\]
+would therefore become split after forgetting to plain vector spaces.
+The lost extension is precisely the dilogarithmic or \(K_3\) information
+that distinguishes a primitive weight-two class.  Motives are not ornate
+terminology for ordinary homology; they retain the extension data which
+ordinary rational homology cannot see.
+
+The conventions relevant here are
+\[
+ H^1(W,\Q(1))\cong\mathcal O(W)^*\otimes_{\mathbf Z}\Q,
+ \qquad
+ H^1(F,\Q(2))\cong\gr_2^\gamma K_3(F)\otimes\Q
+\]
+for the schemes and fields to which the external comparison theorems apply.
+The first formula turns cross-ratios into weight-one classes.  The second
+explains why the endpoint obstruction belongs to \(K_3\).
+
+Here \(K_3(F)\) is Quillen's third algebraic \(K\)-group: it is the third
+homotopy group of the algebraic \(K\)-theory space built from invertible
+matrices over \(F\).  Exterior-power operations give its gamma filtration;
+\(\gr_2^\gamma K_3(F)\) is the second associated quotient of that
+filtration.  No presentation or computation of the full group is needed in
+this proof.  The notation \(\Ext^1(X,Y)\) means equivalence classes of short
+exact sequences
+\[
+ 0\longrightarrow Y\longrightarrow E\longrightarrow X\longrightarrow0.
+\]
+Thus the proposed class in \(H^1(U,\Q(2))\) records a possibly nonsplit
+extension between the two endpoint Tate objects.
+
+\subsection{Tate and sign-Artin objects}
+
+The symbol \(\Q_U(n)\) denotes the \(n\)-fold Tate twist.  The indices
+\(0,1,2\) below are Tate degrees; they are not homological degrees.  A
+Tate object is the basic one-dimensional motivic object corresponding in
+degree one to the multiplicative group; tensoring by it shifts Tate degree.
+An Artin object is the motive of a finite \'{e}tale scheme and, over a field,
+behaves like a rational representation of its finite Galois group.  A
+quadratic finite \'{e}tale cover \(\pi:U_p\to U\), with deck involution
+\(\sigma\), is expected to give
+\begin{equation}
+ \pi_*\Q_{U_p}\cong\Q_U\oplus\chi,
+ \qquad
+ \chi=\operatorname{im}\frac{1-\sigma}{2}.
+ \label{cp:eq-sign-motive}
+\end{equation}
+The summand \(\chi\) is the sign-Artin object.  If the cover splits, this
+summand is another copy of \(\Q_U\).  Abstractly the projector exists
+because \(2\) is invertible over \(\Q\).  The assertion that this
+decomposition, pullback, transfer, and the relevant framed coefficient
+spaces are all compatible is the Artin-trace clause of Input
+\textup{(E4)}.
+
+\subsection{The intended four-term face object}
+\label{cp:subsec-face-complex}
+
+For \(I\subset\{0,1,2,3\}\), put
+\[
+ M_I=\bigcap_{i\in I}M_i,\qquad Q_I=Q\cap M_I.
+\]
+Ordering the hyperplanes gives alternating incidence signs.  The geometric
+expression behind the relative coefficient is
+\begin{equation}
+\begin{split}
+ \mathcal F_U(Q,M):\quad
+ \bigoplus_{|I|=3}M_U(M_I\setminus Q_I)
+ &\longrightarrow
+ \bigoplus_{|I|=2}M_U(M_I\setminus Q_I)\\
+ &\longrightarrow
+ \bigoplus_{|I|=1}M_U(M_I\setminus Q_I)
+ \longrightarrow M_U(\mathbf P^3_U\setminus Q).
+\end{split}
+ \label{cp:eq-geometric-face-complex}
+\end{equation}
+Here \(M_U(X)\) denotes the proposed geometric motive of a smooth
+\(U\)-scheme \(X\).  Totalization is the stable-category analogue of forming
+one object from a bounded chain complex; it may be described by successive
+mapping cones.  The internal Hom into \(\Q_U\) is its cohomological dual,
+and the final \((2)\) is the normalization which places the endpoint Tate
+degrees at \(0\) and \(2\).
+If a relative motivic category with functorial totalizations and duals has
+been fixed, the intended normalized object is
+\begin{definition}[Intended normalized relative quadric motive]
+\label{cp:def-face-motive}
+\begin{equation}
+ \mathfrak m_U(Q,M)=
+ \underline{\operatorname{Hom}}
+ \bigl(\operatorname{Tot}\mathcal F_U(Q,M),
+       \Q_U\bigr)(2).
+ \label{cp:eq-normalized-relative-motive}
+\end{equation}
+\end{definition}
+
+Definition~\ref{cp:def-face-motive} fixes the signs, dual, and Tate twist
+which Inputs \textup{(E2)--(E5)} must use.  It is a specification, not a
+claim that the indicated totalization has been constructed in Lean or that
+all of its relative comparison properties follow formally from a citation.
+Its field-level face-complex convention is the one used by Goncharov
+\cite{Goncharov1999}; the twist agrees with Brown's normalization
+\cite[Definition~5.8]{Brown2013}.  The Aomoto-pair construction of
+Beilinson--Goncharov--Schechtman--Varchenko is a historical precursor
+\cite{BGSV1990}.  None of these citations is being used as an unstated proof
+of the relative base-change assertions in Input~\textup{(E2)}.
+
+The expected localization calculation has three graded pieces:
+\begin{equation}
+ \gr^0\mathfrak m_U\cong\Q_U(0),\qquad
+ \gr^1\mathfrak m_U\cong
+   \bigoplus_{|I|=2}\widetilde M(Q_I)(1),\qquad
+ \gr^2\mathfrak m_U\cong\Q_U(2).
+ \label{cp:eq-dictionary-three-graded-pieces}
+\end{equation}
+Here \(\widetilde M(Q_I)\) is the reduced degree-two Artin object of the
+binary section.  In the Regge family five such objects are split and the
+sixth is either split or \(\chi\).  The orientation supplies a frame on one
+endpoint and the ordered faces supply a frame on the other.  The existence
+of a strict heart containing these objects, the filtration
+\eqref{cp:eq-dictionary-three-graded-pieces}, and its compatibility with
+the frames are exactly the non-formal part of Input~\textup{(E3)}.
+
+A \(t\)-structure on a stable category selects an abelian \emph{heart} in which
+appropriate triangles become short exact sequences.  A three-weight heart
+here would be the extension closure of the three kinds of pure object in
+Equation~\eqref{cp:eq-dictionary-three-graded-pieces}.  A framing chooses
+the generator of the top \(\Q(0)\)-piece and the covector on the bottom
+\(\Q(2)\)-piece.  The reduced coproduct of the resulting matrix coefficient
+records all factorizations from the top frame to the bottom frame through
+the middle degree.  Consequently a zero reduced coproduct is called
+\emph{primitive}: no middle factorization remains, so the only possible
+datum is the direct endpoint extension.  Input~\textup{(E3)} asserts that
+this description is valid for the proposed relative objects.
+
+\subsection{The linear contract used by the proof}
+\label{cp:subsec-linear-contract}
+
+Nothing after this point requires manipulating a category of motives.  The
+conditional proof uses the following data.
+
+\begin{definition}[Weight-two coefficient contract]
+\label{cp:def-coefficient-contract}
+For a chart \(U\), a weight-two coefficient contract consists of rational
+vector spaces
+\[
+ A_{02}(U),\qquad A_{11}(U),\qquad H_U,
+\]
+a linear map
+\[
+ \overline\Delta_U:A_{02}(U)\longrightarrow A_{11}(U),
+\]
+an isomorphism
+\begin{equation}
+ \operatorname{prim}_U:
+ \ker\overline\Delta_U\xrightarrow{\sim}H_U,
+ \label{cp:eq-primitive-is-ext}
+\end{equation}
+and a proof that \(H_U=0\).  It also contains the two framed coefficients
+\[
+ c_U(G),\qquad c_U(G^R),
+\]
+the six-channel coproduct formula of Input~\textup{(E4)}, a linear
+specialization map on the middle coproduct which commutes with the
+field-level quadric coproduct, and the linear coefficient-specialization and
+endpoint maps of Input~\textup{(E5)}.  The field-level map \(c_G\) is typed
+only on the kernel of that field-level coproduct; primitivity is therefore a
+proof obligation, not a suggestive name attached to an arbitrary subgroup.
+\end{definition}
+
+The intended interpretation is
+\[
+ H_U=
+ \Ext^1\bigl(\Q_U(0),\Q_U(2)\bigr)
+ =H^1(U,\Q(2)).
+\]
+Calling an element primitive means only that its reduced coproduct is zero.
+The following deduction is elementary and is the part formalized in Lean.
+
+\begin{lemma}[Primitive vanishing]
+\label{cp:lem-three-level-framed}
+In a weight-two coefficient contract, if
+\(\overline\Delta_U(x)=0\), then \(x=0\).
+\end{lemma}
+
+\begin{proof}
+The equation lets us regard \(x\) as an element
+\(\widetilde x\in\ker\overline\Delta_U\).  Its image under
+\(\operatorname{prim}_U\) lies in the zero vector space \(H_U\), hence is
+zero.  Since \(\operatorname{prim}_U\) is injective, \(\widetilde x=0\), and
+therefore \(x=0\).
+\end{proof}
+
+This lemma is intentionally weaker than constructing a motivic heart.  The
+deep assertion is that the geometric coefficient contract exists and that
+\(\operatorname{prim}_U\) is the motivic primitive--extension
+identification.  That assertion is Input~\textup{(E3)}.
+
+\subsection{Why the proposed obstruction vanishes}
+
+The suggested mathematical route to the last field of the contract is
+\begin{equation}
+\begin{split}
+ H_U
+ &=H^1(U,\Q(2))\\
+ &\cong H^1(\Q(t_1,\ldots,t_6),\Q(2))\\
+ &\cong H^1(\Q,\Q(2))\\
+ &\cong\gr_2^\gamma K_3(\Q)\otimes\Q=0.
+\end{split}
+\label{cp:eq-weight-two-rigidity-route}
+\end{equation}
+The middle comparisons are the intended application of Garkusha's
+birational and pure-transcendental results \cite{Garkusha2023}; the final
+vanishing uses Borel's rank theorem \cite{Borel1977}.  For the conditional
+proof, Equation~\eqref{cp:eq-weight-two-rigidity-route} is not rederived
+inside an unspecified category \(\DM(U)_\Q\).  Its exact applicability to
+the chosen open and to the heart-to-derived comparison is bundled into
+Input~\textup{(E3)}.
+
+\subsection{Specialization and the boundary of the interface}
+
+At a complex point \(s:\Spec\C\to U\), the intended motivic construction
+would provide a pullback
+\[
+ s^*\mathfrak m_U(Q,M)\cong\mathfrak m_\C(Q_s,M_s)
+\]
+preserving totalization, internal duality, twist, both frames, the
+three-step filtration, and the endpoint map.  Goncharov's construction over
+\(\C\) would then identify that endpoint with \(c_G\) of the corresponding
+primitive quadric class.
+
+This is exactly Input~\textup{(E5)}.  The manuscript does not infer it from
+an unspecified appeal to functoriality.  In particular, the following five
+assertions remain on the external side of the proof:
+\begin{enumerate}[label=(\roman*),leftmargin=2.4em]
+\item construction of the required relative \(\DM(U)_\Q\) objects and
+      their functorial totalizations;
+\item the relative localization calculation and strict three-level
+      filtration;
+\item primitive coefficients \(=\Ext^1=H^1(U,\Q(2))\);
+\item twisted-trace compatibility for the sign-Artin channel; and
+\item coproduct-compatible specialization, followed by equality of the
+      specialized endpoint, with all signs and twists, to
+      Goncharov's field-level map \(c_G\).
+\end{enumerate}
+
+The rest of the manuscript never uses a stronger motivic statement than
+these five clauses.

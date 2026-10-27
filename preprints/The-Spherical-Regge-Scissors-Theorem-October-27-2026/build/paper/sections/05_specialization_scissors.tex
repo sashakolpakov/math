@@ -1,0 +1,224 @@
+\section{Specialization and the return to scissors congruence}
+\label{cp:sec-specialization}
+
+We now prove Theorem~\ref{cp:thm-main} from the universal vanishing theorem
+and Inputs \textup{(E5)--(E8)}.  All arrows in the argument are named before
+the diagram chase begins.
+
+\subsection{The field-level comparison maps}
+
+Let \(S_4(\C)_\Q\) be Goncharov's rational vector space of oriented
+quadric simplices: generators are smooth oriented quadrics in
+\(\mathbf P^3\) with four ordered hyperplane faces, modulo projective,
+alternating, degeneracy, and additivity relations.  Its weight-two
+differential is the reduced coproduct
+\[
+ \overline\Delta_\C:
+ S_4(\C)_\Q\longrightarrow
+ S_2(\C)_\Q\otimes_\Q S_2(\C)_\Q,
+\]
+where \(S_2(\C)_\Q\cong\C^*\otimes_{\mathbf Z}\Q\).  Since the normalized
+cobar complex has no preceding term in this degree,
+\begin{equation}
+ H^1(S^\bullet(2))_\Q=\ker\overline\Delta_\C.
+ \label{cp:eq-primitive-quadric-group}
+\end{equation}
+
+\begin{theorem}[External: Goncharov's weight-two comparison]
+\label{cp:thm-goncharov-weight-two}
+There is an injective linear map
+\begin{equation}
+ c_G:\ker\overline\Delta_\C
+ \longrightarrow \gr_2^\gamma K_3(\C)\otimes\Q.
+ \label{cp:eq-goncharov-k3-map}
+\end{equation}
+\end{theorem}
+
+This is the case \(n=2,i=1\) of Goncharov's Theorem~4.13 and equations
+\textup{(4.6)--(4.7)} \cite{Goncharov1999}.  It is Input
+\textup{(E6)}; the manuscript does not formalize algebraic \(K\)-theory or
+reprove injectivity.
+
+Define the reduced spherical scissors group by
+\[
+ \Pred(S^3)=\operatorname{coker}
+ \bigl(\Sigma:\Pfull(S^2)\longrightarrow\Pfull(S^3)\bigr),
+\]
+where \(\Sigma\) is spherical suspension.  Geometrically, if a polygon lies
+in an equatorial \(S^2\), its suspension is the double cone obtained by
+joining it to the two antipodal poles.  Cutting makes this construction an
+additive map on scissors groups.
+
+\begin{theorem}[External: spherical presentation and quadric map]
+\label{cp:lem-spherical-presentations}
+The reduced geometric group \(\Pred(S^3)\) is canonically the spherical
+configuration group used by Goncharov.  After rationalization,
+complexification gives an injective map
+\begin{equation}
+ \psi_S:\Pred(S^3)\otimes\Q
+ \lhook\joinrel\longrightarrow S_{4,\Q}^{\mathrm{sph}},
+ \label{cp:eq-spherical-quadric-map}
+\end{equation}
+where \(S_{4,\Q}^{\mathrm{sph}}\) is the conjugation-invariant spherical
+part of \(S_4(\C)_\Q\) with its one-dimensional parity line.  The parity
+line records how reversing the chosen ruling changes an oriented quadric
+generator; tensoring with that line is what makes the map descend from the
+unoriented geometric scissors group fixed in Section~1.  For a
+tetrahedron with angle Gram matrix \(G\), its image is represented by
+\(Q_{G^{-1}}\) with its ordered coordinate hyperplanes.
+\end{theorem}
+
+The presentation comparison, including its value on this tetrahedral
+generator and hence on the Regge difference, is Input~\textup{(E7)}, cited from Dupont's
+Theorem~7.14 \cite{Dupont2001}; the map and its injectivity are Input
+\textup{(E6)}, cited from Goncharov's Theorem~4.14
+\cite{Goncharov1999}.  We suppress the nonzero one-dimensional parity
+factor when testing whether a class vanishes.
+
+Projective duality gives an involutive linear automorphism
+\[
+ D:S_4(\C)_\Q\xrightarrow{\sim}S_4(\C)_\Q
+\]
+which takes the \(Q_{G^{-1}}\)-class to the coordinate \(Q_G\)-class.
+Input~\textup{(E6)} includes both this map and its compatibility with the
+two displayed Gram-matrix generators.  Consequently
+\(D(x)=0\) if and only if \(x=0\).
+
+\subsection{The family-to-fibre bridge}
+
+The last comparison is not a formal consequence of merely having a
+pullback functor.
+
+\begin{proposition}[External: fibre endpoint comparison]
+\label{cp:lem-fibre-comparison}
+Let \(s:\Spec\C\to U\) be a complex point and let
+\(\delta_s^\vee\in S_4(\C)_\Q\) be the projectively dual
+quadric-scissors defect.  If it is primitive, then the specialization of
+the endpoint of the relative coefficient defect is exactly
+\begin{equation}
+ \operatorname{endpoint}_s(\delta_U^\vee)
+ =c_G(\delta_s^\vee).
+ \label{cp:eq-fibre-endpoint}
+\end{equation}
+The equation uses the same face-complex signs, ruling frame, ordered-face
+frame, projective duality, and Tate twist on both sides.
+\end{proposition}
+
+The specialization and endpoint arrows in this equation are linear maps.
+This proposition is Input~\textup{(E5)}.  Goncharov's face-motive
+construction over a field suggests it \cite{Goncharov1999}, and
+Definition~\ref{cp:def-face-motive} fixes the candidate relative object.
+The exact relative base-change and normalization comparison is not proved
+in this manuscript and is not attributed to a field-level theorem.
+
+\subsection{The machine-checkable diagram chase}
+
+Let \(T,T^R\) be the pair in Theorem~\ref{cp:thm-main}.  By
+Proposition~\ref{cp:prop-physical-point-on-chart}, their angle phases and
+positive determinant root define a point
+\[
+ s_T:\Spec\C\longrightarrow U.
+\]
+Put
+\[
+ z=[T]-[T^R]\in\Pfull(S^3),\qquad
+ \bar z\in\Pred(S^3),
+\]
+and let
+\[
+ \delta_{s_T}=\psi_S(\bar z\otimes1),\qquad
+ \delta_{s_T}^\vee=D(\delta_{s_T}).
+\]
+
+\begin{proposition}[Reduced scissors vanishing]
+\label{cp:prop-reduced-scissors-zero}
+Under Inputs \textup{(E1)--(E8)},
+\[
+ \bar z=0\qquad\text{in }\Pred(S^3).
+\]
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{cp:lem-coproduct-zero} gives
+\(\overline\Delta_\C(\delta_{s_T}^\vee)=0\), so
+\(\delta_{s_T}^\vee\) lies in the domain of \(c_G\).
+Theorem~\ref{cp:thm-relative-defect-zero} gives
+\(\delta_U^\vee=0\).  The endpoint map is linear, hence its value on this
+zero class is zero.  Proposition~\ref{cp:lem-fibre-comparison} therefore
+gives
+\[
+ c_G(\delta_{s_T}^\vee)=0.
+\]
+Injectivity in Theorem~\ref{cp:thm-goncharov-weight-two} yields
+\(\delta_{s_T}^\vee=0\).  Since \(D\) is an involution,
+\(\delta_{s_T}=0\).  Injectivity of \(\psi_S\) gives
+\[
+ \bar z\otimes1=0\quad\text{in }\Pred(S^3)\otimes\Q.
+\]
+By Input~\textup{(E8)}, \(\Pfull(S^2)\) and \(\Pfull(S^3)\) are
+\(\Q\)-vector spaces.  The image of suspension and its cokernel
+\(\Pred(S^3)\) are therefore \(\Q\)-vector spaces as well.  The canonical
+map \(\Pred(S^3)\to\Pred(S^3)\otimes\Q\) is injective, so
+\(\bar z=0\).
+\end{proof}
+
+This proof is only a composition of functions, preservation of zero, and
+injectivity.  Lean proves it parametrically from the fields of the external
+package; it does not use the names of the geometric theories to bypass any
+arrow.
+
+\subsection{Removing suspension}
+
+Because \(\bar z=0\) in the cokernel of suspension, there is
+\(Q\in\Pfull(S^2)\) such that
+\begin{equation}
+ z=\Sigma Q.
+ \label{cp:eq-regge-suspension}
+\end{equation}
+Input~\textup{(E8)} includes the suspension-volume identity.  Its
+normalization can be seen on a polygon directly: suspension from the two
+poles has warped-product volume element
+\(\cos^2(t)\,dt\,dA\), where
+\(-\pi/2\leq t\leq\pi/2\).  Hence
+\begin{equation}
+ \Vol(\Sigma Q)
+ =\left(\int_{-\pi/2}^{\pi/2}\cos^2t\,dt\right)\Area(Q)
+ =\frac\pi2\Area(Q).
+ \label{cp:eq-suspension-volume}
+\end{equation}
+Both volume and area are additive under cutting, so this formula extends
+from polygons to every class in \(\Pfull(S^2)\).  The Lean proof does not
+formalize this integration; it consumes the resulting additive identity as
+the named field \texttt{suspension\_volume} of Input~\textup{(E8)}.
+
+By Input~\textup{(E1)}, Regge mates have equal volume.  Applying volume to
+Equation~\eqref{cp:eq-regge-suspension} and using
+\eqref{cp:eq-suspension-volume} gives \(\Area(Q)=0\).  Input
+\textup{(E8)} says that area is injective on \(\Pfull(S^2)\); hence
+\(Q=0\), so \(z=0\) in \(\Pfull(S^3)\).  Its cancellation clause turns
+this equality into a finite equidecomposition.  This proves
+Theorem~\ref{cp:thm-main}.
+
+\subsection{Logical inventory}
+
+The last three sections now contain no hidden motivic inference.  The
+internal implications are:
+\[
+\begin{gathered}
+ H^tH=4I
+ \Longrightarrow
+ \text{four moving tensors agree},\\
+ \overline\Delta_U(\delta_U^\vee)=0
+ \ \&\
+ \ker\overline\Delta_U\cong0
+ \Longrightarrow
+ \delta_U^\vee=0,\\
+ \delta_U^\vee=0
+ \Longrightarrow c_G(\delta_{s_T}^\vee)=0
+ \Longrightarrow \bar z=0
+ \Longrightarrow z=0.
+\end{gathered}
+\]
+Every implication not reducible to this finite algebra or diagram chase is
+an explicitly numbered external input in
+Subsection~\ref{cp:subsec-external-contract}.
