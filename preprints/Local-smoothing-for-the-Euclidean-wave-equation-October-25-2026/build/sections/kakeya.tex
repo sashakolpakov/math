@@ -1,0 +1,335 @@
+\section{Spherical extension and Kakeya tubes}\label{sec:kakeya}
+
+Write \(d=n-1\), \(p=\pc=2n/d\), and \(L(R)=\log(2+R)\). We keep the
+logarithmic power \(A\) in the wave estimate as a parameter. To see what
+happens to it in restriction, we take an incoming spherical wave whose
+amplitude varies with direction. Near its focus the radial oscillation
+cancels, leaving the extension of that amplitude from the unit sphere.
+
+For \(g\) on \(S^{n-1}\) write
+\(Eg(X)=\int_{S^{n-1}}e^{\mathrm iX\cdot\omega}g(\omega)\dd\sigma(\omega)\).
+Let \(K_\delta f(\omega)\) be the supremum of the averages of \(|f|\)
+over unit tubes of radius \(\delta\) parallel to \(\omega\).
+
+\begin{corollary}[Spherical extension and Kakeya]\label{cor:quant-kakeya}
+For \(n\ge2\), \(R\ge2\), \(z\in\RR^n\), and \(0<\delta\le1\),
+\begin{align*}
+ \|Eg\|_{L^{\pc}(B(z,R))}
+      &\le C_n [\log(2+R)]^{2/\pc}\|g\|_{L^{\pc}(S^{n-1})},\\
+ \|K_\delta f\|_{L^n(S^{n-1})}
+      &\le C_n [\log(2/\delta)]^{4/\pc}\|f\|_{L^n(\RR^n)}.
+\end{align*}
+Every subset of \(\RR^n\) containing a unit line segment in each direction has Hausdorff dimension \(n\).
+\end{corollary}
+
+A wave estimate with logarithmic power \(A\) gives the same power for
+spherical extension and power \(2A\) for the Kakeya maximal operator.
+The radial example after the proof shows that the latter power must be
+at least \(1-1/n\). Thus an unrestricted wave estimate with power
+\(1/\pc\) would give the sharp Kakeya maximal logarithm.
+
+In the plane, H\"ormander's estimate gives the sharp logarithmic
+power $1/4$ for local circle extension: take the output exponent
+$q=4+1/\log R$ in \cite[Corollary~1.3]{Hormander1973FLp} and apply
+H\"older's inequality on the observation ball and on the circle.
+Constant density forces this power by stationary phase. The planar directional
+Kakeya maximal bound has sharp power $1/2$
+\cite[Equation~(1.5)]{Bourgain1991Kakeya}; see also C\'ordoba's
+theorem for rectangles \cite{Cordoba1977}. Davies proved full
+Hausdorff dimension in the plane \cite{Davies1971}, and Wang and
+Zahl proved it in three dimensions \cite[Theorem~1.1]{WangZahl2025};
+see also \cite{GuthWangZahl2026Kakeya}. A separate three-dimensional
+maximal estimate with $\delta^{-\varepsilon}$ loss and a
+four-dimensional Hausdorff dimension theorem appear in
+\cite[Theorem~1.1]{OpenAI2026KakeyaThree} and
+\cite[Theorem~1.1]{OpenAI2026Kakeya4Hausdorff}, respectively.
+Here the implication from a wave estimate to a fixed logarithmic
+maximal estimate works in every dimension.
+
+\begin{lemma}\label{lem:kakeya-local-extension}
+Suppose \eqref{eq:main} holds with \(L(N)^A\) for some \(A\ge0\), for a
+smooth radial cutoff \(\chi(|\xi|/N)\) with \(\chi\) supported in
+\((1/2,2)\) and equal to one near \(1\). For \(R\ge2\), \(z\in\RR^n\),
+and \(g\in L^p(S^{n-1})\), the spherical extension
+\(Eg(X)=\int_{S^{n-1}}e^{\mathrm iX\cdot\omega}g(\omega)\dd\sigma(\omega)\)
+satisfies
+\begin{equation}\label{eq:kakeya-local-extension}
+             \|Eg\|_{L^p(B(z,R))}
+                   \lesssim L(R)^A\|g\|_{L^p(S^{n-1})}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Choose a nonnegative nonzero \(\psi\in C_c^\infty((1,2))\).
+Modulation in time selects a frequency shell of width of order one:
+\[
+ M_N f=\int \psi(T)e^{\mathrm iNT}U(T)\chi(|D|/N)f\dd T,\qquad
+ \|M_N f\|_p\lesssim L(N)^A\|f\|_p
+\]
+by H\"older in \(T\). For \(1/2\le |Z|\le3\) its convolution kernel is
+\begin{equation}\label{eq:kakeya-shell-kernel}
+ K_N(Z)=c_n N^{d/2}|Z|^{-d/2}e^{\mathrm iN|Z|}\psi(|Z|)
+                         +O(N^{d/2-1}),\qquad c_n\ne0 .
+\end{equation}
+Indeed, the radial multiplier is \(\chi(\rho/N)\widehat\psi(\rho-N)\).
+In polar coordinates the angular integral at \(u=\rho|Z|\) is
+\[
+ \int_{S^{n-1}}e^{\mathrm iu\omega_1}\dd\sigma(\omega)
+   =u^{-d/2}(c_+e^{\mathrm iu}+c_-e^{-\mathrm iu})
+                       +O(u^{-d/2-1}),\qquad c_+c_-\ne0 ,
+\]
+by stationary phase at the two poles. After radial integration the
+remainder is \(O(N^{d/2-1})\). In the leading terms one can replace
+\(\chi(\rho/N)\rho^{d/2}\) by \(N^{d/2}\) with the same error:
+the prefactor, extended by zero, has derivative \(O(N^{d/2-1})\)
+and \(\int |s\widehat\psi(s)|\dd s<\infty\). Fourier inversion gives
+\(\psi(\pm|Z|)\); only the positive argument contributes.
+
+We linearize the distance phase at the focus, as in H\"ormander's passage
+from oscillatory integrals to extension \cite[\S3, (3.8)--(3.9)]{Hormander1973FLp};
+compare Tao's deduction of local restriction from Bochner--Riesz estimates
+\cite[proof of Theorem~1.1]{Tao1999}.
+Take \(f_N(r\omega)=e^{-\mathrm iNr}\psi(r)g(\omega)\), so that
+\(\|f_N\|_p=C_\psi\|g\|_p\). For \(|X|\le R\) and \(N\ge4R\),
+\[
+ N|r\omega-X/N|=Nr-X\cdot\omega+O(R^2/N)
+ \qquad (r\in\supp\psi).
+\]
+Substitute this expansion in \eqref{eq:kakeya-shell-kernel} and
+integrate in \(r,\omega\). The amplitude changes by \(O(R/N)\), and
+the radial phases cancel:
+\[
+ N^{-d/2}M_N f_N(X/N)
+       =c' Eg(-X)+O\big((1+R^2)N^{-1}\|g\|_1\big),
+ \qquad c'=c_n\int r^{d/2}\psi(r)^2\dd r\ne0 .
+\]
+Choose \(N=(4+R)^{3+n/p}\). The error has \(L^p(B(0,R))\) norm at
+most \(C\|g\|_p\). On the left the change of variables costs
+\(N^{n/p-d/2}=1\), and \(L(N)\lesssim_n L(R)\). This proves
+\eqref{eq:kakeya-local-extension} at \(z=0\). Replacing \(g(\omega)\)
+by \(e^{\mathrm iz\cdot\omega}g(\omega)\) gives every center.
+\end{proof}
+
+\input{sections/global-extension}
+
+\subsection{From caps to tubes}
+
+Let \(T_\delta(\omega,x)\) be the open \(\delta\)-neighborhood of
+\(x+[-1/2,1/2]\omega\). Its volume is comparable to \(\delta^d\) for
+\(0<\delta\le1\). Thus \(K_\delta f(\omega)\) is the supremum over
+\(x\) of \(|T_\delta(\omega,x)|^{-1}\int_{T_\delta(\omega,x)}|f|\).
+These averages are continuous in the center and direction for
+\(f\in L^n\), by continuity of translations and rotations of the tube
+indicator in \(L^{n/(n-1)}\); in particular the supremum is measurable.
+
+A cap of radius \(\delta\) produces a wave of roughly constant modulus
+on a tube of length \(\delta^{-2}\) and radius \(\delta^{-1}\).
+The restriction argument of Beckner, Carbery, Semmes and Soria
+\cite{BCSS1989Restriction} and Bourgain \cite{Bourgain1991Kakeya}
+puts independent signs on disjoint caps. The expected squared modulus
+of the sum is then the sum of the squared moduli. This accounts for
+the factor of two in the logarithmic exponent.
+
+\begin{lemma}\label{lem:kakeya-overlap}
+Assume \eqref{eq:kakeya-local-extension} and set \(q=p/2=n/(n-1)\).
+Let \(0<\delta\le1/2\), let the \(\omega_j\) be \(\delta\)-separated
+on \(S^{n-1}\), and choose \(x_j\in\RR^n\) arbitrarily. Then for
+\(T_j=T_{2\delta}(\omega_j,x_j)\) and \(a_j\ge0\),
+\begin{equation}\label{eq:kakeya-overlap}
+ \Big\|\sum_j a_j\mathbf1_{T_j}\Big\|_{L^q(\RR^n)}
+  \lesssim L(1/\delta)^{2A}
+              \Big(\delta^d\sum_j a_j^q\Big)^{1/q}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Take the disjoint caps \(C_j=\{|\omega-\omega_j|<c\delta\}\) for a
+small fixed \(c>0\), and put
+\(h_j(\omega)=e^{-\mathrm i\delta^{-2}x_j\cdot\omega}\mathbf1_{C_j}(\omega)\).
+For \(Y\in T_j\), write \(Y-x_j=t\omega_j+v\) with \(|t|\le1/2\),
+\(|v|<2\delta\). Since
+\(\omega_j\cdot(\omega-\omega_j)=-|\omega-\omega_j|^2/2\),
+the phase in \(Eh_j(\delta^{-2}Y)\) differs from its value at
+\(\omega_j\) by at most \(c^2/4+2c\). Thus
+\(|Eh_j(\delta^{-2}Y)|\gtrsim\sigma(C_j)\asymp\delta^d\) on \(T_j\).
+
+Group the centers by the unit lattice cubes \(Q\), with
+\(J_Q=\{j:x_j\in Q\}\) (use half-open cubes). The tubes in this group
+lie in the concentric cube \(5Q\), so their dilates all lie in a
+ball of radius \(C_n\delta^{-2}\). For independent random signs
+\(\varepsilon_j\) set \(g_\varepsilon=\sum_{j\in J_Q}
+\varepsilon_j a_j^{1/2}h_j\). Disjointness of the caps gives
+\(\|g_\varepsilon\|_p^p\lesssim\delta^d\sum_{j\in J_Q}a_j^q\).
+At each point Jensen's inequality gives
+\(\mathbb E|Eg_\varepsilon|^p\ge
+(\sum_{j\in J_Q}a_j|Eh_j|^2)^q\).
+Integrate on \(\delta^{-2}(5Q)\), change variables back to \(Y\),
+and apply \eqref{eq:kakeya-local-extension} on the enclosing ball:
+\[
+ \delta^{dp-2n}\int_{5Q}
+       \Big(\sum_{j\in J_Q}a_j\mathbf1_{T_j}\Big)^q
+ \lesssim L(1/\delta)^{Ap}\,\delta^d\sum_{j\in J_Q}a_j^q .
+\]
+The prefactor is one because \(dp=2n\). The cubes \(5Q\) have bounded
+overlap, so the \(q\)-th power of the norm on the left of
+\eqref{eq:kakeya-overlap} is bounded by a constant times the sum of
+these integrals. Taking the \(q\)-th root gives \(Ap/q=2A\).
+\end{proof}
+
+\subsection{The maximal estimate and Hausdorff dimension}
+
+\begin{proof}[Proof of Corollary~\ref{cor:quant-kakeya}]
+Theorem~\ref{thm:main} gives \(A=2/p\) in
+Lemma~\ref{lem:kakeya-local-extension}. We keep \(A\) in the next
+steps to record the dependence on the wave estimate.
+For \(0<\delta\le1/2\) choose a maximal \(\delta\)-separated set
+\(\{\omega_j\}\). If \(|\omega-\omega_j|\le\delta\), then
+\(T_\delta(\omega,x)\subset T_{2\delta}(\omega_j,x)\). Hence
+\[
+ \|K_\delta f\|_{L^n(S^{n-1})}
+       \lesssim \Big(\delta^d\sum_j K_{2\delta}f(\omega_j)^n\Big)^{1/n}.
+\]
+To bound this discrete norm, test by \(a_j\ge0\) with
+\(\delta^d\sum_j a_j^q=1\). For \emph{any} choice of the centers,
+\[
+ \delta^d\sum_j\frac{a_j}{|T_j|}\int_{T_j}|f|
+ \lesssim \int |f|\sum_j a_j\mathbf1_{T_j}
+ \lesssim L(1/\delta)^{2A}\|f\|_n
+\]
+by Lemma~\ref{lem:kakeya-overlap} and H\"older. Taking suprema over
+the centers and then the weights proves the maximal estimate.
+For \(\delta\in[1/2,1]\) it follows from H\"older on each tube.
+
+Suppose \(F\) contains a unit segment in every direction. Its open
+\(\delta\)-neighborhood \(F_\delta\) contains the entire tube around
+each such segment. Consequently
+\begin{equation}\label{eq:kakeya-volume}
+ |F_\delta|\gtrsim L(1/\delta)^{-2An}
+                 =L(1/\delta)^{-2(n-1)}\qquad (A=2/p).
+\end{equation}
+For bounded sets this already gives full lower and upper Minkowski
+dimension. To obtain Hausdorff dimension we have to allow balls of
+different sizes in the same cover. In fact the logarithmic rate gives
+infinite Hausdorff measure for every gauge
+\[
+ h_\gamma(r)=r^n[\log(1/r)]^{2An}
+                  [\log\log(1/r)]^\gamma,\qquad \gamma>n-1
+ \quad (r\ \text{small}).
+\]
+
+Since \(h_\gamma(2r)\lesssim h_\gamma(r)\), it suffices to use ball
+covers. Consider an open ball cover \(\{B_j\}\) of \(F\) with radii
+\(r_j\le e^{-2^m}\). Group the radii by
+\(J_k=\{j:2^k\le\log(1/r_j)<2^{k+1}\}\) as in the planar argument of
+Keich \cite[Claim 3.2]{Keich1999}. Put
+\(\delta_k=e^{-2^{k+1}}\), \(G_k=\bigcup_{j\in J_k}2B_j\) and
+\(v_k=\sum_{j\in J_k}r_j^n\). On a segment in direction \(\omega\),
+the length covered by group \(k\) is at most
+\(C K_{\delta_k}\mathbf1_{G_k}(\omega)\). Indeed, at each covered
+point the transverse disk of radius \(\delta_k\) lies in a doubled
+ball, and disks at different points give disjoint cross sections of
+the tube. Summing lengths therefore gives
+\(1\lesssim\sum_{k\ge m}K_{\delta_k}\mathbf1_{G_k}(\omega)\) in
+every direction. The maximal estimate and H\"older in \(k\) yield
+\[
+ 1\lesssim\sum_{k\ge m}2^{2Ak}v_k^{1/n}
+ \lesssim\Big(\sum_j h_\gamma(r_j)\Big)^{1/n}
+              \Big(\sum_{k\ge m} k^{-\gamma/(n-1)}\Big)^{(n-1)/n}.
+\]
+The last factor tends to zero. Thus the Hausdorff measure for this
+gauge is infinite, and \(h_\gamma(r)=o(r^s)\) for every \(s<n\)
+gives \(\dim_{\mathrm H}F=n\). In the plane the same calculation with
+the classical $L^2$ maximal power $1/2$ cited above gives infinite
+Hausdorff measure for
+$r^2\log(1/r)[\log\log(1/r)]^\gamma$ whenever $\gamma>1$.
+The same covering argument works if a segment in
+each of a positive measure set of directions meets \(F\) in length
+at least a fixed \(\lambda>0\).
+\end{proof}
+
+The radial test \(f_\delta(X)=|X|^{-1}\mathbf1_{\{2\delta<|X|<1/2\}}\)
+shows the scale of a possible improvement. Its \(L^n\) norm is
+comparable to \([\log(1/\delta)]^{1/n}\) for small \(\delta\), but
+the average on a tube centered at the origin in any direction is at
+least \(c\int_{4\delta}^{1/4}t^{-1}\dd t\). Hence the maximal
+logarithm must have power at least \(1-1/n=2/p\). A wave estimate
+with the sharp power \(A=1/p\) for arbitrary data would attain this
+bound and give \(|F_\delta|\gtrsim L(1/\delta)^{-(n-1)}\). There are
+compact Kakeya sets satisfying the opposite inequality, by
+Fern\'andez-Delgado and de la Salle
+\cite[Theorem 1.3]{FernandezDelgadoDeLaSalle2026}.
+
+\subsection{Two consequences for other families of segments}
+
+For the Nikodym maximal function \(N_\delta f(x)\), take the supremum
+of the same tube averages over all unit segments \emph{through} \(x\).
+The estimate just proved gives
+\begin{equation}\label{eq:kakeya-nikodym}
+ \|N_\delta f\|_{L^n(\RR^n)}
+             \lesssim L(1/\delta)^{2A}\|f\|_{L^n(\RR^n)}.
+\end{equation}
+We give the projective argument to keep track of the logarithm;
+compare Tao \cite[Theorem 4.10]{Tao1999} and Gao--Liu--Xi
+\cite[\S2.2]{GaoLiuXi2025}. First consider only the
+\(\rho\)-neighborhoods of the segments
+\(\{x+u\omega:1/2\le u\le1\}\), and denote the supremum of their
+averages by \(D_\rho f(x)\). By finitely many rotations we can
+restrict to \(|\omega_n|\ge c_n\). Place \(x=(x',t_0)\) in a unit
+cube \(Q\) centered at zero and fix \(t_0\). For \(\rho\) small, on each
+such tube \(c_n/4\le|s-t_0|\le2\) and \(|y'|\le C_n\). On either
+sign of \(s-t_0\), the map
+\[
+ (y',s)\longmapsto (Y',Y_n)
+           =\big(y'/(s-t_0),\,1/(s-t_0)\big)
+\]
+and its inverse are uniformly Lipschitz there. It sends the line
+\(y'=x'+(s-t_0)v\) to \(Y'=v+Y_n x'\), so the direction
+\((x',1)/|(x',1)|\) is independent of \(v\). The image tube is
+covered by a bounded number of unit tubes of width \(C_n\rho\) in
+that direction. For each sign, transport \(f\) restricted to
+\(5Q\cap\{c_n/4\le\pm(s-t_0)\le2\}\) by this map and extend by
+zero; this is a single input for all \(x'\) in the slice. Its
+\(L^n\) norm is at most \(C\|f\|_{L^n(5Q)}\) by the Jacobian
+bounds. The map from \(x'\) to directions has area Jacobian bounded
+below. Applying the Kakeya estimate in each slice, integrating in
+\(t_0\), then translating and summing over
+cubes, gives \(\|D_\rho f\|_n\lesssim L(1/\rho)^{2A}\|f\|_n\).
+For \(\rho\) bounded below the same estimate follows by averaging
+over a fixed ball about \(x\).
+
+Return to an arbitrary segment through \(x\). Separate the part
+within \(O(\delta)\) of \(x\), then divide each of the two rays into
+distances \(s/2\le u\le s\) for dyadic \(\delta\le s\le1\).
+Relative to the full tube volume, the innermost ball has weight
+\(O(\delta)\), and a piece at distance \(s\) has weight \(O(s)\).
+By dilation the latter's maximal average has the norm of
+\(D_{\delta/s}\). Thus the operator norm is bounded by
+\(\displaystyle C\delta+C\sum_s s L(s/\delta)^{2A}
+\lesssim L(1/\delta)^{2A}\), proving \eqref{eq:kakeya-nikodym}.
+The transverse disk proof above now applies to any Borel set meeting
+a suitable unit segment through each point of a positive measure
+set in length at least \(\lambda>0\). Such a set has Hausdorff
+dimension \(n\). The Nikodym maximal estimate and this dimension conclusion
+hold locally on a manifold of
+constant sectional curvature for geodesic segments of fixed short
+length in a compact subset of a straightening chart: there lengths,
+tube widths and volumes are comparable before and after straightening
+\cite[Proposition 2.3]{GaoLiuXi2025}.
+
+For a different application, fix \(n\ge3\) and a real \(d\times d\)
+matrix \(B\). Consider compact sets containing for every
+\(y\in[-1,1]^d\) one curve
+\[
+           \{(w(y)+(tI_d+t^2 B)y,t):|t|\le\tau_B\},
+\]
+where \(\tau_B>0\) is fixed sufficiently small and \(w(y)\) belongs
+to the fixed sufficiently large compact ball of
+\cite[Equation~(1.16)]{Nadjimzadah2026}. Nadjimzadah's lifting
+theorem \cite[Theorem 1.3]{Nadjimzadah2026} now applies, since
+Corollary~\ref{cor:quant-kakeya} gives full Kakeya dimension in
+\(n+\rank(B^2)\) dimensions. The minimum Hausdorff dimension in
+this curve family is attained and is
+\[
+ n-\rank B+\rank(B^2)=n-\dim(\operatorname{im}B\cap\ker B);
+\]
+the last equality is rank--nullity for \(B\) on its image.

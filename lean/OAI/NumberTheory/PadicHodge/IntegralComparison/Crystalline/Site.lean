@@ -1,0 +1,232 @@
+import Mathlib
+
+/-! # Site -/
+
+namespace OAI.NumberTheory.PadicHodge.IntegralComparison.Crystalline.Site
+
+noncomputable section
+
+/-!
+# IntegralComparison: affine divided-power thickenings and the crystalline site
+
+Objects are affine divided-power thickenings of open subschemes of X,
+compatible with a specified divided-power base. The prime p is nilpotent
+on each thickening. Morphisms are actual divided-power ring maps over
+the base and over X. Covers are induced by Zariski covers of thickenings.
+
+This is the affine presentation of the crystalline site; comparison with
+the full site remains to be developed. Witt-base specialization and
+rationalization are constructed in WittCrystalline. No cohomological
+comparison or trace formula is assumed.
+Reference: https://stacks.math.columbia.edu/tag/07I5.
+-/
+
+open _root_.CategoryTheory _root_.CategoryTheory.Limits _root_.AlgebraicGeometry Opposite
+
+universe u
+
+variable (p : ℕ) (B : Type u) [CommRing B]
+variable (J : Ideal B) (δB : DividedPowers J)
+variable {X : Scheme.{u}} (f : X ⟶ Spec (CommRingCat.of B))
+
+/-- An affine divided-power thickening of an open subscheme of X. -/
+structure AffineThickening where
+  ring : CommRingCat.{u}
+  base : B →+* ring
+  ideal : Ideal ring
+  dividedPowers : DividedPowers ideal
+  baseCompatible : DividedPowers.IsDPMorphism δB dividedPowers base
+  primeNilpotent : IsNilpotent (p : ring)
+  nilIdeal : ∀ x ∈ ideal, IsNilpotent x
+  openMap : Spec (CommRingCat.of (ring ⧸ ideal)) ⟶ X
+  [isOpenImmersion : IsOpenImmersion openMap]
+  overBase : openMap ≫ f =
+    Spec.map (CommRingCat.ofHom (Ideal.Quotient.mk ideal)) ≫
+      Spec.map (CommRingCat.ofHom base)
+
+attribute [instance] AffineThickening.isOpenImmersion
+
+variable {p B J δB f}
+
+namespace AffineThickening
+
+variable (U V W : AffineThickening p B J δB f)
+
+/-- The map induced on the closed subschemes by a divided-power ring map. -/
+def quotientMap (φ : DividedPowers.DPMorphism V.dividedPowers U.dividedPowers) :
+    V.ring ⧸ V.ideal →+* U.ring ⧸ U.ideal :=
+  Ideal.quotientMap U.ideal φ.toRingHom
+    (Ideal.map_le_iff_le_comap.mp φ.ideal_comp)
+
+@[simp]
+lemma quotientMap_mk (φ : DividedPowers.DPMorphism V.dividedPowers U.dividedPowers)
+    (x : V.ring) : AffineThickening.quotientMap U V φ (Ideal.Quotient.mk V.ideal x) =
+      Ideal.Quotient.mk U.ideal (φ x) := rfl
+
+lemma quotientMap_id :
+    AffineThickening.quotientMap U U (DividedPowers.DPMorphism.id U.dividedPowers) =
+      RingHom.id (U.ring ⧸ U.ideal) := by
+  ext x
+  rfl
+
+lemma quotientMap_comp
+    (φ : DividedPowers.DPMorphism V.dividedPowers U.dividedPowers)
+    (ψ : DividedPowers.DPMorphism W.dividedPowers V.dividedPowers) :
+    AffineThickening.quotientMap U W (φ.comp ψ) = (AffineThickening.quotientMap U V φ).comp (AffineThickening.quotientMap V W ψ) := by
+  ext x
+  rfl
+
+/-- A morphism of thickenings is contravariant on coordinate rings. -/
+structure Hom where
+  ringMap : DividedPowers.DPMorphism V.dividedPowers U.dividedPowers
+  overBase : ringMap.toRingHom.comp V.base = U.base
+  overX : Spec.map (CommRingCat.ofHom (AffineThickening.quotientMap U V ringMap)) ≫ V.openMap = U.openMap
+
+@[ext]
+lemma Hom.ext {α β : AffineThickening.Hom U V} (h : α.ringMap = β.ringMap) : α = β := by
+  cases α
+  cases β
+  cases h
+  rfl
+
+def id : AffineThickening.Hom U U where
+  ringMap := DividedPowers.DPMorphism.id U.dividedPowers
+  overBase := rfl
+  overX := by rw [quotientMap_id]; simp
+
+def comp (α : AffineThickening.Hom U V) (β : AffineThickening.Hom V W) : AffineThickening.Hom U W where
+  ringMap := α.ringMap.comp β.ringMap
+  overBase := by
+    change α.ringMap.toRingHom.comp (β.ringMap.toRingHom.comp W.base) = U.base
+    rw [β.overBase, α.overBase]
+  overX := by
+    rw [quotientMap_comp]
+    change Spec.map (CommRingCat.ofHom (AffineThickening.quotientMap V W β.ringMap) ≫
+      CommRingCat.ofHom (AffineThickening.quotientMap U V α.ringMap)) ≫ W.openMap = _
+    rw [Spec.map_comp, Category.assoc, β.overX, α.overX]
+
+instance : Category (AffineThickening p B J δB f) where
+  Hom := AffineThickening.Hom
+  id := fun U => AffineThickening.id U
+  comp := fun {U V W} α β => AffineThickening.comp U V W α β
+  id_comp α := by apply AffineThickening.Hom.ext; rfl
+  comp_id α := by apply AffineThickening.Hom.ext; rfl
+  assoc α β γ := by apply AffineThickening.Hom.ext; rfl
+
+/-- Forget a thickening to its ambient affine scheme. -/
+def ambient : AffineThickening p B J δB f ⥤ Scheme.{u} where
+  obj U := Spec U.ring
+  map α := Spec.map (CommRingCat.ofHom α.ringMap.toRingHom)
+  map_id U := by change Spec.map (𝟙 U.ring) = _; simp
+  map_comp α β := by
+    change Spec.map (CommRingCat.ofHom β.ringMap.toRingHom ≫
+      CommRingCat.ofHom α.ringMap.toRingHom) = _
+    exact Spec.map_comp _ _
+
+/-- Crystalline coverings are Zariski coverings of the ambient thickenings. -/
+def precoverage : Precoverage (AffineThickening p B J δB f) :=
+  (Scheme.precoverage @IsOpenImmersion).comap ambient
+
+/-- The topology generated by the crystalline covering families. -/
+def topology : GrothendieckTopology (AffineThickening p B J δB f) :=
+  AffineThickening.precoverage.toGrothendieck
+
+/-- Functions on the ambient thickening, with the variance needed for a presheaf. -/
+def structurePresheaf : (AffineThickening p B J δB f)ᵒᵖ ⥤ CommRingCat.{u} where
+  obj U := U.unop.ring
+  map α := CommRingCat.ofHom α.unop.ringMap.toRingHom
+  map_id _U := rfl
+  map_comp _α _β := rfl
+
+/-- The additive structure presheaf, enlarged only to accommodate the
+universe of the affine crystalline site. -/
+def structureAbPresheaf :
+    (AffineThickening p B J δB f)ᵒᵖ ⥤ AddCommGrpCat.{u + 1} :=
+  (show (AffineThickening p B J δB f)ᵒᵖ ⥤ AddCommGrpCat.{u} from
+    { obj := fun U => AddCommGrpCat.of U.unop.ring
+      map := fun α => AddCommGrpCat.ofHom α.unop.ringMap.toRingHom.toAddMonoidHom }) ⋙
+    AddCommGrpCat.uliftFunctor.{u + 1, u}
+
+instance structureSheavesGrothendieck :
+    IsGrothendieckAbelian.{u + 1}
+      (Sheaf (topology (p := p) (B := B) (J := J) (δB := δB) (f := f))
+        AddCommGrpCat.{u + 1}) := by
+  have : EssentiallySmall.{u + 1} (AffineThickening p B J δB f) := inferInstance
+  exact Sheaf.isGrothendieckAbelian_of_essentiallySmall _ AddCommGrpCat.{u + 1}
+
+/-- The associated additive crystalline structure sheaf. The identification
+of its sections with the structure presheaf is a separate descent theorem. -/
+def structureSheaf :
+    Sheaf (topology (p := p) (B := B) (J := J) (δB := δB) (f := f))
+      AddCommGrpCat.{u + 1} :=
+  (presheafToSheaf _ _).obj structureAbPresheaf
+
+/-- Cohomology of the geometric crystalline structure sheaf. -/
+def CrystallineCohomology (n : ℕ) : Type (u + 1) :=
+  (structureSheaf (p := p) (B := B) (J := J) (δB := δB) (f := f)).H n
+
+instance crystallineCohomologyAddCommGroup (n : ℕ) :
+    AddCommGroup (CrystallineCohomology (p := p) (B := B) (J := J) (δB := δB) (f := f) n) := by
+  unfold CrystallineCohomology
+  infer_instance
+
+/-- Ambient functions retain their actual action by the base ring. -/
+def structureModulePresheaf :
+    (AffineThickening p B J δB f)ᵒᵖ ⥤ ModuleCat.{u} B where
+  obj U :=
+    letI := U.unop.base.toAlgebra
+    ModuleCat.of B U.unop.ring
+  map {U V} α :=
+    letI := U.unop.base.toAlgebra
+    letI := V.unop.base.toAlgebra
+    ModuleCat.ofHom
+    { toFun := α.unop.ringMap
+      map_add' := map_add α.unop.ringMap.toRingHom
+      map_smul' b x := by
+        change α.unop.ringMap.toRingHom (U.unop.base b * x) =
+          V.unop.base b * α.unop.ringMap.toRingHom x
+        rw [map_mul]
+        rw [show α.unop.ringMap.toRingHom (U.unop.base b) = V.unop.base b from
+          DFunLike.congr_fun α.unop.overBase b] }
+  map_id _U := by ext; rfl
+  map_comp _α _β := by ext; rfl
+
+/-- Universe enlargement of the base ring used by sheafification. -/
+abbrev CoefficientRing := ULift.{u + 1} B
+
+def structureModulePresheafLarge :
+    (AffineThickening p B J δB f)ᵒᵖ ⥤ ModuleCat.{u + 1} (CoefficientRing (B := B)) :=
+  structureModulePresheaf ⋙ ModuleCat.uliftFunctor.{u + 1} B ⋙
+    ModuleCat.restrictScalars (ULift.ringEquiv : CoefficientRing (B := B) ≃+* B).toRingHom
+
+/-- The crystalline structure sheaf as a sheaf of modules over the base. -/
+def structureModuleSheaf :
+    Sheaf (topology (p := p) (B := B) (J := J) (δB := δB) (f := f))
+      (ModuleCat.{u + 1} (CoefficientRing (B := B))) :=
+  (presheafToSheaf _ _).obj structureModulePresheafLarge
+
+def constantBaseSheaf :
+    Sheaf (topology (p := p) (B := B) (J := J) (δB := δB) (f := f))
+      (ModuleCat.{u + 1} (CoefficientRing (B := B))) :=
+  (constantSheaf _ _).obj (ModuleCat.of (CoefficientRing (B := B)) (CoefficientRing (B := B)))
+
+instance moduleCohomologyHasExt : HasExt.{u + 2}
+    (Sheaf (topology (p := p) (B := B) (J := J) (δB := δB) (f := f))
+      (ModuleCat.{u + 1} (CoefficientRing (B := B)))) :=
+  HasExt.standard _
+
+/-- Integral crystalline cohomology, keeping its base-ring module action. -/
+abbrev IntegralModuleCohomology (n : ℕ) : Type (u + 2) :=
+  Abelian.Ext
+    (constantBaseSheaf (p := p) (B := B) (J := J) (δB := δB) (f := f))
+    (structureModuleSheaf (p := p) (B := B) (J := J) (δB := δB) (f := f)) n
+
+instance integralModuleCohomologyScalar (n : ℕ) :
+    Module B (IntegralModuleCohomology (p := p) (B := B) (J := J) (δB := δB) (f := f) n) :=
+  Module.compHom _ (ULift.ringEquiv : CoefficientRing (B := B) ≃+* B).symm.toRingHom
+
+end AffineThickening
+
+end
+
+end OAI.NumberTheory.PadicHodge.IntegralComparison.Crystalline.Site

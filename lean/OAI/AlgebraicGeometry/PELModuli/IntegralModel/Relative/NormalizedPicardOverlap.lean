@@ -1,0 +1,65 @@
+import OAI.AlgebraicGeometry.PELModuli.IntegralModel.Relative.PicardFunctions
+import OAI.AlgebraicGeometry.PELModuli.IntegralModel.NormalizedPicardLocal
+import OAI.AlgebraicGeometry.PELModuli.IntegralModel.CechHomCompatibility
+import OAI.AlgebraicGeometry.PELModuli.IntegralModel.Picard.ProductPullbacks
+
+/-! # Normalized Picard Overlap -/
+
+namespace OAI.AlgebraicGeometry.PELModuli.IntegralModel.Relative.NormalizedPicardOverlap.RelativeNormalizedPicard
+
+noncomputable section
+
+/-! Normalized local comparisons agree on flat Cech overlaps over a
+reduced noetherian parameter. The actual cartesian overlap then proves
+compatibility on arbitrary test schemes, including nonreduced tests. -/
+
+open _root_.CategoryTheory _root_.AlgebraicGeometry
+open _root_.CategoryTheory.MonoidalCategory _root_.CategoryTheory.CartesianMonoidalCategory
+open scoped _root_.CategoryTheory.MonObj
+
+open OAI.AlgebraicGeometry.Isogenies.NeighborCounting.PoincareNormalization OAI.AlgebraicGeometry.Isogenies.NeighborCounting.FramedPullback OAI.AlgebraicGeometry.PELModuli.IntegralModel.NormalizedPicardLocal.NormalizedPicard
+
+variable {S : Scheme.{0}} {g : ℕ} (A : AbelianModuli.HilbertConstruction.Abelian.Schemes.AbelianScheme g S)
+  {T U : Over S} [IsReduced T.left] [IsNoetherian T.left] (u : U ⟶ T)
+  (L M : (T ⊗ A.scheme).left.Modules)
+  (eL : (Scheme.Modules.pullback (Isogenies.NeighborCounting.PoincareNormalization.familyZero A T).left).obj L ≅ ArithmeticGeometry.OrdinaryLocus.Openness.LineBundle.Construction.structureSheafModule T.left)
+  (eM : (Scheme.Modules.pullback (Isogenies.NeighborCounting.PoincareNormalization.familyZero A T).left).obj M ≅ ArithmeticGeometry.OrdinaryLocus.Openness.LineBundle.Construction.structureSheafModule T.left)
+  (e : (Scheme.Modules.pullback (u ▷ A.scheme).left).obj L ≅
+    (Scheme.Modules.pullback (u ▷ A.scheme).left).obj M)
+
+theorem restrictions_eq_flat (hL : ArithmeticGeometry.OrdinaryLocus.Openness.LineBundle.Construction.IsLineBundle L) {V : Over S}
+    (a b : V ⟶ U) (p : V ⟶ T) [Flat p.left] (ha : a ≫ u = p) (hb : b ≫ u = p) :
+    NormalizedPicardLocal.NormalizedPicard.restrict A u L M eL eM a p ha e = NormalizedPicardLocal.NormalizedPicard.restrict A u L M eL eM b p hb e := by
+  have hΓ : IsIso (fst V A.scheme).left.appTop :=
+    PicardFunctions.RelativePicardFunctions.isIso_flat_product_app A T p ⊤
+  exact Picard.NormalizedZeroComparison.PicardNormalizedZeroComparison.iso_eq_of_intrinsic_normalization
+    (p ▷ A.scheme).left (Isogenies.NeighborCounting.PoincareNormalization.familyZero A T).left (Isogenies.NeighborCounting.PoincareNormalization.familyZero A V).left p.left
+    (congrArg Over.Hom.left (Isogenies.NeighborCounting.PoincareNormalization.familyZero_naturality A p))
+    (fst V A.scheme).left (Isogenies.NeighborCounting.PoincareNormalization.familyZero_projection A V)
+    (ConcreteCategory.bijective_of_isIso (fst V A.scheme).left.appTop).surjective
+    (ArithmeticGeometry.OrdinaryLocus.Openness.LineBundle.Construction.isLineBundle_pullback (p ▷ A.scheme).left L hL)
+    _ _ (eL.hom ≫ eM.inv)
+    (NormalizedPicardLocal.NormalizedPicard.restrict_intrinsic A u L M eL eM a p ha e)
+    (NormalizedPicardLocal.NormalizedPicard.restrict_intrinsic A u L M eL eM b p hb e)
+
+theorem normalize_compatible [Flat u.left] (hL : ArithmeticGeometry.OrdinaryLocus.Openness.LineBundle.Construction.IsLineBundle L) :
+    Isogenies.NeighborCounting.FramedDescent.CompatibleHom (u ▷ A.scheme).left (NormalizedPicardLocal.NormalizedPicard.normalize A u L M eL eM e).hom := by
+  let a : CategoryTheory.Limits.pullback u u ⟶ U := CategoryTheory.Limits.pullback.fst u u
+  let b : CategoryTheory.Limits.pullback u u ⟶ U := CategoryTheory.Limits.pullback.snd u u
+  let p := a ≫ u
+  have H : IsPullback a b u u := IsPullback.of_hasPullback u u
+  have : Flat a.left := MorphismProperty.IsStableUnderBaseChange.of_isPullback
+    (H.map (Over.forget S)).flip (inferInstanceAs (Flat u.left))
+  have : Flat p.left := inferInstanceAs (Flat (a.left ≫ u.left))
+  have h := restrictions_eq_flat A u L M eL eM e hL a b p rfl H.w.symm
+  have hp : IsPullback (a ▷ A.scheme).left (b ▷ A.scheme).left
+      (u ▷ A.scheme).left (u ▷ A.scheme).left := by
+    exact Picard.ProductPullbacks.PicardProductOpenCover.productMap_preserves_isPullback A.scheme a b u u H
+  apply CechHomCompatibility.compatibleHom_of_cartesian_overlap (u ▷ A.scheme).left
+    (a ▷ A.scheme).left (b ▷ A.scheme).left hp (NormalizedPicardLocal.NormalizedPicard.normalize A u L M eL eM e).hom
+    (p ▷ A.scheme).left (NormalizedPicardLocal.NormalizedPicard.product_comp A u a p rfl) (NormalizedPicardLocal.NormalizedPicard.product_comp A u b p H.w.symm)
+  exact congrArg Iso.hom h
+
+end
+
+end OAI.AlgebraicGeometry.PELModuli.IntegralModel.Relative.NormalizedPicardOverlap.RelativeNormalizedPicard

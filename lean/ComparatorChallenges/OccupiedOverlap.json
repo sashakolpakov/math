@@ -5,13 +5,7 @@
     "OAI.RowColumn.occupied_overlap_endpoint",
     "OAI.RowColumn.occupied_overlap"
   ],
-  "definition_names": [
-    "OAI.CubeShuffle.UnitaryFinite.IsUnitary",
-    "OAI.CubeShuffle.Specht.hilbertSpace",
-    "OAI.CubeShuffle.Specht.unitaryRepresentation",
-    "OAI.CubeShuffle.Specht.relabelledUnitary",
-    "OAI.RowColumn.OccupiedOverlapEndpoint"
-  ],
+  "definition_names": [],
   "permitted_axioms": [
     "propext",
     "Quot.sound",

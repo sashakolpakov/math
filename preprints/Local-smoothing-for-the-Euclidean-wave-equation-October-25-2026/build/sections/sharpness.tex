@@ -1,0 +1,102 @@
+\section{Two obstructions to endpoint smoothing}\label{sec:sharpness}
+
+A spherical wave that focuses at one time determines the necessary
+Sobolev order. At the critical exponent the wave spends comparable
+$L^{\pc}$ mass on every dyadic scale between wavelength and unit
+distance from the focus. We use the radial test of Beltran, Roos, Rutar
+and Seeger \cite[Section~3]{BRRS2025}, keeping the contributions from
+all these scales.
+
+\begin{proposition}[Radial focusing]\label{prop:sharpness}
+Let $n\ge2$, $d=n-1$, and $I=[1,2]$. For every sufficiently large $N$
+there is a nonzero radial Schwartz function $f_N$, with
+$\supp\widehat f_N\subset\{5N/4<|\xi|<7N/4\}$, such that
+\begin{equation}\label{eq:sharp-strong}
+ \frac{\|U(t)f_N\|_{L^p(\RR^n\times I)}}{\|f_N\|_{L^p(\RR^n)}}
+ \gtrsim_{n,p}
+ \begin{cases}
+     1,&2\le p<\pc,\\
+     (\log N)^{1/\pc},&p=\pc,\\
+     N^{d/2-n/p},&\pc<p<\infty .
+ \end{cases}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Fix $t_0=3/2$, take a nonzero nonnegative
+$\psi\in C_c^\infty((5/4,7/4))$, and set
+$\widehat f_N(\xi)=e^{it_0|\xi|}\psi(|\xi|/N)$.
+Plancherel gives $\|f_N\|_2\asymp N^{n/2}$. To bound $f_N$ pointwise,
+write $\xi=N\sigma\omega$ in its inverse Fourier transform. If
+$|x|<t_0/2$, then $t_0+x\cdot\omega\ge t_0/2$ and integration by parts
+in $\sigma$ gives $O_m(N^{n-m})$ for every integer $m\ge0$.
+If $|x|\ge t_0/2$, the Fourier transform of surface measure on the
+unit sphere is $O((1+N\sigma|x|)^{-d/2})$. Thus
+$\|f_N\|_\infty\lesssim N^{(n+1)/2}$, and
+\begin{equation}\label{eq:sharp-input}
+ \|f_N\|_p\le\|f_N\|_2^{2/p}\|f_N\|_\infty^{1-2/p}
+       \lesssim N^{(n+1)/2-1/p}\qquad (2\le p<\infty).
+\end{equation}
+
+The wave at $t=t_0+u$ has phase $x\cdot\xi-u|\xi|$. Put $r=|x|$ and
+$F(v)=\int \sigma^{d/2}\psi(\sigma)e^{iv\sigma}\dd\sigma$.
+The two stationary points on the sphere give, uniformly for $Nr\ge1$,
+\begin{multline}\label{eq:sharp-phases}
+ U(t_0+u)f_N(x)=c_n N^{(n+1)/2}r^{-d/2}
+ \Big[e^{-i\pi d/4}F\big(N(r-u)\big)\\
+ {}+e^{i\pi d/4}F\big(-N(r+u)\big)+O\big((Nr)^{-1}\big)\Big],
+\end{multline}
+where $c_n>0$. Indeed the leading terms of the angular integral have
+phases $\pm N\sigma r$ and amplitudes
+$(2\pi)^{d/2}(N\sigma r)^{-d/2}e^{\mp i\pi d/4}$; the remainder is
+$O((N\sigma r)^{-d/2-1})$ \cite[Chapter~VIII]{Stein1993}.
+Since $F(0)>0$ and $F$ is Schwartz, there are fixed $\eta>0$ small
+and $A$ large such that on the outgoing shell
+\[
+ A/N\le u\le1/4,\qquad |r-u|\le\eta/N,
+\]
+the first term in brackets is bounded below in modulus and dominates
+the other term and the error. The shell has spatial volume
+$\asymp N^{-1}u^d$. Consequently \eqref{eq:sharp-input} gives
+\[
+ \frac{\|U(t)f_N\|_{L^p(\RR^n\times I)}^p}{\|f_N\|_p^p}
+ \gtrsim \int_{A/N}^{1/4}u^{d-dp/2}\dd u .
+\]
+The exponent of $u$ is $-1$ precisely for $p=\pc$; evaluating the
+integral gives all three cases of \eqref{eq:sharp-strong}.
+\end{proof}
+
+On this annulus $J^s=(1-\Delta)^{s/2}$ has operator norm $O_s(N^s)$
+on the data, for every real $s$: after dilation and division by $N^s$,
+a slightly enlarged smooth annular cutoff gives a multiplier with
+uniformly integrable kernel. The same argument applies to
+$[\log(2+J)]^\beta$, with bound $O_\beta((\log N)^\beta)$.
+Thus a Sobolev estimate requires $s\ge\max\{0,d/2-n/p\}$, and at
+$\pc$ a logarithmic estimate requires $\beta\ge1/\pc$.
+The functions $f_N$ are radial, so the same lower power applies to
+Theorem~\ref{thm:angular} with angular derivatives on the input.
+
+For general data, a second example concentrates a fixed amount of
+$L^2$ mass on a spacetime set of small measure. Even the weak
+spacetime norm detects this concentration.
+
+\begin{proposition}[Weak spacetime obstruction]\label{prop:weak-obstruction}
+For $2<p\le\pc$ and every sufficiently large $N$, there is a nonzero
+Schwartz function $g_N$ with
+$\supp\widehat g_N\subset\{5N/4<|\xi|<7N/4\}$ such that
+\begin{equation}\label{eq:sharp-weak}
+ \frac{\|U(t)g_N\|_{L^{p,\infty}(\RR^n\times I)}}{\|g_N\|_{L^p(\RR^n)}}
+     \gtrsim_{n,p}(\log N)^{d(1/2-1/p)}.
+\end{equation}
+\end{proposition}
+
+The exponent in \eqref{eq:sharp-weak} equals $1/\pc$ at $\pc$
+and is positive for every $2<p<\pc$. In particular Sobolev order zero
+fails throughout $2<p\le\pc$. Both lower bounds apply to
+$P_N$ in Theorem~\ref{thm:main} whenever $\varphi(\eta)=1$ for
+$5/4\le|\eta|\le7/4$. If the strong critical upper bound held with
+power $1/\pc$ for all data, interpolation with the $L^2$ energy
+bound would give exactly the exponent in \eqref{eq:sharp-weak} for
+$2<p<\pc$. Appendix~\ref{sec:weak} proves
+Proposition~\ref{prop:weak-obstruction} by transporting disjoint packets
+into overlapping tubes.

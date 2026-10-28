@@ -1,0 +1,62 @@
+import OAI.AlgebraicGeometry.CycleClass.Thom.GlobalSupportedSource
+
+/-! # Compact Stage -/
+
+namespace OAI.AlgebraicGeometry.CycleClass.Thom.Regular.CompactStage.Constructions.HigherThom
+
+noncomputable section
+
+/-! The global Thom isomorphism at an exact compact source support and its actual ambient image. -/
+
+open _root_.CategoryTheory _root_.CategoryTheory.Limits _root_.TopologicalSpace
+
+set_option backward.isDefEq.respectTransparency false
+
+variable {V : Foundations.Scheme.IntegralProjective.IntegralProjectiveVariety} {p : ℕ} (Z : Geometric.DimensionCycles.DimensionCycleSupport V p)
+
+def regularCompactImageComplement (K : Compacts Z.regularAnalyticSpace) : Opens Z.regularAmbientSpace :=
+  ⟨(HodgeConjecture.DegreeTwo.OpenEmbeddingExtension.Constructions.embeddingCompactImage (SourceSheaf.Constructions.HigherThom.regularSourceInclusionMap V Z) K : Set Z.regularAmbientSpace)ᶜ,
+    (HodgeConjecture.DegreeTwo.OpenEmbeddingExtension.Constructions.embeddingCompactImage (SourceSheaf.Constructions.HigherThom.regularSourceInclusionMap V Z) K).isCompact.isClosed.isOpen_compl⟩
+
+theorem regularCompactImageComplement_preimage (K : Compacts Z.regularAnalyticSpace) :
+    (((Opens.map (SourceSheaf.Constructions.HigherThom.regularSourceInclusionMap V Z)).obj (regularCompactImageComplement Z K) :
+      Opens Z.regularAnalyticSpace) : Set Z.regularAnalyticSpace) = (K : Set Z.regularAnalyticSpace)ᶜ := by
+  change (SourceSheaf.Constructions.HigherThom.regularSourceInclusionMap V Z) ⁻¹'
+    ((SourceSheaf.Constructions.HigherThom.regularSourceInclusionMap V Z) '' (K : Set Z.regularAnalyticSpace))ᶜ = _
+  have hf : Function.Injective (SourceSheaf.Constructions.HigherThom.regularSourceInclusionMap V Z) :=
+    Z.isClosedEmbedding_regularComplementInclusion.injective
+  rw [Set.preimage_compl, Set.preimage_image_eq _ hf]
+
+theorem regularThomComplement_le_compactComplement (K : Compacts Z.regularAnalyticSpace) :
+    Z.regularThomComplementOpen ≤ regularCompactImageComplement Z K := by
+  intro y hy
+  change y ∉ Set.range Z.regularComplementInclusion at hy
+  change y ∉ (SourceSheaf.Constructions.HigherThom.regularSourceInclusionMap V Z) '' (K : Set Z.regularAnalyticSpace)
+  rintro ⟨x, hx, hxy⟩
+  exact hy ⟨x, hxy⟩
+
+theorem regularCompactThom_unionComplement (K : Compacts Z.regularAnalyticSpace) :
+    ((Z.regularThomComplementOpen ⊔ regularCompactImageComplement Z K : Opens Z.regularAmbientSpace) :
+      Set Z.regularAmbientSpace) =
+    (HodgeConjecture.DegreeTwo.OpenEmbeddingExtension.Constructions.embeddingCompactImage (SourceSheaf.Constructions.HigherThom.regularSourceInclusionMap V Z) K : Set Z.regularAmbientSpace)ᶜ := by
+  rw [sup_eq_right.mpr (regularThomComplement_le_compactComplement Z K)]
+  rfl
+
+variable (a : AlgebraicTopology.Cohomology.Singular.Representatives.cochainCocycles (AlgebraicTopology.Cohomology.Singular.RelativeSequence.relativeSingularCochains (ModuleCat.of ℚ ℚ)
+  (TopCat.of Z.regularAmbientSpace) (Z.regularThomComplementOpen : Set Z.regularAmbientSpace)) (2 * p))
+variable (ha : AlgebraicTopology.Cohomology.Singular.Representatives.cochainClass _ (2 * p) a = Z.regularThomClass)
+
+def regularSourceCompactThomStageIso (K : Compacts Z.regularAnalyticSpace) (n : ℕ) :
+    AlgebraicTopology.Cohomology.Singular.RelativeSequence.relativeSingularCohomology (ModuleCat.of ℚ ℚ) (TopCat.of Z.regularAnalyticSpace)
+      (K : Set Z.regularAnalyticSpace)ᶜ n ≅
+    AlgebraicTopology.Cohomology.Singular.RelativeSequence.relativeSingularCohomology (ModuleCat.of ℚ ℚ) (TopCat.of Z.regularAmbientSpace)
+      (HodgeConjecture.DegreeTwo.OpenEmbeddingExtension.Constructions.embeddingCompactImage (SourceSheaf.Constructions.HigherThom.regularSourceInclusionMap V Z) K : Set Z.regularAmbientSpace)ᶜ ((2 * p)+n) :=
+  (eqToIso (congrArg (fun B => AlgebraicTopology.Cohomology.Singular.RelativeSequence.relativeSingularCohomology (ModuleCat.of ℚ ℚ)
+    (TopCat.of Z.regularAnalyticSpace) B n) (regularCompactImageComplement_preimage Z K))).symm ≪≫
+    GlobalSupportedSource.Constructions.HigherThom.regularSourceThomSupportedGlobalIso Z a ha (regularCompactImageComplement Z K) n ≪≫
+    eqToIso (congrArg (fun B => AlgebraicTopology.Cohomology.Singular.RelativeSequence.relativeSingularCohomology (ModuleCat.of ℚ ℚ)
+      (TopCat.of Z.regularAmbientSpace) B ((2 * p)+n)) (regularCompactThom_unionComplement Z K))
+
+end
+
+end OAI.AlgebraicGeometry.CycleClass.Thom.Regular.CompactStage.Constructions.HigherThom

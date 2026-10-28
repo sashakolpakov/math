@@ -1,0 +1,2594 @@
+{
+  "children": {
+    "A0": {
+      "argv": [
+        "./build/arun",
+        "centers.txt",
+        "0",
+        "4",
+        "coarse0.bin",
+        "bad0.txt"
+      ],
+      "completed": true,
+      "inputs": [
+        "centers.txt"
+      ],
+      "outputs": [
+        "coarse0.bin",
+        "bad0.txt"
+      ],
+      "returncode": 0,
+      "stage": "A",
+      "stderr_empty": true
+    },
+    "A1": {
+      "argv": [
+        "./build/arun",
+        "centers.txt",
+        "1",
+        "4",
+        "coarse1.bin",
+        "bad1.txt"
+      ],
+      "completed": true,
+      "inputs": [
+        "centers.txt"
+      ],
+      "outputs": [
+        "coarse1.bin",
+        "bad1.txt"
+      ],
+      "returncode": 0,
+      "stage": "A",
+      "stderr_empty": true
+    },
+    "A2": {
+      "argv": [
+        "./build/arun",
+        "centers.txt",
+        "2",
+        "4",
+        "coarse2.bin",
+        "bad2.txt"
+      ],
+      "completed": true,
+      "inputs": [
+        "centers.txt"
+      ],
+      "outputs": [
+        "coarse2.bin",
+        "bad2.txt"
+      ],
+      "returncode": 0,
+      "stage": "A",
+      "stderr_empty": true
+    },
+    "A3": {
+      "argv": [
+        "./build/arun",
+        "centers.txt",
+        "3",
+        "4",
+        "coarse3.bin",
+        "bad3.txt"
+      ],
+      "completed": true,
+      "inputs": [
+        "centers.txt"
+      ],
+      "outputs": [
+        "coarse3.bin",
+        "bad3.txt"
+      ],
+      "returncode": 0,
+      "stage": "A",
+      "stderr_empty": true
+    },
+    "Bfine": {
+      "argv": [
+        "./build/brun",
+        ".016",
+        ".005",
+        "fine.bin",
+        "finebad.bin",
+        "batches/f",
+        "mid.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "mid.bin"
+      ],
+      "outputs": [
+        "fine.bin",
+        "finebad.bin"
+      ],
+      "returncode": 0,
+      "stage": "Bfine",
+      "stderr_empty": true
+    },
+    "Bmid": {
+      "argv": [
+        "./build/brun",
+        ".07",
+        ".013",
+        "mid.bin",
+        "midbad.bin",
+        "-",
+        "coarse0.bin",
+        "coarse1.bin",
+        "coarse2.bin",
+        "coarse3.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "coarse0.bin",
+        "coarse1.bin",
+        "coarse2.bin",
+        "coarse3.bin"
+      ],
+      "outputs": [
+        "mid.bin",
+        "midbad.bin"
+      ],
+      "returncode": 0,
+      "stage": "Bmid",
+      "stderr_empty": true
+    },
+    "C.Bfallback": {
+      "argv": [
+        "./build/brun",
+        ".011",
+        ".0038",
+        "fb1.bin",
+        "fb1bad.bin",
+        "-",
+        "batches/bad10.bin",
+        "batches/bad3.bin",
+        "batches/bad4.bin",
+        "batches/bad5.bin",
+        "batches/bad52.bin",
+        "batches/bad53.bin",
+        "batches/bad55.bin",
+        "batches/bad56.bin",
+        "batches/bad6.bin",
+        "batches/bad7.bin",
+        "batches/bad78.bin",
+        "batches/bad79.bin",
+        "batches/bad8.bin",
+        "batches/bad80.bin",
+        "batches/bad84.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/bad10.bin",
+        "batches/bad3.bin",
+        "batches/bad4.bin",
+        "batches/bad5.bin",
+        "batches/bad52.bin",
+        "batches/bad53.bin",
+        "batches/bad55.bin",
+        "batches/bad56.bin",
+        "batches/bad6.bin",
+        "batches/bad7.bin",
+        "batches/bad78.bin",
+        "batches/bad79.bin",
+        "batches/bad8.bin",
+        "batches/bad80.bin",
+        "batches/bad84.bin"
+      ],
+      "outputs": [
+        "fb1.bin",
+        "fb1bad.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.fallback",
+      "stderr_empty": true
+    },
+    "C.batch0": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad0.bin",
+        "batches/f0.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f0.bin"
+      ],
+      "outputs": [
+        "batches/bad0.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch1": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad1.bin",
+        "batches/f1.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f1.bin"
+      ],
+      "outputs": [
+        "batches/bad1.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch10": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad10.bin",
+        "batches/f10.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f10.bin"
+      ],
+      "outputs": [
+        "batches/bad10.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch11": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad11.bin",
+        "batches/f11.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f11.bin"
+      ],
+      "outputs": [
+        "batches/bad11.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch12": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad12.bin",
+        "batches/f12.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f12.bin"
+      ],
+      "outputs": [
+        "batches/bad12.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch13": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad13.bin",
+        "batches/f13.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f13.bin"
+      ],
+      "outputs": [
+        "batches/bad13.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch14": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad14.bin",
+        "batches/f14.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f14.bin"
+      ],
+      "outputs": [
+        "batches/bad14.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch15": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad15.bin",
+        "batches/f15.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f15.bin"
+      ],
+      "outputs": [
+        "batches/bad15.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch16": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad16.bin",
+        "batches/f16.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f16.bin"
+      ],
+      "outputs": [
+        "batches/bad16.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch17": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad17.bin",
+        "batches/f17.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f17.bin"
+      ],
+      "outputs": [
+        "batches/bad17.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch18": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad18.bin",
+        "batches/f18.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f18.bin"
+      ],
+      "outputs": [
+        "batches/bad18.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch19": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad19.bin",
+        "batches/f19.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f19.bin"
+      ],
+      "outputs": [
+        "batches/bad19.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch2": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad2.bin",
+        "batches/f2.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f2.bin"
+      ],
+      "outputs": [
+        "batches/bad2.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch20": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad20.bin",
+        "batches/f20.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f20.bin"
+      ],
+      "outputs": [
+        "batches/bad20.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch21": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad21.bin",
+        "batches/f21.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f21.bin"
+      ],
+      "outputs": [
+        "batches/bad21.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch22": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad22.bin",
+        "batches/f22.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f22.bin"
+      ],
+      "outputs": [
+        "batches/bad22.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch23": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad23.bin",
+        "batches/f23.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f23.bin"
+      ],
+      "outputs": [
+        "batches/bad23.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch24": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad24.bin",
+        "batches/f24.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f24.bin"
+      ],
+      "outputs": [
+        "batches/bad24.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch25": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad25.bin",
+        "batches/f25.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f25.bin"
+      ],
+      "outputs": [
+        "batches/bad25.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch26": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad26.bin",
+        "batches/f26.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f26.bin"
+      ],
+      "outputs": [
+        "batches/bad26.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch27": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad27.bin",
+        "batches/f27.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f27.bin"
+      ],
+      "outputs": [
+        "batches/bad27.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch28": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad28.bin",
+        "batches/f28.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f28.bin"
+      ],
+      "outputs": [
+        "batches/bad28.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch29": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad29.bin",
+        "batches/f29.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f29.bin"
+      ],
+      "outputs": [
+        "batches/bad29.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch3": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad3.bin",
+        "batches/f3.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f3.bin"
+      ],
+      "outputs": [
+        "batches/bad3.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch30": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad30.bin",
+        "batches/f30.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f30.bin"
+      ],
+      "outputs": [
+        "batches/bad30.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch31": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad31.bin",
+        "batches/f31.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f31.bin"
+      ],
+      "outputs": [
+        "batches/bad31.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch32": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad32.bin",
+        "batches/f32.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f32.bin"
+      ],
+      "outputs": [
+        "batches/bad32.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch33": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad33.bin",
+        "batches/f33.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f33.bin"
+      ],
+      "outputs": [
+        "batches/bad33.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch34": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad34.bin",
+        "batches/f34.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f34.bin"
+      ],
+      "outputs": [
+        "batches/bad34.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch35": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad35.bin",
+        "batches/f35.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f35.bin"
+      ],
+      "outputs": [
+        "batches/bad35.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch36": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad36.bin",
+        "batches/f36.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f36.bin"
+      ],
+      "outputs": [
+        "batches/bad36.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch37": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad37.bin",
+        "batches/f37.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f37.bin"
+      ],
+      "outputs": [
+        "batches/bad37.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch38": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad38.bin",
+        "batches/f38.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f38.bin"
+      ],
+      "outputs": [
+        "batches/bad38.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch39": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad39.bin",
+        "batches/f39.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f39.bin"
+      ],
+      "outputs": [
+        "batches/bad39.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch4": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad4.bin",
+        "batches/f4.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f4.bin"
+      ],
+      "outputs": [
+        "batches/bad4.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch40": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad40.bin",
+        "batches/f40.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f40.bin"
+      ],
+      "outputs": [
+        "batches/bad40.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch41": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad41.bin",
+        "batches/f41.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f41.bin"
+      ],
+      "outputs": [
+        "batches/bad41.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch42": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad42.bin",
+        "batches/f42.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f42.bin"
+      ],
+      "outputs": [
+        "batches/bad42.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch43": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad43.bin",
+        "batches/f43.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f43.bin"
+      ],
+      "outputs": [
+        "batches/bad43.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch44": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad44.bin",
+        "batches/f44.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f44.bin"
+      ],
+      "outputs": [
+        "batches/bad44.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch45": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad45.bin",
+        "batches/f45.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f45.bin"
+      ],
+      "outputs": [
+        "batches/bad45.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch46": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad46.bin",
+        "batches/f46.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f46.bin"
+      ],
+      "outputs": [
+        "batches/bad46.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch47": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad47.bin",
+        "batches/f47.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f47.bin"
+      ],
+      "outputs": [
+        "batches/bad47.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch48": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad48.bin",
+        "batches/f48.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f48.bin"
+      ],
+      "outputs": [
+        "batches/bad48.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch49": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad49.bin",
+        "batches/f49.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f49.bin"
+      ],
+      "outputs": [
+        "batches/bad49.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch5": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad5.bin",
+        "batches/f5.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f5.bin"
+      ],
+      "outputs": [
+        "batches/bad5.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch50": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad50.bin",
+        "batches/f50.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f50.bin"
+      ],
+      "outputs": [
+        "batches/bad50.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch51": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad51.bin",
+        "batches/f51.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f51.bin"
+      ],
+      "outputs": [
+        "batches/bad51.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch52": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad52.bin",
+        "batches/f52.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f52.bin"
+      ],
+      "outputs": [
+        "batches/bad52.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch53": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad53.bin",
+        "batches/f53.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f53.bin"
+      ],
+      "outputs": [
+        "batches/bad53.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch54": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad54.bin",
+        "batches/f54.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f54.bin"
+      ],
+      "outputs": [
+        "batches/bad54.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch55": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad55.bin",
+        "batches/f55.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f55.bin"
+      ],
+      "outputs": [
+        "batches/bad55.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch56": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad56.bin",
+        "batches/f56.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f56.bin"
+      ],
+      "outputs": [
+        "batches/bad56.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch57": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad57.bin",
+        "batches/f57.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f57.bin"
+      ],
+      "outputs": [
+        "batches/bad57.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch58": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad58.bin",
+        "batches/f58.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f58.bin"
+      ],
+      "outputs": [
+        "batches/bad58.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch59": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad59.bin",
+        "batches/f59.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f59.bin"
+      ],
+      "outputs": [
+        "batches/bad59.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch6": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad6.bin",
+        "batches/f6.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f6.bin"
+      ],
+      "outputs": [
+        "batches/bad6.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch60": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad60.bin",
+        "batches/f60.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f60.bin"
+      ],
+      "outputs": [
+        "batches/bad60.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch61": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad61.bin",
+        "batches/f61.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f61.bin"
+      ],
+      "outputs": [
+        "batches/bad61.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch62": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad62.bin",
+        "batches/f62.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f62.bin"
+      ],
+      "outputs": [
+        "batches/bad62.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch63": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad63.bin",
+        "batches/f63.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f63.bin"
+      ],
+      "outputs": [
+        "batches/bad63.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch64": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad64.bin",
+        "batches/f64.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f64.bin"
+      ],
+      "outputs": [
+        "batches/bad64.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch65": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad65.bin",
+        "batches/f65.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f65.bin"
+      ],
+      "outputs": [
+        "batches/bad65.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch66": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad66.bin",
+        "batches/f66.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f66.bin"
+      ],
+      "outputs": [
+        "batches/bad66.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch67": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad67.bin",
+        "batches/f67.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f67.bin"
+      ],
+      "outputs": [
+        "batches/bad67.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch68": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad68.bin",
+        "batches/f68.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f68.bin"
+      ],
+      "outputs": [
+        "batches/bad68.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch69": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad69.bin",
+        "batches/f69.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f69.bin"
+      ],
+      "outputs": [
+        "batches/bad69.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch7": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad7.bin",
+        "batches/f7.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f7.bin"
+      ],
+      "outputs": [
+        "batches/bad7.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch70": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad70.bin",
+        "batches/f70.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f70.bin"
+      ],
+      "outputs": [
+        "batches/bad70.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch71": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad71.bin",
+        "batches/f71.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f71.bin"
+      ],
+      "outputs": [
+        "batches/bad71.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch72": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad72.bin",
+        "batches/f72.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f72.bin"
+      ],
+      "outputs": [
+        "batches/bad72.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch73": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad73.bin",
+        "batches/f73.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f73.bin"
+      ],
+      "outputs": [
+        "batches/bad73.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch74": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad74.bin",
+        "batches/f74.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f74.bin"
+      ],
+      "outputs": [
+        "batches/bad74.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch75": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad75.bin",
+        "batches/f75.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f75.bin"
+      ],
+      "outputs": [
+        "batches/bad75.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch76": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad76.bin",
+        "batches/f76.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f76.bin"
+      ],
+      "outputs": [
+        "batches/bad76.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch77": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad77.bin",
+        "batches/f77.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f77.bin"
+      ],
+      "outputs": [
+        "batches/bad77.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch78": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad78.bin",
+        "batches/f78.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f78.bin"
+      ],
+      "outputs": [
+        "batches/bad78.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch79": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad79.bin",
+        "batches/f79.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f79.bin"
+      ],
+      "outputs": [
+        "batches/bad79.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch8": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad8.bin",
+        "batches/f8.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f8.bin"
+      ],
+      "outputs": [
+        "batches/bad8.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch80": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad80.bin",
+        "batches/f80.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f80.bin"
+      ],
+      "outputs": [
+        "batches/bad80.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch81": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad81.bin",
+        "batches/f81.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f81.bin"
+      ],
+      "outputs": [
+        "batches/bad81.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch82": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad82.bin",
+        "batches/f82.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f82.bin"
+      ],
+      "outputs": [
+        "batches/bad82.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch83": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad83.bin",
+        "batches/f83.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f83.bin"
+      ],
+      "outputs": [
+        "batches/bad83.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch84": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad84.bin",
+        "batches/f84.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f84.bin"
+      ],
+      "outputs": [
+        "batches/bad84.bin"
+      ],
+      "returncode": 1,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch85": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad85.bin",
+        "batches/f85.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f85.bin"
+      ],
+      "outputs": [
+        "batches/bad85.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch86": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad86.bin",
+        "batches/f86.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f86.bin"
+      ],
+      "outputs": [
+        "batches/bad86.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch87": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad87.bin",
+        "batches/f87.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f87.bin"
+      ],
+      "outputs": [
+        "batches/bad87.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.batch9": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "1",
+        "batches/bad9.bin",
+        "batches/f9.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "batches/f9.bin"
+      ],
+      "outputs": [
+        "batches/bad9.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.initial",
+      "stderr_empty": true
+    },
+    "C.final0": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "0",
+        "4",
+        "fb1cbad0.bin",
+        "fb1.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "fb1.bin"
+      ],
+      "outputs": [
+        "fb1cbad0.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.final",
+      "stderr_empty": true
+    },
+    "C.final1": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "1",
+        "4",
+        "fb1cbad1.bin",
+        "fb1.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "fb1.bin"
+      ],
+      "outputs": [
+        "fb1cbad1.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.final",
+      "stderr_empty": true
+    },
+    "C.final2": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "2",
+        "4",
+        "fb1cbad2.bin",
+        "fb1.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "fb1.bin"
+      ],
+      "outputs": [
+        "fb1cbad2.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.final",
+      "stderr_empty": true
+    },
+    "C.final3": {
+      "argv": [
+        "./build/crun",
+        "12",
+        "4",
+        "1",
+        ".042",
+        "1",
+        "1",
+        "5000000",
+        "3",
+        "4",
+        "fb1cbad3.bin",
+        "fb1.bin"
+      ],
+      "completed": true,
+      "inputs": [
+        "fb1.bin"
+      ],
+      "outputs": [
+        "fb1cbad3.bin"
+      ],
+      "returncode": 0,
+      "stage": "C.final",
+      "stderr_empty": true
+    },
+    "covrun": {
+      "argv": [
+        "./build/covrun",
+        "centers.txt"
+      ],
+      "completed": true,
+      "inputs": [],
+      "outputs": [
+        "centers.txt"
+      ],
+      "returncode": 0,
+      "stage": "cov",
+      "stderr_empty": true
+    }
+  }
+}

@@ -23,7 +23,7 @@ theorem hasDerivAt_expandingSobolev_reduced (a b k L : ℝ)
       ((-(a : ℂ) + Complex.I * b) • lowerSobolevInclusion (v t) +
         (L ^ (-2 : ℝ) * Real.exp (-t)) • lowerSobolevGenerator (v t) +
         (-Complex.I) • lowerSobolevInclusion
-          (sobolevOddPower k (by linarith) m (v t))) t := by
+          (sobolevOddPower k (by change (6 : ℝ) < k; linarith) m (v t))) t := by
   intro v
   have h := ((expandingToSobolev a k ha1 hk).restrictScalars ℝ).hasFDerivAt.comp_hasDerivAt t hw
   change HasDerivAt (fun s => expandingToSobolev a k ha1 hk (lowerSobolevInclusion (w s)))
@@ -51,7 +51,7 @@ theorem hasDerivAt_expandingNonlinearMild_sobolev (a b k L T : ℝ)
       ((-(a : ℂ) + Complex.I * b) • lowerSobolevInclusion (v t) +
         (L ^ (-2 : ℝ) * Real.exp (-t)) • lowerSobolevGenerator (v t) +
         (-Complex.I) • lowerSobolevInclusion
-          (sobolevOddPower k (by linarith) m (v t))) t := by
+          (sobolevOddPower k (by change (6 : ℝ) < k; linarith) m (v t))) t := by
   exact hasDerivAt_expandingSobolev_reduced a b k L ha ha1 hk m _ t
     (hasDerivAt_expandingNonlinearMild a b k L T ha ha1 hk hL hT m u u₀ hu t ht)
 

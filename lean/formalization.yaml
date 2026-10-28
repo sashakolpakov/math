@@ -464,6 +464,11 @@ sources:
     id: ../preprints/Lipschitz-Equivalent-Separable-Banach-Spaces-Need-Not-Be-Linearly-Isomorphic-September-24-2026/paper.pdf
     type: article
 
+  - title: "Local smoothing for the Euclidean wave equation"
+    authors: ["OpenAI"]
+    id: ../preprints/Local-smoothing-for-the-Euclidean-wave-equation-October-25-2026/paper.pdf
+    type: article
+
   - title: "Maximal Seshadri constants on arbitrary polarized surfaces"
     authors: ["OpenAI"]
     id: ../preprints/Maximal-Seshadri-Constants-on-Arbitrary-Polarized-Surfaces-September-23-2026/main.pdf
@@ -734,6 +739,11 @@ sources:
     id: ../preprints/The-Euclidean-Steinitz-Bergstrom-theorem-September-24-2026/The-Euclidean-Steinitz-Bergstrom-theorem-September-24-2026.pdf
     type: article
 
+  - title: "The Exponential Time Hypothesis is False"
+    authors: ["OpenAI"]
+    id: ../preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf
+    type: article
+
   - title: "The Factor-Two Hardness Threshold for Vertex Cover"
     authors: ["OpenAI"]
     id: ../preprints/The-Factor-Two-Hardness-Threshold-for-Vertex-Cover-September-23-2026/paper.pdf
@@ -777,6 +787,11 @@ sources:
   - title: "The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re(s)>7/8"
     authors: ["OpenAI"]
     id: ../preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf
+    type: article
+
+  - title: "The rational Hodge conjecture for CM abelian varieties"
+    authors: ["OpenAI"]
+    id: ../preprints/The-rational-Hodge-conjecture-for-CM-abelian-varieties-October-6-2026/paper.pdf
     type: article
 
   - title: "The second Kahn–Kalai conjecture"
@@ -886,6 +901,9 @@ related_formalizations:
     relationship: builds-on
 
   - id: https://github.com/CBirkbeck/AINTLIB
+    relationship: builds-on
+
+  - id: https://github.com/google-deepmind/formal-conjectures
     relationship: builds-on
 
   - id: https://github.com/math-inc/strongpnt
@@ -1294,6 +1312,10 @@ status:
       declaration: OAI.HenonLaneEmden.main_nonexistence
       file: OAI/Analysis/HenonEmden/Main.lean
 
+    - comparator_config: ComparatorChallenges/HodgeConjectureCMAbelianVarieties/main.json
+      declaration: HodgeCM.hodge_conjecture_for_cm_abelian_varieties
+      file: ComparatorChallenges/HodgeConjectureCMAbelianVarieties/Solution.lean
+
     - comparator_config: ComparatorChallenges/HoneycombBridgeMassSupport.json
       declaration: OAI.CriticalHoneycomb.finiteBridgeMassEstimate
       file: OAI/Combinatorics/HoneycombChords/BridgeMass.lean
@@ -1345,6 +1367,30 @@ status:
     - comparator_config: ComparatorChallenges/KaplanskyQuasitrace.json
       declaration: OAI.Kaplansky.kaplansky_quasitrace_counterexample
       file: OAI/Analysis/Kaplansky/Main.lean
+
+    - comparator_config: ComparatorChallenges/LocalSmoothing.json
+      declaration: OAI.Analysis.Fourier.LocalSmoothing.Comparator.euclidean_local_smoothing
+      file: OAI/Analysis/Fourier/LocalSmoothing/Comparator.lean
+
+    - comparator_config: ComparatorChallenges/LocalSmoothing.json
+      declaration: OAI.Analysis.Fourier.LocalSmoothing.Comparator.bochner_riesz
+      file: OAI/Analysis/Fourier/LocalSmoothing/Comparator.lean
+
+    - comparator_config: ComparatorChallenges/LocalSmoothing.json
+      declaration: OAI.Analysis.Fourier.LocalSmoothing.Comparator.spherical_restriction
+      file: OAI/Analysis/Fourier/LocalSmoothing/Comparator.lean
+
+    - comparator_config: ComparatorChallenges/LocalSmoothing.json
+      declaration: OAI.Analysis.Fourier.LocalSmoothing.Comparator.kakeya_maximal
+      file: OAI/Analysis/Fourier/LocalSmoothing/Comparator.lean
+
+    - comparator_config: ComparatorChallenges/LocalSmoothing.json
+      declaration: OAI.Analysis.Fourier.LocalSmoothing.Comparator.kakeya
+      file: OAI/Analysis/Fourier/LocalSmoothing/Comparator.lean
+
+    - comparator_config: ComparatorChallenges/LocalSmoothing.json
+      declaration: OAI.Analysis.Fourier.LocalSmoothing.Comparator.stein_square
+      file: OAI/Analysis/Fourier/LocalSmoothing/Comparator.lean
 
     - comparator_config: ComparatorChallenges/Laughlin.json
       declaration: OAI.Laughlin.mainTarget_proved
@@ -1633,6 +1679,10 @@ status:
     - comparator_config: ComparatorChallenges/StructuralCrouzeix.json
       declaration: OAI.StructuralCrouzeixReference.challenge
       file: OAI/Analysis/StructuralCrouzeix/Endpoint.lean
+
+    - comparator_config: ComparatorChallenges/SubexponentialSAT.json
+      declaration: OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.exact_count_and_sat
+      file: OAI/Algorithms/SubexponentialSAT/SqrtLogSpace/Final.lean
 
     - comparator_config: ComparatorChallenges/SubpolynomialLp.json
       declaration: OAI.SubpolynomialLp.source_main

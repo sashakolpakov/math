@@ -250,7 +250,7 @@ abbrev OccupiedOverlapEndpoint : Prop :=
       allCopyOverlap (V := EuclideanSpace ℂ (Fin r)) (W := EuclideanSpace ℂ (Fin c))
         (X := hilbertSpace a) I J ≤
         Real.exp (C * (((m + n + 1 : ℕ) : ℝ) * (h : ℝ)^2 *
-          Real.log ((m * n : ℕ) + 2) + (m * n - Ω.card : ℕ))) *
+          Real.log ((m * n : ℕ) + ((2 : ℕ) : ℝ)) + (m * n - Ω.card : ℕ))) *
           min 1 ((r : ℝ) * c / Module.finrank ℂ (space a))
 
 end RowColumn

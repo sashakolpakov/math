@@ -91,7 +91,7 @@ theorem hasDerivAt_nonlinearTorusFunction
     (t : ℝ) (x : SchrodingerTorus)
     (hu : HasDerivAt (fun s => lowerSobolevInclusion (u s))
       (lowerSobolevGenerator (u t) -
-        Complex.I • lowerSobolevInclusion (sobolevOddPower k (by linarith) m (u t))) t) :
+        Complex.I • lowerSobolevInclusion (sobolevOddPower k (by change (6 : ℝ) < k; linarith) m (u t))) t) :
     HasDerivAt (fun s => sobolevTorusFunction k (u s) x)
       (Complex.I * torusFourierLaplacian k (u t) x -
         Complex.I * oddPowerNonlinearity m (sobolevTorusFunction k (u t) x)) t := by
@@ -107,13 +107,13 @@ theorem hasDerivAt_nonlinearTorusFunction
       smul_eq_mul]
     simp [← mul_assoc]
   have hderiv : E (lowerSobolevGenerator (u t) -
-      Complex.I • lowerSobolevInclusion (sobolevOddPower k (by linarith) m (u t))) =
+      Complex.I • lowerSobolevInclusion (sobolevOddPower k (by change (6 : ℝ) < k; linarith) m (u t))) =
       Complex.I * torusFourierLaplacian k (u t) x -
         Complex.I * oddPowerNonlinearity m (sobolevTorusFunction k (u t) x) := by
     change sobolevPointEvaluation (k - 2) (by linarith) x _ = _
     rw [map_sub, map_smul]
     change E (lowerSobolevGenerator (u t)) -
-      Complex.I * E (lowerSobolevInclusion (sobolevOddPower k (by linarith) m (u t))) = _
+      Complex.I * E (lowerSobolevInclusion (sobolevOddPower k (by change (6 : ℝ) < k; linarith) m (u t))) = _
     rw [hgen, hinc]
     rw [sobolevOddPower_apply]
   simpa only [Function.comp_def, hinc, hderiv] using h
@@ -124,7 +124,7 @@ theorem nonlinearTorusFunction_schrodinger_equation
     (t : ℝ) (x : SchrodingerTorus)
     (hu : HasDerivAt (fun s => lowerSobolevInclusion (u s))
       (lowerSobolevGenerator (u t) -
-        Complex.I • lowerSobolevInclusion (sobolevOddPower k (by linarith) m (u t))) t) :
+        Complex.I • lowerSobolevInclusion (sobolevOddPower k (by change (6 : ℝ) < k; linarith) m (u t))) t) :
     Complex.I * deriv (fun s => sobolevTorusFunction k (u s) x) t +
       (∑ j : Fin 12, deriv (deriv
         (fun r => sobolevTorusFunction k (u t) (torusCoordinateLine x j r))) 0) -

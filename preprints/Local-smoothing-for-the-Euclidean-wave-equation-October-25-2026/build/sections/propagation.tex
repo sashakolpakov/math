@@ -1,0 +1,162 @@
+\section{Propagation across a thin cylinder}\label{sec:propagation}
+
+The energy in Proposition~\ref{prop:fixed-barrier} controls the wave on the
+circle $|\tau|=2a$, $1\le T\le2$, and is controlled by the data at
+$|\tau|=4a$, $T=0$. To compare these two sets, we first carry the energy
+out to $|\tau|=1$, where a fixed neighborhood connects the two time
+intervals. We then carry it back towards the inner wall. Each passage
+costs one logarithm, as Figure~\ref{fig:cylinder} illustrates.
+The radial harmonic functions used for comparison are the probabilities
+that planar Brownian motion leaves an annulus through one circle or
+the other \cite[Theorem~3.18]{MoertersPeres2010}. We use the maximum
+principle to retain this comparison in the presence of a potential.
+
+\begin{lemma}\label{lem:cylinder}
+Let $0<b<1/4$ and $D=\log(3/b)$. Suppose a continuous potential
+$V:[b,3]\to[0,\infty)$ satisfies
+\begin{equation}\label{eq:cylinder-moment}
+ \int_b^3 s\log(s/b)V(s)\,ds\le M,\qquad
+ \sup_{1/2\le s\le3/2} V(s)\le M .
+\end{equation}
+Let $E\ge0$ be smooth on $\mathbb R_T\times
+\{\tau\in\mathbb R^2:b\le|\tau|\le3\}$, with
+$\Delta_{T,\tau}E\le V(|\tau|)E$ in the interior. Its circular mean
+\[
+ H(T,s)=\frac1{2\pi}\int_0^{2\pi}
+ E\bigl(T,s(\cos\theta,\sin\theta)\bigr)\,d\theta
+\]
+satisfies, for $b\le r\le1$,
+\begin{equation}\label{eq:cylinder-propagation}
+ H(0,r)\ \ge\ c(M)\frac{\log(r/b)}{D^2}\int_1^2 H(T,b)\,dT .
+\end{equation}
+In particular the factor at $r=2b$ is a constant times $D^{-2}$.
+\end{lemma}
+
+\input{figures/cylinder}
+
+\begin{proof}
+Averaging over rotations preserves the differential inequality, so
+$H(T,|\tau|)$ is again a supersolution of $(-\Delta_{T,\tau}+V)H\ge0$.
+We first estimate the radial solutions that will be used for both
+passages. For $S=1$ or $3$ and a fixed $\kappa>0$, consider
+\[
+ u''+s^{-1}u'=(V+\kappa^2)u,\qquad b<s<S,
+\]
+with endpoint values $0,1$ in either order. We claim that $u$ is bounded
+below by a constant times the function affine in $\log s$ with the same
+values. Indeed, $x=\log(s/b)$ changes the equation into
+$u_{xx}=P(x)u$ on $[0,A]$, where $A=\log(S/b)$ and
+$P(x)=s^2(V(s)+\kappa^2)$. Let $\psi$ solve this equation with
+$\psi(0)=0$, $\psi'(0)=1$. Then $\psi(x)\ge x$, and integrating twice gives
+\[
+ \frac{\psi(x)}x
+ =1+\int_0^x\frac{z(x-z)}x P(z)\frac{\psi(z)}z\,dz .
+\]
+Since $z(x-z)/x\le\min(z,A-z)$, Gronwall's inequality gives
+$\psi(A)/A\le\exp(\int_0^A\min(z,A-z)P(z)\,dz)$. The contribution
+of $V$ to this integral is at most $M$ by~\eqref{eq:cylinder-moment};
+that of $\kappa^2$ is at most
+$\kappa^2 S^2\int_0^\infty t e^{-2t}\,dt$, using $t=A-z$.
+Thus $\psi(x)/\psi(A)\ge c x/A$. The integral bound is unchanged under
+$x\mapsto A-x$, giving the other ordering of the boundary values.
+
+For the outward passage integrate against $\sin(\pi T/3)$ on $[0,3]$.
+This cutoff is positive on the observed times and its second derivative
+is a multiple of itself. Writing $m(s)=\int_0^3\sin(\pi T/3)H(T,s)\,dT$,
+two integrations by parts give
+\[
+ \int_0^3\sin(\pi T/3)\,\partial_T^2 H(T,s)\,dT
+ =-(\pi/3)^2m(s)+(\pi/3)\bigl(H(0,s)+H(3,s)\bigr).
+\]
+It follows that $m''+s^{-1}m'\le(V+\pi^2/9)m$. Since $m(3)\ge0$,
+the maximum principle and the radial estimate with $S=3$ give
+$m(s)\ge c\,m(b)\log(3/s)/D$. In particular,
+\begin{equation}\label{eq:cylinder-band}
+ \int_0^3\int_{3/4\le|\tau|\le5/4}H(T,|\tau|)\,d\tau\,dT
+ \ \ge\ c\,m(b)/D .
+\end{equation}
+
+On the fixed region $-2<T<4$, $1/2<|\tau|<3/2$, we have
+$\Delta H\le MH$. The compact weak Harnack inequality there gives
+$H(T,1)\ge c(M)m(b)/D$ for $|T|\le1$. To see the comparison directly,
+add a real variable $v$: the function
+$H(T,|\tau|)\cos(\sqrt{M+1}\,v)$ is nonnegative and superharmonic on a
+fixed slab about $v=0$. The mean inequality on the four-dimensional ball of
+radius $2\rho$ at $(x,0)$, integrated over $|v|<\rho$, gives on the
+three-dimensional ball of radius $\rho$ about $x=(T,\tau)$ the bound $H(x)\ge c \rho^{-3}\int_{B_\rho(x)}H$ for one small
+radius $\rho$ throughout a neighborhood of the compact connected band
+$[-1,3]\times\{3/4\le|\tau|\le5/4\}$; here $H(x)=H(T,|\tau|)$.
+Cover the band by finitely many balls of radius $\rho/4$. If two such
+balls $B,B'$ overlap, then $B'\subset B_\rho(x)$ for every $x\in B$,
+so $\inf_B H\ge c \rho^{-3}\int_{B'} H$. A finite chain gives the stated
+lower bound from~\eqref{eq:cylinder-band}.
+
+For the return passage take the radial solution with $S=1$,
+$\kappa=\pi/2$, $u(b)=0$ and $u(1)=1$. On $|T|<1$, $b<|\tau|<1$,
+the function $c(M)m(b)D^{-1}\cos(\pi T/2)u(|\tau|)$ solves
+$(-\Delta_{T,\tau}+V)w=0$. It vanishes on $|T|=1$ and $|\tau|=b$,
+and the preceding lower bound puts it below $H$ on $|\tau|=1$.
+The maximum principle and the radial estimate for $u(r)$ therefore give
+\[
+ H(0,r)\ge\frac{c(M)m(b)}D\,\frac{\log(r/b)}{\log(1/b)}
+ \qquad(b\le r\le1).
+\]
+This proves~\eqref{eq:cylinder-propagation}, since $\sin(\pi T/3)$ is
+bounded below on $[1,2]$.
+\end{proof}
+
+\begin{remark}\label{rem:cylinder-power}
+The dependence on $r$ and $b$ in Lemma~\ref{lem:cylinder} is sharp
+for scalar supersolutions, even when $V=0$. Start with
+$(1-\cos T)p(s)$, where $p(s)=\log(3/s)/D$ is the radial harmonic
+function with boundary values $1,0$. To cancel the positive part of
+its Laplacian without changing those boundary values, put
+$g(s)=s^2(1+\log(3/s))/(4D)$. The radial harmonic interpolant
+$L(s)=p(s)g(b)+(1-p(s))g(3)$ lies above $g$, since $\Delta_\tau g=p\ge0$.
+Thus $E(T,s)=(1-\cos T)p(s)+L(s)-g(s)$ is bounded and nonnegative,
+with $\Delta_{T,\tau}E=(\cos T-1)p\le0$. Its trace at $s=b$ is
+$1-\cos T$, and since $g$ is increasing we have
+\[
+ E(0,r)\le (1-p(r))g(3)=\frac94\frac{\log(r/b)}{D^2}.
+\]
+A fixed positive $r$ would cost one logarithm. The data control $r=2b$,
+where a sharper estimate requires more information about the wave energy.
+\end{remark}
+
+\begin{proposition}\label{prop:periodic-cap}
+On the spatial torus $\TT^n=\RR^n/(100\mathbb Z)^n$, let
+$f$ have Fourier support in $c_0/h\le|\xi|\le C_0/h$, $0<h\le1$, and
+in one cap of the fixed aperture from Proposition~\ref{prop:fixed-barrier}.
+Then
+\begin{equation}\label{eq:periodic-cap}
+ \left(\int_1^2\|\U(T)f\|_{L^{\pc}(\TT^n)}^{\pc}\,dT\right)^{1/\pc}
+ \ \le\ C\,[\log(2/h)]^{2/\pc}\|f\|_{L^{\pc}(\TT^n)} .
+\end{equation}
+The constant is uniform in $h$ and in the direction of the cap.
+\end{proposition}
+
+\begin{proof}
+For $f\ne0$, first normalize $\|f\|_{L^2(\TT^n)}=1$.
+Fix the constant $K$ in Proposition~\ref{prop:fixed-barrier}, put
+$a=Kh$ and $b=2a$, and take $h$ small enough that $b<1/4$. Apply
+Lemma~\ref{lem:cylinder} to the energy of that proposition with
+$V(s)=Cs^{-2}e^{-cs/h}$. Its first bound in~\eqref{eq:cylinder-moment}
+follows from
+\[
+ \int_b^3 s\log(s/b)V(s)\,ds
+ \le C\int_1^\infty \frac{\log t}{t}e^{-2cKt}\,dt ,
+\]
+and $V$ is uniformly bounded when $1/2\le s\le3/2$. The two energy
+bounds in Proposition~\ref{prop:fixed-barrier} are uniform on their
+respective circles, so its circular mean satisfies
+\[
+ H(0,2b)\le C_K a^2\|f\|_{\pc}^{\pc},\qquad
+ H(T,b)\ge c_K a^2\|\U(T)f\|_{\pc}^{\pc}.
+\]
+Take $r=2b$ in~\eqref{eq:cylinder-propagation}, substitute both bounds, cancel
+$a^2$, and take $\pc$-th roots. Since $D=\log(3/(2Kh))\lesssim
+\log(2/h)$ and $K$ is fixed, this gives~\eqref{eq:periodic-cap}.
+Homogeneity removes the normalization after this comparison. For the
+remaining $h$ the torus frequencies lie in a fixed ball, where the
+estimate follows by a finite Fourier sum.
+\end{proof}

@@ -60,4 +60,13 @@ def elementaryPositivityWitness (n : ℕ)
     G.PermutationWitness := by
   sorry
 
+theorem elementaryPositivityExpansion (n : ℕ)
+    (G : ElementaryPositivity.NaturalUnitIntervalGraph n) (r : ℕ) :
+    G.chromatic r =
+      ∑ σ : {σ : Equiv.Perm (Fin n) // G.Nondescent σ},
+        MvPolynomial.C (Polynomial.X ^ G.graphInversions σ.val) *
+          MvPolynomial.esymmPart (Fin r) (Polynomial ℕ)
+            ((elementaryPositivityWitness n G).theta σ) := by
+  sorry
+
 end OAI

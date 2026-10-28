@@ -1,0 +1,140 @@
+\section{Disjoint packets and the weak spacetime norm}\label{sec:weak}
+
+We prove Proposition~\ref{prop:weak-obstruction}. The geometry is the
+one used in Fefferman's ball multiplier example \cite{Fefferman1971};
+Wolff explains its relation to local smoothing in the discussion of
+(39) in \cite{Wolff1999Kakeya}. For the quantitative compression
+factor $(\log(1/\delta))^{-(n-1)}$ with disjoint translates of unit
+tubes, see also Fern\'andez-Delgado and de la Salle
+\cite[Theorem~1.4]{FernandezDelgadoDeLaSalle2026}. We give the short
+construction needed here. The tubes are disjoint on one longitudinal
+interval. On a second interval, their union is small and the sum of
+their individual volumes stays bounded below. A modulated packet travels from the
+first part of its tube to the second.
+
+\paragraph{An arrangement of tubes.}
+Write $x=(X,Y)\in\RR\times\RR^d$, $d=n-1$. Let
+$k=\lfloor\frac14\log_2 N\rfloor$, $\delta=2^{-k}$, and put
+$\alpha=1/(4\sqrt d)$, $w=\alpha\delta/16$. For
+$0\le j<2^k$, write $j\delta=\sum_{\ell=1}^k\varepsilon_\ell(j)2^{-\ell}$
+in binary. Use the digits to choose the intercept of a line of slope
+$s_j=\alpha j\delta$:
+\[
+ a_\ell=1-\ell/k,\qquad
+ L_j(X)=\alpha\sum_{\ell=1}^k\varepsilon_\ell(j)2^{-\ell}(X-a_\ell).
+\]
+The $\ell$th binary increment changes the slope without moving the
+line at $X=a_\ell$. Near this point its displacement is small.
+At $X\le-1/2$ these lines are separated. Indeed, when one passes from
+$j$ to $j+1$, one digit, say $m$, changes from zero to one, and the
+later digits change from one to zero. Hence
+\[
+ L_{j+1}(X)-L_j(X)
+  =\alpha\delta(X-a_m)
+       +\alpha\sum_{\ell>m}2^{-\ell}(a_\ell-a_m)
+  \le-\alpha\delta/2 .
+\]
+The intervals of radius $w$ around the $L_j(X)$ are therefore disjoint.
+
+For $X$ in $J=[1/4,1/2]$, let $B_X$ be the union of intervals of
+radius $w/2$ around the same $L_j(X)$. To see why this union is small,
+freeze the first $m=\lfloor k(1-X)\rfloor$ digits. For $\ell>m$ we
+have $0\le X-a_\ell\le(\ell-m)/k$. The tail of each line therefore
+ranges over an interval of length at most
+$\alpha\sum_{\ell>m}2^{-\ell}(\ell-m)/k\le2\alpha 2^{-m}/k$.
+There are $2^m$ choices for the frozen digits, and $m\le3k/4$, so
+\[
+ |B_X|\le 2\alpha/k+2^m w\lesssim\alpha/k.
+\]
+Taking an independent choice in each transverse coordinate produces
+$\delta^{-d}$ lines, indexed by $\nu=(j_1,\ldots,j_d)$. Write
+$L_\nu=(L_{j_1},\ldots,L_{j_d})$ and $s_\nu=(s_{j_1},\ldots,s_{j_d})$.
+The output cores
+\[
+ S_\nu=\{(X,Y):X\in J,\ |Y_i-L_{j_i}(X)|\le w/2,\ 1\le i\le d\}
+\]
+all lie in $E=\{(X,Y):X\in J,\ Y\in (B_X)^d\}$. We have proved
+\begin{equation}\label{eq:weak-geometry}
+ |E|\lesssim_n k^{-d},\qquad
+ \sum_\nu |S_\nu|=\delta^{-d}|J|w^d\asymp_n1.
+\end{equation}
+
+\paragraph{Transport at frequency \(N\).}
+Choose $0\le\chi,\theta\le1$ smooth, with $\chi$ supported in
+$(-2,-1/2)$ and equal to one on $[-3/2,-3/4]$, and $\theta$ supported
+in $(-1,1)$ and equal to one on $[-1/2,1/2]$. Define
+\[
+ b_\nu(X,Y)=\chi(X)\prod_{i=1}^d
+       \theta\big((Y_i-L_{j_i}(X))/w\big),\qquad
+ v_\nu=(1,s_\nu)(1+|s_\nu|^2)^{-1/2}.
+\]
+The $b_\nu$ have disjoint supports and their total support volume is
+$O_n(\delta^{-d}w^d)=O_n(1)$. Set $\lambda=3N/2$,
+$f_\nu(x)=e^{i\lambda v_\nu\cdot x}b_\nu(x)$, and let
+$Q_N=\beta(|D|/N)$, where $\beta\in C_c^\infty((5/4,7/4))$ is one
+on a neighborhood of $3/2$. We claim that, uniformly in $\nu,x$ and
+$1\le t\le2$,
+\begin{equation}\label{eq:weak-packet}
+ U(t)Q_N f_\nu(x)=
+ e^{i\lambda(v_\nu\cdot x-t)}\,b_\nu(x-tv_\nu)+O_n(N^{-1}w^{-2}).
+\end{equation}
+To verify this, write $\xi=\lambda v_\nu+\eta$. On $|\eta|\le cN$ the
+cutoff is one and $|\xi|=\lambda+v_\nu\cdot\eta+O(|\eta|^2/N)$.
+The absolute Fourier transform of the bump is
+\[
+ w^d|\widehat\chi(\eta_1+s_\nu\cdot\eta')|
+      \prod_{i=1}^d|\widehat\theta(w\eta'_i)|,
+ \qquad \eta=(\eta_1,\eta').
+\]
+The change of variables in these arguments and $|s_\nu|\le1/4$ give
+$\int|\eta|^2|\widehat b_\nu(\eta)|\dd\eta\lesssim_n w^{-2}$.
+Thus the integrated phase error is $O_n(N^{-1}w^{-2})$; the absolute
+integral over $|\eta|>cN$ is $O_n(N^{-2}w^{-2})$.
+This proves \eqref{eq:weak-packet}. Its error tends to zero since
+$w\asymp_n\delta$ and $N\ge\delta^{-4}$.
+
+Take $I_0=[3/2,7/4]$. Translation by $tv_\nu$ preserves each
+transverse difference $Y_i-L_{j_i}(X)$. Moreover, for $X\in J$ and
+$t\in I_0$, we have $-3/2\le X-t(v_\nu)_1\le-3/4$, since
+$4/\sqrt{17}\le(v_\nu)_1\le1$. Thus $b_\nu(x-tv_\nu)=1$ on
+$S_\nu\times I_0$ and $|U(t)Q_N f_\nu|\ge1/2$ there for large $N$.
+
+\paragraph{Choosing the signs.}
+For independent random signs $\epsilon_\nu$ put
+$f=\sum_\nu\epsilon_\nu f_\nu$. The disjoint initial supports give
+$\|f\|_p\lesssim_{n,p}1$ for every choice of signs. Independence and
+\eqref{eq:weak-geometry} give
+\[
+ \mathbb E\int_{E\times I_0}|U(t)Q_N f(x)|^2\dd x\dd t
+   =\sum_\nu\int_{E\times I_0}|U(t)Q_N f_\nu(x)|^2\dd x\dd t
+   \ge \tfrac14|I_0|\sum_\nu|S_\nu|\gtrsim_n 1.
+\]
+Fix signs attaining this lower bound and set $g_N=Q_N f$.
+Its Fourier support is as stated, and $\|g_N\|_p\lesssim_{n,p}1$ by
+the uniform $L^1$ kernel bound for $Q_N$. For $p>2$ and a measurable
+set $H$ of finite measure, integration of the decreasing rearrangement
+gives
+\[
+  \int_H |u|^2\le \frac{p}{p-2}|H|^{1-2/p}\|u\|_{L^{p,\infty}}^2 .
+\]
+Taking $H=E\times I_0$ and using $|E|\lesssim_n k^{-d}$ now gives
+$\|U(t)g_N\|_{L^{p,\infty}}\gtrsim_{n,p}k^{d(1/2-1/p)}$.
+As $k\asymp\log N$, this proves Proposition~\ref{prop:weak-obstruction}.
+In fact the inputs have bounded $L^2$ and $L^\infty$ norms separately,
+so interpolation also gives a bounded Lorentz $L^{p,1}$ input norm.
+
+
+These packets also test the angular weight in Theorem~\ref{thm:angular}.
+At $p=\pc$ a weak bound with only $[\log(2+\Om)]^B$ on the input
+requires $B\ge 1/p$. Indeed, before the radial projection the input
+is supported in a fixed ball and is a sum of disjoint packets. Its
+first and second spatial derivatives are bounded by $C N$ and $C N^2$,
+respectively, since $w^{-1}\lesssim_n N^{1/4}$. The spherical Laplacian
+is a sum of squares of infinitesimal rotations $x_i\partial_j-x_j\partial_i$.
+It follows that $\|(1+\Om^2/N^2)g_N\|_p\lesssim1$, since the radial
+projection commutes with rotations. For $B\ge0$ the spherical multiplier
+$[\log(2+\Om)]^B/(1+\Om^2/N^2)$ has norm
+$O_B((\log(2+N))^B)$ by the multiplier bound used in
+\eqref{eq:ang-log-projection}; for $B<0$ the logarithmic weight itself is
+bounded. The preceding lower bound forces $B\ge1/p$. Theorem~\ref{thm:angular}
+gives sufficiency for $B>1/2+1/p$.

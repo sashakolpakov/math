@@ -21,11 +21,7 @@ theorem sobolevProduct_translation (k : ℝ) (hk : 6 < k) (x : SchrodingerTorus)
     sobolevProduct k hk (sobolevTranslation x f) (sobolevTranslation x g) =
       sobolevTranslation x (sobolevProduct k hk f g) := by
   ext n
-  change (sobolevProductWeight k n : ℂ) *
-      (∑' j, sobolevFourierCoefficient k (sobolevTranslation x f) j *
-        sobolevFourierCoefficient k (sobolevTranslation x g) (n - j)) =
-    torusCharacter n x * ((sobolevProductWeight k n : ℂ) *
-      ∑' j, sobolevFourierCoefficient k f j * sobolevFourierCoefficient k g (n - j))
+  simp only [sobolevTranslation_apply, sobolevProduct_apply, sobolevProductCoefficient]
   simp only [sobolevFourierCoefficient_translation]
   have heq (j : frequencyLattice) :
       (torusCharacter j x * sobolevFourierCoefficient k f j) *

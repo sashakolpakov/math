@@ -1,0 +1,150 @@
+\section{A linear Dirichlet problem for the planar wave}\label{sec:planar}
+
+When $n=2$, the coefficient of a rank-one background in the spatial
+determinant is linear in the unknown Hessian. We can therefore prove the
+$p_c=4$ case of Theorem~\ref{thm:main} with a linear auxiliary Dirichlet
+problem on a disk. We give the reduction, including the boundary estimate
+needed to apply Lemma~\ref{lem:cylinder}.
+
+\paragraph{The disk equation.}
+Fix nonzero periodic data in a single cap as in
+Proposition~\ref{prop:fixed-barrier}. Retain $z=(T,\tau)$, $s=|\tau|$,
+$a=Kh$, and $Q=\Phi/a$. For $a<s<4$ replace the ellipsoid by the product
+\[
+ \Omega_z^{\rm pl}:\quad r_W=|W|^2/w_0^2-1<0,\qquad |Q|<1/10 .
+\]
+The real variable $X$ still runs over the fixed torus. At fixed $\tau$,
+\eqref{eq:fiber-inverse} gives a holomorphic chart from this product to
+the imaginary spatial variables $(P,Z)$.
+Use the wave part $A=A_{\rm w}=g(Q)(J_h*_X A^0)$ of
+\eqref{eq:regularized-current}, with $g=1$ on $|Q|\le1/100$ and $g=0$
+on $|Q|\ge1/20$, and put $\mu=A_{TT}$. We need only the
+nonnegativity of this density; no regularizing cofactor is needed.
+
+Put $B=H(|\Phi|^2)$, let $B_{\rm fib}$ be its spatial block, and write
+$L_Bu=C(B_{\rm fib}):H_{\rm fib}(u)$. With the row
+$c=(\partial_P\Phi,\partial_Z\Phi)$ and the column
+$e=(c_2,-c_1)^{\mathsf t}$, we have $B_{\rm fib}=4c^*c$ and
+$C(B_{\rm fib})=4ee^*$. Define
+$\mathcal J=\det_{\CC}\partial(W,\Phi)/\partial(P,Z)=(1+W^2/2)/(\sqrt2Y)$. Then
+\begin{equation}\label{eq:planar-disk-operator}
+ L_Bu=4\sum_{i,j=1}^2\Rea(e_i\bar e_j)\partial_{X_iX_j}u
+       +4|\mathcal J|^2\Delta_Wu,\qquad |\mathcal J|\asymp s^{-1} .
+\end{equation}
+Indeed, the mixed derivatives between $X$ and $(P,Z)$ in the Hessian
+take values in $\CC_{\mathbf k}\mathbf i$, orthogonal to the entries of
+$ee^*$ in $\CC_{\mathbf k}$. The remaining imaginary block is the
+complex Hessian of Lemma~\ref{lem:hessian-calculus}; under the
+holomorphic chart it pairs with the vector $(\partial W\,e,c e)=(\mathcal J,0)$.
+The Jacobian bound follows from \eqref{eq:fiber-inverse}.
+
+Solve $L_Bu=\mu$ with $u=0$ on $|W|=w_0$. At each fixed $(z,\Phi)$ and
+real spatial Fourier frequency $k$ this means solving
+\[
+ 4|\mathcal J|^2\Delta_W\widehat u-4|k\cdot e|^2\widehat u=\widehat\mu
+     \quad (|W|<w_0),\qquad \widehat u|_{|W|=w_0}=0.
+\]
+Here $\Delta_W$ is the ordinary planar Laplacian. After division by
+$4|\mathcal J|^2$ the operator is the Dirichlet Laplacian minus a smooth
+nonnegative potential. It is invertible also at $k=0$. The Dirichlet
+isomorphism on H\"older spaces and the implicit function theorem give
+smooth dependence on the parameters. There are only finitely many frequencies
+in $\mu$. Solving before multiplication by $g(Q)$ shows that
+$u=g(Q)\widetilde u$ with $\widetilde u$ smooth and real. Thus $u$
+vanishes near the $Q$ wall, including the corners. Also $u\le0$:
+for every $\epsilon>0$, $L_B(u+\epsilon r_W)=\mu+
+16\epsilon |\mathcal J|^2/w_0^2>0$, ruling out a positive interior maximum in
+$(X,W)$. Now let $\epsilon\downarrow0$.
+
+\paragraph{The energy.}
+For the full three-by-three Hessian $H=H(u)$, let
+$\mathcal D_B(H)=B:C(H)$, the coefficient of $\lambda$ in
+$\det(\lambda B+H)$. It is quadratic in $H$. Its derivative $M$ in
+$H$ is a mixed cofactor, hence divergence free by
+Lemma~\ref{lem:cofactor-divergence}. Homogeneity gives
+$M:H=2\mathcal D_B(H)$; differentiation in the $TT$ entry gives
+$M_{TT}=C(B_{\rm fib}):H_{\rm fib}(u)=\mu$.
+On the $W$ wall, the full $H(r_W)$ has image the quaternionic line
+spanned by its normal $\nu=G(r_W)/|\nabla r_W|$. Since $u=0$ there,
+writing $u=(u/r_W)r_W$ and restricting the product rule to $\nu^\perp$
+gives $H|_{\nu^\perp}=0$. The coefficient of $\lambda$ in
+$\det((\lambda B+H)|_{\nu^\perp})$ is therefore zero, so
+$\nu^*M\nu=0$ by Lemma~\ref{lem:quaternionic-matrices}. Now set
+\[
+ X_0(z)=\int_{\Omega_z^{\rm pl}}(-u)\mu\dd\zeta,\qquad
+ \mathcal F_{\rm pl}(z)=\tfrac12 X_0(z),\qquad \dd\zeta=\dd X\,\dd P\,\dd Z.
+\]
+Green's formula \eqref{eq:green-moving-fiber} for $M$ gives
+$\Delta_zX_0=-2\int\mathcal D_B(H)\dd\zeta$; the $Q$ wall contributes
+nothing because $u$ vanishes in a neighborhood of it.
+
+To apply the same formula to $A$, we claim that $A:H\ge\mathcal D_B(H)$.
+The current is supported on the quaternionic plane $E=\ker B$ by
+Proposition~\ref{prop:current}. Put $\beta=\tr B$, $\beta_f=\tr B_{\rm fib}$.
+In $E$ take the orthonormal basis consisting of the normalized projection
+of the time vector $e_T$ and the spatial vector $(0,e/|e|)$. In this
+basis write $\alpha=A|_E$, $b=H|_E$, indexing rows from zero. Before
+normalization the projection of $e_T$ has squared length $\beta_f/\beta$. Hence
+$\alpha_{00}\beta_f/\beta=A_{TT}=\mu=\beta_f b_{11}$ by the disk
+equation. The rank-one determinant identity gives
+$\mathcal D_B(H)=\beta\det b$. Substituting
+$\alpha_{00}=\beta b_{11}$ and completing the square gives
+\[
+ A:H-\mathcal D_B(H)
+   =\beta\,|b_{01}+\alpha_{01}/\beta|^2+\det(\alpha)/\beta\ge0.
+\]
+Green's formula for $A$ now bounds
+$\Delta_zX_0$ by $\tfrac12\Delta_zX_0$ plus the outward wave flux.
+Consequently
+\begin{equation}\label{eq:planar-energy}
+ \mathcal F_{\rm pl}\ge0,\qquad
+ \Delta_z\mathcal F_{\rm pl}\le
+ \int_{|Q|<1/10}\delta(r_W)(u/r_W)G(r_W)^*A G(r_W)\dd\zeta .
+\end{equation}
+
+\paragraph{Comparison on the product fiber.}
+Write $\sigma=s/h$, $g_T=e^{-iT|D|}f$, and
+$P_*=J_{Ds}*|g_T|^2$ for $D$ sufficiently large.
+The multiplier proof of \eqref{eq:barrier-current} applies throughout
+the product: $y\asymp s$ there and $|W|=w_0$ on the $W$ wall. It
+gives $\|A\|\lesssim s^{-2}\sigma^m P_*$, with the additional factor
+$e^{-c_0\sigma}$ on that wall. By \eqref{eq:planar-disk-operator} and
+\eqref{eq:barrier-average},
+\[
+ L_B(r_WP_*)=16|\mathcal J|^2P_*/w_0^2+r_W L_BP_*
+       \ge(c-CD^{-2})s^{-2}P_* .
+\]
+The two variables separate, so no mixed gradient term occurs.
+For fixed large $C_1,m_1$ this gives $L_B(C_1\sigma^{m_1}r_WP_*)>\mu$.
+The comparison function and $u$ both vanish on the $W$ wall.
+Comparison on each fixed $Q$ slice yields $0\le u/r_W\le C_1\sigma^{m_1}P_*$ up to that wall.
+The original volume is $\dd P\,\dd Z=a^2|\mathcal J|^{-2}\dd W\,\dd Q$,
+while $\int\delta(r_W)\dd W=\pi w_0^2$ and the full $|G(r_W)|\lesssim s^{-1}$.
+Integrating the energy and
+\eqref{eq:planar-energy}, using $\int P_*^2\dd X\le\|g_T\|_4^4$, gives
+\[
+ \mathcal F_{\rm pl}\lesssim a^2\sigma^m\|g_T\|_4^4,\qquad
+ \Delta_z\mathcal F_{\rm pl}\lesssim
+       (a/s)^2\sigma^m e^{-c_0\sigma}\|g_T\|_4^4 .
+\]
+
+For the lower bound use the centers $|W|\le\gamma$, $|Q|\le1/400$ of
+Section~\ref{sec:barrier}. The inverse multiplier in the proof of
+\eqref{eq:barrier-ball-density} bounds the wave density itself below
+by $m_X$ there, on the entire physical spatial ball of radius $h$ about
+each center; take $d=1$ in that formula. For the distance $l$ to its
+center, $H_{\rm fib}(l^2)=6I$, so $L_B(l^2)=24|e|^2\le C$. For $m_X>0$, subtract $\epsilon m_X(l^2-h^2)$ from $u$, with
+$\epsilon$ small. The difference has strictly positive $L_B$ on the
+whole ball and is nonpositive on its boundary, so it cannot have a
+positive interior maximum. This gives $(-u)\mu\ge\epsilon h^2m_X^2$
+at the center, also trivially for $m_X=0$. Its integral gives
+\[
+ \mathcal F_{\rm pl}\gtrsim_\gamma
+     a^2\sigma^{-m} e^{-C\gamma^2\sigma}\|g_T\|_4^4,
+\]
+since the imaginary center region has volume comparable to
+$a^2s^2\gamma^2$ and $h^2s^2(hs)^{-2}=1$. Taking $\gamma$ small and
+then $K$ large gives all three inequalities of
+Proposition~\ref{prop:fixed-barrier} for $\mathcal F_{\rm pl}$.
+Lemma~\ref{lem:cylinder} and Section~\ref{sec:transfer} now give the
+planar $O((\log(2/h))^{1/2})$ estimate.

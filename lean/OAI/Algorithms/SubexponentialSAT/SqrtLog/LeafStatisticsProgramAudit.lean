@@ -1,0 +1,14 @@
+import OAI.Algorithms.SubexponentialSAT.LeanCompat
+import OAI.Algorithms.SubexponentialSAT.SqrtLog.LeafStatisticsProgramBounds
+import OAI.Algorithms.SubexponentialSAT.SqrtLog.LeafStatisticsProgramArityBounds
+import OAI.Algorithms.SubexponentialSAT.SqrtLog.LeafStatisticsProgramFinalize
+import OAI.Algorithms.SubexponentialSAT.SqrtLog.LeafStatisticsProgramBinaryFrame
+
+namespace OAI.Algorithms
+
+#print axioms SubexponentialSAT.SqrtLog.LeafStatisticsProgram.program_primitive
+#print axioms SubexponentialSAT.SqrtLog.LeafStatisticsProgram.Arity.program_primitive
+#print axioms SubexponentialSAT.SqrtLog.LeafStatisticsProgram.Finalize.program_runsIn
+#print axioms SubexponentialSAT.SqrtLog.LeafStatisticsProgram.Binary.lifted_eval
+
+end OAI.Algorithms

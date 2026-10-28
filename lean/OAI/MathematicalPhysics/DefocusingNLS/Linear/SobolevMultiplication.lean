@@ -103,8 +103,7 @@ lemma summable_sobolevProductTerms (k : ℝ) (hk : 6 < k) (f g : FourierL2)
 theorem sobolevProduct_comm (k : ℝ) (hk : 6 < k) (f g : FourierL2) :
     sobolevProduct k hk f g = sobolevProduct k hk g f := by
   ext n
-  change (sobolevProductWeight k n : ℂ) * sobolevProductCoefficient k f g n =
-    (sobolevProductWeight k n : ℂ) * sobolevProductCoefficient k g f n
+  simp only [sobolevProduct_apply]
   congr 1
   unfold sobolevProductCoefficient
   rw [← (Equiv.subLeft n).tsum_eq (fun m =>
@@ -114,9 +113,7 @@ theorem sobolevProduct_comm (k : ℝ) (hk : 6 < k) (f g : FourierL2) :
 theorem sobolevProduct_add_left (k : ℝ) (hk : 6 < k) (f g h : FourierL2) :
     sobolevProduct k hk (f + g) h = sobolevProduct k hk f h + sobolevProduct k hk g h := by
   ext n
-  change (sobolevProductWeight k n : ℂ) * sobolevProductCoefficient k (f + g) h n =
-    (sobolevProductWeight k n : ℂ) * sobolevProductCoefficient k f h n +
-      (sobolevProductWeight k n : ℂ) * sobolevProductCoefficient k g h n
+  simp only [lp.coeFn_add, Pi.add_apply, sobolevProduct_apply]
   unfold sobolevProductCoefficient
   simp only [sobolevFourierCoefficient_add, add_mul]
   rw [(summable_sobolevProductTerms k hk f h n).tsum_add
@@ -126,8 +123,7 @@ theorem sobolevProduct_add_left (k : ℝ) (hk : 6 < k) (f g h : FourierL2) :
 theorem sobolevProduct_smul_left (k : ℝ) (hk : 6 < k) (c : ℂ) (f g : FourierL2) :
     sobolevProduct k hk (c • f) g = c • sobolevProduct k hk f g := by
   ext n
-  change (sobolevProductWeight k n : ℂ) * sobolevProductCoefficient k (c • f) g n =
-    c * ((sobolevProductWeight k n : ℂ) * sobolevProductCoefficient k f g n)
+  simp only [lp.coeFn_smul, Pi.smul_apply, sobolevProduct_apply, smul_eq_mul]
   unfold sobolevProductCoefficient
   simp only [sobolevFourierCoefficient_smul, mul_assoc, tsum_mul_left]
   ring

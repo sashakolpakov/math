@@ -1,0 +1,240 @@
+\section{Stein's square function}\label{sec:stein-square}
+
+Stein introduced a square function to study the convergence of
+Bochner--Riesz means \cite[\S18, (18.1)]{Stein1958Square}.
+For the Euclidean means \(B_r^\alpha\), with multiplier
+\((1-|\xi|^2/r^2)_+^\alpha\), it measures the change with radius:
+\[
+ \mathcal G_\alpha f(x)=
+ \left(\int_0^\infty |r\partial_r B_r^\alpha f(x)|^2
+                         \frac{\dd r}{r}\right)^{1/2}.
+\]
+Carbery proved the sharp bounds in the plane
+\cite[pp.~409--416]{Carbery1983Square}. In dimensions \(n\ge3\),
+Lee, Rogers and Seeger proved them for \(p\ge 2+4/n\)
+\cite[Theorem~1.1]{LRS2012Square}. Gan, Jing and Wu reached
+\(p\ge13/4\) in dimension three \cite[Theorem~1.1]{GJW2024Square},
+and Gan, Oh and Wu further enlarged the range in dimensions \(n\ge4\)
+\cite[Theorem~1.1]{GOW2025Square}. Here the wave estimate
+\eqref{eq:cs-unit-wave} gives the full range \(2\le p<\infty\).
+
+\begin{theorem}\label{thm:stein-square}
+Let \(n\ge2\) and \(2\le p<\infty\). If
+\[
+ \alpha>\max\left\{\tfrac12,\,n\left(\tfrac12-\tfrac1p\right)\right\},
+\]
+then \(\|\mathcal G_\alpha f\|_p\le C_{n,p,\alpha}\|f\|_p\) for
+\(f\in\mathcal S(\RR^n)\), and \(\mathcal G_\alpha\) extends to \(L^p(\RR^n)\).
+\end{theorem}
+
+The threshold can be read off from one shell. At distance \(\delta\)
+from \(|\xi|=s\), differentiating the mean gives a factor
+\(\delta^{\alpha-1}\). The square norm in \(s\) gives back
+\(\delta^{1/2}\), while the wave estimate at times of order
+\(\delta^{-1}\) costs \(\delta^{-s_+(p)-\varepsilon}\). The resulting
+powers sum if \(\alpha>1/2+s_+(p)\). We first make this calculation
+on \(1\le s\le2\). We then combine the dyadic intervals of radii inside
+the square norm, before taking the spatial \(L^p\) norm.
+
+\begin{lemma}[One interval of radii]\label{lem:square-shell}
+Let \(2<p<\infty\), \(\varepsilon>0\), \(\sigma=s_+(p)+\varepsilon\),
+and \(H=L^2([1,2],\dd s)\). Fix \(A\in C_c^\infty(\RR\times(0,\infty))\)
+and \(\varphi\in C_c^\infty(\RR)\). For \(0<\delta\le1\), let
+\(T_\delta f(x,s)\) be the spatial Fourier multiplier
+\[
+ A(s,|\xi|)\,\varphi\bigl((s-|\xi|)/\delta\bigr)
+\]
+applied to \(f\). Then
+\[
+ \|T_\delta f\|_{L^p_x(H)}\lesssim \delta^{1/2-\sigma}\|f\|_p,
+ \qquad
+ \|T_\delta f\|_{L^2_x(H)}\lesssim \delta^{1/2}\|f\|_2,
+\]
+with constants independent of \(\delta\).
+\end{lemma}
+
+\begin{proof}
+Temporarily omit \(A\), allow \(s\in\RR\), and denote the resulting
+operator by \(V_\delta\). For \(g\) supported in a fixed compact
+annulus in frequency, Plancherel in \(s\) gives, at each \(x\),
+\[
+ \|V_\delta g(x,\cdot)\|_2
+   =(2\pi)^{-1/2}\delta
+          \|\widehat\varphi(\delta t) U(t)g(x)\|_{L^2_t}.
+\]
+On \(R\le |t|\le 2R\), \(R\ge1\), H\"older in \(t\) and the rescaled
+wave estimate \eqref{eq:cs-unit-wave} give
+\[
+ \|U(t)g\|_{L^p_xL^2_t}
+ \lesssim R^{1/2-1/p}R^{1/p+\sigma}\|g\|_p.
+\]
+On \(|t|\le1\) the annular wave kernels have uniformly bounded
+\(L^1\) norms. For \(b>1/2+\sigma\), summing over \(R=1,2,4,\ldots\)
+now gives
+\[
+ \|V_\delta g\|_{L^p_x L^2_s(\RR)}
+ \lesssim \delta\left(1+\sum_R R^{1/2+\sigma}(1+\delta R)^{-b}\right)
+             \|g\|_p
+ \lesssim \delta^{1/2-\sigma}\|g\|_p .
+\]
+To restore \(A\), Fourier invert it in \(s\). The multipliers
+\(\widehat A_1(\eta,|D|)\), where the hat denotes transformation in
+the first argument, are supported in a fixed annulus and have \(L^p\)
+operator norms \(O_b((1+|\eta|)^{-b})\) for every \(b>0\), by smoothness
+and compact support. Integrating
+\(e^{\mathrm is\eta}V_\delta(\widehat A_1(\eta,|D|)f)\) in \(\eta\)
+with measure \(\dd\eta/(2\pi)\) proves the first bound. For the second,
+spatial Plancherel suffices: at each frequency the multiplier is bounded
+and is supported on an \(s\)-interval of length \(O(\delta)\).
+\end{proof}
+
+To combine the intervals of radii, we use Seeger's method for passing
+from bounds on individual frequency annuli to a multiplier estimate
+\cite[Theorem~1]{Seeger1988Dilates}. Jones, Seeger and Wright stated
+a square function version for dilates of annular multipliers
+\cite[p.~6737]{JSW2008Dilates}; Guo, Roos and Yung proved it
+\cite[Proposition~4.2 and \S7]{GRY2020Dilates}. Here we allow a different
+input at each scale and assume decay of the Hilbert-valued kernel and
+its first derivative. On each test cube only \(O(1+\log(1/\delta))\)
+scales need the \(L^p\) bound. H\"older over those scales gives the
+logarithmic power \(1/2-1/p\), which the strict inequality in
+Theorem~\ref{thm:stein-square} absorbs.
+
+\begin{lemma}[Combining dilates]\label{lem:square-dilates}
+Let \(H\) be a Hilbert space, \(2<p<\infty\), \(0<\delta\le1\), and
+\(N=n+3\). Suppose \(K:\RR^n\to H\) is continuously differentiable and
+\[
+ \|K(x)\|_H+\|\nabla K(x)\|_{H^n}
+             \le C_*\delta^{-N}(1+|x|)^{-N}.
+\]
+Write \(S^{(k)}f=2^{nk}K(2^k\cdot)*f\), and let \(B_q\) bound the norm
+of \(K*\) from \(L^q\) to \(L^q(H)\), \(q=2,p\). For every finite
+sequence of Schwartz functions \(f_k\),
+\[
+ \left\|\left(\sum_k\|S^{(k)}f_k\|_H^2\right)^{1/2}\right\|_p
+ \lesssim_{n,p}
+ \left(B_2+C_*\delta+[1+\log(1/\delta)]^{1/2-1/p}B_p\right)
+ \left\|\left(\sum_k|f_k|^2\right)^{1/2}\right\|_p .
+\]
+\end{lemma}
+
+\begin{proof}
+Put \(b_k=\|S^{(k)}f_k\|_H\),
+\(h=(\sum_k b_k^2)^{1/2}\), and \(W=(\sum_k|f_k|^2)^{1/2}\).
+Let \(M\) denote the Hardy--Littlewood maximal operator over cubes and
+\(L=\lceil(N+2)\log_2(2/\delta)\rceil\).
+On a dyadic cube \(Q\) of side \(2^{-j}\) and center \(y\), the
+terms with \(k\le j-L\) are nearly constant. We compare \(h\)
+with \(c_Q=(\sum_{k\le j-L}b_k(y)^2)^{1/2}\).
+For \(x,z\in Q\) and \(k\le j-L\), the derivative bound gives
+\[
+ \|S^{(k)}f_k(x)-S^{(k)}f_k(y)\|_H
+       \lesssim C_*\delta^{-N} 2^{k-j}MW(z).
+\]
+Indeed \(2^k|x-z|\lesssim1\), and convolution with
+\(2^{nk}(1+2^k|\cdot|)^{-N}\) is bounded by a constant times \(M\).
+Summing the squares and taking their square root costs at most
+\(C C_*\delta MW(z)\).
+
+For \(k\ge j+L\), split \(f_k\) on \(5Q\) and its complement. The
+local terms satisfy
+\[
+ \frac1{|Q|}\int_Q\sum_{k\ge j+L}
+       \|S^{(k)}(f_k\mathbf1_{5Q})(x)\|_H^2\dd x
+       \lesssim B_2^2 M(W^2)(z),\qquad z\in Q,
+\]
+because dilation preserves the \(L^2\) operator norm. For the terms
+outside \(5Q\), summing the kernel bound on successive doubled cubes
+gives, for \(x,z\in Q\),
+\[
+ \|S^{(k)}(f_k\mathbf1_{(5Q)^c})(x)\|_H
+       \lesssim C_*\delta^{-N}2^{-(N-n)(k-j)}MW(z).
+\]
+Their square sum again has square root at most \(C C_*\delta MW(z)\).
+
+There remain fewer than \(2L\) indices. H\"older in this finite set
+bounds \(\bigl(|Q|^{-1}\int_Q\sum_{|k-j|<L} b_k^2\bigr)^{1/2}\) by
+\((2L)^{1/2-1/p}F(z)\), where
+\(F=(\sum_k [M(b_k^2)]^{p/2})^{1/p}\). Since \(p/2>1\), the scalar
+maximal theorem and the scale invariance of \(B_p\) give
+\[
+ \|F\|_p^p\lesssim\sum_k\|b_k\|_p^p
+       \le B_p^p\sum_k\|f_k\|_p^p\le B_p^p\|W\|_p^p.
+\]
+By the triangle inequality for the square norm and Cauchy--Schwarz on
+\(Q\), the mean of \(|h-c_Q|\) is thus at most a constant times
+\(
+ C_*\delta MW(z)+B_2 M(W^2)(z)^{1/2}+L^{1/2-1/p}F(z).
+\)
+Replacing \(c_Q\) by the mean \(h_Q\) costs at most a factor of two.
+The dyadic sharp function inequality
+\cite[Chapter~IV, \S3.6, Corollary~1]{Stein1993}
+and the maximal theorem on \(L^p\) and \(L^{p/2}\) now prove the
+assertion. The hypothesis of that inequality at a smaller exponent holds:
+$\|h\|_2^2=\sum_k\|S^{(k)}f_k\|_{L^2(H)}^2
+\le B_2^2\sum_k\|f_k\|_2^2<\infty$, and $2<p$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:stein-square}]
+For \(p=2\), spatial Plancherel and \(u=|\xi|^2/r^2\) give the identity
+\[
+ \|\mathcal G_\alpha f\|_2^2
+ =2\alpha^2\int_0^1 u(1-u)^{2\alpha-2}\dd u\,\|f\|_2^2
+ =\frac{\alpha}{2\alpha-1}\|f\|_2^2.
+\]
+Suppose \(p>2\). Choose \(\varepsilon>0\) so that
+\(\sigma=s_+(p)+\varepsilon<\alpha-1/2\), possible since
+\(1/2+s_+(p)=\max\{1/2,n(1/2-1/p)\}\).
+Write \(r=2^ks\), \(1\le s\le2\), and \(\rho=2^{-k}|\xi|\).
+On this interval \(\dd r/r=\dd s/s\) is comparable to \(\dd s\).
+The differentiated multiplier equals
+\[
+ m(s,\rho)=2\alpha\rho^2s^{-2\alpha}(s+\rho)^{\alpha-1}
+             (s-\rho)^{\alpha-1}\mathbf1_{\{\rho<s\}} ,
+\]
+where the last power is taken only for \(\rho<s\).
+Near the boundary \(\rho=s\), split \(s-\rho>0\) into dyadic intervals
+of size \(\delta=2^{-j}\), \(j\ge0\). Each piece is
+\(\delta^{\alpha-1}A(s,\rho)\varphi((s-\rho)/\delta)\):
+the factors preceding \((s-\rho)^{\alpha-1}\) times a smooth boundary
+cutoff give a fixed amplitude \(A\) supported away from \(\rho=0\);
+the power on a unit shell is absorbed in
+\(\varphi\in C_c^\infty((1/2,2))\).
+
+For fixed \(\delta\), Lemma~\ref{lem:square-shell} bounds the one-interval
+norms of \(T_\delta\). Its kernel and first spatial derivatives satisfy
+the hypothesis of Lemma~\ref{lem:square-dilates} with \(C_*\) independent
+of \(\delta\): \(N\) integrations by parts in frequency cost at most
+\(\delta^{-N}\) on a fixed compact annulus, uniformly in \(s\).
+Write \(T_\delta^{(k)}\) for the spatial dilation obtained by replacing
+\(|\xi|\) by \(2^{-k}|\xi|\) in the symbol of \(T_\delta\), with
+\(s\in[1,2]\) unchanged. Choose smooth annular projections \(P_k\),
+dilates of one fixed multiplier, which equal one on this spatial
+frequency support. Lemma~\ref{lem:square-dilates} applied to \(P_kf\)
+and the Littlewood--Paley inequality bound this shell, on all dyadic
+radius intervals together, by
+\[
+ C\delta^{\alpha-1}
+ \left(\delta^{1/2}+\delta+
+        [1+\log(1/\delta)]^{1/2-1/p}\delta^{1/2-\sigma}\right)\|f\|_p .
+\]
+The sum over \(j\) converges because \(\alpha-1/2-\sigma>0\).
+
+The multiplier left away from the boundary is smooth, supported in
+\(\rho\le2\), and vanishes to order two at zero. Split it into annuli
+\(\rho\asymp 2^\ell\), \(\ell\le2\). After extracting \(2^{2\ell}\)
+and rescaling to the unit annulus, the multipliers have uniformly
+bounded derivatives. Their kernels satisfy Lemma~\ref{lem:square-dilates}
+at \(\delta=1\) with uniform constants (also for \(B_2,B_p\), by
+the integrable kernel bound). For each \(\ell\) their dilates now have
+frequency scale \(2^{k+\ell}\); the same Littlewood--Paley estimate
+applies, and \(\sum_{\ell\le2}2^{2\ell}<\infty\).
+
+These estimates apply first to finite sets of \(k\) and finite shell
+sums. For Schwartz \(f\) the multipliers converge in the Fourier integral
+for each fixed \(r\), by the local integrability of the boundary power.
+Fatou's lemma and then monotone convergence give the full estimate.
+The linear map \(f\mapsto (r\partial_r B_r^\alpha f)_{r>0}\) therefore
+extends by density to \(L^p_x(L^2(\dd r/r))\), giving the asserted
+extension of its pointwise norm.
+\end{proof}

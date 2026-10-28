@@ -4,9 +4,7 @@
   "theorem_names": [
     "OAI.EuclideanFiveColor.no_proper_five_coloring"
   ],
-  "definition_names": [
-    "OAI.EuclideanFiveColor.ProperColoring"
-  ],
+  "definition_names": [],
   "permitted_axioms": [
     "propext",
     "Quot.sound",

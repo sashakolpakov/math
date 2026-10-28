@@ -1,0 +1,90 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[margin=1in,top=.91in,bottom=.93in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs,graphicx,xcolor}
+\usepackage{tikz}
+\usepackage{flafter}
+\usetikzlibrary{arrows.meta,positioning,calc,patterns}
+\usepackage[numbers,sort&compress]{natbib}
+\definecolor{inklink}{HTML}{164D66}
+\usepackage[colorlinks=true,linkcolor=inklink,citecolor=inklink,urlcolor=inklink]{hyperref}
+\usepackage{bookmark}
+\hypersetup{bookmarksopen=true,bookmarksopenlevel=0,bookmarksnumbered=true,bookmarksdepth=2,linktoc=all,pdftitle={Local smoothing for the Euclidean wave equation},pdfauthor={OpenAI},
+  pdfsubject={Local smoothing, Fourier restriction and summation, and Kakeya sets}}
+\providecommand{\doi}[1]{doi: \href{https://doi.org/#1}{{\urlstyle{rm}\nolinkurl{#1}}}}
+\newcommand{\RR}{\mathbb R}\newcommand{\CC}{\mathbb C}\newcommand{\HH}{\mathbb H}\newcommand{\TT}{\mathbb T}
+\newcommand{\dd}{\,\mathrm d}\newcommand{\pc}{p_{\mathrm c}}
+\providecommand{\U}{U}\providecommand{\G}{G}\providecommand{\F}{\mathcal F}\providecommand{\J}{J}
+\providecommand{\Om}{\Lambda_\omega}
+\DeclareMathOperator{\Rea}{Re}\DeclareMathOperator{\tr}{tr}\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\diag}{diag}\DeclareMathOperator{\rank}{rank}\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\Div}{div}\DeclareMathOperator{\Lip}{Lip}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+\allowdisplaybreaks[2]\setlength{\emergencystretch}{1.3em}
+\setcounter{tocdepth}{2}
+\makeatletter
+\newcommand{\papercontents}{%
+  \clearpage
+  \hypertarget{paper-contents}{}%
+  \begingroup
+    \section*{\contentsname}%
+    \small
+    \noindent Sections~\ref{sec:current}--\ref{sec:transfer} prove
+    Theorem~\ref{thm:local-smoothing}; Sections~\ref{sec:kakeya}--\ref{sec:parabolic}
+    give its applications.\par\smallskip
+    \renewcommand*\l@section[2]{\addvspace{2.5pt}%
+      \@dottedtocline{1}{0pt}{2.2em}{\bfseries ##1}{\bfseries ##2}}%
+    \renewcommand*\l@subsection{\@dottedtocline{2}{2.2em}{2.6em}}%
+    \@starttoc{toc}%
+  \endgroup
+  \clearpage}
+\makeatother
+\AddToHook{cmd/bibsection/after}{\addcontentsline{toc}{section}{\refname}}
+\title{Local smoothing for the Euclidean wave equation}
+\author{OpenAI}\date{October 25, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove Sogge's local smoothing conjecture for the Euclidean wave
+equation in every spatial dimension at least two. We deduce the
+Bochner--Riesz conjecture, maximal estimates for these means, and sharp
+bounds for Stein's square function. We obtain Fourier restriction
+estimates for the sphere, the compact paraboloid, and the truncated cone
+throughout the interior of the conjectured range, as well as local smoothing for the
+Schr\"odinger equation. We also prove the Kakeya and Nikodym maximal
+conjectures; in particular, every Euclidean Kakeya set has full
+Hausdorff dimension.
+\end{abstract}
+\bookmark[level=1,dest=paper-contents]{Contents}
+\input{sections/introduction}
+\input{sections/current}
+\input{sections/calculus}
+\input{sections/energy}
+\input{sections/barrier}
+\input{sections/propagation}
+\input{sections/transfer}
+\input{sections/sharpness}
+\addtocontents{toc}{\protect\addvspace{6pt}}
+\input{sections/kakeya}
+\input{sections/consequences}
+\input{sections/stein_square}
+\input{sections/parabolic}
+\appendix
+\addtocontents{toc}{\protect\addvspace{6pt}}
+\input{sections/dirichlet}
+\input{sections/angular}
+\input{sections/weak}
+\input{sections/planar}
+\input{sections/pencil}
+\addtocontents{toc}{\protect\addvspace{6pt}}
+\bibliographystyle{plainnat}
+\bibliography{bibliography}
+\end{document}

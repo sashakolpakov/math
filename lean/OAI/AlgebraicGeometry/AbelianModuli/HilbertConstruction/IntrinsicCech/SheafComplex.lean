@@ -1,0 +1,83 @@
+/-
+Derived from AINTLIB:
+  projects/ModularCurves/ModularCurves/ForMathlib/SheafCechSheafComplex.lean
+The upstream AINTLIB repository is licensed under Apache 2.0.
+This file has been modified.
+-/
+import OAI.AlgebraicGeometry.AbelianModuli.HilbertConstruction.Cech.SheafDifferential
+
+/-! # Sheaf Complex -/
+
+namespace OAI.AlgebraicGeometry.AbelianModuli.HilbertConstruction.IntrinsicCech.SheafComplex
+
+noncomputable section
+
+open _root_.CategoryTheory _root_.CategoryTheory.Limits _root_.TopologicalSpace Opposite
+universe u
+
+variable {X : TopCat.{u}}
+variable (F : TopCat.Sheaf AddCommGrpCat.{u} X)
+
+/-- The presheaf on opens whose value at `A` is the pushforward of the restriction of `F`
+to `A`. -/
+noncomputable def cechFactorPresheaf :
+    (Opens X)ᵒᵖ ⥤ TopCat.Sheaf AddCommGrpCat.{u} X where
+  obj A := (TopologicalSheafRestriction.IntrinsicCech.restrict AddCommGrpCat A.unop.isOpenEmbedding ⋙
+    TopCat.Sheaf.pushforward AddCommGrpCat A.unop.inclusion').obj F
+  map f := Cech.SheafFactorRestriction.IntrinsicCech.cechTermFactorRestriction F (leOfHom f.unop)
+  map_id A := by
+    apply CategoryTheory.Sheaf.hom_ext
+    apply NatTrans.ext
+    funext V
+    change F.obj.map _ = 𝟙 _
+    rw [← F.obj.map_id]
+    exact congrArg F.obj.map (Subsingleton.elim _ _)
+  map_comp f g := by
+    apply CategoryTheory.Sheaf.hom_ext
+    apply NatTrans.ext
+    funext V
+    change F.obj.map _ = F.obj.map _ ≫ F.obj.map _
+    rw [← F.obj.map_comp]
+    exact congrArg F.obj.map (Subsingleton.elim _ _)
+
+variable {ι : Type u} (U : ι → Opens X)
+
+/-- The sheaf-level Cech complex associated to the open family `U`. -/
+noncomputable def cechComplex : CochainComplex (TopCat.Sheaf AddCommGrpCat.{u} X) ℕ :=
+  (cechComplexFunctor U).obj (cechFactorPresheaf F)
+
+/-- The degree-`n` object of the sheaf-level Cech complex is `cechTerm F U n`. -/
+theorem cechComplex_X (n : ℕ) : (cechComplex F U).X n = SheafTerms.cechTerm F U n := rfl
+
+theorem nativeCoface_eq_cechCoface (n : ℕ) (k : Fin (n + 2)) :
+    ((FormalCoproduct.cosimplicialObjectFunctor
+      (FormalCoproduct.mk _ U).cech).obj (cechFactorPresheaf F)).δ k =
+      Cech.SheafCofaces.IntrinsicCech.cechCoface F U n k := by
+  rw [CosimplicialObject.δ,
+    FormalCoproduct.cosimplicialObjectFunctor_obj_map,
+    FormalCoproduct.cech_map]
+  rfl
+
+/-- The native differential of `cechComplex F U` is the alternating-sum map
+`cechDifferential F U n`. -/
+theorem cechComplex_d (n : ℕ) :
+    (cechComplex F U).d n (n + 1) = Cech.SheafDifferential.IntrinsicCech.cechDifferential F U n := by
+  change ((FormalCoproduct.cochainComplexFunctor
+    (FormalCoproduct.mk _ U).cech).obj (cechFactorPresheaf F)).d n (n + 1) = _
+  rw [FormalCoproduct.cochainComplexFunctor_obj_d]
+  refine (CochainComplex.of_d _ _ n).trans ?_
+  rw [AlgebraicTopology.AlternatingCofaceMapComplex.objD, Cech.SheafDifferential.IntrinsicCech.cechDifferential]
+  apply Finset.sum_congr rfl
+  intro k _
+  exact congrArg (fun f => (-1 : ℤ) ^ (k : ℕ) • f)
+    (nativeCoface_eq_cechCoface F U n k)
+
+/-- Consecutive sheaf-level Cech differentials compose to zero. -/
+theorem cechDifferential_comp (n : ℕ) :
+    Cech.SheafDifferential.IntrinsicCech.cechDifferential F U n ≫ Cech.SheafDifferential.IntrinsicCech.cechDifferential F U (n + 1) = 0 := by
+  rw [← cechComplex_d F U n, ← cechComplex_d F U (n + 1)]
+  exact (cechComplex F U).d_comp_d n (n + 1) (n + 2)
+
+end
+
+end OAI.AlgebraicGeometry.AbelianModuli.HilbertConstruction.IntrinsicCech.SheafComplex

@@ -1,0 +1,3 @@
+done100 bad13 (graph0 cap13 over0 cluster0)
+done200 bad13 (graph0 cap13 over0 cluster0)
+result done256 bad13 (graph0 cap13 over0 cluster0)

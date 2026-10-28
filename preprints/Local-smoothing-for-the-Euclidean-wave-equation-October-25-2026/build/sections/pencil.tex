@@ -1,0 +1,330 @@
+\section{Curved characteristic sheets of symmetric systems}\label{sec:pencil}
+
+In the proof of Theorem~\ref{thm:main}, the wave symbol supplies both a
+polarization for each plane wave and a Gaussian centered at that
+polarization. A curved sheet of the largest eigenvalue of a symmetric
+matrix pencil supplies the same two objects. We construct them on one
+angular patch and check the two places where the phase enters the
+fiber estimate: Gaussian decay on the wall and recovery of the wave
+near the center.
+
+\begin{theorem}\label{thm:pencil}
+Let $C_1,\ldots,C_n$ be real symmetric $n\times n$ matrices, $n\ge2$, and
+put $C(\xi)=\sum_{j=1}^n\xi_jC_j$ and $\phi(\xi)=\lambda_{\max}(C(\xi))$.
+Suppose that on an open cone $\Gamma\subset\RR^n\setminus\{0\}$ this
+eigenvalue is simple and $D^2\phi(\xi)$ is positive definite on $\xi^\perp$.
+For every $b\in C_c^\infty(\Gamma)$, $0<h\le1$ and Schwartz function
+$f$ on $\RR^n$,
+\begin{equation}\label{eq:pencil-estimate}
+ \|e^{-\mathrm iT\phi(D)}b(hD)f\|_{L^{p_c}(\RR^n\times[1,2])}
+ \le C_b[\log(2/h)]^{2/p_c}\|f\|_{L^{p_c}(\RR^n)},\qquad
+ p_c=\frac{2n}{n-1}.
+\end{equation}
+The constant may depend on the pencil. The same assertion holds for a
+simple smallest eigenvalue with negative definite transverse Hessian.
+\end{theorem}
+
+\begin{example}[A cubic characteristic sheet]
+In three spatial dimensions take the pencil
+\[
+ C(x,y,z)=\begin{pmatrix}z&x&y\\ x&-z&0\\ y&0&-2z\end{pmatrix}.
+\]
+At $(0,0,1)$ the top eigenvalue is $1$, and its transverse Hessian is
+$\diag(1,2/3)$ by \eqref{eq:pencil-curvature} below. Thus
+\eqref{eq:pencil-estimate} gives an $L^3$ bound on a neighborhood of this ray.
+The sheet is not a piece of a quadric. Indeed its characteristic polynomial is
+\[
+ (t-z)(t+z)(t+2z)-x^2(t+2z)-y^2(t+z).
+\]
+If this homogeneous cubic factored over $\CC$, it would have a linear
+divisor. Since it is monic in $t$, this entails a root
+$t=\alpha x+\beta y+\delta z$. At $z=0$ the polynomial is
+$t(t^2-x^2-y^2)$. Since $x^2+y^2$ is not the square of a linear form,
+$\alpha=\beta=0$; the coefficients of $x^2z$ and $y^2z$ would then
+require $\delta=-2$ and $\delta=-1$, respectively.
+Irreducibility rules out even a local quadratic equation for the sheet:
+the resultant with that equation in $t$ would vanish on an open set in
+$(x,y,z)$, and hence identically.
+\end{example}
+
+\subsection{Eigenvectors and the spatial fiber}
+
+Fix a unit direction $\omega\in\Gamma$. Take the unit top eigenvector of
+$C(\omega)$ as the first state coordinate $e_0$. The other state coordinates
+form its orthogonal complement of dimension $d=n-1$. The isolated
+eigenprojection is smooth near $\omega$ by its resolvent formula
+\cite[Chapter~II]{Kato1995}. Applying it to $e_0$ and normalizing the first
+component to one gives a real eigenvector
+$E(\xi)=(1,v(\xi))^{\mathsf t}$, homogeneous of degree zero. Put
+$S(\xi)=\phi(\xi)I-C(\xi)$ and denote its lower $d\times d$ block by
+$S_\perp(\xi)$. On a sufficiently small conic neighborhood,
+\[
+ S(\xi)E(\xi)=0,\qquad c|\xi|I\le S_\perp(\xi)\le C|\xi|I .
+\]
+Here and below constants are uniform on each chosen compact angular chart.
+
+Write $Lw$ for the orthogonal projection of $C(w)e_0$ on $e_0^\perp$.
+Differentiating the unit eigenvector equation along $\omega+\sigma w$
+shows that the derivative of the eigenvector at $\sigma=0$ is
+$S_\perp(\omega)^{-1}Lw$ in $e_0^\perp$; differentiating the eigenvalue
+derivative $\phi'_w=e^{\mathsf t}C(w)e$ therefore gives
+\begin{equation}\label{eq:pencil-curvature}
+ D^2\phi(\omega)[w,w]
+    =2(Lw)^{\mathsf t}S_\perp(\omega)^{-1}Lw.
+\end{equation}
+Consequently $L:\omega^\perp\to e_0^\perp$ is an isomorphism. So is
+$Dv(\omega)=S_\perp(\omega)^{-1}L$ on $\omega^\perp$: the polarization
+$v$ is a local angular coordinate. This is where the equality of the
+state and spatial dimensions is used.
+
+For $W\in\CC_{\mathbf k}^d$ near zero, let $e(W)=(1,W)^{\mathsf t}$ and set
+\[
+ B_j(W)=\frac{e(W)^{\mathsf t} C_j e(W)}{1+W\cdot W}.
+\]
+The products here are bilinear. On real eigenvectors this map is the group
+velocity: $B(v(\xi))=\nabla\phi(\xi)$. Its differential at zero is
+$2L^{\mathsf t}$, with image $\omega^\perp$. Thus for a fixed small $w_0>0$
+the projection of $B$ onto $\omega^\perp$ is a holomorphic coordinate map
+on a neighborhood of $|W|\le w_0$, and the matrices $[dB(W),\omega]$
+and their inverses are bounded there.
+
+We use one further complex coordinate $\Phi$ in the normal direction
+$\omega$. For the imaginary time $\tau$ and spatial coordinates
+$P\in\CC_{\mathbf k}^n$ define the fiber chart by
+\begin{equation}\label{eq:pencil-chart}
+ P=\tau B(W)+\Phi\omega,\qquad
+ R^2=\frac{2\tau}{1+W\cdot W},\qquad y=|R|^2\asymp s=|\tau|.
+\end{equation}
+Inverting the projection of $P/\tau$ onto $\omega^\perp$ recovers $W$;
+$\Phi$ then follows from the component along $\omega$. At a real
+polarization $W=v(\xi)$ the Rayleigh quotient $\xi\cdot B(W)$ is
+stationary. Since $\xi\cdot B(W)=\phi(\xi)$ there, differentiating
+\eqref{eq:pencil-chart} gives the characteristic conormal
+\[
+ d\Phi=\frac{\xi\cdot dP-\phi(\xi)\,d\tau}{\xi\cdot\omega}
+ \qquad(W=v(\xi)).
+\]
+
+Let $a=Kh$, $Q=\Phi/a$, and take the spatial fiber over $(T,\tau)$ to be
+the torus of Section~\ref{sec:energy} in the real variables, times
+\[
+ r=|W|^2/w_0^2+100|Q|^2-1<0
+\]
+in the imaginary variables. For $a<s<4$, differentiation of
+\eqref{eq:pencil-chart} gives
+\begin{equation}\label{eq:pencil-scales}
+ |dW|\lesssim s^{-1},\qquad |d\Phi|\lesssim1,\qquad
+ \dd P\asymp a^2s^{2d}\dd W\,\dd Q .
+\end{equation}
+The derivative bounds include the time variables: solve
+$dP-B\,d\tau=\tau\, dB\,dW+\omega\,d\Phi$. At fixed $\tau$ the complex
+Jacobian matrix in $(W,Q)$ is $[\tau\, dB,a\omega]$, which also proves
+the volume formula. In particular $\partial_\omega\Phi=1$ in the spatial
+variables. If $F=(W/w_0,10Q)$, Lemma~\ref{lem:hessian-calculus} gives
+$H(r)=4(dF)^*dF$. Its spatial block is $\gtrsim s^{-2}I$ and has
+determinant $\asymp a^{-2}s^{-2d}$. Since $|F|\le1$, it also satisfies
+$G_{\rm fib}(r)G_{\rm fib}(r)^*\le H_{\rm fib}(r)$. The full Hessian has rank $n$.
+Its quaternionic null line belongs to $\ker d\Phi\cap G(r)^\perp$,
+since $d\Phi$ is a multiple of the last row of $dF$ and
+$G(r)=2(dF)^*F\mathbf i$. The spatial Hessian of $|\Phi|^2$ has rank one,
+with nonzero eigenvalue comparable to one. These are the geometric and
+boundary properties needed for the determinant energy.
+
+\subsection{The current and its Gaussian multiplier}
+
+Take a finite periodic Fourier sum $g_T=e^{-\mathrm iT\phi(D)}f$ in the
+annulus $|\xi|\asymp h^{-1}$ in the chosen chart, with $|v(\xi)|\le\gamma$, where
+$\gamma<w_0/10$ is fixed below. Write its individual terms as $u_\xi$.
+The entire vector wave $\sum_\xi |\xi|^{d/2}E(\xi)u_\xi$ solves the
+symmetric system with matrices $C^0=I$, $C^j=C_j$. To apply the flux
+construction of Section~\ref{sec:current}, write its paired auxiliary
+states as $w=w_1+\mathbf k w_2=R e(W)$. The holomorphic flux map is
+\[
+ \Theta(w,\Phi)=
+ \left(\tfrac12w^{\mathsf t} C^\mu w\right)_{\mu=0}^n+(0,\omega)\Phi .
+\]
+Its output is exactly $(\tau,P)$ in \eqref{eq:pencil-chart}.
+Writing $M_{\mu a}=(C^\mu w)_a$, its real Jacobian is
+$J=|\det[M,(0,\omega)]|^2=|R|^{2n}j(W)$ with $j(W)\asymp1$:
+each of the first $n$ columns has a factor $R$, and the remaining
+matrix is invertible by \eqref{eq:pencil-chart}.
+
+Let $G_{\rm sys}$ be the conjugate of the vector wave evaluated at
+$(T,X)-\mathrm i q_{\RR}$, where $q_{\RR}^\mu=w^*C^\mu w/2$.
+Pushing the tensor of Lemma~\ref{lem:current-flow} forward as a density
+by \eqref{eq:current-pushforward}, the general row formula
+\eqref{eq:current-flux-column} gives
+\begin{equation}\label{eq:pencil-column}
+ \chi_\mu=J^{-1/2}\sum_a M_{\mu a}\mathbf i(G_{\rm sys})_a,\qquad
+ A^0=\chi\chi^* .
+\end{equation}
+The change of variables preserves column divergence: its Hessian term
+pairs the two equal diagonal state blocks with
+$(\partial_{w_{1a}w_{1b}}+\partial_{w_{2a}w_{2b}})\Theta^\mu=0$,
+and the mixed state block vanishes. Since $\Phi$ is the passive
+coordinate, $d\Phi\,M=0$ and hence $d\Phi\,\chi=0$. The choice of root
+$R$ affects only the sign of $\chi$, so $A^0$ is single valued.
+
+The attenuation of each plane wave is determined by $S(\xi)E(\xi)=0$:
+\begin{equation}\label{eq:pencil-gaussian}
+ \exp(-w^*S(\xi)w/2)=e^{-\Psi},\qquad
+ \Psi=\frac{y}{2h}(W-v(\eta))^*S_\perp(\eta)(W-v(\eta)),\quad \eta=h\xi .
+\end{equation}
+For each row norm at fixed imaginary coordinates we may remove the common
+left unit $R/|R|$ in \eqref{eq:pencil-column}. The remaining volume factor
+is $|R|/\sqrt J=j(W)^{-1/2}y^{-d/2}$. With respect to the orthogonal planes
+$\CC_{\mathbf i}$ and $\mathbf k\CC_{\mathbf i}$, each row is then a
+pair of scalar multipliers on $g_T$, up to conjugation and multiplication
+by $\mathbf i$. Their real symbols are the two components in $\CC_{\mathbf k}$ of
+\begin{equation}\label{eq:pencil-symbol}
+ j(W)^{-1/2}e(W)^{\mathsf t}C^\mu E(\eta)\,
+             |\eta|^{d/2}(hy)^{-d/2} e^{-\Psi}.
+\end{equation}
+For the time row the coefficient is $j(W)^{-1/2}(1+W\cdot v(\eta))$,
+whose real part is bounded below. Thus $A^0_{TT}\ge|\mathsf S_0 g_T|^2$,
+where $\mathsf S_0$ is the multiplier with symbol the real part of
+\eqref{eq:pencil-symbol} for $\mu=0$. It can be inverted on the cap.
+
+\subsection{The fixed cap estimate}
+
+Normalize $\|f\|_2=1$. Write $\sigma=s/h$, $p=p_c$, $q=p/2=n/d$. With
+the kernels $J_\ell$ and cutoff $g(Q)$ of \eqref{eq:regularized-current} put
+\[
+ A_{\rm w}=g(Q)(J_h*_X A^0),\qquad A=A_{\rm w}+h^{50n}C(H(r)),\qquad
+ \mu=A_{TT},\qquad B_0=\lambda|\Phi|^2,\quad \lambda=h^{-30n}.
+\]
+Since $\Phi$ is independent of $X$, the averaged current still annihilates
+$G(g(Q))$, so the cutoff preserves conservation. The positive semidefinite
+cofactor is conserved, takes values in $\ker H(r)\subset\ker d\Phi$, and has
+$TT$ entry $\det H_{\rm fib}(r)>0$. Thus $A:H(B_0)=0$ and $\mu>0$.
+The spatial background $H_{\rm fib}(B_0)$ has a single nonzero eigenvalue
+$\asymp\lambda$. Theorem~\ref{thm:dirichlet} gives the solution
+$u\le0$ of \eqref{eq:fiber-equation}, smooth in $(T,\tau)$. The null
+line of $H(r)$ lies in $G(r)^\perp\cap\ker H(B_0)$, so both normal
+cofactor terms vanish as in Proposition~\ref{prop:energy-flux}. That
+balance and Lemma~\ref{lem:energy-comparison} give, for the energy
+$\mathcal F=\mathcal J_z(u)$ of \eqref{eq:energy-functional},
+\begin{equation}\label{eq:pencil-energy}
+ \mathcal F\asymp\int_{r<0}(-u)\mu\dd X\,\dd P,\qquad
+ \Delta_{T,\tau}\mathcal F
+ \le\int (u/r)G(r)^*A_{\rm w}G(r)\,\delta(r)\dd X\,\dd P .
+\end{equation}
+
+We check the two Gaussian estimates used in the proof of
+Proposition~\ref{prop:fixed-barrier}, throughout $2a\le s\le3$.
+First multiply each row symbol \eqref{eq:pencil-symbol} by a smooth
+cutoff equal to one on the data, supported in a fixed enlarged annulus
+and in $|v|<w_0/3$ inside the chart. Since $|\partial_\eta^\alpha\Psi|\lesssim_\alpha\sigma$,
+the derivatives of these symbols through order $2n+4$ are bounded by
+$C(hs)^{-d/2}\sigma^m$ for some $m$. On the active wall
+$r=0$, $g(Q)\ne0$, we have $|W|\ge\sqrt3\,w_0/2$. The lower bound
+$S_\perp(\eta)\ge cI$ gives the additional factor $e^{-c_0\sigma}$ with
+$c_0>0$ independent of $\gamma$. The kernel estimate leading to
+\eqref{eq:barrier-current} now gives, for $P_*=(J_{Ds}*|g_T|^2)^{1/d}$
+and fixed large $D$,
+\begin{equation}\label{eq:pencil-envelope}
+ \mu\lesssim s^{-2d}\sigma^m P_*^d \quad(r\le0),\qquad
+ \|A_{\rm w}\|\lesssim s^{-2d}\sigma^m e^{-c_0\sigma}P_*^d\quad(r=0).
+\end{equation}
+The cofactor adds $O(h^{50n}a^{-2}s^{-2d})$ to $\mu$;
+the nearest lattice translate gives $P_*^d\gtrsim h^{n+4}$ since $\|g_T\|_2=1$.
+
+For the inverse estimate take a center with $|W|\le\gamma$, $|Q|\le1/400$.
+By \eqref{eq:pencil-scales}, its spatial ball of radius $h$ lies in
+$|W|\le2\gamma$, $|Q|\le1/100$, where $g=1$, for $K$ large relative to
+$1/\gamma$. At each imaginary point of this ball invert $\mathsf S_0$
+using a smooth cutoff equal to one on the data, supported in the same
+enlarged annulus and in $|v|\le2\gamma$. On its support
+$\Psi\le C_1\gamma^2\sigma$, so the reciprocal with cutoff has derivatives
+through order $2n+4$ bounded by
+$C_\gamma(hs)^{d/2}\sigma^m e^{C_1\gamma^2\sigma}$ with $C_1$ independent
+of $\gamma$. Kernel domination by $J_h$ and $A^0_{TT}\ge|\mathsf S_0g_T|^2$
+give, as in \eqref{eq:barrier-ball-density},
+\[
+ \mu\ge m_X=c_\gamma(hs)^{-d}\sigma^{-m}e^{-2C_1\gamma^2\sigma}|g_T(X)|^2
+\]
+on the whole ball: moving the real coordinate by at most $h$ changes $J_h$
+only by a bounded factor.
+
+The two comparison functions of Section~\ref{sec:barrier} now apply.
+By \eqref{eq:barrier-product}, $H_{\rm fib}(rP_*)\ge P_*H_{\rm fib}(r)/2$.
+Since $H_{\rm fib}(r)\gtrsim s^{-2}I$ and the background has rank one,
+comparison with $C\sigma^{m'}rP_*$ gives $0\le u/r\lesssim\sigma^{m'}P_*$
+by \eqref{eq:pencil-envelope}. On the ball the quadratic function
+$\epsilon m_X^{1/d}(\ell^2-h^2)$, where $\ell$ is distance from the center,
+gives $(-u)\mu\gtrsim h^2m_X^q$ at the center. This comparison uses
+$m_X^{1/d}\le\lambda$: the $O(h^{-n})$ Fourier coefficients sum in modulus
+to $O(h^{-n/2})$ by Parseval, and \eqref{eq:pencil-symbol} is $O(h^{-d})$.
+Together with the cofactor bound this gives $\mu^{1/d}\le\lambda$ for small $h$.
+
+Tangency removes $G(|Q|^2)$ from the flux; the remaining part of $G(r)$
+is $O(s^{-1})$ by \eqref{eq:pencil-scales}. The same Jacobian estimate
+gives imaginary volume $O(a^2s^{2d})$ for both the fiber and its wall with
+weight $\delta(r)$, and volume $\asymp_\gamma a^2s^{2d}$ for the centers.
+Using $\int P_*^{d+1}\dd X\le\|g_T\|_p^p$ and $h^2s^{2d}(hs)^{-dq}=\sigma^{n-2}$
+in \eqref{eq:pencil-energy}, we get
+\begin{align}
+ c_\gamma a^2\sigma^{-m}e^{-2q C_1\gamma^2\sigma}\|g_T\|_p^p
+ &\le\mathcal F\le Ca^2\sigma^m\|g_T\|_p^p,\label{eq:pencil-lower}\\
+ \Delta_{T,\tau}\mathcal F&\le Ca^2s^{-2}\sigma^me^{-c_0\sigma}\|g_T\|_p^p .
+ \label{eq:pencil-upper-flux}
+\end{align}
+Choose $\gamma$ so that $2q C_1\gamma^2<c_0/2$, then fix $K$. Division gives
+$\Delta\mathcal F\le Cs^{-2}e^{-cs/h}\mathcal F$. At $T=0$ the upper
+bound on $s=4a$ uses $g_0=f$; on $1\le T\le2$ the lower bound on $s=2a$
+controls $\|g_T\|_p^p$. The values of $\sigma$ on these circles are fixed.
+As in the proof of Proposition~\ref{prop:periodic-cap},
+Lemma~\ref{lem:cylinder} with $b=2a$ and $r=4a$ gives
+\[
+ \int_1^2\|g_T\|_p^p\dd T\lesssim[\log(2/h)]^2\|f\|_p^p .
+\]
+Homogeneity removes the normalization.
+
+Finitely many such caps cover the directions in $\supp b$; their smooth
+annular cutoffs have uniformly integrable kernels. To remove the period,
+choose $M\ge1$ larger than $\sup_{\supp b}|\nabla\phi|$ and apply the
+torus estimate on the same lattice to $C/M$ and $b_M(\eta)=b(\eta/M)$.
+By homogeneity $|\nabla(\phi/M)|\le1$ on $\supp b_M$. For $|X|\ge3$ the
+kernel phase has gradient $X-(T/M)\nabla\phi(\eta)$ of size $\gtrsim |X|$,
+which gives the decay \eqref{eq:off-cone-kernel}. The cube argument of
+Section~\ref{sec:transfer} gives the Euclidean estimate for $(C/M,b_M)$.
+For $f_M(X)=f(MX)$ one has
+\[
+ e^{-\mathrm iT\phi(D)/M}b_M(hD)f_M(X)
+ =\big(e^{-\mathrm iT\phi(D)}b(hD)f\big)(MX).
+\]
+Both norms gain the same factor $M^{-n/p}$, proving \eqref{eq:pencil-estimate}
+for small $h$. Smooth multiplier estimates cover the remaining compact
+range. Applying the result to $-C$ with cutoff $\bar b$ and conjugating
+with $f(X)\mapsto\overline{f(-X)}$ gives the smallest-eigenvalue assertion.
+
+\subsection{A lower bound on a single patch}
+For every nonzero $b$ in Theorem~\ref{thm:pencil}, the logarithmic power
+in \eqref{eq:pencil-estimate} must be at least $1/p_c$. Here is the
+local version of the focusing test in Proposition~\ref{prop:sharpness}.
+Rotate a neighborhood where $b\ne0$ into the coordinates
+$\eta=\rho(\alpha,1)$, $\rho>0$, and write
+$\phi(\eta)=\rho\varphi(\alpha)$. The matrix $D^2\varphi$ is positive
+definite there, since the Hessian of $\phi$ has only the radial kernel.
+Take $h=N^{-1}$ and
+$\widehat f_N(\xi)=e^{(3/2)\mathrm i\phi(\xi)}(\psi/b)(\xi/N)$,
+where $\psi$ is a nonnegative smooth bump supported in this neighborhood
+and strictly positive on a smaller closed product patch. At the initial
+time, stationary phase in $\alpha$ gives $\|f_N\|_\infty\lesssim N^{n-d/2}$ uniformly
+in $X$, and Plancherel gives $\|f_N\|_2\lesssim N^{n/2}$. Thus
+$\|f_N\|_p\lesssim N^{(n+1)/2-1/p}$ for $p\ge2$.
+
+At time $3/2+\delta$, set
+$X'=\delta\nabla\varphi(\alpha)$ and
+$X_n=\delta(\varphi(\alpha)-\alpha\cdot\nabla\varphi(\alpha))+z/N$.
+For $\alpha$ in the smaller patch and $|z|\le c$, this set has volume
+$\asymp\delta^d/N$. Its angular stationary point is $\alpha$.
+For $N\delta$ large, stationary phase now gives output of modulus at least
+$cN^{n-d/2}\delta^{-d/2}$: up to a nonzero smooth factor and constant
+phase the leading radial integral is
+$\int e^{\mathrm i\rho z}\rho^{d/2}\psi(\rho(\alpha,1))\dd\rho$,
+uniformly nonzero for small $c$. The angular remainder is smaller by
+$O((N\delta)^{-1})$ \cite[Chapter~VIII]{Stein1993}. The $p$th power of
+the ratio of the output and input norms thus dominates
+$\int_{C/N}^{1/4}\delta^{d-dp/2}\dd\delta$. For $p=p_c$ this is
+comparable to $\log N$.
