@@ -1,0 +1,249 @@
+\section{Estimating the energy on a fixed fiber}\label{sec:barrier}
+
+On a fiber at fixed $(T,\tau)$, the only positive contribution to
+the energy balance comes from the wave current crossing the spatial
+wall $r=0$. The Gaussian is small where the current reaches the wall;
+comparison with a spatial average of the wave bounds the other factor,
+the boundary value of $u/r$. This gives an upper bound for the flux in
+terms of the wave norm. To bound it by the energy itself, we must
+recover that same norm from the interior. There we invert the Gaussian
+and compare $u$ with a quadratic on each ball of radius $h$.
+
+\begin{proposition}\label{prop:fixed-barrier}
+Fix an annulus $c_1\le h|\xi|\le c_2$, with $0<c_1<c_2$. There are
+constants $\gamma>0$, $K\ge1$, and $c,C>0$, depending only on $n$ and
+the annulus, with the following property. Let $a=Kh$, $0<h<1/(4K)$,
+and let $f$ be a trigonometric polynomial on the fixed torus, with
+$\|f\|_2=1$ and frequencies in this annulus and in $|v|\le\gamma$ in
+some orthonormal frame. Write $g_T=e^{-iT|D|}f$ and let
+$\mathcal F(T,\tau)$ be its energy from Section~\ref{sec:energy}.
+Then
+\begin{align}
+ \mathcal F(0,\tau)&\le C a^2\|f\|_{\pc}^{\pc}
+       && (|\tau|=4a),\label{eq:barrier-input}\\
+ \mathcal F(T,\tau)&\ge c a^2\|g_T\|_{\pc}^{\pc}
+       && (|\tau|=2a),\label{eq:barrier-output}\\
+ \Delta_z\mathcal F(T,\tau)&\le V(s)\mathcal F(T,\tau),\qquad
+   V(s)=C s^{-2}e^{-c s/h}
+       && (2a\le s=|\tau|\le3).\label{eq:barrier-potential}
+\end{align}
+The last two inequalities hold for all $T\in\mathbb R$.
+\end{proposition}
+
+\begin{proof}
+Write $d=n-1$, $q=n/d=\pc/2$, and $\sigma=s/h$. Throughout the proof
+$2a\le s\le3$. On the fiber
+\[
+ r=|W|^2/w_0^2+100|Q|^2-1<0,\qquad w_0=1/10,\quad Q=\Phi/a,
+\]
+we use two regions. On $r=0$ the cutoff in the current vanishes unless
+$|Q|\le1/20$, which forces $|W|\ge (\sqrt{3}/2)w_0$. Near the center,
+where $|W|\le\gamma$ and $|Q|\le1/400$, the Gaussian multiplier can
+be inverted. Figure~\ref{fig:fiber} shows the separation between these
+regions. It lets us compare two exponentials with different constants
+in their exponents. For now take $0<\gamma<w_0/8$. We estimate uniformly in $s$,
+allowing the prefactor in the interior lower bound to depend on $\gamma$.
+
+\input{figures/fiber}
+
+\paragraph{A spatial average for the upper bound.}
+For a dimensional constant $D\ge1$, to be fixed below, set
+\[
+ P_*(X)=\big((J_{Ds}*|g_T|^2)(X)\big)^{1/d},\qquad
+ M=2n+4.
+\]
+Here and below convolution is in the real spatial variables $X$.
+Recall that $J_\ell$ is the periodization of
+$C_n\ell^{-n}(1+|X/\ell|^2)^{-M/2}$, of integral one. Differentiating this
+positive kernel term by term and then taking the $d$th root gives
+\begin{equation}\label{eq:barrier-average}
+ |\nabla_X^jP_*|\le C(Ds)^{-j}P_*\quad(j=1,2),\qquad
+ \int P_*^{d+1}\,dX\le\|g_T\|_{\pc}^{\pc}.
+\end{equation}
+The integral bound is Young's inequality with exponent $q$. The positive
+kernel gives $P_*>0$ since $\|g_T\|_2=1$.
+
+We next bound the wave current $A_{\mathrm w}$ and its regularized
+density $\mu$. By Proposition~\ref{prop:current}, each scalar part of
+the wave polarization is a multiplier on $g_T$ with symbol a bounded
+smooth factor times
+\[
+ (\kappa/y)^{d/2}\exp(-\Psi),\qquad
+ \Psi=\tfrac12\kappa y|W-v|^2,\qquad y=|Y|\asymp s.
+\]
+Multiply the symbol by a fixed smooth annular cutoff equal to one on the
+data and supported in $|v|<w_0/3$. In the variable $\eta=h\xi$ its
+derivatives through order $M$ are bounded by
+$C(hs)^{-d/2}\sigma^m$ for some fixed $m$. Indeed $h\kappa$ and $v$
+have uniformly bounded derivatives on this cutoff, $h\kappa$ is bounded
+away from zero there, and each derivative of $\Psi$ costs at most
+$C\sigma$. On $r=0$ where $g(Q)$ is nonzero, $|W-v|$ has a fixed
+positive lower bound, so the same estimate gains $e^{-c_0\sigma}$ for
+some $c_0>0$ independent of $\gamma$.
+
+If $B$ bounds these derivatives of a compactly supported symbol, applying
+$(1-\Delta_\eta)^{n+2}$ in its inverse Fourier transform bounds its
+absolute kernel by $CB h^{-n}(1+|X/h|^2)^{-M/2}$. Periodization gives
+the majorant $CBJ_h$ on the torus, also for a rotated lattice. Thus
+the squared modulus of the multiplier output is bounded by
+$C B^2 J_h*|g_T|^2$. There is one more convolution with $J_h$ in
+$A_{\mathrm w}$. We have $J_h*J_h\le C J_h$: in the Euclidean
+convolution, either $|Y|$ or $|X-Y|$ is at least $|X|/2$, and the
+inequality persists after periodization. Moreover
+$J_h\le(Ds/h)^nJ_{Ds}$. Using $(hs)^{-d}=s^{-2d}\sigma^d$ and
+increasing $m$ when necessary, we obtain
+\begin{align}
+ \|A_{\mathrm w}\|&\le Cs^{-2d}\sigma^m P_*^d
+              &&(r\le0),\nonumber\\
+ \|A_{\mathrm w}\|&\le Cs^{-2d}\sigma^m e^{-c_0\sigma}P_*^d
+              &&(r=0).\label{eq:barrier-current}
+\end{align}
+Here $\|A_{\mathrm w}\|$ is the matrix operator norm. Only the first
+bound is needed for $\mu$. Its extra term is
+$h^{50n}\det H_{\mathrm{fib}}(r)\le Ch^{50n}a^{-2}s^{-2d}$ by
+Lemma~\ref{lem:fiber-geometry}. The nearest lattice term in the positive
+kernel gives $\inf_X J_{Ds}(X)\ge c_D h^{M-n}$, since the torus has fixed
+diameter and $h\le s\le3$. Consequently
+$P_*^d\ge c_D h^{M-n}\|g_T\|_2^2=c_D h^{M-n}$, which absorbs
+$h^{50n}a^{-2}$. In particular
+\begin{equation}\label{eq:barrier-density}
+ \mu\le C s^{-2d}\sigma^m P_*^d\qquad(r\le0).
+\end{equation}
+
+\paragraph{A comparison function that vanishes on the wall.}
+Put $R=H_{\mathrm{fib}}(r)$. Two features of the defining function
+from Lemma~\ref{lem:fiber-geometry} will be used together:
+$R\ge c s^{-2}I$ and
+$G_{\mathrm{fib}}(r)G_{\mathrm{fib}}(r)^*\le C R$. It follows that
+\begin{equation}\label{eq:barrier-product}
+ H_{\mathrm{fib}}(rP_*)\ge (1-C/D)P_*R.
+\end{equation}
+In fact, the product rule of Lemma~\ref{lem:hessian-calculus} gives
+$P_*R$, $rH_{\mathrm{fib}}(P_*)$, and two terms pairing the gradients
+of $r$ and $P_*$. For any quaternionic vector $e$ the two gradient
+pairings with $e$ have moduli at most $C(e^*Re)^{1/2}$ and
+$C D^{-1}P_*(e^*Re)^{1/2}$, respectively. This estimates the mixed
+terms. The term involving $H_{\mathrm{fib}}(P_*)$ has relative cost
+$C D^{-2}$ by \eqref{eq:barrier-average} and $|r|\le1$.
+
+Since $r<0$, an upper bound on $u/r$ calls for a comparison function
+below $u$, with determinant at least $\lambda\mu$. Fix $D$ so the
+right side of \eqref{eq:barrier-product} is at least
+$P_*R/2$. The background Hessian $B_{\mathrm{fib}}=\lambda
+H_{\mathrm{fib}}(|\Phi|^2)$ has rank one and its positive eigenvalue
+is comparable to $\lambda=h^{-30n}$. Hence for
+$v_*=C_1\sigma^{m_1}rP_*$,
+\[
+ \det\big(B_{\mathrm{fib}}+H_{\mathrm{fib}}(v_*)\big)
+ \ge c\lambda (C_1\sigma^{m_1}P_*s^{-2})^d\ge\lambda\mu
+\]
+by \eqref{eq:barrier-density} with $m_1,C_1$ large enough. The
+potentials $v_*$ and $u$ have the same zero boundary data; Dirichlet
+comparison (Theorem~\ref{thm:dirichlet}) yields $v_*\le u\le0$.
+Division by $r<0$ and passage to the boundary give
+\begin{equation}\label{eq:barrier-quotient}
+ 0\le u/r\le C_1\sigma^{m_1}P_*\qquad(r\le0).
+\end{equation}
+
+By Lemma~\ref{lem:energy-comparison}, $\mathcal F\le\int(-u)\mu$ on the
+fiber. Its imaginary volume element is comparable to
+$a^2s^{2d}\,dW\,dQ$ by Lemma~\ref{lem:fiber-geometry}. Combining
+\eqref{eq:barrier-average}, \eqref{eq:barrier-density} and
+\eqref{eq:barrier-quotient} gives
+\begin{equation}\label{eq:barrier-upper-all}
+ \mathcal F(T,\tau)\le Ca^2\sigma^m\|g_T\|_{\pc}^{\pc}.
+\end{equation}
+For the flux we need the \emph{full} gradient of $r$. The tangency in
+Proposition~\ref{prop:current} gives $A_{\mathrm w}G(|\Phi|^2)=0$;
+the remaining part, $G(|W|^2/w_0^2)$, has size $O(s^{-1})$ since
+$W=P/Y$ and $y\asymp s$. Thus $G(r)^*A_{\mathrm w}G(r)\le
+C s^{-2}\|A_{\mathrm w}\|$. The Jacobian estimate also gives
+$\int\delta(r)\,dP\,dZ\le C a^2s^{2d}$ by coarea on the fixed
+ellipsoid in $(W,Q)$. Applying the wall bound in
+\eqref{eq:barrier-current} and \eqref{eq:barrier-quotient} to the
+flux integral in Proposition~\ref{prop:energy-flux}, we conclude that
+\begin{equation}\label{eq:barrier-flux-all}
+ \Delta_z\mathcal F(T,\tau)
+  \le C (a/s)^2\sigma^m e^{-c_0\sigma}\|g_T\|_{\pc}^{\pc}.
+\end{equation}
+
+\paragraph{Recovering the wave in the interior.}
+Consider a center $(X,P,Z)$ with $|W|\le\gamma$ and $|Q|\le1/400$.
+The ball of radius $h$ in the $3n$ real spatial coordinates about this
+center lies in $|W|\le2\gamma$, $|Q|\le1/100$, provided $K\gamma$
+and $K$ are sufficiently large: $W=P/Y$ changes by at most $Ch/s$
+and $\Phi$ by at most $Ch$ there. The cutoff in $A_{\mathrm w}$ is
+one throughout the ball.
+
+The first scalar multiplier $\mathsf S_0$ of the time component in
+\eqref{eq:current-time-multipliers} has symbol
+$b_0(\kappa/y)^{d/2}e^{-\Psi}$ with
+$b_0=(1+\operatorname{Re}(W)\cdot v/2)/\sqrt{2}$ bounded away from
+zero. The other scalar component is orthogonal, so
+$|\mathsf S_0g_T|^2\le A^0_{TT}$. Invert $\mathsf S_0$ on the frequencies of $g_T$
+by multiplying its reciprocal symbol by a smooth annular cutoff equal
+to one on the data and supported in $|v|\le2\gamma$. On its support
+$\Psi\le C\gamma^2\sigma$. The derivatives of the reciprocal symbol in
+$\eta=h\xi$ through order $M$ are bounded by
+\[
+ B_{\rm inv}=C_\gamma(hs)^{d/2}\sigma^m e^{C\gamma^2\sigma}.
+\]
+Here the derivatives of the cutoff enter only the prefactor $C_\gamma$;
+the constant in the exponential is independent of $\gamma$.
+The kernel estimate above yields
+$|g_T(X)|^2\le C B_{\rm inv}^2 (J_h*A^0_{TT})(X)$ for each choice
+of the imaginary coordinates in the ball. Since $J_h(X'-Y)$ and
+$J_h(X-Y)$ are comparable for $|X'-X|\le h$, the density at
+\emph{every point} in the ball is at least
+\begin{equation}\label{eq:barrier-ball-density}
+ m_X=c_\gamma(hs)^{-d}\sigma^{-m}e^{-C_2\gamma^2\sigma}|g_T(X)|^2.
+\end{equation}
+
+For the interior lower bound on $-u$ we need a comparison function
+\emph{above} $u$. Let $l$ be Euclidean distance from the center. The quadratic
+$v_b=\epsilon m_X^{1/d}(l^2-h^2)$ vanishes on the boundary of the ball
+and has fiber Hessian $6\epsilon m_X^{1/d}I$ (three real slots per
+spatial coordinate). For $m_X>0$, its determinant after adding
+$B_{\mathrm{fib}}$ is at most
+\[
+ C\big((\epsilon m_X^{1/d})^n+\lambda(\epsilon m_X^{1/d})^d\big)
+ \le \lambda m_X
+\]
+with a fixed small $\epsilon$: the density ceiling
+\eqref{eq:energy-density-ceiling} and \eqref{eq:barrier-ball-density}
+give $m_X^{1/d}\le\mu^{1/d}\le\lambda$. Now $u\le0=v_b$ on the ball
+boundary and the determinant of $B_{\mathrm{fib}}+H_{\mathrm{fib}}(u)$
+is $\lambda\mu\ge\lambda m_X$. The local comparison principle from
+the proof of Theorem~\ref{thm:dirichlet} gives $u\le v_b$ in the ball.
+At the center the depth is therefore at least $\epsilon h^2m_X^{1/d}$.
+Multiplication by $\mu\ge m_X$ gives $(-u)\mu\ge\epsilon h^2m_X^{1+1/d}$,
+also when $m_X=0$. Here $1+1/d=q$ and $m_X$ contains $|g_T(X)|^2$,
+giving the required power $2q=\pc$ of the wave.
+
+The imaginary volume of the center region is comparable to
+$a^2s^{2d}\gamma^{2d}$. Integrate the center inequality there and in
+$X$, use the lower bound for $\mathcal F$ in
+Lemma~\ref{lem:energy-comparison}, and recall that
+$h^2s^{2d}(hs)^{-dq}=\sigma^{n-2}$. Enlarging the fixed power $m$
+and absorbing $\gamma^{2d}$ into the prefactor gives
+\begin{equation}\label{eq:barrier-lower-all}
+ \mathcal F(T,\tau)\ge
+ c_\gamma a^2\sigma^{-m}e^{-C_3\gamma^2\sigma}\|g_T\|_{\pc}^{\pc}.
+\end{equation}
+Choose $\gamma$ so small that $C_3\gamma^2<c_0/2$, then fix $K$ to
+meet the ball inclusions and to ensure that $h<1/(4K)$ lies in the
+range of \eqref{eq:energy-density-ceiling}. Dividing the flux bound
+\eqref{eq:barrier-flux-all} by the interior lower bound
+\eqref{eq:barrier-lower-all} gives
+\[
+ \frac{\Delta_z\mathcal F}{\mathcal F}
+   \le C_\gamma s^{-2}\sigma^{2m}e^{-(c_0-C_3\gamma^2)\sigma}.
+\]
+The exponential absorbs the fixed power of $\sigma$, proving
+\eqref{eq:barrier-potential}. On the two circles in the $\tau$ plane
+the scaled radii $4a/h=4K$ and $2a/h=2K$ are fixed. The energy
+upper bound \eqref{eq:barrier-upper-all} at the first circle gives
+\eqref{eq:barrier-input} for the initial data; the lower bound
+\eqref{eq:barrier-lower-all} at the second gives \eqref{eq:barrier-output}
+for the wave at time $T$.
+\end{proof}

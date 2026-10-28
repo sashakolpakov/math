@@ -102,9 +102,12 @@ noncomputable def sobolevProductCoefficient (k : ℝ) (f g : FourierL2)
     (n : frequencyLattice) : ℂ :=
   ∑' m, sobolevFourierCoefficient k f m * sobolevFourierCoefficient k g (n - m)
 
-noncomputable def sobolevProduct (k : ℝ) (_hk : 6 < k) (f g : FourierL2) : FourierL2 :=
-  ⟨fun n => (sobolevProductWeight k n : ℂ) * sobolevProductCoefficient k f g n,
-    by sorry⟩
+noncomputable def sobolevProduct (k : ℝ) (_hk : 6 < k) (f g : FourierL2) : FourierL2 := by
+  classical
+  exact if h : Memℓp (fun n => (sobolevProductWeight k n : ℂ) *
+      sobolevProductCoefficient k f g n) ((2 : ℕ) : ℝ≥0∞) then
+    ⟨fun n => (sobolevProductWeight k n : ℂ) * sobolevProductCoefficient k f g n, h⟩
+  else 0
 
 run_cmd Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.setState env {}
 
@@ -117,7 +120,8 @@ noncomputable def fourierConjugate (f : FourierL2) : FourierL2 :=
 
 run_cmd Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.setState env {}
 
-noncomputable def sobolevOddPower (k : ℝ) (hk : 6 < k) : ℕ → FourierL2 → FourierL2
+noncomputable def sobolevOddPower (k : ℝ) (hk : ((6 : ℕ) : ℝ) < k) :
+    ℕ → FourierL2 → FourierL2
   | 0, f => f
   | m + 1, f => sobolevProduct k hk
       (sobolevProduct k hk (sobolevOddPower k hk m f) (fourierConjugate f)) f

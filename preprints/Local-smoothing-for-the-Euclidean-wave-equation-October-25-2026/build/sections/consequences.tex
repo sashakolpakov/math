@@ -1,0 +1,139 @@
+\section{Bochner--Riesz means}
+\label{sec:consequences}
+
+The Bochner--Riesz mean \(B_r^\alpha f\) has Fourier multiplier
+\((1-|\xi|^2/r^2)_+^\alpha\); write
+\(B_*^\alpha f=\sup_{r>0}|B_r^\alpha f|\). Local smoothing controls these
+means because a smooth cutoff to a shell of relative width \(\delta\)
+can be written as an average of waves for times of order \(\delta^{-1}\).
+Sogge observed the implication for a single radius
+\cite[Equations~(4.5)--(4.6)]{Sogge1991};
+Beltran, Hickman and Sogge give both the fixed-radius and maximal
+reductions \cite[Propositions~39 and~40]{BHS2021}. In the range
+\(p\ge2\), almost everywhere convergence at the strict orders below was
+proved by Carbery, Rubio de Francia and Vega \cite{CRV1988Summability}.
+
+\begin{theorem}[Bochner--Riesz means]\label{thm:bochner-riesz}
+Let \(n\ge2\), \(1\le p\le\infty\), and put
+\(\delta(p)=\max\{0,n|1/p-1/2|-1/2\}\).
+If \(\alpha>\delta(p)\), then
+\begin{equation}\label{eq:br-uniform}
+ \sup_{r>0}\|B_r^\alpha f\|_{L^p(\RR^n)}
+       \le C_{n,p,\alpha}\|f\|_{L^p(\RR^n)}.
+\end{equation}
+In this range \(B_r^\alpha f\to f\) in \(L^p\) as \(r\to\infty\) if
+\(p<\infty\). If \(2\le p<\infty\) and \(\alpha>s_+(p)\), then
+\begin{equation}\label{eq:br-maximal}
+ \|B_*^\alpha f\|_{L^p(\RR^n)}\le C_{n,p,\alpha}\|f\|_{L^p(\RR^n)},
+\end{equation}
+and \(B_r^\alpha f\to f\) almost everywhere as \(r\to\infty\).
+\end{theorem}
+
+Here and in the square function estimate of Section~\ref{sec:stein-square},
+the strict inequality on the order of the means leaves room for a small
+Sobolev loss. We rescale Theorem~\ref{thm:local-smoothing} to a unit
+frequency annulus and a long time interval.
+For \(2\le p<\infty\), \(\sigma>s_+(p)=\max\{0,(n-1)/2-n/p\}\),
+and \(\widehat g\) supported in a fixed annulus \(c\le|\xi|\le C\),
+\begin{equation}\label{eq:cs-unit-wave}
+ \|U(t)g\|_{L^p(\RR^n\times\{R\le|t|\le2R\})}
+       \lesssim_{c,C,n,p,\sigma} R^{1/p+\sigma}\|g\|_p,\qquad R\ge1.
+\end{equation}
+Indeed \(g(R\,\cdot)\) has frequencies of order \(R\) and
+\(U(t)[g(R\,\cdot)](x)=(U(Rt)g)(Rx)\). Changing variables in space
+and time contributes \(R^{(n+1)/p}\), while the input norm contributes
+\(R^{-n/p}\) and the Sobolev multiplier on that annulus costs \(O(R^\sigma)\).
+Conjugation gives the estimate for negative times. For \(|t|\le1\) the
+unit annular wave multiplier has a uniformly integrable kernel.
+
+\begin{lemma}[Maximal estimate for a thin shell]\label{lem:maximal-shell}
+For \(0<\delta\le1/8\) and \(\psi\in C_c^\infty((1/2,2))\), set
+\[
+ A_{\delta,r}f=\psi\big((1-|D|/r)/\delta\big) f .
+\]
+For \(2\le p<\infty\) and \(\sigma>s_+(p)\),
+\[
+ \left\|\sup_{r>0}|A_{\delta,r} f|\right\|_p
+     \lesssim \delta^{-\sigma}\|f\|_p .
+\]
+The constant is uniform for \(\psi\) in bounded subsets of
+\(C_c^\infty((1/2,2))\).
+\end{lemma}
+
+\begin{proof}
+For \(1\le r\le2\) the shell lies in \(1/2\le|\xi|\le2\).
+Choose a smooth annular symbol \(\chi\) equal to one there, and write
+\(Q_k=\chi(2^{-k}D)\). For \(g=Q_0f\), Fourier inversion gives
+\[
+ A_{\delta,r}f(x)=\frac{\delta r}{2\pi}
+     \int_{\RR} e^{itr}\widehat\psi(\delta rt) U(t)g(x)\dd t .
+\]
+Taking the supremum over \(r\in[1,2]\) bounds this by
+\(C_M\delta\int (1+\delta |t|)^{-M}|U(t)g(x)|\dd t\).
+On a dyadic interval \(R\le |t|\le2R\), H\"older's inequality in time
+and \eqref{eq:cs-unit-wave} bound the \(L^p_x\) norm of this contribution by
+\[
+ C_M\delta(1+\delta R)^{-M}R^{1-1/p}R^{1/p+\sigma}\|g\|_p .
+\]
+For \(M>1+\sigma\) its sum over dyadic \(R\ge1\) is
+\(O(\delta^{-\sigma}\|g\|_p)\), by splitting at \(R=\delta^{-1}\).
+The interval \(|t|\le1\) contributes \(O(\delta\|g\|_p)\).
+
+For \(r=2^k s\), \(1\le s\le2\), set \(g_k(y)=(Q_kf)(2^{-k}y)\).
+Then \(A_{\delta,r}f(2^{-k}y)=A_{\delta,s}g_k(y)\).
+The factor \(2^{-kn/p}\) in the output norm cancels the factor
+\(2^{kn/p}\) in \(\|g_k\|_p\). Thus the \(L^p\) norm
+of the supremum in this octave is at most \(C\delta^{-\sigma}\|Q_k f\|_p\).
+The supremum over all octaves is bounded by their pointwise \(\ell^p\)
+norm. Since \(p\ge2\), Littlewood--Paley theory gives
+\[
+ \left(\sum_{k\in\mathbb Z}\|Q_k f\|_p^p\right)^{1/p}
+  \le \left\|\left(\sum_{k\in\mathbb Z}|Q_k f|^2\right)^{1/2}\right\|_p
+  \lesssim \|f\|_p .
+ \qedhere
+\]
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:bochner-riesz}]
+Take \(2\le p<\infty\) and choose \(s_+(p)<\sigma<\alpha\).
+To decompose \((1-\rho^2)_+^\alpha\), choose
+\(\eta\in C_c^\infty((1/2,2))\) with
+\(\sum_{j\in\mathbb Z}\eta(2^j v)=1\) for \(v>0\), and apply the
+partition to \(v=1-\rho\) on \(0\le\rho<1\). For
+\(\delta=2^{-j}\le1/8\) the corresponding term is
+\[
+ \delta^\alpha\psi_\delta((1-\rho)/\delta),
+ \qquad
+ \psi_\delta(u)=\eta(u)u^\alpha(2-\delta u)^\alpha .
+\]
+These profiles have uniform smooth seminorms. The remainder is a smooth
+radial multiplier of compact support: it vanishes near \(\rho=1\) and
+equals \((1-\rho^2)^\alpha\) near zero. The supremum of its dilations is
+bounded pointwise by a constant times the Hardy--Littlewood maximal
+function, since its kernel has a radial decreasing integrable majorant.
+Lemma~\ref{lem:maximal-shell} bounds the other terms in \eqref{eq:br-maximal}
+by the convergent sum \(C\sum_{j\ge3}2^{-j(\alpha-\sigma)}\|f\|_p\).
+
+For \(2\le p<\infty\), \(\delta(p)=s_+(p)\), so the maximal estimate
+implies \eqref{eq:br-uniform}. Each fixed \(B_r^\alpha\) is self-adjoint
+on Schwartz functions, and \(\delta(p)=\delta(p')\); duality proves
+\eqref{eq:br-uniform} for \(1<p<2\). At \(p=1,\infty\) the hypothesis is
+\(\alpha>(n-1)/2\). The unit-radius kernel is a constant multiple of
+\(|x|^{-n/2-\alpha}J_{n/2+\alpha}(|x|)\), by radial Fourier inversion.
+It is bounded at zero and decays as \(O(|x|^{-(n+1)/2-\alpha})\) at
+infinity. Its dilates \(r^n K(rx)\) therefore have a common \(L^1\) norm.
+
+For Schwartz functions of compact Fourier support the multipliers converge
+to one in all derivatives on the support as \(r\to\infty\); hence the means
+converge in the Schwartz topology. Density and \eqref{eq:br-uniform} give
+norm convergence for \(p<\infty\). To see pointwise convergence in the
+maximal range, choose such functions \(f_j\) with
+\(\sum_j\|f-f_j\|_p<\infty\). By \eqref{eq:br-maximal},
+\(\sum_j B_*^\alpha(f_{j+1}-f_j)\) is finite almost everywhere. At every
+such point \(r\mapsto B_r^\alpha f_j(x)\) converges uniformly on \(r>0\)
+to a continuous representative of the means, agreeing with the \(L^p\)
+extension for each fixed \(r\). Its supremum is measurable by continuity,
+and Fatou's lemma extends \eqref{eq:br-maximal} to \(f\).
+Since \(f_j(x)\to f(x)\) almost everywhere, uniform approximation in
+\(r\) gives the asserted almost everywhere limit.
+\end{proof}

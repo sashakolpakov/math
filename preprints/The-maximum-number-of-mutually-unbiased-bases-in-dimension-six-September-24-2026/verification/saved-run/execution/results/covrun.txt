@@ -1,0 +1,3 @@
+xs 22829
+N112 r0.0320 dual2 checked151744086 centers249878
+completed_write

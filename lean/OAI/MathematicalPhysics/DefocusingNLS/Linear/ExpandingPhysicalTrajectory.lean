@@ -98,7 +98,7 @@ theorem hasDerivAt_expandingSchrodingerTrajectory (a b k L S : ℝ)
     HasDerivAt (fun s => lowerSobolevInclusion
       (expandingSchrodingerTrajectory a b k L S ha ha1 hk hL hS u s))
       (lowerSobolevGenerator (expandingSchrodingerTrajectory a b k L S ha ha1 hk hL hS u t) -
-        Complex.I • lowerSobolevInclusion (sobolevOddPower k (by linarith) m
+        Complex.I • lowerSobolevInclusion (sobolevOddPower k (by change (6 : ℝ) < k; linarith) m
           (expandingSchrodingerTrajectory a b k L S ha ha1 hk hL hS u t))) t := by
   have hLp : 0 < L := by linarith
   have hs := expandingInverseClock_mem_Ioo L S t hLp ht
@@ -111,7 +111,7 @@ theorem hasDerivAt_expandingSchrodingerTrajectory (a b k L S : ℝ)
       (L ^ (-2 : ℝ) * Real.exp (-expandingInverseClock L t)) •
         lowerSobolevGenerator (v (expandingInverseClock L t)) +
       (-Complex.I) • lowerSobolevInclusion
-        (sobolevOddPower k (by linarith) m (v (expandingInverseClock L t))))
+        (sobolevOddPower k (by change (6 : ℝ) < k; linarith) m (v (expandingInverseClock L t))))
     (expandingInverseClock L t) at hv
   have h := hasDerivAt_expandingPhysicalEquation a b k L (by linarith) hLp m ham v t
     (expanding_clock_denominator_pos L S t hLp ht.2.le)

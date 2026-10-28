@@ -1,0 +1,344 @@
+\section{The determinant energy and its boundary flux}
+\label{sec:energy}
+
+The time component of the wave current is a sum of squares. After
+regularization it gives the density for a spatial Dirichlet potential:
+a lower bound on the density throughout a ball forces a definite
+depth at its center. To compare that depth at different times, we
+need a scalar energy on the three real coordinates
+$z=(T,\tau)\in\RR\times\CC_{\mathbf k}$ whose Laplacian is bounded
+above by the wave flux through the side of the spatial fiber.
+
+Keep the annular wave on the torus from Section~\ref{sec:current},
+normalized by $\|f\|_2=1$. Put $w_0=1/10$ and assume its sector
+$|v|\le\gamma$ has $\gamma<w_0/4$.
+Write $s=|\tau|$ and $a=Kh$, where $K\ge1$ is fixed and $h$ is small
+enough that $4a\le1$. All the constructions of this section take place
+on $a<s<4$.
+
+\subsection{The geometry of the fibers}
+
+At fixed $z$, let $X$ run over the spatial torus and let the imaginary
+spatial variables $(P,Z)\in\CC_{\mathbf k}^d\times\CC_{\mathbf k}$ vary
+in the domain
+\begin{equation}\label{eq:fiber-domain}
+ \Omega_z:\quad r=\frac{|W|^2}{w_0^2}+100|Q|^2-1<0,
+ \qquad Q=\Phi/a.
+\end{equation}
+The shape of the fiber reflects two properties of the current from
+Proposition~\ref{prop:current}: it is tangent to the level sets of
+$\Phi$, and its Gaussian is centered at $W=v$ for a mode of slope $v$.
+Only the $W$ part of the wall normal can therefore carry wave flux.
+In $(W,Q)$ the fibers are all the same ellipsoid. The definitions
+$Y=(\tau+Z)/\sqrt2$, $W=P/Y$ and
+$\Phi=(Z-\tau)/\sqrt2+P\cdot P/(2Y)$ give the inverse map
+\begin{equation}\label{eq:fiber-inverse}
+ Y=\frac{\sqrt2\,\tau+aQ}{1+W\cdot W/2},\qquad P=WY,\qquad
+ Z=\sqrt2\,Y-\tau .
+\end{equation}
+The denominator is bounded away from zero on $|W|\le w_0$, and
+$|aQ|\le s/10$, so $y=|Y|\asymp s$. Both the chart and its inverse
+are holomorphic on neighborhoods of these closed fibers and depend
+smoothly on $\tau$. On the total domain
+$\Omega=\{(z,X,P,Z):a<s<4,\ (X,P,Z)\in\Omega_z\}$ we use $H,G$ for
+the full Hessian and gradient from Lemma~\ref{lem:hessian-calculus}.
+Their spatial parts at fixed $z$ are $H_{\rm fib},G_{\rm fib}$. Fiber
+integrals use ordinary volume $\dd\zeta=\dd X\,\dd P\,\dd Z$ in the
+original coordinates.
+
+\begin{lemma}[Fiber geometry]\label{lem:fiber-geometry}
+The spatial Hessian $H_{\rm fib}(r)$ is positive definite. The full
+$H(r)$ is positive semidefinite with a one-dimensional quaternionic
+kernel contained in both $G(r)^\perp$ and $\ker H(|\Phi|^2)$. On the
+closed fibers, uniformly for $a<s<4$,
+\begin{align}
+ H_{\rm fib}(r)&\ge c s^{-2}I,\qquad
+ G_{\rm fib}(r)G_{\rm fib}(r)^*\le H_{\rm fib}(r),\label{eq:fiber-curvature}\\
+ \dd P\,\dd Z&\asymp a^2s^{2d}\dd W\,\dd Q,\qquad
+ \det H_{\rm fib}(r)\asymp a^{-2}s^{-2d}.\label{eq:fiber-jacobian}
+\end{align}
+The spatial $H_{\rm fib}(|\Phi|^2)$ has rank one with nonzero eigenvalue
+comparable to one. Also $|G(|W|^2)|\lesssim s^{-1}$.
+\end{lemma}
+
+\begin{proof}
+Set $F=(W/w_0,10Q)$ and let $J$ be its complex Jacobian in
+$(\tau,P,Z)$, with spatial submatrix $J_{\rm fib}$. Since $r=|F|^2-1$,
+Lemma~\ref{lem:hessian-calculus} gives
+\[
+ H(r)=4J^*J,\qquad G(r)=2J^*F\mathbf i .
+\]
+At fixed $\tau$ the spatial Jacobian $J_{\rm fib}$ is invertible.
+In the full space we can vary $\tau$ while keeping $(W,Q)$ fixed;
+the resulting direction spans $\ker J$ over $\CC_{\mathbf k}$ and
+its quaternionic span is the null line of $H(r)$. This line is
+orthogonal to $G(r)$, which belongs to the image of $J^*$, and lies in
+$\ker H(|\Phi|^2)$ because the last row of $J$ is proportional to
+$\partial\Phi$. By
+\eqref{eq:fiber-inverse}, derivatives of $(P,Z)$ in $W$ are $O(s)$
+and those in $Q$ are $O(a)$. Thus $\|J_{\rm fib}^{-1}\|\lesssim s$;
+together with $|F|\le1$ this proves \eqref{eq:fiber-curvature}.
+
+The complex Jacobian determinant of \eqref{eq:fiber-inverse} in $(W,Q)$
+is $\sqrt2\,aY^d/(1+W\cdot W/2)$: taking the exterior product of the
+differentials of $P=WY$ with $\dd Y$ leaves just $Y^d$ times the product
+of the differentials of $W$ with $\dd Y$. Squaring the absolute value
+gives the volume formula. The determinant of $4J_{\rm fib}^*J_{\rm fib}$
+is $4^n|\det_{\CC}J_{\rm fib}|^2$, giving the second bound in
+\eqref{eq:fiber-jacobian}. Finally the spatial derivatives of $\Phi$ are
+bounded and $\partial_Z\Phi=(1-W\cdot W/2)/\sqrt2$ is bounded away from
+zero. All first derivatives of $W=P/Y$ are $O(s^{-1})$.
+\end{proof}
+
+\subsection{The Dirichlet potential}
+
+The time density can vanish. We first smooth the wave current in $X$
+and cut it off in the passive coordinate $Q$. To make its time
+density strictly positive, we then add a conserved current whose image
+is the null line of $H(r)$; it has zero flux through the wall.
+For $\ell>0$ let $J_\ell$ be the periodization on the spatial torus of
+the probability kernel
+$c_n\ell^{-n}(1+|X/\ell|^2)^{-n-2}$. Choose a smooth $0\le g\le1$ on
+$\CC_{\mathbf k}$, equal to one on $|Q|\le1/100$ and zero on
+$|Q|\ge1/20$. Define
+\begin{equation}\label{eq:regularized-current}
+ A_{\rm w}=g(Q)(J_h*_X A^0),\qquad
+ A=A_{\rm w}+h^{50n}C(H(r)),\qquad \mu=A_{TT}.
+\end{equation}
+Convolution takes place only in the real spatial variable. Since
+$\partial\Phi$ is independent of $X$, the averaged current still
+annihilates the image of $H(|\Phi|^2)$ and hence $G(g(Q))$. The product
+rule for divergence therefore preserves conservation under the cutoff.
+By Lemmas~\ref{lem:quaternionic-matrices} and~\ref{lem:cofactor-divergence},
+the regularizing cofactor is positive semidefinite and divergence free.
+Its image is $\ker H(r)$, perpendicular to $G(r)$, and its $TT$ entry
+is $\det H_{\rm fib}(r)>0$. Thus
+\begin{equation}\label{eq:current-background-orthogonality}
+ A\ge0,\qquad \mu>0,\qquad A:H(|\Phi|^2)=0 .
+\end{equation}
+Put $B_0=\lambda|\Phi|^2$, $B=H(B_0)$, $B_{\rm fib}=H_{\rm fib}(B_0)$,
+with $\lambda=h^{-30n}$. By \eqref{eq:current-background-orthogonality},
+the full background satisfies $A:B=0$. Its spatial block $B_{\rm fib}$
+has one nonzero eigenvalue $\beta\asymp\lambda$. The factor
+$h^{50n}$ keeps the added density below the wave estimates
+of Section~\ref{sec:barrier}; we take $\lambda$ large enough that
+\begin{equation}\label{eq:energy-density-ceiling}
+ \mu^{1/d}\le\lambda
+\end{equation}
+for all sufficiently small $h$. To see this, each Gaussian amplitude
+factor in $\chi$ has size at most $(\kappa/y)^{d/2}\lesssim h^{-d}$.
+The columns $V^v$ are bounded and $\sum|c_{\kappa,v}|\lesssim h^{-n/2}$
+by the cap estimate in Section~\ref{sec:current}, so
+$\|A^0\|\lesssim h^{-n-2d}$. The regularizer adds only
+$O(h^{50n}a^{-2}s^{-2d})$ to $\mu$ by \eqref{eq:fiber-jacobian}.
+
+On each spatial fiber there is a unique smooth real $u$ satisfying
+\begin{equation}\label{eq:fiber-equation}
+ D_u=H_{\rm fib}(B_0+u)>0,\qquad
+ \det D_u=\lambda\mu,\qquad u|_{\partial\Omega_z}=0 .
+\end{equation}
+Indeed, the spatial defining Hessian is positive definite, and
+$B_{\rm fib}\ge0$ has zero determinant since $n\ge2$. Together with
+$\mu>0$ these are the hypotheses of Theorem~\ref{thm:dirichlet}.
+The chart \eqref{eq:fiber-inverse} and the parameter assertion of that
+theorem give smooth dependence on $z$ up to the lateral boundary;
+its barriers \eqref{eq:dirichlet-barriers} give $u\le0$.
+To see how the equation measures depth, add $\alpha I$ to the spatial
+background. Then
+$\det(B_{\rm fib}+\alpha I)=(\beta+\alpha)\alpha^d$; thus for
+$0<\alpha\le\lambda$ a density $\lambda\mu$ corresponds to an
+isotropic comparison quadratic of curvature $\alpha\asymp\mu^{1/d}$.
+Section~\ref{sec:barrier} will use such quadratics on balls.
+
+\subsection{Cancelling the full determinant}
+
+The quantity that measures the depth of the potential against its
+density is $X_0(z)=\int_{\Omega_z}(-u)\mu\dd\zeta$. Since the real
+columns of $A$ have zero divergence, Green's formula for $\Delta_z X_0$
+has interior term $-\int_{\Omega_z}A:H(u)\dd\zeta$. In a related
+estimate for real positive tensors, Serre uses the determinant of a
+Schur complement to isolate a diagonal entry of a second tensor
+\cite[Proposition~2.2]{Serre2023Mixed}. Here only the spatial block of
+$H(B_0+u)$ is known to be positive. Separate off its scalar Schur
+complement:
+\begin{equation}\label{eq:energy-schur}
+ H(B_0+u)=
+   \begin{pmatrix}\ell&c^*\\ c&D_u\end{pmatrix}
+   =\sigma_0 e_Te_T^*+\Sigma,\qquad
+ \sigma_0=\ell-c^*D_u^{-1}c,\qquad
+ \Sigma=\begin{pmatrix}c^*D_u^{-1}c&c^*\\ c&D_u\end{pmatrix}\ge0 .
+\end{equation}
+Here $e_T$ is the time coordinate vector. Completing the square gives
+$\Sigma\ge0$. In the contraction with $A$ the background term $A:B$
+vanishes by \eqref{eq:current-background-orthogonality}; in the
+determinant, $\det D_u=\lambda\mu$ gives
+$\det H(B_0+u)=\lambda\mu\sigma_0$. Thus
+\begin{equation}\label{eq:schur-energy-identity}
+ A:H(u)=A:\Sigma+\mu\sigma_0
+        =A:\Sigma+\lambda^{-1}\det H(B_0+u).
+\end{equation}
+The full determinant has no prescribed sign. We look for a second
+fiber integral whose Laplacian cancels this term. Write
+$D_v=H_{\rm fib}(B_0+v)$. Along the segment $B_0+\theta u$, the
+cofactor of the full Hessian has $TT$ entry $\det D_{\theta u}$, and
+its contraction with $H(u)$ differentiates the full determinant in
+$\theta$. This suggests integrating the spatial determinant along the
+segment. For a smooth real $v$ on $\Omega_z$ with $D_v>0$ and zero
+boundary values, set
+\begin{equation}\label{eq:energy-functional}
+ E_z(v)=\frac1\lambda\int_{\Omega_z}v
+            \int_0^1\det D_{\theta v}\dd\theta\,\dd\zeta,\qquad
+ \mathcal J_z(v)=E_z(v)-\int_{\Omega_z}v\mu\dd\zeta .
+\end{equation}
+The segment integral is the quaternionic counterpart of the
+Aubin--Mabuchi energy: Mabuchi's functional $L$ integrates the variation
+of a Kähler potential against its complex Monge--Ampère measure
+\cite[(2.2.1)]{Mabuchi1986}. Here the determinant is a polynomial,
+so the integrand is smooth up to the singular endpoint $D_0=B_{\rm fib}$.
+Define $\mathcal F(z)=\mathcal J_z(u)=E_z(u)+X_0(z)$.
+
+\begin{proposition}[Energy balance]\label{prop:energy-flux}
+The energy $\mathcal F$ is smooth on $a<|\tau|<4$. Let $\rho$ denote
+the boundary value of $u/r$, which extends smoothly from the interior.
+In the three variables $z=(T,\tau)$ one has
+\begin{equation}\label{eq:energy-flux}
+ \Delta_z\mathcal F(z)+\int_{\Omega_z} A:\Sigma\,\dd\zeta
+   =\int \rho\,G(r)^*A_{\rm w}G(r)\,\delta(r)\dd\zeta .
+\end{equation}
+The normal seen by the current is that of the moving wall in the
+total space, so $G(r)$ is the \emph{full} gradient. The integration is
+on one fiber: $\delta(r)\dd\zeta=\dd S_{\rm fib}/|\nabla_{\rm fib}r|$,
+where the spatial gradient is nonzero by the ellipsoid chart. Since
+$A:\Sigma\ge0$, the boundary integral bounds $\Delta_z\mathcal F$
+from above.
+\end{proposition}
+
+\begin{proof}
+Denote the boundary integral in \eqref{eq:energy-flux} by
+$\mathcal B(z)$. The two identities whose sum gives the balance are
+\begin{align*}
+  \Delta_zX_0
+      &=\mathcal B(z)-\int_{\Omega_z}A:\Sigma\dd\zeta
+                       -\lambda^{-1}\int_{\Omega_z}\det H(B_0+u)\dd\zeta,\\
+  \Delta_z[E_z(u)]
+      &=\lambda^{-1}\int_{\Omega_z}\det H(B_0+u)\dd\zeta .
+\end{align*}
+For a fixed complex product domain, \citet[Theorem~3.1]{AhagEtAl2009}
+identified the Laplacian of the slice energy, up to normalization,
+with the integral of the full Monge--Ampère measure over the fiber.
+Here the fiber moves, so the second identity requires a boundary calculation.
+Both follow by testing with a smooth $\eta=\eta(z)$ compactly supported in the
+parameter domain. The only entry of $H(\eta)$ is
+$H_{TT}(\eta)=\Delta_z\eta$. For any Hermitian matrix field $M$ with
+divergence-free real columns, Green's formula \eqref{eq:calculus-green}
+on the \emph{total} domain gives
+\begin{equation}\label{eq:green-moving-fiber}
+ \int_\Omega u M_{TT}\Delta_z\eta
+ =\int_\Omega \eta\,M:H(u)
+   -\int_{\partial_{\rm lat}\Omega}
+       \eta\,(\nu^*M\nu)\,\partial_{\mathbf n}u\dd S .
+\end{equation}
+Here $\partial_{\rm lat}\Omega$ is the side $r=0$, and volume on
+$\Omega$ is $\dd z\,\dd\zeta$. The term containing
+$u\nabla\eta$ vanishes because $u=0$ on the lateral boundary; there
+are no end terms because of the support of $\eta$. The unit outward
+normal $\mathbf n=\nabla r/|\nabla r|$ on the total domain has quaternionic
+column $\nu=G(r)/|\nabla r|$. Since $r$ is a smooth defining function,
+$u=r\rho$ near the boundary with $\rho$ smooth and $\rho\ge0$ on $r=0$.
+In particular $\partial_{\mathbf n}u=\rho|\nabla r|$.
+
+For $X_0$, take $M=A$ in \eqref{eq:green-moving-fiber} and change
+sign since $X_0$ integrates $(-u)\mu$. The interior term follows
+from \eqref{eq:schur-energy-identity}. On the wall the regularizer
+$C(H(r))$ has image perpendicular to $\nu$, so only $A_{\rm w}$
+contributes. Substituting $\partial_{\mathbf n}u=\rho|\nabla r|$ and
+$\dd S=|\nabla r|\delta(r)\dd z\,\dd\zeta$ gives $\mathcal B(z)$.
+
+For $E_z(u)$, take $M=C(H(B_0+\theta u))$, whose columns are conserved
+by Lemma~\ref{lem:cofactor-divergence}. Here the entire normal
+coefficient vanishes. Indeed \eqref{eq:boundary-restriction} gives,
+on $r=0$,
+\[
+ H(B_0+\theta u)|_{\nu^\perp}
+       =(B+\theta\rho H(r))|_{\nu^\perp}.
+\]
+The null line of $H(r)$ belongs to both $\nu^\perp$ and $\ker B$ by
+Lemma~\ref{lem:fiber-geometry}; the restricted form is therefore
+singular. The cofactor restriction formula in
+Lemma~\ref{lem:quaternionic-matrices} yields $\nu^*M\nu=0$, independently
+of the sign of the full Hessian. The same formula in the $e_T$ direction
+gives $M_{TT}=\det D_{\theta u}$. Now integrate
+\eqref{eq:green-moving-fiber} in $\theta$ and divide by $\lambda$.
+On the left we obtain $\int E_z(u)\Delta_z\eta\,\dd z$; on the right,
+integration of $M:H(u)=\partial_\theta\det H(B_0+\theta u)$ gives the
+full determinant at $\theta=1$, since $\det B=0$. This proves the
+second identity and hence the balance in distributions. The chart
+\eqref{eq:fiber-inverse} makes the volume and surface integrals smooth
+in $z$, so it also holds pointwise.
+\end{proof}
+
+\subsection{Size of the energy on a fiber}
+
+Fix $z$. The segment integral in \eqref{eq:energy-functional} is a
+primitive of the spatial determinant: for a smooth variation $w$ with
+zero boundary values, one has
+\begin{align*}
+ \mathrm d\mathcal J_z(v)[w]
+   &=\int_{\Omega_z}w(\lambda^{-1}\det D_v-\mu)\dd\zeta,\\
+ \mathrm d^2\mathcal J_z(v)[w,w]
+   &=-\lambda^{-1}\int_{\Omega_z}
+       G_{\rm fib}(w)^*C(D_v)G_{\rm fib}(w)\dd\zeta .
+\end{align*}
+For the first identity, differentiating under the integral in
+\eqref{eq:energy-functional} produces a term
+$\theta v C(D_{\theta v}):H_{\rm fib}(w)$. By cofactor divergence one
+may interchange $v$ and $w$ in its fiber integral; both vanish on the
+boundary. The integrand in $\theta$ is then
+$w\,\partial_\theta(\theta\det D_{\theta v})$. Differentiating once
+more and integrating by parts gives the second formula. It is strictly
+negative for every nonzero $w$, since $C(D_v)>0$. Thus the Dirichlet
+solution is the unique maximizer on this convex class. This is the
+smooth determinant variational principle with a rank-one background.
+For zero background, Wan proved the first variation and the corresponding
+variational characterization in quaternionic finite energy classes
+\cite[Section~4]{Wan2020}.
+
+Since $u\le0$ and $D_{\theta u}=(1-\theta)B_{\rm fib}+\theta D_u\ge0$,
+the correction $E_z(u)$ is nonpositive. At a solution the linear
+term in $\mathcal F$ uses the determinant at $B_0+u$. Thus
+$\lambda\mathcal F$ has the form of Aubin's $J$-functional
+\cite[p.~145]{Aubin1984}, with $B_0+u$ as reference potential and $B_0$
+as argument in the relative formula \cite[Section~2.1]{BBGZ2013}.
+The rank-one background lets us calculate how much of $X_0$ remains
+in $\mathcal F=X_0+E_z(u)$.
+
+\begin{lemma}[Energy comparison]\label{lem:energy-comparison}
+On every spatial fiber,
+\begin{equation}\label{eq:energy-exact}
+ \mathcal F=\frac{n-1}{n+1}X_0+
+   \frac{1}{\lambda n(n+1)}
+   \int_{\Omega_z}G_{\rm fib}(u)^*C(D_u)G_{\rm fib}(u)\dd\zeta .
+\end{equation}
+In particular,
+$\frac{n-1}{n+1}X_0\le\mathcal F\le\frac{n}{n+1}X_0$.
+\end{lemma}
+
+\begin{proof}
+Because $B_{\rm fib}$ has rank one, the determinant along the segment
+has just two terms:
+\[
+ \det D_{\theta u}=\theta^n\det D_u+
+    (1-\theta)\theta^{n-1} C(D_u):B_{\rm fib}.
+\]
+Write $I=\int_{\Omega_z}(-u) C(D_u):B_{\rm fib}\dd\zeta\ge0$.
+Integrating in $\theta$ gives
+$\mathcal F=nX_0/(n+1)-I/[\lambda n(n+1)]$, in particular the upper
+bound. Also $C(D_u):D_u=n\det D_u$, so
+\[
+ n\lambda X_0-I
+   =\int_{\Omega_z}(-u)C(D_u):H_{\rm fib}(u)\dd\zeta
+   =\int_{\Omega_z}G_{\rm fib}(u)^*C(D_u)G_{\rm fib}(u)\dd\zeta .
+\]
+This last integration by parts uses $u=0$ at the boundary. Substitution
+proves \eqref{eq:energy-exact} and its lower bound.
+\end{proof}

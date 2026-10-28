@@ -50,7 +50,7 @@ theorem expandingToSobolev_conjugate (a k : ℝ)
 theorem expandingToSobolev_oddPower (a k : ℝ)
     (ha : 0 < a) (ha1 : a < 1) (hk : 8 < k) (m : ℕ) (f : FourierL2) :
     expandingToSobolev a k ha1 hk (expandingOddPower a k 1 ha ha1 hk le_rfl m f) =
-      sobolevOddPower k (by linarith) m (expandingToSobolev a k ha1 hk f) := by
+      sobolevOddPower k (by change (6 : ℝ) < k; linarith) m (expandingToSobolev a k ha1 hk f) := by
   induction m with
   | zero => rfl
   | succ m ih =>

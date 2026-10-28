@@ -1,0 +1,404 @@
+\section{The sharp logarithm with angular regularity}\label{sec:angular}
+
+Write \(p=\pc\), \(d=n-1\), \(\alpha=d/2\), \(I=[1,2]\), and
+\(L(v)=\log(2+v)\), so that \(\alpha p=n\). Let
+\(\Lambda_\omega=(1-\Delta_{S^{n-1}})^{1/2}\) act on the angular
+variable on each sphere about the origin. The joint weak spacetime
+norm is \(\|u\|_{p,\infty}=\sup_{\lambda>0}\lambda|\{|u|>\lambda\}|^{1/p}\).
+
+\begin{theorem}[The angular endpoint]\label{thm:angular}
+Let \(n\ge2\), \(p=\pc\), and \(B>1/2+1/p\). Then
+\begin{align*}
+ \|U(T)f\|_{L^p(\RR^n\times I)}
+       &\le C_{n,B}\big(\|L(J)^{1/p}f\|_p+\|L(\Lambda_\omega)^B f\|_p\big),\\
+ \|U(T)f\|_{L^{p,\infty}(\RR^n\times I)}
+       &\le C_{n,B}\|L(\Lambda_\omega)^B f\|_p .
+\end{align*}
+In each inequality the angular norm on the right can be replaced by
+\(\|\Lambda_\omega^\sigma f\|_p\) for any \(\sigma>0\), with a constant depending on \(\sigma\).
+\end{theorem}
+
+For radial data the angular operator acts as a scalar, so
+Proposition~\ref{prop:sharpness} makes the frequency power \(1/p\) in
+the strong estimate sharp. To prove the theorem we first separate
+spatial frequency and angular degree on a single annulus.
+Let
+$\Pi_N=\chi(|D|/N)$ with $\chi\in C_c^\infty((0,\infty))$.
+We use $A=2/p$ for the power in Theorem~\ref{thm:main}; the argument
+applies with any positive exponent $A$ for which that bound holds.
+An angular polynomial of degree at most $M$ is a function whose restriction
+to almost every sphere about the origin is a sum of spherical harmonics of
+degrees at most $M$.
+
+\begin{proposition}[Bounded angular degree on a frequency annulus]\label{prop:angular-band}
+For $N\ge2$ and an angular polynomial $f\in L^p(\RR^n)$ of degree at most $M$,
+\begin{align}
+ \|U(t)\Pi_N f\|_{L^p(I\times\RR^n)}
+ &\lesssim [L(N)^{1/p}+L(M)^A]\|f\|_p,\label{eq:ang-polynomial}\\
+ \|U(t)\Pi_N f\|_{L^{p,\infty}(I\times\RR^n)}
+ &\lesssim L(M)^A\|f\|_p .\notag
+\end{align}
+The constants are independent of $M$ and $N$.
+\end{proposition}
+
+The two terms in the strong estimate come from different output radii in
+physical space. When $M$ is sufficiently small relative to $N$, we split
+the output at radius $(2+M)^K/N$ for a fixed $K$. The first lemma below
+shows that the logarithm on the inner ball counts its radius in wavelengths,
+here $(2+M)^K$, so the cost of observation is $O(L(M)^A)$. On its exterior
+the input from a small ball about the origin contributes a decaying error
+in the strong norm. For the remaining input, angular stationary phase at
+$x=r\theta$, $r\le4$, gives profiles $r^{-\alpha}G(t\pm r,\theta)$ with
+$\|G\|_{L^p(\dd v\dd\theta)}\lesssim\|f\|_p$, where $v=t\pm r$. Each
+dyadic interval of $r$ contributes equally to the $p$th power of the
+radial factor, since $r^{d-\alpha p}=r^{-1}$. Its weak $L^p$ norm, with
+the same polar measure $r^d\dd r$, is bounded independently of the
+number of intervals.
+
+For radial data, M\"uller and Seeger reduced the wave kernel to four
+one-dimensional kernels concentrated at $t\pm r\pm s=0$, with $s$ the
+input radius \cite[Lemma~2.1]{MuellerSeeger1995}. Colzani, Cominardi and
+Stempak obtained the corresponding weak endpoint for the radial cosine
+propagator \cite[Theorem~2.1]{CCS2002}. We recover these four kernels
+outside the indicated ball with constants uniform in the angular degree.
+
+\subsection{Observation on a ball}
+
+\begin{lemma}\label{lem:angular-ball}
+For $N\ge2$, $0<r\le1$ and every $x_0\in\RR^n$,
+\[
+ \|U(t)\Pi_N f\|_{L^p(I\times B(x_0,r))}
+ \lesssim \min\{1,(Nr)^{n/p}\}\,L(Nr)^A\|f\|_p .
+\]
+\end{lemma}
+\begin{proof}
+Translate to $x_0=0$ and rescale to frequency one. With $T=N$, $R=Nr$,
+we must bound the norm on $[T,2T]\times B(0,R)$ by
+$T^{1/p}\min(1,R^{n/p})L(R)^A\|f\|_p$.
+For the kernel of $U(t)\Pi_1$, write $v=|z|$ and
+$\langle v\rangle=(1+v^2)^{1/2}$. Spherical stationary phase gives,
+for every $D$ and $v\ge1$,
+\begin{equation}\label{eq:ang-unit-kernel}
+ K(t,z)=v^{-\alpha} k(t-v)+
+ O_D\big(v^{-\alpha-1}\langle t-v\rangle^{-D}
+               +v^{-\alpha}\langle t+v\rangle^{-D}\big).
+\end{equation}
+Here $k$ is the Fourier transform of a constant times
+$\rho^\alpha\chi(\rho)$ on the positive axis. After removal of the phases
+$e^{\pm i v\rho}$ the spherical amplitudes are symbols in $v\rho$;
+radial integration by parts gives the stated decay. For $v<1$ the entire
+kernel is $O_D(\langle t\rangle^{-D})$. In particular, at any fixed $x$,
+Young's inequality in time on the input radii $T/2\le s=|y-x|\le3T$
+gives
+\[
+ \|U(t)\Pi_1 f(x)\|_{L^p([T,2T])}
+ \lesssim T^{1/p}\|f\|_p.
+\]
+Indeed the convolution acts on
+$s^\alpha\int_{\mathbb S^d}|f(x+s\omega)|\dd\omega$, whose $p$th power
+integrates to at most $CT\|f\|_p^p$ on these radii, since $\alpha p=d+1$.
+At the remaining radii the kernel is $O_D((T+s)^{-D})$.
+Integration over $x$ proves the assertion for $R\le 2$.
+
+Suppose $2<R\le T$ and put $S=100R^{3+n/p}$.
+If $T\le10S$, the scaled global estimate of Theorem~\ref{thm:main}
+suffices since $L(T)\lesssim L(R)$. For $T>10S$, the input that reaches
+the observation ball at time $Q$ occupies a shell of radius $Q$ and
+thickness $O(R)$, up to rapidly decaying tails. We will compare its wave
+with one from a shell at radius $S$, where the global bound costs only
+$L(R)^A$. For this comparison take $Q\ge S$ and write the shell input as
+\[
+ f_Q(s\omega)=s^{-\alpha}h(s-Q,\omega),\qquad
+       h(u,\omega)=0\quad (|u|>5R).
+\]
+Its contribution at $t=Q+b$, $|x|,|b|\le R$, is approximated by
+\[
+ \mathcal T h(b,x)=\int k(b-u+x\cdot\omega)h(u,\omega)\dd u\dd\omega.
+\]
+This expression is independent of $Q$. In fact
+$|s\omega-x|=s-x\cdot\omega+O(R^2/Q)$ and
+$(s/|s\omega-x|)^\alpha=1+O(R/Q)$. Inserting these into
+\eqref{eq:ang-unit-kernel}, with the polar Jacobian $s^d$, bounds the
+difference kernel against $h$ by
+$C_D(R^2/Q)\langle b-u+x\cdot\omega\rangle^{-D}$. Young's inequality
+in $b$, followed by integration in $\omega$ and $x$, gives
+\[
+ \|U(Q+b)\Pi_1 f_Q-\mathcal T h\|_{L^p(\{|b|,|x|\le R\})}
+ \lesssim (R^{2+n/p}/Q)\|h\|_{L^p(\dd u\dd\omega)} .
+\]
+We may therefore estimate the profile at the smaller radius $Q=S$.
+Since $d-\alpha p=-1$, this input has norm
+\[
+ \|f_S\|_p^p=\int\frac{|h(u,\omega)|^p}{S+u}\dd u\dd\omega
+       \asymp S^{-1}\|h\|_p^p .
+\]
+The factor $S^{1/p}$ in the scaled wave estimate cancels. Applying
+Theorem~\ref{thm:main} on $[S/2,S]$ and $[S,2S]$ and using $L(S)\lesssim L(R)$
+now gives $\|\mathcal T h\|_{L^p(\{|b|,|x|\le R\})}\lesssim L(R)^A\|h\|_p$.
+
+Divide $[T,2T]$ into intervals of length between $R/2$ and $R$, centered at
+$Q_i$. On interval $i$ take
+$h_i(u,\omega)=(Q_i+u)^\alpha f((Q_i+u)\omega)\mathbf1_{|u|\le5R}$.
+The input shells have bounded overlap, so
+$\sum_i\|h_i\|_p^p\lesssim T\|f\|_p^p$. Applying the profile estimate
+and summing gives the desired bound for these shells.
+For $T/2\le s\le3T$, $|s-Q_i|>5R$, the remaining kernel is bounded by
+$C_D s^{-\alpha}\mathbf1_{|t-s|>3R}\langle t-s\rangle^{-D}$:
+the output displacement is at most $R$. Young's inequality in $t$ as
+above bounds this contribution by $C_D R^{n/p+1-D}T^{1/p}\|f\|_p$.
+The radii outside $[T/2,3T]$ again give rapid decay in $T+s$.
+\end{proof}
+
+\subsection{The polar kernel and the two endpoint norms}
+
+At an output point $r\theta$, angular stationary phase samples each input
+sphere at directions $\theta$ and $-\theta$. An angular average controls
+the remainders. To bound all three terms by a single radial profile, for
+$g$ on $\RR^n$ define the even function of $v\in\RR$
+\[
+ h_g(v,\theta)=|v|^{d/p}\left(|g(|v|\theta)|+|g(-|v|\theta)|
+       +\int_{\mathbb S^d}|g(|v|\omega)|\dd\omega\right),\qquad
+ G_g(v,\theta)=\mathcal M_{\RR}h_g(v,\theta),
+\]
+where $\mathcal M_{\RR}$ is the Hardy--Littlewood maximal operator
+in $v$. The weight $|v|^{d/p}$ incorporates the polar Jacobian, so
+$\|G_g\|_{L^p(\dd v\dd\theta)}\lesssim\|g\|_p$.
+
+\begin{lemma}\label{lem:angular-envelope}
+There is an integer $K$, independent of $M,N$, with the following property.
+Suppose $g$ has angular degree at most $M$, is supported on $s=|y|\ge s_0$,
+and $N\min(r,s_0)\ge (2+M)^K$. Then for $t\in I$,
+\begin{equation}\label{eq:ang-envelope-final}
+ |U(t)\Pi_N g(r\theta)|\lesssim
+ \sum_{\pm}G_g(t\pm r,\theta)
+ \begin{cases} r^{-\alpha},&r\le4,\\r^{-d/p},&r>4.\end{cases}
+\end{equation}
+For arbitrary $g\in L^p(\RR^n)$, the part supported in $|y|<N^{\eta-1}$, where
+$\eta=\alpha/(2n)$, satisfies
+\begin{equation}\label{eq:ang-small-source}
+ \|U(t)\Pi_N(\mathbf1_{|y|<N^{\eta-1}}g)\|_{L^p(I\times\RR^n)}
+ \lesssim N^{-\delta}\|g\|_p,\qquad
+ \delta=(\alpha/2)(1-2/p)>0 .
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $S_zF(\theta)=\int_{\mathbb S^d}e^{iz\theta\cdot\omega}
+F(\omega)\dd\omega$. In polar coordinates the angular operator at
+radii $r,s$ is
+\[
+ c_n s^d\int e^{-it\rho}\chi(\rho/N)\rho^d S_{r\rho}S_{-s\rho}\dd\rho .
+\]
+For each sign of $z$, use rotation-invariant cutoffs to separate the
+two stationary points. The expansion takes the form
+\[
+ S_z F=|z|^{-\alpha}\sum_{\sigma=\pm1}e^{i\sigma|z|}
+       (c_\sigma P_\sigma F+E_{\sigma,z}F),
+\]
+where for either fixed sign of $z$ the two $P_\sigma$ are the identity
+and the antipodal reflection, in the corresponding order.
+Fix an integer $D>2+\alpha$. Then $E_{\sigma,z}F$ and its first $D$
+logarithmic derivatives in $|z|$ are bounded pointwise by
+$C_D|z|^{-1}\|F\|_{C^{m_D}}$. To see this, use coordinates at the pole
+in which $1\mp\theta\cdot\omega=|w|^2/2$. After removing the leading
+oscillation, the normalized integral has the form
+$I_\lambda(a)=\lambda^{d/2}\int e^{\pm i\lambda|w|^2/2}a(w)\dd w$,
+where $\lambda=|z|$. Integration by parts in $w$ gives
+$\lambda\partial_\lambda I_\lambda(a)=-\frac12I_\lambda(w\cdot\nabla a)$.
+Each differentiated amplitude vanishes at the pole, so its leading
+stationary phase term is zero. The stationary phase remainder is
+$O(\lambda^{-1})$ for each of the finitely many amplitudes, with the
+stated derivative bound; off the pole one integrates by parts in angle
+\cite[Chapter VIII, \S2]{Stein1993}.
+
+On degrees at most $M$, $\|F\|_2\lesssim(2+M)^{d/2}\|F\|_1$ by the
+constant diagonal of the spherical projection kernel. Sobolev embedding
+and the spectrum of $-\Delta_{\mathbb S^d}$ thus bound
+$\|F\|_{C^{m_D}}\lesssim(2+M)^{c_D}\|F\|_1$. Choose $K>c_D$ for the fixed $D$ above.
+For $|z|\gtrsim(2+M)^K$ each normalized remainder maps this band
+from $L^1$ to $L^\infty$ with uniform norm. It preserves the band by
+rotation invariance. Consequently the composition of the two normalized
+factors, including the needed radial derivatives, is bounded at $\theta$
+by $C(|F(\theta)|+|F(-\theta)|+\|F\|_1)$.
+
+Now integrate by parts in $\rho/N$ in each of the four phases.
+The scalar kernels against the last angular majorant are bounded by
+$C_D r^{-\alpha}s^\alpha N\langle N(t\pm r\pm s)\rangle^{-D}$.
+The input weight left after $s^{d/p}$ is $s^{1/p}$. For $r\le4$ it is
+bounded by $C\langle t\pm r\pm s\rangle^{1/p}$; for $r>4$ insert the
+additional factor $r^{1/p}$ on the right. Absorb this polynomial into the
+decay. For each $v=t\pm r$, the integrals with phases $v-s$ and $v+s$
+are bounded by one convolution on $\RR$, since $h_g$ is even in $s$.
+Its kernel is majorized by $C_D N\langle N\cdot\rangle^{-D+1/p}$, so
+the convolution is bounded by $C G_g(v,\theta)$. This proves
+\eqref{eq:ang-envelope-final}.
+
+Finally \eqref{eq:ang-unit-kernel} and scaling give
+$\|U(t)\Pi_N\|_{1\to\infty}\lesssim N^{\alpha+1}$ for $t\in I$, while
+the $L^2$ norm is bounded. For $v=g\mathbf1_{|y|<b}$, interpolate
+$\|U(t)\Pi_Nv\|_2$ and $\|U(t)\Pi_Nv\|_\infty$, then use H\"older
+on the input ball. This gives
+$\|U(t)\Pi_Nv\|_p\lesssim (N^{\alpha+1}b^n)^{1-2/p}\|g\|_p$.
+Taking $b=N^{\eta-1}$ gives \eqref{eq:ang-small-source}.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:angular-band}]
+Put $H=(2+M)^K$. If $H>N^\eta$, then $L(N)\lesssim L(M)$ and the
+unrestricted annular estimate gives both conclusions. Suppose $H\le N^\eta$.
+On the output ball $r\le H/N$, Lemma~\ref{lem:angular-ball} gives
+the strong bound $CL(H)^A\|f\|_p\lesssim L(M)^A\|f\|_p$.
+On its complement we may discard the input from $s<N^{\eta-1}$ with
+the strong error \eqref{eq:ang-small-source}. For the remaining input
+$g$, both $Nr$ and $Ns$ are at least $H$, as required in
+Lemma~\ref{lem:angular-envelope}.
+
+Consider one profile in \eqref{eq:ang-envelope-final}. Changing variables
+from $(t,r)$ to $(v,r)=(t\pm r,r)$ preserves measure. At fixed $v,\theta$,
+write $G=G_g(v,\theta)$. For $N^{-1}\le r\le4$ the strong norm and the
+distribution function are controlled by the two radial integrals
+\begin{equation}\label{eq:ang-radial-integrals}
+ \int_{N^{-1}}^4(r^{-\alpha}G)^p r^d\dd r=G^p\log(4N),\qquad
+ \int_{\{r>0:\ r^{-\alpha}G>\lambda\}}r^d\dd r
+       =\frac{G^p}{n\lambda^p}\quad(\lambda>0).
+\end{equation}
+Integrating in $v,\theta$ gives the factor $O(L(N)^{1/p})$ for the
+strong norm and a constant for the joint weak norm. For $r>4$ the
+$p$th power of $r^{-d/p}$ cancels the polar Jacobian. At each $t$ the
+remaining integral of $|G_g(t\pm r,\theta)|^p$ in $r,\theta$ is at
+most $\|G_g\|_p^p$; this part has a strong bound uniform in $N$.
+Combining the two regions proves the proposition.
+\end{proof}
+
+For $A=2/p$ and $M\le\exp(\sqrt{L(N)})$, the strong estimate therefore
+costs only $L(N)^{1/p}$. For cutoffs equal to one on $[5/4,7/4]$, the
+radial data of Proposition~\ref{prop:sharpness} force this power already
+at angular degree zero.
+
+\subsection{Summation over the spatial and angular frequencies}
+
+Choose a smooth radial Littlewood--Paley decomposition $f_j$ at frequencies
+$N_j=2^j$, and let $u_j=U(t)f_j$. Insert a fixed enlarged annular multiplier
+$\Pi_{N_j}$ equal to one on the support of $\widehat f_j$. The bounded
+frequency part satisfies a uniform fixed-time $L^p$ estimate by the
+Mikhlin theorem. On the other bands, \eqref{eq:ang-small-source} allows
+us to restrict the input to $s\ge N_j^{\eta-1}$, with a total strong
+error $O(\|f\|_p)$ even when summed in $j$.
+
+We group angular degrees according to the size of their logarithm.
+Use smooth angular low pass operators $S_m$ at degree $M_m=2^{2^m}$,
+$m\ge0$, and their differences $Q_m=S_m-S_{m-1}$ with $S_{-1}=0$.
+Take a fixed smooth cutoff on degrees, equal to one up to $M_m$ and
+zero beyond $2M_m$. These operators commute with all radial Fourier
+multipliers by rotation invariance. Their kernels satisfy
+$|S_m(\theta,\omega)|\lesssim_D M_m^d
+(1+M_m\dist(\theta,\omega))^{-D}$ by smooth spherical localization
+\cite[Theorem~3.5 and Corollaries~3.6, 5.3]{NPW2006}; on the circle this is
+ordinary smooth Fourier summation. In particular
+$|S_m g|\lesssim\mathcal M_{\mathbb S^d}g$, uniformly in $m$.
+For every $B>0$,
+\begin{equation}\label{eq:ang-log-projection}
+ \|Q_m f\|_p\lesssim_B 2^{-mB}\|L(\Om)^B f\|_p .
+\end{equation}
+Indeed, as a function of the harmonic degree $\nu$ on the support of
+$Q_m$, $L((1+\nu(\nu+d-1))^{1/2})\asymp2^m$. The normalized symbol
+$2^{mB}Q_m(\nu)L((1+\nu(\nu+d-1))^{1/2})^{-B}$ and all its logarithmic
+derivatives in $\nu$ are uniformly bounded. The smooth multiplier theorem
+on the sphere \cite[Theorem~4.9(1)]{BonamiClerc1973} gives \eqref{eq:ang-log-projection}
+on each angular slice.
+
+To pay the spatial logarithm only once, at fixed $r$ and $N_j$ we group
+all angular bands on which stationary phase is uniform into one low pass.
+Put
+$H_m=(2+2M_m)^K$, and select the largest $m$ with
+\begin{equation}\label{eq:ang-eligibility}
+ H_m\le \min(N_j^\eta,N_jr).
+\end{equation}
+Call this index $m(j,r)$, with value $-1$ when there is no such $m$.
+For $a_j=\mathbf1_{s\ge N_j^{\eta-1}}f_j$, the exact decomposition of
+the retained wave at $(t,r\theta)$ is
+\[
+ U(t)\Pi_{N_j}a_j=U(t)\Pi_{N_j}S_{m(j,r)}a_j+
+            \sum_{m>m(j,r)}U(t)\Pi_{N_j}Q_ma_j.
+\]
+For a given output $r$, the index $m(j,r)$ is fixed on every input
+sphere. If it is nonnegative, Lemma~\ref{lem:angular-envelope} applies
+to the first term. Its positive majorant may use
+$\mathcal M_{\mathbb S^d}f_j$ in place of $S_{m(j,r)}f_j$, eliminating
+the dependence of the profile on the chosen cutoff. The vector-valued
+maximal inequality, on the sphere and on the line \cite[Theorem~1.2]{GLY2009}, gives for arbitrary
+nonnegative coefficients $c_j$
+\[
+ \big\|(c_jG_{\mathcal M_{\mathbb S^d}f_j})_j
+                 \big\|_{L^p(\dd v\dd\theta;\ell^2)}
+ \lesssim \|(c_jf_j)_j\|_{L^p(\RR^n;\ell^2)} .
+\]
+The reflection and angular integral in $h_g$ are bounded on
+$L^p(\mathbb S^d;\ell^2)$ by Minkowski's inequality.
+
+It remains to integrate these profiles along $v=t\pm r$, now taking
+the square function in $j$. Write $G_j=G_{\mathcal M_{\mathbb S^d}f_j}(v,\theta)$.
+On the selected region $r\ge N_j^{-1}$, so for $r\le4$ we may bound
+$r^{-\alpha}$ by $C(r+N_j^{-1})^{-\alpha}$. At fixed $v,\theta$,
+Minkowski's inequality in $L^{p/2}(r^d\dd r)$ gives
+\begin{equation}\label{eq:ang-log-integral}
+ \left\|\left(\sum_j (r+N_j^{-1})^{-2\alpha}|G_j|^2\right)^{1/2}
+        \right\|_{L^p((0,4),r^d\dd r)}
+ \lesssim\left(\sum_j (1+j)^{2/p}|G_j|^2\right)^{1/2}.
+\end{equation}
+Indeed the $p$th power of the $j$th radial factor integrates to $O(1+j)$
+by $\alpha p=n$. Integrate in $v,\theta$ and apply the maximal inequality
+above with $c_j=(1+j)^{1/p}$. The smooth spatial Littlewood--Paley theorem
+then bounds the strong square function by $C\|L(\J)^{1/p}f\|_p$.
+For the weak norm keep the common factor $r^{-\alpha}$ and use the
+distribution formula in \eqref{eq:ang-radial-integrals} with
+$G=\|(G_j)\|_{\ell^2}$. The maximal inequality with $c_j=1$ gives
+$C\|f\|_p$. For $r>4$ the common factor is $r^{-d/p}$; the same
+integration at fixed $t$ as in the single annulus gives a strong bound
+of $C\|f\|_p$ there.
+
+It remains to estimate the unselected angular frequencies in strong
+$L^p$. Fix $m$ and denote by $v_j$ the wave $U(t)\Pi_{N_j}$ applied to
+$Q_m f_j\mathbf1_{s\ge N_j^{\eta-1}}$; write $b_j=\|Q_m f_j\|_p$.
+When $H_m>N_j^\eta$, the entire $v_j$ is unselected. There are
+$O(1+\log H_m)$ such $j$ and Theorem~\ref{thm:main} bounds each by
+$CL(H_m)^A b_j$. The pointwise inequality
+$\|w\|_{\ell^2}\le (\#j)^{1/2-1/p}\|w\|_{\ell^p}$ shows that
+their strong square function costs
+$CL(H_m)^{A+1/2-1/p}\|(b_j)\|_{\ell^p}$.
+
+For the remaining $j$, the unselected output lies in $r<R_j=H_m/N_j$.
+Let $D=\lceil\log_2(2H_m)\rceil$ and consider the disjoint shells
+$R_{k+1}<r\le R_k$, with $R_k=H_m2^{-k}$. On shell $k$ only $j\le k$
+contribute. For $k-D\le j\le k$ the same finite-sequence inequality
+costs $(1+D)^{1/2-1/p}$. After taking $p$th powers and summing over
+$k$, each $v_j$ is integrated only on its ball $r\le R_j$, where
+Lemma~\ref{lem:angular-ball} gives $CL(H_m)^A b_j$. For $j<k-D$ the
+shell lies within one wavelength: $N_jR_k=H_m2^{j-k}\le2^{-(k-j-D)}$.
+The volume factor in the same lemma on the smaller ball $r\le R_k$ gives
+$C2^{-(k-j-D)n/p}b_j$. Sum these latter bounds first in $j$ by the
+triangle inequality and then in $\ell^p(k)$ by discrete Young's
+inequality. Thus the unselected $m$th angular band has total strong
+square-function norm at most
+\[
+ C L(H_m)^{A+1/2-1/p}\|(b_j)\|_{\ell^p}
+ \lesssim 2^{m(A+1/2-1/p)}\|Q_m f\|_p.
+\]
+In the last step we used $p>2$ and the spatial square-function bound
+for $Q_m f$. By \eqref{eq:ang-log-projection}, summing in $m$ costs
+$C_B\|L(\Om)^B f\|_p$ whenever $B>A+1/2-1/p$.
+
+These estimates control the square function of the original $u_j$:
+the unselected pieces have a strong bound, and the selected pieces
+have both bounds. The splitting depends on $r$, so the pieces need not
+be annular separately. We recover the sum only after reassembling $u_j$:
+the spatial synthesis operator
+$(w_j)\mapsto\sum_j\Pi_{N_j}w_j$ is bounded from
+$L^q(I\times\RR^n;\ell^2)$ to $L^q(I\times\RR^n)$ for $1<q<\infty$
+by spatial Littlewood--Paley duality and Fubini
+\cite[Theorem~6.1.2 and Remark~6.1.3]{Grafakos2014}. Real interpolation
+gives the same assertion for joint weak $L^p$. The argument
+first gives uniform bounds for finite frequency sums and then the
+stated bounds by approximation. The same angular multiplier theorem
+applies to $L(\Om)^{-B}$ and $L(\Om)^B\Om^{-\varepsilon}$ for every
+$\varepsilon>0$: the first absorbs $\|f\|_p$ into the stated weak norm,
+and the second gives the assertion with a positive angular derivative.
+This proves Theorem~\ref{thm:angular}.

@@ -32,6 +32,15 @@ def elementaryPositivityWitness (n : ℕ)
   expansion r := ElementaryPositivity.FiniteSearch.uniform_expansion_of_test
     G G.historyWitness _ (ElementaryPositivity.FiniteSearch.selectedTable_test G) r
 
+theorem elementaryPositivityExpansion (n : ℕ)
+    (G : ElementaryPositivity.NaturalUnitIntervalGraph n) (r : ℕ) :
+    G.chromatic r =
+      ∑ σ : {σ : Equiv.Perm (Fin n) // G.Nondescent σ},
+        MvPolynomial.C (Polynomial.X ^ G.graphInversions σ.val) *
+          MvPolynomial.esymmPart (Fin r) (Polynomial ℕ)
+            ((elementaryPositivityWitness n G).theta σ) :=
+  (elementaryPositivityWitness n G).expansion r
+
 end
 
 end OAI

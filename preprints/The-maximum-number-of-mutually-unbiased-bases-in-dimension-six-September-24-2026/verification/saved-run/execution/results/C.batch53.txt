@@ -1,0 +1,3 @@
+done100 bad24 (graph0 cap24 over0 cluster0)
+done200 bad32 (graph0 cap32 over0 cluster0)
+result done256 bad32 (graph0 cap32 over0 cluster0)

@@ -2,6 +2,25 @@
 
 For any withdrawn papers, their README files explain the gap and link to the retracted manuscript. For any updated papers, previously published editions remain accessible through the version notes in their README.
 
+## October 26, 2026
+
+**New Results Added**
+
+We have added two new manuscripts with accompanying Lean formalizations:
+
+- *Local smoothing for the Euclidean wave equation.* The proof uses an auxiliary partial differential equation to establish Sogge's local smoothing for waves in every spatial dimension at least two. It also yields the Kakeya maximal and dimension conjectures and Stein’s spherical restriction estimates throughout the interior of the conjectured range. We are releasing the model output directly, as we did in our October 6 release.
+- *The Exponential Time Hypothesis is False.* The paper gives a deterministic algorithm that exactly counts satisfying assignments of fixed-width CNF formulas in subexponential time and polynomial space. The case of 3-SAT refutes the Exponential Time Hypothesis. An independent working group of computer scientists led by Russell Impagliazzo, Ramamohan Paturi, and Ryan Williams will examine and explain the proof. At the group’s request, we are making the materials public immediately so others can examine them as well.
+
+**Formalization Additions and Improvements**
+
+- *The rational Hodge conjecture for CM abelian varieties.* A Lean formalization was added.
+- Some Comparator configurations were fixed, and some Lean formalizations were improved. 
+
+**Auxiliary Files Included**
+
+- *The maximum number of mutually unbiased bases in dimension six.* We restored the C++ source and saved numerical records for the computation that excludes a fourth mutually unbiased basis. A Python checker verifies the consistency and coverage of the saved records.
+
+
 ## October 7, 2026
 
 **Withdrawals**

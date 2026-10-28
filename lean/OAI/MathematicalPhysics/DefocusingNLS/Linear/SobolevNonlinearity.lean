@@ -26,7 +26,8 @@ noncomputable def sobolevRealBilinearProduct (k : ℝ) (hk : 6 < k) :
     sobolevRealBilinearProduct k hk f g = sobolevProduct k hk f g := rfl
 
 /-- The actual odd-power map on `H^k`, built from its bounded algebra operations. -/
-noncomputable def sobolevOddPower (k : ℝ) (hk : 6 < k) : ℕ → FourierL2 → FourierL2
+noncomputable def sobolevOddPower (k : ℝ) (hk : ((6 : ℕ) : ℝ) < k) :
+    ℕ → FourierL2 → FourierL2
   | 0, f => f
   | m + 1, f => sobolevProduct k hk
       (sobolevProduct k hk (sobolevOddPower k hk m f) (fourierConjugate f)) f

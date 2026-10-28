@@ -1,0 +1,179 @@
+\section{Passage to Euclidean space and Sobolev estimates}\label{sec:transfer}
+
+The aperture in Proposition~\ref{prop:periodic-cap} is fixed. A finite
+partition of the sphere therefore gives the critical estimate on the
+whole annulus without increasing its logarithmic power. We first remove
+the spatial period and then account for the cost of summing annuli.
+
+\subsection{Removing the period}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Write $h=N^{-1}$ and $P_h=\varphi(hD)$, with $\varphi$ supported
+in a fixed compact annulus. Choose a smooth finite partition
+$\varphi=\sum_\nu\varphi_\nu$ subordinate to the admissible caps.
+The Euclidean kernel of $\varphi_\nu(hD)$ is
+$h^{-n}\check\varphi_\nu(\cdot/h)$, and periodization does not increase
+its $L^1$ norm. Apply Proposition~\ref{prop:periodic-cap} to
+$\varphi_\nu(hD)f$ on the same torus for every $\nu$, and sum. This gives
+\begin{equation}\label{eq:periodic-critical}
+ \|\U(T)P_h f\|_{L^{\pc}(I\times\TT^n)}
+ \lesssim [\log(2/h)]^{2/\pc}\|f\|_{L^{\pc}(\TT^n)},\qquad 0<h\le1.
+\end{equation}
+
+The Euclidean convolution kernel of $\U(T)P_h$ is
+\[
+ K_h(T,X)=(2\pi h)^{-n}
+ \int e^{\mathrm i(X\cdot\eta-T|\eta|)/h}\varphi(\eta)\dd\eta .
+\]
+For $T\in I$ and $|X|\ge3$ the gradient of the phase before division
+by $h$ has length at least $|X|-2\ge|X|/3$. Integration by parts in
+the gradient direction gains $h/|X|$ each time: the amplitude is
+supported away from zero and all phase derivatives of order at least
+two are bounded there. Using at least $M+n$ integrations gives
+\begin{equation}\label{eq:off-cone-kernel}
+ |K_h(T,X)|\le C_M h^M(1+|X|)^{-M},
+ \qquad T\in I,\quad |X|\ge3 .
+\end{equation}
+
+Tile $\RR^n$ by unit cubes $Q$, and write $10Q$ for the concentric
+cube of side ten. On $Q$ the contribution of $f\mathbf1_{(10Q)^c}$
+is bounded pointwise by
+$C_M h^M ((1+|\cdot|)^{-M}*|f|)(X)$, since $|X-Y|\ge9/2$ for
+$X\in Q$ and $Y\notin10Q$. This single function bounds the far
+contributions on every cube. For $M>n$, its $L^{\pc}(I\times\RR^n)$
+norm is $O(h^M)\|f\|_{\pc}$ by Young's inequality.
+
+Translate the center of $Q$ to the origin and periodize
+$f_Q=f\mathbf1_{10Q}$ on the torus of side $100$. Its torus norm is
+$\|f\|_{L^{\pc}(10Q)}$. The periodic wave kernel is the periodization
+of $K_h$. On $Q$, its nonzero translates see only arguments
+$X-Y+100k$ with $Y\in10Q$ and $k\in\mathbb Z^n\setminus\{0\}$.
+Since $|X_j-Y_j|\le5.5$, these arguments have length at least
+$94.5|k|$. Summing \eqref{eq:off-cone-kernel} over $k$ bounds the
+difference between the two outputs there by $C_M h^M\|f_Q\|_1$.
+As $10Q$ has fixed volume, \eqref{eq:periodic-critical} now gives
+\[
+ \|\U(T)P_h f_Q\|_{L^{\pc}(I\times Q)}
+ \lesssim [\log(2/h)]^{2/\pc}\|f\|_{L^{\pc}(10Q)} .
+\]
+Take the $\pc$-th powers and sum over $Q$. The cubes $10Q$ have
+bounded overlap. Combining this sum with the far contributions gives
+the asserted Euclidean estimate, since $\log(2/h)\asymp\log(2+N)$
+for $N\ge2$.
+\end{proof}
+
+\subsection{Interpolation and summation}
+
+Plancherel bounds the norm of $\U(T)P_h$ from $L^2_X$ to $L^2_{T,X}$
+by $\|\varphi\|_\infty$, since $|I|=1$. At $p=\infty$ its norm is
+$O(h^{-d/2})$. To see this, partition the annulus into $O(h^{-d/2})$
+caps of aperture $c\sqrt h$ with bounded overlap. In coordinates
+$\eta=(\sqrt h\,z,\rho)$ about the axis of a cap, its cutoff is
+supported in a fixed compact set with $\rho$ bounded below and has
+uniformly bounded derivatives. Such cutoffs are obtained by dividing
+rescaled angular bumps by their sum; the overlapping centers have
+bounded offsets in these coordinates. Removing the linear phase
+$T\rho/h$ leaves
+\[
+ \frac{T}{h}\bigl(\sqrt{\rho^2+h|z|^2}-\rho\bigr)
+ =\frac{T|z|^2}{\sqrt{\rho^2+h|z|^2}+\rho}.
+\]
+The expression on the right has uniformly bounded derivatives on the
+support. Integration by parts thus bounds the $L^1$ norm of each
+rescaled kernel by a constant. The affine change of frequencies and
+the spatial translation from the linear phase preserve that norm.
+Summing over the caps gives the claimed bound.
+
+Set $s_+(p)=\max\{0,d/2-n/p\}$ and
+$\beta(p)=\min\{d(1-2/p),2/p\}$. Interpolating
+Theorem~\ref{thm:main} with the two bounds above gives
+\begin{equation}\label{eq:all-p-frequency}
+ \|\U(T)P_h f\|_{L^p(I\times\RR^n)}
+ \lesssim_p h^{-s_+(p)}[\log(2/h)]^{\beta(p)}\|f\|_{L^p(\RR^n)},
+ \qquad 2\le p\le\infty .
+\end{equation}
+Indeed, above $\pc$ the power of $h^{-1}$ is
+$(d/2)(1-\pc/p)=d/2-n/p$. We use Riesz--Thorin interpolation here
+and the spatial Littlewood--Paley and Mihlin theorems below; see
+\cite[Chapters~1 and~6]{Grafakos2014}.
+
+\begin{proof}[Proof of Theorem~\ref{thm:local-smoothing}]
+The gain of an arbitrary $\varepsilon>0$ now allows an absolute
+sum over dyadic annuli. Indeed, set $g=J^{s_+(p)+\varepsilon}f$.
+At frequency $2^j$, $j\ge1$, \eqref{eq:all-p-frequency} bounds the
+output by $C2^{-j\varepsilon}(1+j)^{\beta(p)}\|g\|_p$: a smooth
+enlargement of the annulus times $2^{j(s_+(p)+\varepsilon)}
+J^{-s_+(p)-\varepsilon}$ has uniformly integrable kernel.
+The coefficients are summable. On the remaining low frequencies the
+cutoff times $e^{-\mathrm iT|\xi|}$ obeys uniform Mihlin bounds for
+$T\in I$. At $p=2$ use Plancherel without any loss.
+\end{proof}
+
+The same summation can be made more precise if one wants an estimate
+at the exact power $s_+(p)$.
+
+\begin{corollary}[Logarithmic Sobolev estimate]\label{cor:log-sobolev}
+Let $2<p<\infty$, $\delta_p=1/2-1/p$, and $B_*(p)=\beta(p)+\delta_p$.
+Write $J=(1-\Delta)^{1/2}$, $\ell_1(r)=\log(2+r)$ and
+$\ell_2(r)=\log(2+\ell_1(r))$. Then
+\begin{equation}\label{eq:log-sobolev-summed}
+ \|\U(T) f\|_{L^p(I\times\RR^n)}
+ \lesssim_{p,B,C} \|J^{s_+(p)}\ell_1(J)^B\ell_2(J)^C f\|_{L^p(\RR^n)}
+\end{equation}
+whenever $B>B_*(p)$ and $C\in\RR$, or $B=B_*(p)$ and $C>\delta_p$.
+At $p=\pc$, $B_*(\pc)=1/2+1/\pc$ and $\delta_{\pc}=1/(2n)$.
+At $p=2$ no logarithmic factor is needed.
+\end{corollary}
+
+\begin{proof}[Proof of Corollary~\ref{cor:log-sobolev}]
+Let $P_j$ be the projections of a smooth dyadic partition of the high
+frequencies, $|\xi|\asymp 2^j$, $j\ge1$, and $\widetilde P_j$ an
+enlarged cutoff equal to one on the support of the symbol of $P_j$.
+Write $s=s_+(p)$ and
+$g=J^s\ell_1(J)^B\ell_2(J)^C f$. On the $j$-th annulus put
+\[
+ A_j=2^{js}(1+j)^B[\log(2+j)]^C\,
+      \widetilde P_j J^{-s}\ell_1(J)^{-B}\ell_2(J)^{-C}.
+\]
+If $a_j$ is the symbol of $A_j$, then the functions $a_j(2^j\eta)$
+have common compact annular support and uniformly bounded derivatives.
+Bounded overlap
+of the original annuli therefore gives uniform Mihlin bounds for
+all signed sums of the $A_j$. Randomizing these signs and using
+Khintchine's inequality gives, for $p\ge2$,
+\[
+ \Big(\sum_j\|A_jg\|_p^p\Big)^{1/p}
+ \le \Big\|\Big(\sum_j |A_jg|^2\Big)^{1/2}\Big\|_p
+ \lesssim_p \|g\|_p .
+\]
+
+The waves $u_j(T)=\U(T)P_j f$ retain their spatial frequency supports.
+The reverse Littlewood--Paley inequality at each $T$, followed by the
+triangle inequality in $L^{p/2}(I\times\RR^n)$, gives
+\[
+ \Big\|\sum_j u_j\Big\|_{L^p_{T,X}}
+ \lesssim_p \Big(\sum_j\|u_j\|_{L^p_{T,X}}^2\Big)^{1/2}.
+\]
+By \eqref{eq:all-p-frequency}, the $j$-th norm on the right is at most
+$C w_j\|A_jg\|_p$, where
+$w_j=(1+j)^{\beta(p)-B}[\log(2+j)]^{-C}$.
+With $1/r=\delta_p$, H\"older's inequality bounds this sequence in
+$\ell^2$ by $\|w\|_{\ell^r}(\sum_j\|A_jg\|_p^p)^{1/p}$. The weight
+belongs to $\ell^r$ when $B>B_*(p)$. At $B=B_*(p)$ it belongs to
+$\ell^r$ precisely when $\sum_{j\ge2} j^{-1}(\log j)^{-Cr}<\infty$,
+that is, $C>\delta_p$.
+
+For the remaining low-frequency cutoff $\chi_0$, the symbol
+$e^{-\mathrm iT|\xi|}\chi_0(\xi)$ obeys the Mihlin derivative bounds
+uniformly in $T\in I$ away from $\xi=0$. The same holds after
+multiplication by the inverse of the Sobolev and logarithmic weights,
+which are smooth and positive near zero. This proves
+\eqref{eq:log-sobolev-summed}, first for finite frequency sums and
+then by density. At $p=2$ use conservation of the $L^2$ norm.
+\end{proof}
+
+The condition on $B$ and $C$ records the cost of this frequency
+summation. It need not be optimal for the wave operator: for
+$n\ge4$ and $p>2+4/(n-3)$, Heo, Nazarov and Seeger proved
+\eqref{eq:log-sobolev-summed} with $B=C=0$
+\cite[Theorem~1.2]{HeoNazarovSeeger2011}.

@@ -1,6 +1,6 @@
 # Readme
 
-This repository contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model. 
+This repository contains mathematical manuscripts and supporting proof artifacts produced by an unnamed internal OpenAI model. 
 
 As part of model development, we evaluate our models on open research problems. We expanded these evaluations after performance on our existing mathematical evaluations saturated. Some outputs build upon earlier results produced by the models.
 
@@ -9,9 +9,11 @@ This collection includes results at different stages of verification. Not all ha
 Some of the unformalized results could have issues. We will endeavor to fix any such issues quickly.
 We are also exploring community-hosted repositories for these materials. 
 
+In our view, these manuscripts are best understood as a form of raw research data, rather than polished academic papers. We defer to the math community completely on matters of credit, precedence, and concurrent work.
+
 ## Navigating the collection
 
-The current catalogue contains 719 manuscripts organized into 372 families. A family groups related papers, which may include a principal result, companion arguments, consequences, or alternative proofs. Each family is classified by mathematical discipline.
+The current catalogue contains 721 manuscripts organized into 373 families. A family groups related papers, which may include a principal result, companion arguments, consequences, or alternative proofs. Each family is classified by mathematical discipline.
 
 - Start with the [overview](overview.pdf) for descriptions of the families.
 - Use the [manuscript map](CONTENTS.md) to find individual papers and their supporting materials.

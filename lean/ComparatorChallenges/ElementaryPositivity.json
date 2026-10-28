@@ -1,7 +1,9 @@
 {
   "challenge_module": "ComparatorChallenges.ElementaryPositivity",
   "solution_module": "OAI.Combinatorics.Chromatic.Main",
-  "theorem_names": [],
+  "theorem_names": [
+    "OAI.elementaryPositivityExpansion"
+  ],
   "definition_names": [
     "OAI.elementaryPositivityWitness"
   ],

@@ -23,15 +23,22 @@ import OAI.Algebra.OddKaplansky.GeneralTransfer
 import OAI.Algebra.PolynomialChains.Real
 import OAI.Algebra.Universal.Coset
 import OAI.Algebra.Universal.GraphDecidability
+import OAI.AlgebraicGeometry.AbelianModuli.HilbertConstruction.External.SectionProjectiveIdentities
+import OAI.AlgebraicGeometry.AbelianModuli.HilbertConstruction.Graph.BoundPresentationTransport
+import OAI.AlgebraicGeometry.AbelianModuli.ReferenceFamily.ComponentQuotients
 import OAI.AlgebraicGeometry.AbhyankarSathaye.Counterexample
+import OAI.AlgebraicGeometry.Albanese.HodgeComparisonH
 import OAI.AlgebraicGeometry.CartierSections
 import OAI.AlgebraicGeometry.CharacterVarieties
 import OAI.AlgebraicGeometry.CommutingDerivations.OrdinaryExtraMain
+import OAI.AlgebraicGeometry.HodgeConjecture.CMExtraction.GaloisSigns
+import OAI.AlgebraicGeometry.HodgeConjecture.MainSubmission
 import OAI.AlgebraicGeometry.LogKodaira.FiberNegative
 import OAI.AlgebraicGeometry.LogKodaira.RootFactor
 import OAI.AlgebraicGeometry.NumericalDimension.IndexedTransfer
 import OAI.AlgebraicGeometry.NumericalDimension.RelativeNegativity
 import OAI.AlgebraicGeometry.NumericalDimension.TwistedPushforward
+import OAI.AlgebraicGeometry.PELModuli.IntegralModel.Generation
 import OAI.AlgebraicGeometry.PlaneCurves.Nagata
 import OAI.AlgebraicGeometry.RelativeTriviality.RelativeTriviality
 import OAI.AlgebraicGeometry.SectionFields.Main
@@ -39,6 +46,7 @@ import OAI.AlgebraicGeometry.Seshadri.Main
 import OAI.AlgebraicGeometry.Stability.NumericalWalls
 import OAI.AlgebraicGeometry.StableCoordinate.All
 import OAI.AlgebraicGeometry.SurfaceCones
+import OAI.Algorithms.SubexponentialSAT.Main
 import OAI.Analysis.AffineBernstein.Main
 import OAI.Analysis.AllenCahn.Main
 import OAI.Analysis.AncientFlat.Main
@@ -93,6 +101,7 @@ import OAI.Analysis.GroupDeterminants.Main
 import OAI.Analysis.HardSphere.Main
 import OAI.Analysis.HenonEmden.Main
 import OAI.Analysis.HilbertCrouzeix.Main
+import OAI.Analysis.HodgeTheory.Decomposition.HodgeFiltration
 import OAI.Analysis.HotSpots.Main
 import OAI.Analysis.HyperbolicCones
 import OAI.Analysis.Hyperinvariant
@@ -689,6 +698,7 @@ import OAI.InformationTheory.QuantumCircuit.Regularity
 import OAI.InformationTheory.SecretKey.DimensionTen
 import OAI.InformationTheory.SecretKey.Main
 import OAI.InformationTheory.SoftChannel.Main
+import OAI.Internal.RootAlias
 import OAI.LinearAlgebra.Barker.Main
 import OAI.LinearAlgebra.CirculantHadamard.Main
 import OAI.LinearAlgebra.CliffordAlgebra.KugaSatake
@@ -743,6 +753,7 @@ import OAI.NumberTheory.OrdinaryCorrelations.AbsoluteDefect.Main
 import OAI.NumberTheory.OrdinaryCorrelations.Elliott.Main
 import OAI.NumberTheory.OrdinaryCorrelations.HighTrace.Main
 import OAI.NumberTheory.Ostmann.Main
+import OAI.NumberTheory.PadicHodge.IntegralComparison.ScalarGradedCupDeterminant
 import OAI.NumberTheory.PiExponent.Main
 import OAI.NumberTheory.PowerFree.Main
 import OAI.NumberTheory.PrimeGaps.RatioCorollary
@@ -912,3 +923,9 @@ import OAI.Geometry.Relativity.CKS.Main
 import OAI.Geometry.SurfaceImmersion.All
 
 import OAI.GroupTheory.PolycyclicRecognition
+
+-- Sogge's Euclidean local smoothing development and its consequences.
+import OAI.Analysis
+import OAI.Geometry
+import OAI.LinearAlgebra
+import OAI.MeasureTheory

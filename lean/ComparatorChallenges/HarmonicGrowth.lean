@@ -95,11 +95,7 @@ def MainClaim : Prop :=
     ∃ u : Fin (euclideanDimension n k + 1) → (Space n → ℝ),
       LinearIndependent ℝ u ∧ ∀ i, HarmonicGrowth g k (u i)
 
-
-
-axiom mainStatement : MainClaim
-
-theorem main : MainClaim := mainStatement
+theorem main : MainClaim := by sorry
 
 end HarmonicCounterexample
 

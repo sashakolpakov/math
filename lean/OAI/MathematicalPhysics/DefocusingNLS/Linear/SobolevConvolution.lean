@@ -145,10 +145,24 @@ theorem weighted_sobolevProduct_le_majorant (k : ℝ) (hk : 6 < k) (f g : Fourie
     _ = _ := by rw [tsum_mul_left, hA.tsum_add hB, hswap]; ring
 
 /-- Multiplication closes in the original Sobolev Fourier space. -/
-noncomputable def sobolevProduct (k : ℝ) (hk : 6 < k) (f g : FourierL2) : FourierL2 :=
-  ⟨fun n => (sobolevProductWeight k n : ℂ) * sobolevProductCoefficient k f g n,
+noncomputable def sobolevProduct (k : ℝ) (_hk : 6 < k) (f g : FourierL2) : FourierL2 := by
+  classical
+  exact if h : Memℓp (fun n => (sobolevProductWeight k n : ℂ) *
+      sobolevProductCoefficient k f g n) ((2 : ℕ) : ℝ≥0∞) then
+    ⟨fun n => (sobolevProductWeight k n : ℂ) * sobolevProductCoefficient k f g n, h⟩
+  else 0
+
+@[simp] theorem sobolevProduct_apply (k : ℝ) (hk : 6 < k) (f g : FourierL2)
+    (n : frequencyLattice) :
+    sobolevProduct k hk f g n =
+      (sobolevProductWeight k n : ℂ) * sobolevProductCoefficient k f g n := by
+  have hmem : Memℓp (fun n => (sobolevProductWeight k n : ℂ) *
+      sobolevProductCoefficient k f g n) ((2 : ℕ) : ℝ≥0∞) :=
     (lp.memℓp (sobolevProductMajorant k f g)).mono'
-      (weighted_sobolevProduct_le_majorant k hk f g)⟩
+      (weighted_sobolevProduct_le_majorant k hk f g)
+  unfold sobolevProduct
+  split_ifs
+  rfl
 
 theorem sobolevProduct_coefficient (k : ℝ) (hk : 6 < k) (f g : FourierL2)
     (n : frequencyLattice) :
@@ -156,7 +170,8 @@ theorem sobolevProduct_coefficient (k : ℝ) (hk : 6 < k) (f g : FourierL2)
       sobolevProductCoefficient k f g n := by
   apply mul_left_cancel₀ (show (sobolevProductWeight k n : ℂ) ≠ 0 from
     Complex.ofReal_ne_zero.mpr (sobolevProductWeight_pos k n).ne')
-  exact weight_mul_sobolevFourierCoefficient k (sobolevProduct k hk f g) n
+  simpa only [sobolevProduct_apply] using
+    weight_mul_sobolevFourierCoefficient k (sobolevProduct k hk f g) n
 
 /-- A quantitative norm bound for the two-Young-convolution majorant. -/
 theorem sobolevProductMajorant_norm_le (k : ℝ) (hk : 6 < k) (f g : FourierL2) :
@@ -196,9 +211,12 @@ theorem sobolevProductMajorant_norm_le (k : ℝ) (hk : 6 < k) (f g : FourierL2) 
 theorem sobolevProduct_norm_le (k : ℝ) (hk : 6 < k) (f g : FourierL2) :
     ‖sobolevProduct k hk f g‖ ≤
       2 * 4 ^ (k / 2) * ‖sobolevObservationVector k hk‖ * ‖f‖ * ‖g‖ := by
-  exact (lp.norm_mono (by norm_num : (2 : ℝ≥0∞) ≠ 0)
-    (weighted_sobolevProduct_le_majorant k hk f g)).trans
-      (sobolevProductMajorant_norm_le k hk f g)
+  have h : ‖sobolevProduct k hk f g‖ ≤ ‖sobolevProductMajorant k f g‖ := by
+    apply lp.norm_mono (by norm_num : (2 : ℝ≥0∞) ≠ 0)
+    intro n
+    rw [sobolevProduct_apply]
+    exact weighted_sobolevProduct_le_majorant k hk f g n
+  exact h.trans (sobolevProductMajorant_norm_le k hk f g)
 
 end DefocusingNLS
 

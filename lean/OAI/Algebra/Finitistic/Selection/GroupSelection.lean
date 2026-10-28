@@ -5,7 +5,6 @@ import Mathlib.Tactic.FinCases
 import Lean.Elab.Tactic.Omega
 
 namespace OAI
-/-! Group identities used in Section 2 of v5s9.15. -/
 
 open scoped commutatorElement
 

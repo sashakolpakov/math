@@ -1,0 +1,71 @@
+\subsection{Global extension from the sphere and the truncated cone}
+\label{sec:strict-extension}
+
+Lemma~\ref{lem:kakeya-local-extension} gives global estimates at strictly
+larger output exponents. For this step any fixed power of the logarithm
+suffices; the tube argument in the next subsection will retain that power.
+Write \(E\) for extension from \(S^{n-1}\).
+For the truncated cone
+\(\Sigma=\{(\rho\omega,\rho):1\le\rho\le2,\ \omega\in S^{n-1}\}\),
+let \(E_\Sigma G(x,t)=\int_\Sigma e^{\mathrm i(x\cdot\xi+t\tau)}
+G(\xi,\tau)\,\dd\Sigma(\xi,\tau)\), with induced surface measure.
+
+\begin{corollary}[Global Fourier extension]\label{cor:spherical-restriction}\label{cor:cone-extension}
+Let \(1<a\le\infty\) and \(b<\infty\). If
+\[
+ b>\pc,\qquad b>\frac{n+1}{n-1}a',
+\]
+then
+\begin{align}
+ \|Eg\|_{L^b(\RR^n)}
+ &\lesssim_{n,a,b} \|g\|_{L^a(S^{n-1})},\label{eq:spherical-extension-mixed}\\
+ \|E_\Sigma G\|_{L^b(\RR^{n+1})}
+ &\lesssim_{n,a,b} \|G\|_{L^a(\Sigma)}.\label{eq:cone-extension}
+\end{align}
+These are strong estimates, including when \(a=\infty\).
+For \(b=\infty\) both estimates hold for every \(1\le a\le\infty\).
+\end{corollary}
+
+The two strict inequalities give the interior of the conjectured range
+for these compact surfaces \cite[Conjecture~1.1(i)]{Nicola2009}.
+The three-dimensional sphere estimate in
+\cite[\S\S9.1--9.2]{OpenAI2026SphereRestriction} gives this range for
+\(S^2\) and, by randomizing caps, an \(L^3\) Kakeya maximal bound with
+loss \(\delta^{-\varepsilon}\).
+
+\begin{proof}
+The local spherical estimate in Lemma~\ref{lem:kakeya-local-extension},
+with \(A=2/\pc\) by Theorem~\ref{thm:main},
+costs \(O_\varepsilon(R^\varepsilon)\) for every \(\varepsilon>0\).
+By duality it bounds restriction of functions supported in \(B(0,R)\)
+from \(L^{\pc'}(\RR^n)\) to \(L^{\pc'}(S^{n-1})\) with that loss.
+Since \(1<\pc'<2\), Tao's epsilon-removal theorem
+\cite[Theorem~1.2]{Tao1999} gives global diagonal restriction at
+every \(1<u<\pc'\). Dualizing gives \(E:L^s\to L^s\) for every
+\(\pc<s<\infty\).
+
+If \(a\ge b\), take \(s=b\) and use the finite measure of the sphere.
+If \(a<b\), put \(s=1+b/a'\); then \(\pc<s<b\), since
+\(\pc=1+(n+1)/(n-1)\). Interpolating \(E:L^1\to L^\infty\) with
+\(E:L^s\to L^s\) at \(\theta=s/b\) gives \eqref{eq:spherical-extension-mixed}:
+\(\theta/s=1/b\) and \(1-\theta+\theta/s=1/a\).
+
+For the cone use Nicola's slicing argument
+\cite[Theorem~1.2(a)(i)]{Nicola2009}. Write \(G_\rho(\omega)=G(\rho\omega,\rho)\).
+Since \(\dd\Sigma=\sqrt2\,\rho^{n-1}\dd\rho\,\dd\sigma\),
+\[
+ E_\Sigma G(x,t)=\sqrt2\int_1^2e^{\mathrm it\rho}\rho^{n-1}
+                   E(G_\rho)(\rho x)\,\dd\rho .
+\]
+Hausdorff--Young in \(t\), Minkowski's inequality (\(b\ge b'\)),
+and spatial dilation give
+\[
+ \|E_\Sigma G\|_{L^b_{x,t}}
+ \lesssim\left(\int_1^2
+       [\rho^{n-1-n/b}\|E(G_\rho)\|_{L^b_x}]^{b'}\,\dd\rho\right)^{1/b'}
+ \lesssim\left\|\,\|G_\rho\|_{L^a(S^{n-1})}\,\right\|_{L^{b'}_\rho([1,2])}.
+\]
+H\"older's inequality gives \eqref{eq:cone-extension} because \(b>a'\)
+implies \(a>b'\). For \(b=\infty\) the defining integrals are bounded
+by the \(L^1\) norms on the two compact surfaces.
+\end{proof}

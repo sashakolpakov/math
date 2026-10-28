@@ -1,0 +1,899 @@
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.AbelianGeometricIntegrality
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Canonical.WeilAmpleProductLine
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Canonical.WeilPolarizationDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Canonical.WeilPositiveDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CubicalInducingPointClasses
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CubicalInducingProducts
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FaithfulFactorDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FiberFormulaRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Field.DualComplement
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Field.DualGroupHom
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Field.DualScalar
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Field.Extension
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Field.GroupRigidity
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Field.ProductBaseChange
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Field.QuotientScalarCovers
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.GeneralFieldHomDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.GeneralFieldPolarizationDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Geometric.PolarizationComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Geometric.WeilIsotropy
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.GroundFormulaGeometricPositivity
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.InducingClass
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.InducingNormalization
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.InducingPullback
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.InducingMap
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.InducingPicardPullback
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.ContainmentBaseChange
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.MonoidalHomReflection
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.MonoidalScalarPreservation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PolarizationTypeDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PositiveFormulaAffineSquare
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.RepresentedDualBaseChange
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Scalar.FactorDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.UniversalKernelFrameEvaluation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.IntersectionObstructionValues
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.KernelFrameSymmetryValue
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SecondKernelFrameEvaluation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Canonical.GlobalKernelIsotropy
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Canonical.IsotropicLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Reference.IsotropicLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.InducingLineFormulaTransport
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Reference.IsotropicAmpleDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PolarizedAmpleLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Canonical.WeilAmpleLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.AlgebraCharacter
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.CoalgebraGroupLike
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.MultiplicationSquareProducts
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Pulled.KernelUnitValues
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Pulled.UnitContraction
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Scalar.KernelUnitValues
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Pulled.VerticalUnitDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Scalar.IntrinsicLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Scalar.IntrinsicComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Vertical.ParameterTranslations
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Vertical.ParameterIntrinsicDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Intrinsic.DescentOverTests
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Intrinsic.DescentIso
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Pulled.FiberIsoNaturality
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ParameterIntrinsicCompatibility
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Intrinsic.TranslationTests
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ParameterIntrinsicIso
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Intrinsic.CanonicalCompatibility
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Ordinary.DescentIso
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Ordinary.KernelPairCompatibility
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Intrinsic.LineRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SquareIntrinsicFiberFormula
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Scalar.DescentRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SquareIntrinsicBaseFormula
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ParameterSquareData
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ParameterSquarePointFormula
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ParameterSquareIntrinsic
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ParameterSquareDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.WeightCharacter
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ParameterLineRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Scalar.ParameterRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CharacterFamilySquare
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CharacterFamilyLine
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Recovered.IntrinsicScalars
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Recovered.KernelPairingCharacter
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CharacterFamilyFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.IntrinsicPairing
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.PointNormalization
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CharacterComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CharacterScalars
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CharacterFamilyScalars
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ParameterCharacterValues
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CharacterFamilyEvaluation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.CharacterEvaluation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.WeilCharacterTransport
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.WeilIntrinsicCharacter
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CartierTorsionRepresentative
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.PointComposition
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.TorsionCharacter
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Canonical.ScalarLineIso
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.KernelPointPairing
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Intrinsic.KernelTranslation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CartierKernelPairingComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CartierSheafPoint
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CharacterSectionEvaluation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.WeilTorsionCharacter
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.WeilUnitDetection
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.WeilKernelPairingComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Canonical.DualDataEquality
+import Mathlib.AlgebraicGeometry.Sites.Fpqc
+import Mathlib.AlgebraicGeometry.Geometrically.Connected
+import Mathlib.AlgebraicGeometry.Morphisms.Finite
+import Mathlib.AlgebraicGeometry.Morphisms.Proper
+import Mathlib.AlgebraicGeometry.Morphisms.Smooth
+import Mathlib.CategoryTheory.Monoidal.Cartesian.Grp
+import Mathlib.Algebra.Group.Subgroup.Basic
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Line.Bundles
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.Descent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TildePullback
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.QuasiCoherent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.Classification
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Geometric.AffineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.Scheme
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.BeckDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ModuleLocality
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Open.BaseChange
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Open.Descent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.InvariantRestriction
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.QuasiCoherent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.Invariant
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.GlobalLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Line.DescentUniqueness
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.Splitting
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.DualMaps
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Origin
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.Pair
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ModuleBaseChangeFunctor
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ModuleBaseChangeMate
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ModuleDescentBaseChange
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SwitchLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Cech.Switch
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Cech.Diagonal
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Cech.Symmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Cech.ModelLinearity
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Cech.TripleExtension
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ExtensionComposition
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Cech.FlatCoordinates
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Cech.Permutations
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.EffectiveCechDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Geometric.KernelLinearization
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.SectionsPullback
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.PushforwardSections
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TildeMate
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.Composition
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Geometric.CocycleDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Intrinsic.CechCocycle
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.CechCoordinates
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.IntrinsicComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.UnderlyingDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.AffineCharts
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Cech.InvariantUniversal
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Cech.CoalgebraMorphisms
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Cech.DescentRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Geometric.CechRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.CechInvariantQuasiCoherent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.GluingReflection
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Cech.MorphismDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.Factorization
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.CechEffectivity
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.CechPullback
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.EqualizerTargetChange
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Cech.OverlapExtension
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Geometric.OverlapInvariant
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Ordinary.AffineEffectivity
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Open.CechInvariant
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Open.SquareNormalization
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Cech.InvariantObjectChange
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Ordinary.LineDescentUniqueness
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.GlobalLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.LinePullback
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Bilinear.ContractionPullback
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Bilinear.GlobalDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SplitMultiplicativeLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Biextension.Square
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Biextension.PairingBilinear
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Biextension.AxisData
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.RectangularLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Isotropic.BiextensionLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ConcreteKernelPairing
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Canonical.BiextensionAxes
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.TorsionKernelFrame
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CanonicalPoincare.Obstruction
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.FramesFromGlobal
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FiberFrameProducts
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FiberBilinearComposition
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Pulled.LineBilinear
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Bilinear.AlgebraTransport
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Pulled.KernelFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.FramesPullback
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CanonicalPoincare.LineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TorsionPairing
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.CentralFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.ProductEquivariance
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TransverseProductEquivariance
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Bilinear.DescentRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Product.GlobalDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Geometric.RecoveredFibers
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Bilinear.RecoveryCompatibility
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.QuotientBilinearEquivariance
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CanonicalPoincare.FiberProduct
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Product.SquareRecoveryFormula
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CanonicalPoincare.VerticalFibers
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.EquivariantGlobalProductRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.EquivariantVerticalProductRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Recovered.ProductBilinear
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Bilinear.PullbackFaithful
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Recovered.MorphismDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Neutral.AxisTransport
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CanonicalPoincare.NeutralFibers
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CanonicalPoincare.SecondUnitFrame
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CanonicalPoincare.Homomorphism
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CanonicalPoincare.PoincarePullback
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Biextension.PowerClasses
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CanonicalPoincare.Uniqueness
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ComplementaryIsogeny
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CoprimeOrthogonalProduct
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CoprimeOrthogonalRepresented
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CoprimePairing
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.DescendedIsogeny
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.DescendedScalarComplement
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.DualMapCongruence
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.EffectiveOverQuotient
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.DualPullback
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.HomogeneousComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Line.Comparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.DualHomomorphism
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FamilyIdentity
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PullbackInjective
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TensorPullback
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.ScalarClasses
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PositiveMultiple
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PositiveScalar
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Product.KernelQuotient
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Product.Noetherian
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.RelativeComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Scalar.Complement
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Scalar.PullbackCancellation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SharedDualComplement
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SharedRepresentation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SharedTorsionHomomorphism
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SharedTorsionIsogeny
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TorsionHomomorphism
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.FamilyFrameUniqueness
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Canonical.PairingValues
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CanonicalPoincare.FamilyIso
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CoprimeKernelEmbedding
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.DiagonalLineAmpleness
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.DiagonalLineClass
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.DiagonalRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FamilyZeroRestriction
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.Orthogonal
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.HomogeneousSectionEquality
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.KernelFrame.Global
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.KernelFrame.Rigidity
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.ParameterSquare
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.PreimageQuotient
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.SplitInclusions
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.NormalizedKernelFrame
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.NormalizedComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.NormalizedPositiveFormula
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PairingIsoTransport
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.FamilyKernel
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.FamilyNormalization
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.LineClasses
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Product.PairingValues
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PullSectionEquality
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Pulled.DiagonalPositivity
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.RepresentedFamilyIsomorphism
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SecondUnitRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SplitKernelPairing
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.ClassComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.MultiplicationPullbackSquare
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.KernelFrame.CoordinateMap
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.KernelFrame.FixedMap
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.KernelFrame.PullbackSquare
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.KernelFrame.CoordinateTransverse
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.MultiplicationRestrictionCommutes
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.KernelFrame.SquareTransverse
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.IdentityKernelFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.FramesSubgroup
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.KernelFrame.SquareValues
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Pulled.KernelFrameIsotropy
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Vertical.KernelFrameRigidity
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.IsomorphicKernelFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Biextension.OriginNormalization
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TransverseKernelOriginUnits
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ExchangedKernelFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.IsomorphicBiextensionIsotropy
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Symmetric.KernelIsotropy
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Recovered.KernelIsotropy
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.MixedCanonicalKernelPairing
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.KernelOrthogonal
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PullbackKernelContainment
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.EffectiveQuotientFactor
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.DecompositionQuotient
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.OrthogonalKernelDecomposition
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CoprimeDescendedKernelIso
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.OrthogonalKernelImageChange
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.CoprimeKernelIso
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.Degree
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.TypeTransport
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.TypeDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CanonicalPoincare.FamilyRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SharedTorsionKernelIso
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SharedTorsionType
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TypedKernelAnnihilator
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SharedTorsionTypedIsogeny
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FramedDescentPairing
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TransverseCharacterRatio
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Vertical.KernelDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Vertical.DescentTranslation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.ScalarLineIso
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Reference.PositiveFormula
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Reference.Symmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Reference.PairingIndependence
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Reference.TypedDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PolarizationTorsionPairing
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PolarizedTypedDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FramedDescentIso
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.IsomorphicCoordinateTransport
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.IsomorphicVerticalDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Vertical.ParameterKernelFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Vertical.ParameterProducts
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.GlobalVerticalDescentCharacter
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.GlobalFrameEvaluation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.GlobalFrameProducts
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.GlobalDescentCharacter
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Pulled.MultiplicationUnits
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.ScalarProductIso
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.KernelFrame.Ext
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.IsomorphicVerticalCharacter
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Scalar.PullbackKernelFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Intrinsic.PullbackLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.CocyclePoints
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Affine.CocycleUniversalMaps
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.AlgebraCocycleAssociativity
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.AlgebraCocycleNormalization
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.AlgebraCocycleSplitting
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.AssociativeFrameCocycle
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Bilinear.SectionFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Bilinear.UnitSections
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Canonical.BundledDual
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Canonical.WeilData
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Canonical.WeilPolarizedDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CoalgebraTensorMaps
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CocycleComultiplication
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CocyclePointEvaluation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CocycleSchemeEquation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CocycleSchemeSolution
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.AffineLineFrame
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.AffineLineSections
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.CocycleSchemeValues
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.MultiplicativeLineSplitting
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.NormalizedLineFrame
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.SymmetricCocycle
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.GivenDualGroupCompatibility
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.GlobalNormalizedLineFrame
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Line.NaturalSchemeCocycle
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.MultiplicativeFrameCoefficients
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.MultiplicativeFrameCorrection
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.MultiplicativeLineCocycle
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.MultiplicativeSectionFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.NaturalAlgebraCocycle
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.NaturalProductFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.NaturalSchemeCocycle
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Reference.StandardWeilValue
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Reference.Torsion
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Reference.WeilPairing
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.RescaledFiberFrameNaturality
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.RescaledLineFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SchemeCocycleCoordinates
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SchemeCocycleRecovery
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SchemeCocycleSplitting
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.StandardWeilPolarizedDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.StandardWeilTypedDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Symmetric.CocycleCoalgebra
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TorsionPairingApply
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TwistedGroupLikeUnit
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.UniversalCocycleProduct
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.WeilCanonicalTorsionPairing
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.GroupLineFrame
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SchemeCocycleTransport
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.GroupCocycleSplitting
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.GroupMultiplicativeSplitting
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TripleTensorPowerIso
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PositiveFormulaPowers
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Poincare.PowerLineIso
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PositiveFormulaIsomorphism
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PositivePoincareMultiple
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FramedFormulaPullback
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.LineTransport
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Finite.KernelLineTransport
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SectionNormalizedTransport
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.NormalizedKernelTranslation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Line.AutomorphismUnits
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ProperProductLineUnits
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Line.IsoRatios
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ProperProductUnitNaturality
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.IsomorphismDefectCocycle
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Subgroup.TranslationFibers
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FiberIsomorphismRatios
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Subgroup.TranslationDefect
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Subgroup.ProductDefect
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Subgroup.DefectParameters
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Subgroup.DefectCoordinates
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Subgroup.DefectCocycle
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.NormalizedTranslationUnit
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Subgroup.TransportUnit
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.NormalizedDefectUnitLaws
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ScaledLineIsomorphisms
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ScaledFiberIsomorphisms
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Symmetric.TranslationCocycle
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.CorrectedSubgroupTransport
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Symmetric.KernelLinearization
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.TransportLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Symmetric.KernelLineDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TransportDefectComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Subgroup.TranslationRatio
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TranslationDefectChange
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TranslationSymmetryIndependence
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.TranslationSymmetricDescent
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Line.BilinearSelfSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Line.TensorSelfSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.RigidifiedFormulaEquivariance
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.TripleTensorFactorSwap
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.CongrMapComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.LineIsoCoherence
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.SwapNaturality
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.CongrComposition
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.FixedRestriction
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.PullbackSwap
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.NormalizedRestriction
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.ExchangedRestriction
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ExternalTensorSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FixedFiberSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.InducingFormulaSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.InducingFormulaFieldSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Reference.FormulaSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.EquivariantLineContraction
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Line.SymmetryFibers
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.IntersectionSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.IntersectionFramePullbacks
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.SymmetryTransportedFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.IntersectionFrameExchange
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.RestrictedLineEquivariance
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.CompositionForward
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.SquareComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.RestrictedTensorSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.RestrictedBilinearEquivariance
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Isotropic.InducingProductSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Symmetric.ProductOriginTransport
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Reference.IsotropicInducingProduct
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ProperOriginCoefficients
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Bilinear.RestrictionComposition
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Bilinear.RestrictionSquare
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FramedInducingFormula
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FramedSubgroupInducingProduct
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FramedTensorContraction
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FramedSubgroupFiberProducts
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.IntersectionFrameValues
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Kernel.NeutralRowFrame
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Isotropic.OriginFrameComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.NaturalOriginLineFrames
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ProperFiberAutomorphismScalar
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Neutral.RowInducingAutomorphism
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.EqualOriginRatiosCommutation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.FiberComposition
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Subgroup.ProductNaturality
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Bilinear.FiberPresentation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PresentedIsoRestriction
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FramedProductPresentation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.PresentedFramedProductNaturality
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Subgroup.InducingProductPresentation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.ExternalTensorPointSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.FixedFiberPointSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Line.SymmetryFormulaFibers
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Tensor.SymmetryAtPoint
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Bilinear.ContractionIntertwining
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.InducingFiberContractionSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Isotropic.FramePointSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Symmetric.PresentedInducingProduct
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Isotropic.SubgroupFiberCommutativity
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Reference.SubgroupProductCommutativity
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.OriginTranslationRatio
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Neutral.RowContractionFormula
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Neutral.RowFiberPresentation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Isotropic.NeutralProductComparison
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Isotropic.OriginRatios
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Isotropic.TranslationCommutation
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.OriginPathDefectSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Isotropic.TranslationDefectSymmetry
+import OAI.AlgebraicGeometry.Picard.PoincareBundle.Isotropic.InducingLineDescent
+
+/-! # Epi -/
+
+namespace OAI.AlgebraicGeometry.Picard.PoincareBundle.Epi.Construction
+
+/-!
+# PoincareBundle: polarization descent through a maximal isotropic kernel
+
+`PolarizationDescentTheorem.polarization_descent_through_maximal_isotropic_kernel`
+constructs the quotient polarization over an arbitrary field in the base universe.
+The actual finite flat quotient isogeny, source polarization, and represented dual
+abelian data are the inputs. The prime is coprime to the source polarization degree;
+it need not be invertible in the field.
+
+Kernel containment and maximal isotropy concern finite subgroup schemes. The
+maximal-isotropy hypothesis is equality of full scheme-valued annihilators after
+every algebraically closed field base change. It quantifies over all test schemes
+and their base changes, retaining infinitesimal information in characteristic q.
+
+The conclusion gives the actual equation f^dual λ' f = q^h λ, the unchanged
+finite-flat degree and geometric kernel type, and positivity on every geometric
+fiber. Uniqueness holds for the underlying isogeny of every competing polarization,
+regardless of its recorded type; the fixed-type polarization record is unique.
+
+The proof constructs the ample quotient line by effective kernel descent, obtains
+its inducing homomorphism from the geometric cube identity and Picard universal
+property, and proves the Poincare formula. Faithful algebraic closure and effective
+scalar quotients descend the homomorphism to the original field. Constructed scalar
+complements prove its isogeny geometry, and geometric comparison gives its type and
+positivity. No descended line, linearization, splitting, or polarization is assumed.
+
+`Statements/PoincareBundle.lean` is neither imported nor changed. The declaration below exports
+the concrete proved theorem in the PoincareBundle proof namespace.
+-/
+
+open _root_.CategoryTheory _root_.CategoryTheory.Limits Opposite
+open _root_.CategoryTheory.MonoidalCategory _root_.CategoryTheory.CartesianMonoidalCategory
+open _root_.CategoryTheory.MonObj _root_.AlgebraicGeometry
+
+universe u v
+
+section Categorical
+
+variable {C : Type u} [Category.{v} C]
+
+/-- Pullback along an epimorphism is injective when the target is a dual
+object for a contravariant equivalence. -/
+theorem dual_pullback_injective
+    (D : Cᵒᵖ ≌ C) {A B : C} (f : A ⟶ B) [Epi f] :
+    Function.Injective
+      (fun p : B ⟶ D.functor.obj (op B) => f ≫ p ≫ D.functor.map f.op) := by
+  intro p r h
+  have : Mono (D.functor.map f.op) := inferInstance
+  apply (cancel_mono (D.functor.map f.op)).mp
+  apply (cancel_epi f).mp
+  simpa only [Category.assoc] using h
+
+/-- Relations in the slice detect the underlying relations. -/
+theorem over_coequalizes_left {S : C} {A B W : Over S}
+    (f : A ⟶ B) (g : A ⟶ W)
+    (hg : ∀ {T : Over S} (x y : T ⟶ A),
+      x ≫ f = y ≫ f → x ≫ g = y ≫ g) :
+    ∀ {T : C} (x y : T ⟶ A.left),
+      x ≫ f.left = y ≫ f.left → x ≫ g.left = y ≫ g.left := by
+  intro T x y hxy
+  let T' : Over S := Over.mk (x ≫ A.hom)
+  let x' : T' ⟶ A := Over.homMk x rfl
+  let y' : T' ⟶ A := Over.homMk y (by
+    change y ≫ A.hom = x ≫ A.hom
+    rw [← Over.w f, ← Category.assoc, ← Category.assoc, hxy])
+  exact congrArg Over.Hom.left (hg x' y' (Over.OverMorphism.ext hxy))
+
+/-- Effective epimorphisms of the underlying objects remain effective
+epimorphisms in a slice category. -/
+theorem effectiveEpi_over_of_left {S : C} {A B : Over S}
+    (f : A ⟶ B) [EffectiveEpi f.left] : EffectiveEpi f := by
+  constructor
+  refine ⟨{
+    desc := fun {W} g hg => ?_
+    fac := ?_
+    uniq := ?_
+  }⟩
+  · have hrel : ∀ {T : C} (x y : T ⟶ A.left),
+        x ≫ f.left = y ≫ f.left → x ≫ g.left = y ≫ g.left :=
+      over_coequalizes_left f g hg
+    let d := EffectiveEpi.desc f.left g.left hrel
+    refine Over.homMk d ?_
+    apply (cancel_epi f.left).mp
+    rw [← Category.assoc, EffectiveEpi.fac, Over.w g, Over.w f]
+  · intro W g hg
+    apply Over.OverMorphism.ext
+    dsimp
+    apply EffectiveEpi.fac
+    exact over_coequalizes_left f g hg
+  · intro W g hg m hm
+    apply Over.OverMorphism.ext
+    exact EffectiveEpi.uniq f.left g.left (over_coequalizes_left f g hg)
+      m.left (congrArg Over.Hom.left hm)
+
+end Categorical
+
+section GroupObjects
+
+variable {C : Type u} [Category.{v} C] [CartesianMonoidalCategory C]
+variable {A B Z : C} [GrpObj A] [GrpObj B] [GrpObj Z]
+
+/-- A homomorphism which kills the kernel of an effective quotient
+descends uniquely as a morphism. The hypothesis tests the kernel on all
+objects, so it also detects nonreduced subgroup schemes. -/
+theorem exists_unique_morphism_of_kernel_trivial
+    (f : A ⟶ B) [IsMonHom f] [EffectiveEpi f]
+    (g : A ⟶ Z) [IsMonHom g]
+    (hker : ∀ (T : C) (x : T ⟶ A), x ≫ f = 1 → x ≫ g = 1) :
+    ∃! d : B ⟶ Z, f ≫ d = g := by
+  have hrel : ∀ {T : C} (x y : T ⟶ A),
+      x ≫ f = y ≫ f → x ≫ g = y ≫ g := by
+    intro T x y hxy
+    have hk : (x / y) ≫ f = 1 := by rw [GrpObj.div_comp, hxy, div_self']
+    have hd := hker T (x / y) hk
+    rw [GrpObj.div_comp, div_eq_one] at hd
+    exact hd
+  exact ⟨EffectiveEpi.desc f g hrel, EffectiveEpi.fac f g hrel,
+    fun d hd => EffectiveEpi.uniq f g hrel d hd⟩
+
+/-- The descended morphism preserves the group law when the product
+of the quotient with itself is epimorphic. -/
+theorem isMonHom_of_comp
+    (f : A ⟶ B) [IsMonHom f] [Epi (f ⊗ₘ f)]
+    (g : A ⟶ Z) [IsMonHom g] (d : B ⟶ Z)
+    (hd : f ≫ d = g) : IsMonHom d := by
+  constructor
+  · rw [← IsMonHom.one_hom f, Category.assoc, hd, IsMonHom.one_hom g]
+  · apply (cancel_epi (f ⊗ₘ f)).mp
+    rw [← Category.assoc, ← IsMonHom.mul_hom f, Category.assoc, hd,
+      IsMonHom.mul_hom g]
+    rw [← Category.assoc, tensorHom_comp_tensorHom, hd]
+
+/-- Descent of a group homomorphism from the kernel criterion. -/
+theorem exists_unique_hom_of_kernel_trivial
+    (f : A ⟶ B) [IsMonHom f] [EffectiveEpi f] [Epi (f ⊗ₘ f)]
+    (g : A ⟶ Z) [IsMonHom g]
+    (hker : ∀ (T : C) (x : T ⟶ A), x ≫ f = 1 → x ≫ g = 1) :
+    ∃! d : B ⟶ Z, IsMonHom d ∧ f ≫ d = g := by
+  obtain ⟨d, hd, hu⟩ := exists_unique_morphism_of_kernel_trivial f g hker
+  exact ⟨d, ⟨isMonHom_of_comp f g d hd, hd⟩, fun e he => hu e he.2⟩
+
+variable [BraidedCategory C]
+
+/-- Pointwise integer multiplication of a homomorphism into a commutative
+group object is again a homomorphism. Multiplicative notation is used
+because mathlib's group-object API uses `GrpObj`. -/
+theorem isMonHom_pow [IsCommMonObj Z]
+    (g : A ⟶ Z) [IsMonHom g] (n : ℕ) : IsMonHom (g ^ n) := by
+  induction n with
+  | zero =>
+      change IsMonHom (1 : A ⟶ Z)
+      change IsMonHom (toUnit A ≫ η[Z])
+      infer_instance
+  | succ n ih =>
+      have : IsMonHom (g ^ n) := ih
+      rw [pow_succ, Hom.mul_def]
+      infer_instance
+
+/-- If the quotient kernel is killed by n, then n times any homomorphism
+out of the source descends uniquely through the quotient. -/
+theorem exists_unique_multiple_descent
+    [IsCommMonObj Z]
+    (f : A ⟶ B) [IsMonHom f] [EffectiveEpi f] [Epi (f ⊗ₘ f)]
+    (g : A ⟶ Z) [IsMonHom g] (n : ℕ)
+    (hker : ∀ (T : C) (x : T ⟶ A), x ≫ f = 1 → x ^ n = 1) :
+    ∃! d : B ⟶ Z, IsMonHom d ∧ f ≫ d = g ^ n := by
+  have : IsMonHom (g ^ n) := isMonHom_pow g n
+  apply exists_unique_hom_of_kernel_trivial f (g ^ n)
+  intro T x hx
+  rw [MonObj.comp_pow, ← MonObj.pow_comp, hker T x hx, MonObj.one_comp]
+
+end GroupObjects
+
+section Schemes
+
+/-- Flat surjections which are quasi-compact are effective quotients
+also as morphisms over their base scheme. -/
+theorem effectiveEpi_over_of_fpqc
+    {S : Scheme.{u}} {A B : Over S} (f : A ⟶ B)
+    [Flat f.left] [Surjective f.left] [QuasiCompact f.left] :
+    EffectiveEpi f :=
+  effectiveEpi_over_of_left f
+
+/-- A property stable under composition and base change is preserved
+by products of morphisms over a fixed base. -/
+theorem property_tensor_over
+    (P : MorphismProperty Scheme.{u})
+    [P.IsStableUnderBaseChange] [P.IsStableUnderComposition]
+    {S : Scheme.{u}} {A B X Y : Over S}
+    (f : A ⟶ B) (g : X ⟶ Y) (hf : P f.left) (hg : P g.left) :
+    P (f ⊗ₘ g).left := by
+  rw [Over.tensorHom_left]
+  exact MorphismProperty.pullbackMap hf hg (Over.w f).symm (Over.w g).symm
+
+/-- The product of two fpqc quotient morphisms is still an effective
+epimorphism in the slice category. -/
+theorem effectiveEpi_tensor_over_of_fpqc
+    {S : Scheme.{u}} {A B X Y : Over S}
+    (f : A ⟶ B) (g : X ⟶ Y)
+    [Flat f.left] [Surjective f.left] [QuasiCompact f.left]
+    [Flat g.left] [Surjective g.left] [QuasiCompact g.left] :
+    EffectiveEpi (f ⊗ₘ g) := by
+  let : MorphismProperty.IsStableUnderComposition
+      (@AlgebraicGeometry.Surjective.{u}) :=
+    ⟨fun _ _ hf hg => ⟨hg.1.comp hf.1⟩⟩
+  have : Flat (f ⊗ₘ g).left := property_tensor_over (@Flat) f g inferInstance inferInstance
+  have : Surjective (f ⊗ₘ g).left :=
+    property_tensor_over (@AlgebraicGeometry.Surjective) f g inferInstance inferInstance
+  have : QuasiCompact (f ⊗ₘ g).left :=
+    property_tensor_over (@QuasiCompact) f g inferInstance inferInstance
+  exact effectiveEpi_over_of_fpqc (f ⊗ₘ g)
+
+/-- A group-scheme homomorphism which vanishes on the scheme-theoretic
+kernel of an fpqc quotient has a unique descended group-scheme homomorphism.
+Testing all S-schemes retains infinitesimal, nonreduced kernel data. -/
+theorem fpqc_group_hom_descent
+    {S : Scheme.{u}} {A B Z : Over S}
+    [GrpObj A] [GrpObj B] [GrpObj Z]
+    (f : A ⟶ B) [IsMonHom f]
+    [Flat f.left] [Surjective f.left] [QuasiCompact f.left]
+    (g : A ⟶ Z) [IsMonHom g]
+    (hker : ∀ (T : Over S) (x : T ⟶ A), x ≫ f = 1 → x ≫ g = 1) :
+    ∃! d : B ⟶ Z, IsMonHom d ∧ f ≫ d = g := by
+  have : EffectiveEpi f := effectiveEpi_over_of_fpqc f
+  have : EffectiveEpi (f ⊗ₘ f) := effectiveEpi_tensor_over_of_fpqc f f
+  exact exists_unique_hom_of_kernel_trivial f g hker
+
+/-- First factorization in PoincareBundle: containment of the isogeny kernel in
+A[n] makes n times a homomorphism factor through the quotient.
+This is a scheme-theoretic statement in every characteristic. -/
+theorem fpqc_multiple_descent
+    {S : Scheme.{u}} {A B Z : Over S}
+    [GrpObj A] [GrpObj B] [GrpObj Z] [IsCommMonObj Z]
+    (f : A ⟶ B) [IsMonHom f]
+    [Flat f.left] [Surjective f.left] [QuasiCompact f.left]
+    (g : A ⟶ Z) [IsMonHom g] (n : ℕ)
+    (hker : ∀ (T : Over S) (x : T ⟶ A), x ≫ f = 1 → x ^ n = 1) :
+    ∃! d : B ⟶ Z, IsMonHom d ∧ f ≫ d = g ^ n := by
+  have : EffectiveEpi f := effectiveEpi_over_of_fpqc f
+  have : EffectiveEpi (f ⊗ₘ f) := effectiveEpi_tensor_over_of_fpqc f f
+  exact exists_unique_multiple_descent f g n hker
+
+/-- Kernel containment constructs the unique first Poincare-family quotient factor and its actual line pullback. -/
+theorem fpqc_multiple_first_line_factor
+    {S : Scheme.{u}} {A B Z X : Over S}
+    [GrpObj A] [GrpObj B] [GrpObj Z] [IsCommMonObj Z]
+    (f : A ⟶ B) [IsMonHom f] [Flat f.left] [Surjective f.left] [QuasiCompact f.left]
+    (φ : A ⟶ Z) [IsMonHom φ] (n : ℕ)
+    (hker : ∀ (T : Over S) (x : T ⟶ A), x ≫ f = 1 → x ^ n = 1)
+    (P : Line.Bundles.LineBundle (Z ⊗ X).left) :
+    ∃! α : B ⟶ Z, IsMonHom α ∧ f ≫ α = φ ^ n ∧
+      Nonempty ((Scheme.Modules.pullback (f ⊗ₘ 𝟙 X).left).obj
+        (FirstBiextensionFactor.descendedLine P α).sheaf ≅
+        (FirstBiextensionFactor.familyLine P (φ ^ n)).sheaf) := by
+  obtain ⟨α, hα, hu⟩ := fpqc_multiple_descent f φ n hker
+  refine ⟨α, ⟨hα.1, hα.2, ⟨FirstBiextensionFactor.pullbackIso P f (φ ^ n) α hα.2⟩⟩, ?_⟩
+  intro β hβ
+  exact hu β ⟨hβ.1, hβ.2.1⟩
+
+/-- Kernel containment and genuine symmetry construct both canonical coordinate actions without assuming a kernel splitting. -/
+theorem fpqc_multiple_canonical_coordinate_actions
+    {S : Scheme.{u}} {A B Z : Over S}
+    [GrpObj A] [GrpObj B] [GrpObj Z] [IsCommMonObj Z]
+    (f : A ⟶ B) [IsMonHom f] [Flat f.left] [Surjective f.left] [QuasiCompact f.left]
+    (φ : A ⟶ Z) [IsMonHom φ] (n : ℕ)
+    (hker : ∀ (T : Over S) (x : T ⟶ A), x ≫ f = 1 → x ^ n = 1)
+    (P : Line.Bundles.LineBundle (Z ⊗ A).left)
+    (symmetry : (Scheme.Modules.pullback (β_ A A).hom.left).obj
+      (FirstBiextensionFactor.familyLine P (φ ^ n)).sheaf ≅
+      (FirstBiextensionFactor.familyLine P (φ ^ n)).sheaf) :
+    Nonempty (RectangularTransport.AxisData f f (Geometric.KernelLinearization.overModulePullbacks S)
+      (FirstBiextensionFactor.familyLine P (φ ^ n)).sheaf) := by
+  obtain ⟨α, hα, _⟩ := fpqc_multiple_descent f φ n hker
+  exact ⟨Canonical.BiextensionAxes.axisData P f (φ ^ n) α hα.2 symmetry⟩
+
+end Schemes
+
+section AbelianSchemes
+
+/-- A commutative smooth proper group scheme with geometrically connected
+fibers. This is geometric data, with no polarization or descent axiom. -/
+structure AbelianScheme (S : Scheme.{u}) where
+  toOver : Over S
+  [group : GrpObj toOver]
+  [commutative : IsCommMonObj toOver]
+  [smooth : Smooth toOver.hom]
+  [proper : IsProper toOver.hom]
+  [geometricallyConnected : GeometricallyConnected toOver.hom]
+
+attribute [instance] AbelianScheme.group AbelianScheme.commutative
+  AbelianScheme.smooth AbelianScheme.proper AbelianScheme.geometricallyConnected
+
+namespace AbelianScheme
+
+variable {S : Scheme.{u}}
+
+/-- A finite flat surjective, finitely presented group homomorphism.
+These conditions give a finite locally free quotient in the intended use. -/
+structure Isogeny (A B : AbelianScheme S) where
+  hom : A.toOver ⟶ B.toOver
+  [isMonHom : IsMonHom hom]
+  [finite : IsFinite hom.left]
+  [flat : Flat hom.left]
+  [surjective : Surjective hom.left]
+  [finitePresentation : LocallyOfFinitePresentation hom.left]
+
+attribute [instance] Isogeny.isMonHom Isogeny.finite Isogeny.flat
+  Isogeny.surjective Isogeny.finitePresentation
+
+/-- Points of the scheme-theoretic kernel on an arbitrary test scheme. -/
+noncomputable def Isogeny.kernelPoints {A B : AbelianScheme S} (f : Isogeny A B) (T : Over S) :
+    Subgroup (T ⟶ A.toOver) :=
+  (IsMonHom.monoidHom f.hom T).ker
+
+/-- Points of A[n] on an arbitrary test scheme. -/
+noncomputable def torsionPoints (A : AbelianScheme S) (n : ℕ) (T : Over S) :
+    Subgroup (T ⟶ A.toOver) :=
+  (powMonoidHom n).ker
+
+@[simp]
+theorem Isogeny.mem_kernelPoints {A B : AbelianScheme S}
+    (f : Isogeny A B) (T : Over S) (x : T ⟶ A.toOver) :
+    x ∈ f.kernelPoints T ↔ x ≫ f.hom = 1 := Iff.rfl
+
+@[simp]
+theorem mem_torsionPoints (A : AbelianScheme S) (n : ℕ)
+    (T : Over S) (x : T ⟶ A.toOver) :
+    x ∈ A.torsionPoints n T ↔ x ^ n = 1 := Iff.rfl
+
+/-- The first factorization required by PoincareBundle, now expressed for genuine
+abelian schemes and the scheme-theoretic torsion-kernel inclusion. -/
+theorem isogeny_multiple_descent
+    {A B Z : AbelianScheme S} (f : Isogeny A B)
+    (g : A.toOver ⟶ Z.toOver) [IsMonHom g] (n : ℕ)
+    (hker : ∀ T : Over S, f.kernelPoints T ≤ A.torsionPoints n T) :
+    ∃! d : B.toOver ⟶ Z.toOver, IsMonHom d ∧ f.hom ≫ d = g ^ n := by
+  apply fpqc_multiple_descent f.hom g n
+  intro T x hx
+  exact hker T hx
+
+end AbelianScheme
+
+end AbelianSchemes
+
+variable {M N V : Type*} [CommGroup M] [CommGroup N] [CommGroup V]
+
+/-- The right annihilator of a subgroup for a multiplicative bilinear pairing. -/
+def rightAnnihilator (e : M →* N →* V) (H : Subgroup M) : Subgroup N where
+  carrier := {y | ∀ x ∈ H, e x y = 1}
+  one_mem' := fun x _ => (e x).map_one
+  mul_mem' := by
+    intro y z hy hz x hx
+    rw [map_mul, hy x hx, hz x hx, _root_.mul_one]
+  inv_mem' := by
+    intro y hy x hx
+    rw [map_inv, hy x hx, inv_one]
+
+@[simp]
+theorem mem_rightAnnihilator (e : M →* N →* V) (H : Subgroup M) (y : N) :
+    y ∈ rightAnnihilator e H ↔ ∀ x ∈ H, e x y = 1 := Iff.rfl
+
+/-- Orthogonality in a split symplectic block separates into the two
+annihilator conditions. No assumption about reducedness or cardinality
+is used in this pointwise group calculation. -/
+theorem split_orthogonal_iff (e : M →* N →* V)
+    (H : Subgroup M) (K : Subgroup N) (x : M) (y : N) :
+    (∀ a ∈ H, ∀ b ∈ K, e a y / e x b = 1) ↔
+      x ∈ rightAnnihilator e.flip K ∧ y ∈ rightAnnihilator e H := by
+  constructor
+  · intro h
+    constructor
+    · intro b hb
+      have ht := h 1 H.one_mem b hb
+      simpa using ht
+    · intro a ha
+      have ht := h a ha 1 K.one_mem
+      simpa using ht
+  · rintro ⟨hx, hy⟩ a ha b hb
+    change ∀ b ∈ K, e x b = 1 at hx
+    rw [hy a ha, hx b hb, div_self']
+
+/-- If a product subgroup is self-annihilating for the split alternating
+pairing, its opposite component is forced to be the annihilator of the
+chosen component. This is the algebra behind the opposite-kernel rule. -/
+theorem opposite_kernel_unique (e : M →* N →* V)
+    (H : Subgroup M) (K : Subgroup N)
+    (hself : ∀ (x : M) (y : N),
+      (x ∈ H ∧ y ∈ K) ↔ ∀ a ∈ H, ∀ b ∈ K, e a y / e x b = 1) :
+    K = rightAnnihilator e H := by
+  ext y
+  constructor
+  · intro hy
+    exact ((split_orthogonal_iff e H K 1 y).mp
+      ((hself 1 y).mp ⟨H.one_mem, hy⟩)).2
+  · intro hy
+    exact ((hself 1 y).mpr ((split_orthogonal_iff e H K 1 y).mpr
+      ⟨(rightAnnihilator e.flip K).one_mem, hy⟩)).2
+
+end OAI.AlgebraicGeometry.Picard.PoincareBundle.Epi.Construction

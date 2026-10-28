@@ -1,6 +1,6 @@
 # Mathematics manuscript collection
 
-**719 manuscripts covering 372 result families.**
+**721 manuscripts covering 373 result families.**
 
 [**Read the overview PDF**](overview.pdf).
 
@@ -752,7 +752,7 @@ We prove Uchida's conjecture on open homomorphisms of Galois groups. Every conti
 <tbody><tr>
 <td>
 
-**032. The rational Hodge conjecture for CM abelian varieties.** Proves the rational Hodge conjecture for every complex CM abelian variety, in every dimension and codimension. Through Milne's theorems, this also gives the Tate conjecture for all abelian varieties over finite fields and the Hodge standard conjecture for abelian varieties in every characteristic.
+**032. The rational Hodge conjecture for CM abelian varieties.** Proves the rational Hodge conjecture for every complex CM abelian variety, in every dimension and codimension. Through Milne's theorems, this also gives the Tate conjecture for all abelian varieties over finite fields and the Hodge standard conjecture for abelian varieties in every characteristic. ([Lean](lean/docs/032.md))
 
 </td>
 </tr></tbody>
@@ -1960,7 +1960,16 @@ We prove the three-dimensional Bochner–Riesz conjecture in its strict-order fo
 <tbody><tr>
 <td>
 
-**079. Local smoothing in three dimensions.** Resolves Sogge's local smoothing conjecture for the Euclidean wave equation in three spatial dimensions. The estimate holds throughout the full strict range $`2\lt p\lt \infty`$, with Sobolev regularity above $`\max\{0,1-3/p\}`$. In particular, the critical <i>L</i><sup>3</sup> estimate holds with every positive Sobolev loss.
+**079. Local smoothing for the Euclidean wave equation.** Proves Sogge’s local smoothing conjecture in every spatial dimension $`n\ge2`$, with arbitrarily small loss above the sharp Sobolev threshold. The wave estimate yields the Bochner–Riesz conjecture and, for $`2\le p\lt\infty`$, maximal bounds for these means and sharp bounds for Stein’s square function. It also gives Fourier restriction throughout the interior of the conjectured range for the sphere, compact paraboloid, and truncated cone, and local smoothing for the Schrödinger equation. The Kakeya and Nikodym maximal conjectures follow. In particular, every Euclidean Kakeya set has full Hausdorff dimension. ([Lean](lean/docs/079.md))
+
+</td>
+</tr></tbody>
+<tbody><tr>
+<td>
+
+&emsp;[Local smoothing for the Euclidean wave equation](preprints/Local-smoothing-for-the-Euclidean-wave-equation-October-25-2026/paper.pdf)
+
+We prove Sogge’s local smoothing conjecture for the Euclidean wave equation in every spatial dimension at least two. We deduce the Bochner–Riesz conjecture, maximal estimates for these means, and sharp bounds for Stein’s square function. We obtain Fourier restriction estimates for the sphere, the compact paraboloid, and the truncated cone throughout the interior of the conjectured range, as well as local smoothing for the Schrödinger equation. We also prove the Kakeya and Nikodym maximal conjectures. In particular, every Euclidean Kakeya set has full Hausdorff dimension.
 
 </td>
 </tr></tbody>
@@ -9136,6 +9145,22 @@ We realize finite positive diagonal affine maps of determinant one by effective 
 &emsp;[Uniform Interior $`C^{1,\alpha}`$ Estimates for Infinity-Harmonic Functions](preprints/Uniform-Interior-C1alpha-Estimates-for-Infinity-Harmonic-Functions-October-4-2026/interior-c1-infinity-harmonic.pdf)
 
 We prove a uniform interior $`C^{1,\alpha_d}`$ estimate for bounded infinity-harmonic functions in every dimension <i>d</i> ≥ 3. For some $`\alpha_d\in(0,1/3]`$ depending only on the dimension, the gradient's supremum norm and <i>α</i><sub><i>d</i></sub>-Hölder seminorm on <i>B</i><sub>1/2</sub> are bounded by a dimension-dependent constant times the oscillation on <i>B</i><sub>1</sub>. The exponent is not explicit, and no endpoint or boundary regularity claim is made. In particular, infinity-harmonic functions are locally <i>C</i><sup>1</sup> on every open subset of ℝ<sup><i>d</i></sup>, for <i>d</i> ≥ 3.
+
+</td>
+</tr></tbody>
+<tbody><tr>
+<td>
+
+**378. Disproof of the Exponential Time Hypothesis.** For every fixed $`k\ge2`$, a deterministic algorithm counts the satisfying assignments of a $`k`$-CNF with $`n`$ variables and $`m`$ clauses in time $`(n+m)^{O_k(1)}2^{n/(\log n)^{1/2+o(1)}}`$. This yields superlinear circuit lower bounds for a language in $`\mathsf{E}^{\mathsf{NP}}`$ on infinitely many input lengths. ([Lean](lean/docs/378.md))
+
+</td>
+</tr></tbody>
+<tbody><tr>
+<td>
+
+&emsp;[The Exponential Time Hypothesis is False](preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf)
+
+We give a deterministic algorithm for exactly counting the satisfying assignments of an arbitrary $`k`$-CNF formula. For every fixed $`k\ge2`$, on a formula with $`n`$ variables and $`m`$ clauses, our algorithm uses space polynomial in $`n`$ and $`m`$ and runs in time $`(n+m)^{O_k(1)}2^{n/(\log n)^{1/2+o(1)}}`$. Our algorithm refutes the Exponential Time Hypothesis (ETH), which postulates that deciding 3-SAT on $`n`$ variables requires $`2^{\Omega(n)}`$ time in the worst case.
 
 </td>
 </tr></tbody>

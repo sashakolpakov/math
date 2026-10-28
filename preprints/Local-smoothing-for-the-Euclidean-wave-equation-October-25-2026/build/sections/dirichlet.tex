@@ -1,0 +1,214 @@
+\section{The Dirichlet problem on a periodic fiber}
+\label{sec:dirichlet}
+
+The balance law in Section~\ref{sec:energy} uses a Dirichlet potential
+smooth up to a boundary that moves with the time variables.
+Section~\ref{sec:barrier} bounds this potential by comparing
+determinants on the whole fiber and on small balls inside it. We prove
+the required existence, comparison, and smooth dependence here;
+the quantitative bounds in the wavelength $h$ come from the
+comparison functions in Section~\ref{sec:barrier}. Alesker proved smooth
+Dirichlet solvability on quaternionic balls \cite[Theorem~1.4]{Alesker2003MA};
+Zhu proved it on bounded domains in quaternionic space in the presence of
+a smooth subsolution \cite[Theorem~1.1]{Zhu2016}. Our fibers have periodic
+real directions and only three real coordinates per variable. Adjoining a
+fourth, periodic coordinate gives the local rotations needed to estimate
+mixed derivatives at the boundary.
+
+Let $\Lambda\subset\RR^m$ be a full lattice, $V\subset\RR^{2m}$ a
+bounded domain with smooth boundary, and
+$\Omega=(\RR^m/\Lambda)\times V$. The periodic variables occupy the
+real slots and the coordinates of $V$ occupy the $\mathbf i,\mathbf j$
+slots of the Hessian $H$ from Lemma~\ref{lem:hessian-calculus}.
+
+\begin{theorem}[Periodic Dirichlet problem]\label{thm:dirichlet}
+Let $m\ge1$. Suppose $r\in C^\infty(\overline V)$ is a defining
+function, negative in $V$, with $dr\ne0$ on $\partial V$ and
+$H(r)>0$ on $\overline\Omega$. Let $B_0,g\in C^\infty(\overline\Omega)$
+be real and suppose
+\[
+ H(B_0)\ge0,\qquad g>\det H(B_0)\quad\text{on }\overline\Omega.
+\]
+There is a unique smooth solution, up to the boundary, of
+\begin{equation}\label{eq:dirichlet-problem}
+ \det H(B_0+u)=g,\qquad H(B_0+u)>0,\qquad
+ u|_{\partial\Omega}=0.
+\end{equation}
+There are constants $b\ge b'>0$ such that
+\begin{equation}\label{eq:dirichlet-barriers}
+ br\le u\le b'r.
+\end{equation}
+For smooth finite-dimensional families of such data and domains, these
+constants can be chosen locally uniformly. The solutions depend smoothly
+on the parameters up to the boundary, after any smooth local
+identification of the domains with a fixed domain.
+\end{theorem}
+
+\begin{proof}
+Work on $\widetilde\Omega=\Omega\times(\RR/\mathbb Z)^m$, with the new
+coordinates in the $\mathbf k$ slots. Extend the data constantly in these
+coordinates. Until the last paragraph, $G,H$ are the full quaternionic
+gradient and Hessian, which agree with the physical operators on the
+extended data. Write $\mathcal H(D^2v)=H(v)$ and encode a real covector
+$\xi\in\RR^{4m}$ as the quaternionic column $\widehat\xi$ in the slot
+basis. Lemma~\ref{lem:hessian-calculus} gives
+$\mathcal H(\xi\xi^{\mathsf t})=\widehat\xi\,\widehat\xi^*$ and
+$\tr H(v)=\Delta v$.
+
+\emph{Comparison and continuity.}
+Join the known solution $u=r$ to the given density by
+$g_t=(1-t)\det H(B_0+r)+tg$, $0\le t\le1$.
+At a solution $\psi=B_0+u$ put $Q=H(\psi)$ and $S=\tr Q^{-1}$.
+The derivative of the log determinant is
+\[
+ Lw=Q^{-1}:H(w),\qquad
+ \sigma_L(\xi)=\widehat\xi^*Q^{-1}\widehat\xi .
+\]
+Thus $L$ is a uniformly elliptic real operator at each fixed smooth
+solution with $Q>0$ on the closure. For two potentials $\psi_1,\psi_2$
+with $Q_i=H(\psi_i)>0$, the corresponding difference formula is
+\[
+ \log\det Q_1-\log\det Q_2
+   =\left(\int_0^1\big((1-\theta)Q_2+\theta Q_1\big)^{-1}\dd\theta\right)
+          :H(\psi_1-\psi_2).
+\]
+When the Hessians are positive on the closure, the averaged operator
+is uniformly elliptic. If $\det Q_1\ge\det Q_2$ on the domain and
+$\psi_1\le\psi_2$ on its boundary, the maximum principle therefore
+gives $\psi_1\le\psi_2$ throughout. This also gives uniqueness.
+The linear Dirichlet
+operator $L:C^{k+2,\alpha}_0\to C^{k,\alpha}$ is an isomorphism
+($k\ge0$, $0<\alpha<1$; the subscript denotes zero boundary trace).
+Indeed the local Schauder estimates and Dirichlet theory
+\cite[Theorems~6.14 and~6.19]{GilbargTrudinger} apply in a finite
+cover of the flat quotient. In the continuity method from $\Delta$ to
+$L$, $r$ is a common strict barrier since $H(r)\ge cI$; the maximum
+principle therefore supplies the $C^0$ estimate. The starting Dirichlet
+Laplacian is invertible on the compact manifold with boundary.
+The implicit function theorem gives openness; the estimates below give
+closedness. Their constants may depend on the fiber and its data, but
+are uniform in $t$.
+
+Both endpoints of the path have determinant strictly above $\det H(B_0)$
+at every point. The gap is uniform by compactness. Hence we may choose
+$0<b'<1<b$ so that
+\[
+ \det H(B_0+b'r)<g_t<\det H(B_0+br)
+\]
+everywhere, using $H(r)\ge cI$ for the second inequality. Comparison
+gives \eqref{eq:dirichlet-barriers}. Since $u$ vanishes on the boundary,
+$u=\alpha r$ in a collar with smooth quotient $\alpha$ at each smooth
+solution; division in the barriers gives $b'\le\alpha\le b$. In
+particular $\nabla u=\alpha\nabla r$ on the boundary.
+We also have $Lr\ge cS$ and $S\ge m g_t^{-1/m}\ge c_0>0$.
+For any constant real unit vector $e$, differentiation and concavity give
+\begin{equation}\label{eq:dirichlet-directional}
+ L\psi_e=(\log g_t)_e,\qquad L\psi_{ee}\ge(\log g_t)_{ee}.
+\end{equation}
+The maximum principle applied to $\pm\psi_e+Cr$ bounds the full
+gradient. Applied to $\psi_{ee}+Cr$, it reduces an upper bound for the
+real Hessian to the boundary.
+
+\emph{Second derivatives at the boundary.}
+Center a flat chart at a boundary point, let $\nu$ be the outward unit
+normal, and identify vectors with their quaternionic columns in this
+chart. For real tangent vectors $v,w$,
+$D^2u(v,w)=\alpha D^2r(v,w)$ at the center. For the mixed derivatives
+we adapt the tangential differentiation argument of Caffarelli, Nirenberg
+and Spruck for the real Monge--Ampère equation
+\cite[Section~2, (2.11)--(2.14)]{CNS1984}. Fix a real tangent unit
+vector $e$. We construct a local quaternionic rigid motion
+$X=(e+Ax)\cdot\nabla$ for which $Xr$ vanishes to second order along
+the boundary at the center. Let
+\[
+ v=\frac{P_{\rm tan}D^2r\,e}{|\nabla r|},\qquad
+ A=v\nu^*-\nu v^*-\nu(\nu^*v)\nu^* ,
+\]
+where $P_{\rm tan}$ is the real orthogonal tangent projection. Since
+$\Rea(\nu^*v)=0$, we have $A^*=-A$ and $A\nu=v$. Now $Xr(0)=0$ and
+for every tangent $w$,
+\[
+ \partial_w(Xr)(0)=D^2r(w,e)-|\nabla r|\,w\cdot A\nu=0.
+\]
+Thus $|Xu|=|\alpha Xr|\le C|x|^2$ on the boundary near the center.
+The flow of $X$ acts by quaternionic unitary rotations and translations.
+Differentiating the covariance of $H$ under this flow gives
+$L(X\psi)=X\log g_t$: the commutator from conjugating $Q$ has zero
+pairing with $Q^{-1}$. This identity uses only the flat chart.
+Subtracting the known $XB_0$ gives $|L(Xu)|\le CS$.
+
+In a chart ball of fixed small radius, set $w=C_1|x|^2-C_2r$.
+First choose $C_1$ so that $w\ge|Xu|$ on the true boundary by the
+quadratic bound, and on the spherical boundary by the gradient bound.
+Then choose $C_2$ so that $L(w\pm Xu)\le0$, using $H(|x|^2)=8I$
+and $Lr\ge cS$. The maximum principle gives $|Xu|\le w$ in the
+intersection. Both functions vanish at the center, so the inward
+derivative bounds $|\partial_\nu Xu|$. This is $|D^2u(\nu,e)|$:
+the additional term $\nabla u\cdot A\nu$ vanishes since $\nabla u$
+is normal. The constants are uniform over the compact boundary.
+
+For the remaining derivative, the product rule at the boundary reads
+\[
+ H(u)=\alpha H(r)+G(\alpha)G(r)^*+G(r)G(\alpha)^*,\qquad
+ G(r)=|\nabla r|\nu .
+\]
+Compression to the \emph{quaternionic} orthogonal complement of $\nu$
+annihilates both cross terms. On that complement $Q$ is therefore bounded
+below by $b'H(r)|_{\nu^\perp}\ge cI$. The rank-one rule shows that in a
+quaternionic orthonormal basis beginning with $\nu$,
+\[
+ Q=\begin{pmatrix}\psi_{\nu\nu}+c_1&z^*\\z&D\end{pmatrix}.
+\]
+Here $c_1,z,D$ depend only on the real second derivatives already
+bounded. For $m>1$ the Schur formula in
+Lemma~\ref{lem:quaternionic-matrices} gives
+$\psi_{\nu\nu}=g_t/\det D+z^*D^{-1}z-c_1$, which is bounded since
+$D\ge cI$. For $m=1$ the scalar identity $Q=g_t$ suffices.
+Equation~\eqref{eq:dirichlet-directional} now gives $D^2\psi\le CI$
+throughout the domain. Since $\Delta\psi=\tr Q>0$, every real Hessian
+eigenvalue is at least $-(4m-1)C$. This is the full $C^2$ bound.
+
+\emph{Real elliptic regularity.}
+The $C^2$ bound and $\det Q=g_t\ge c_0>0$ put all eigenvalues of $Q$
+in a fixed interval $[c,C]\subset(0,\infty)$. Thus all real Hessians
+$D^2\psi$ lie in the compact convex set
+$\mathcal K=\{M:|M|\le C_1,\ cI\le\mathcal H(M)\le CI\}$.
+On $\mathcal H(M)>0$ the smooth function $F(M)=\log\det\mathcal H(M)$
+is concave. For $M\in\mathcal K$ and every real covector $\xi$,
+\[
+ DF(M)[\xi\xi^{\mathsf t}]
+   =\widehat\xi^*\mathcal H(M)^{-1}\widehat\xi
+   \in[C^{-1}|\xi|^2,c^{-1}|\xi|^2].
+\]
+These are real uniform ellipticity and concavity on the range of the
+solution Hessians, the hypotheses (i)$'$, (ii)$'$ of the interior and
+boundary estimates \cite[Theorems~17.14 and~$17.26'$]{GilbargTrudinger}. To put
+$F$ on the full real matrix space as in that theorem, multiply it by a
+smooth cutoff supported in $\{\mathcal H(M)>0\}$ and equal to one on
+a neighborhood of $\mathcal K$. The equation
+$F(D^2\psi)-\log g_t=0$ then has uniformly smooth coefficients and
+boundary data $B_0$. The cited local boundary estimates (see also
+\citet{Krylov1983}) and the interior Evans--Krylov estimate
+\cite{Evans1982,Krylov1982} apply in a finite
+cover of the flat quotient, giving a uniform $C^{2,\alpha}$ bound for
+some $\alpha>0$.
+
+For a limit of solvable parameters, a subsequence converges in
+$C^{2,\beta}$, $0<\beta<\alpha$. Positivity and the equation pass to
+the limit. Schauder bootstrapping gives smoothness up to the boundary:
+in flattened coordinates differentiate tangentially with the given
+Dirichlet data, and recover the pure normal derivative from the equation
+by uniform ellipticity. Thus the path is closed and reaches $g$.
+
+Uniqueness on $\widetilde\Omega$ makes the solution invariant under
+translations in every added periodic coordinate. It descends to
+$\Omega$; any physical solution lifts, so uniqueness descends as well.
+The same lift gives comparison on subdomains, in particular on the
+balls in the three-slot fibers used in Section~\ref{sec:barrier}.
+For moving domains pull the lifted equation back to a fixed domain.
+Its coefficients and boundary data depend smoothly on the parameters,
+and its linearization is conjugate to the Dirichlet isomorphism above.
+The implicit function theorem in each $C^{k+2,\alpha}_0$ gives smooth
+dependence up to the boundary. The strict inequalities used to choose
+$b,b'$ persist locally in the parameters.
+\end{proof}

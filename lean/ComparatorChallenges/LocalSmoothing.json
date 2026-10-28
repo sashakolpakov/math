@@ -1,0 +1,17 @@
+{
+  "challenge_module": "ComparatorChallenges.LocalSmoothing",
+  "solution_module": "OAI.Analysis.Fourier.LocalSmoothing.Comparator",
+  "theorem_names": [
+    "OAI.Analysis.Fourier.LocalSmoothing.Comparator.euclidean_local_smoothing",
+    "OAI.Analysis.Fourier.LocalSmoothing.Comparator.bochner_riesz",
+    "OAI.Analysis.Fourier.LocalSmoothing.Comparator.spherical_restriction",
+    "OAI.Analysis.Fourier.LocalSmoothing.Comparator.kakeya_maximal",
+    "OAI.Analysis.Fourier.LocalSmoothing.Comparator.kakeya",
+    "OAI.Analysis.Fourier.LocalSmoothing.Comparator.stein_square"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

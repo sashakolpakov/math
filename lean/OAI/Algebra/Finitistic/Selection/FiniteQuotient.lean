@@ -6,13 +6,6 @@ import Mathlib.Tactic.NoncommRing
 import Mathlib.Tactic.Abel
 
 namespace OAI
-/-!
-Exact prerequisites for Section 2 of v5s9.15.
-
-These are the variable-coefficient elementary-matrix calculations in the
-finite-quotient construction, over the actual rings F₂[t]/(t^m - 1).
-They do not establish the paper's main homological theorem.
--/
 
 open Matrix Polynomial
 

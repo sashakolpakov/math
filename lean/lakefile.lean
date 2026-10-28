@@ -1,4 +1,5 @@
 import Lake
+import Lake.Build.Library
 
 open System Lake DSL
 
@@ -108,6 +109,32 @@ lean_lib OAI.Probability where
 lean_lib OAI.Combinatorics where
   roots := #[`OAI.Combinatorics]
   globs := #[`OAI.Combinatorics.+]
+-- Keep the preserved challenge sources under their original HodgeConjecture module names.
+lean_lib HodgeConjecture where
+  srcDir := "ComparatorChallenges/HodgeConjectureCMAbelianVarieties"
+  globs := #[.submodules `HodgeConjecture]
+
+-- Preserve the helper modules' original names when enumerating ComparatorChallenges.
+@[«library_facet»] def comparatorSourceModules : LibraryFacetDecl :=
+  .mk LeanLib.modulesFacet <|
+    mkFacetJobConfig (buildable := false) fun (lib : LeanLib) => do
+      let some builtin := initLibraryFacetConfigs.get? LeanLib.modulesFacet
+        | error "Missing built-in library module collector"
+      if lib.pkg.baseName != `OAI || lib.name != `ComparatorChallenges then
+        return ← builtin.run lib
+      let modules ← lib.getModuleArray
+      let globs := modules.filterMap fun mod =>
+        if (`ComparatorChallenges.HodgeConjectureCMAbelianVarieties.HodgeConjecture).isPrefixOf mod.name then
+          none
+        else
+          some (Glob.one mod.name)
+      let ordinary : LeanLib := { lib with config := { lib.config with globs } }
+      let ordinaryModules ← (← builtin.run ordinary).await
+      let some helpers := lib.pkg.findLeanLib? `HodgeConjecture
+        | error "Missing HodgeConjecture source-root configuration"
+      let helperModules ← (← builtin.run helpers).await
+      return Job.pure (ordinaryModules ++ helperModules)
+
 lean_lib ComparatorChallenges where globs := #[`ComparatorChallenges.+]
 lean_lib OAI.InformationTheory where
   roots := #[`OAI.InformationTheory]

@@ -1,0 +1,144 @@
+\section{The paraboloid and Schr\"odinger evolution}\label{sec:parabolic}
+
+We return to the spherical extension estimate of
+Lemma~\ref{lem:kakeya-local-extension}, with $n=d+1$. A small cap on
+$S^d$ approaches the paraboloid under parabolic rescaling
+\cite[\S3, (3.10)--(3.12)]{Hormander1973FLp}. The Fresnel
+formula then writes a Schr\"odinger wave in $d$ spatial dimensions as
+extension from that paraboloid. At $p_c=2(d+1)/d$ both changes of
+variables preserve the logarithmic power. We use the relation between
+paraboloid restriction and Schr\"odinger evolution developed by Rogers
+\cite{Rogers2008Schrodinger} and Lee, Rogers and Seeger
+\cite{LRS2013Schrodinger}.
+
+Write $B_d$ for the unit ball in $\RR^d$ and define extension from the
+compact paraboloid patch by
+\[
+ E g(x,t)=\int_{B_d} e^{i(x\cdot v+t|v|^2)}g(v)\dd v .
+\]
+
+\begin{corollary}[Paraboloid extension and Schr\"odinger local smoothing]\label{cor:parabolic}
+Let $d\ge1$ and $p_c=2(d+1)/d$. If $1<a\le\infty$, $p_c<b<\infty$
+and $b>(d+2)a'/d$, then
+\begin{equation}\label{eq:paraboloid-extension-mixed}
+ \|Eg\|_{L^b(\RR^{d+1})}\lesssim_{d,a,b}\|g\|_{L^a(B_d)} .
+\end{equation}
+Let $I\subset\RR$ be a compact interval. For $N\ge2$ and Schwartz $f$ with
+$\supp\widehat f\subset B(0,N)\subset\RR^d$,
+\begin{equation}\label{eq:parabolic-critical}
+ \|e^{it\Delta}f\|_{L^{p_c}(\RR^d\times I)}
+ \lesssim_{d,I} [\log(2+N)]^{2/p_c}\|f\|_{p_c}.
+\end{equation}
+For $p_c<p<\infty$ and $p\le r\le\infty$, arbitrary Schwartz data satisfy
+\begin{equation}\label{eq:parabolic-exact}
+ \|e^{it\Delta}f\|_{L^p(\RR^d;L^r(I))}
+ \lesssim_{d,p,r,I}\|f\|_{B^s_{p,p}(\RR^d)}
+ \lesssim_{d,p,s}\|(1-\Delta)^{s/2}f\|_p,
+ \qquad s=d(1-2/p)-2/r .
+\end{equation}
+Here $B^s_{p,p}$ is the inhomogeneous Besov space. Taking $r=p$ gives
+the exact spacetime Sobolev order $d-2(d+1)/p$; taking $r=\infty$
+gives the corresponding maximal estimate.
+\end{corollary}
+
+\begin{proof}
+We first transfer Lemma~\ref{lem:kakeya-local-extension} to $E$,
+writing $A$ for the logarithmic power in that lemma. By
+Theorem~\ref{thm:main} we may take $A=2/p_c$.
+Parametrize a spherical cap by $(\delta v,\sqrt{1-\delta^2|v|^2})$
+and evaluate its extension at $(x/\delta,-2t/\delta^2)$.
+After removing a scalar phase, the new graph is
+$q_\delta(v)=2(1-\sqrt{1-\delta^2|v|^2})/\delta^2$.
+Choose the cap density to be $g(v)\sqrt{1-\delta^2|v|^2}$, so surface
+measure times density is $\delta^d g(v)\dd v$. The image of $B(0,R)$
+in physical space lies in $B(0,CR/\delta^2)$. Thus the extension
+operator for $q_\delta$ has local $L^{p_c}\to L^{p_c}$ norm at most
+\[
+ C\,\delta^{-d+(d+2)/p_c+d/p_c}
+       [\log(2+R/\delta^2)]^A .
+\]
+The power of $\delta$ is zero. Since
+$q_\delta(v)=|v|^2+O(\delta^2)$, the error in replacing its extension
+by $Eg$ on $B(0,R)$ is at most $C R\delta^2\|g\|_1$ pointwise.
+Taking $\delta=(2R)^{-(d+2)}$ makes its $L^{p_c}$ norm
+$O(\|g\|_{p_c})$ and keeps $\log(2+R/\delta^2)\lesssim_d\log(2+R)$.
+Modulation of $g$ translates the observation ball, so
+\begin{equation}\label{eq:local-paraboloid}
+  \|Eg\|_{L^{p_c}(B(z,R))}
+  \lesssim_{d,A} [\log(2+R)]^A\|g\|_{p_c}
+  \qquad(z\in\RR^{d+1},\ R\ge1).
+\end{equation}
+
+To obtain \eqref{eq:paraboloid-extension-mixed}, first note that the
+loss in \eqref{eq:local-paraboloid} is $O_\varepsilon(R^\varepsilon)$
+for every $\varepsilon>0$, also on a slightly larger parameter ball by
+dilation. A smooth density supported on the larger patch and equal to
+$\dd v$ on $B_d$ has Fourier decay $O((1+|(x,t)|)^{-d/2})$ by
+stationary phase. Apply Tao's epsilon-removal theorem
+\cite[Theorem~1.2]{Tao1999} in the compact hypersurface form of
+\cite[Theorem~5.3]{Kim2017Restriction}, with both restriction
+exponents equal to $p_c'\in(1,2)$. Duality and zero extension from
+$B_d$ give $E:L^{p_c}(B_d)\to L^s(\RR^{d+1})$ for every $s>p_c$.
+Since $B_d$ has finite measure, $E:L^s\to L^s$ as well. Interpolation
+with $E:L^1\to L^\infty$ now gives \eqref{eq:paraboloid-extension-mixed}
+as in the proof of Corollary~\ref{cor:spherical-restriction}, with $n=d+1$.
+
+For the critical estimate write $p=p_c$, $S(t)=e^{it\Delta}$ and
+$I_0=[1/2,1]$. We give the finite-scale comparison directly from the
+Fresnel kernel; compare \cite[Lemma~2.2]{LRS2013Schrodinger}.
+Let $\chi\in C_c^\infty(B(0,2))$ equal one on $B(0,1)$, so
+$f=P_N f$ for $P_N=\chi(D/N)$. Tile $\RR^d$ by cubes $Q$ of side $N$.
+For $t\in I_0$ and $|z|\ge8N$, integration by parts bounds the kernel
+of $S(t)P_N$ by $C_M N^d(1+N|z|)^{-M}$: in the frequency variable
+$\eta=\xi/N$ the phase gradient $Nz-2tN^2\eta$ has length at least
+$N|z|/2$ on the support of $\chi$.
+Thus on each $Q$ the contribution from outside the concentric cube
+$30Q$ is bounded by the convolution of this majorant with $|f|$.
+The same convolution works on every cube and has $L^p$ norm
+$O(\|f\|_p)$ by Young's inequality for $M>d$.
+
+Translate $Q$ to be centered at zero and set $h=f\mathbf1_{30Q}$.
+This truncation may introduce higher frequencies, so the near contribution
+is $S(t)P_Nh=P_NS(t)h$. The equality holds on $L^2$; at $x$ the last
+expression integrates $S(t)h(x-w/N)$ against $\check\chi(w)\dd w$.
+Choose $\lambda=16\sqrt d\,N$, so $g(v)=h(\lambda v)$ is supported in
+the unit ball. Since $h\in L^1\cap L^2$, its Fresnel integral converges
+absolutely. Substitution of $y=\lambda v$ gives
+\[
+ |S(t)h(z)|=(4\pi t)^{-d/2}\lambda^d
+   \left|Eg\left(-\frac{\lambda z}{2t},\frac{\lambda^2}{4t}\right)\right|.
+\]
+For $z=x-w/N$, $x\in Q$ and $t\in I_0$, the arguments of $Eg$ lie in a
+ball of radius $C_d(N^2+|w|)$. The change of variables from $(x,t)$
+to those arguments is one-to-one, with absolute Jacobian comparable
+to $\lambda^{d+2}$. Since $\|g\|_p=\lambda^{-d/p}\|h\|_p$,
+\eqref{eq:local-paraboloid} gives
+\[
+ \|S(t)h(x-w/N)\|_{L^p(Q\times I_0)}
+ \lesssim \lambda^{d-(2d+2)/p}
+       [\log(2+N^2+|w|)]^A\|h\|_p .
+\]
+The power of $\lambda$ is zero. Integrating against $|\check\chi(w)|\dd w$
+and using its rapid decay bounds the near contribution by
+$C[\log(2+N)]^A\|f\|_{L^p(30Q)}$. Sum the $p$th powers over $Q$, using
+the bounded overlap of $30Q$, and add the far contribution.
+This proves \eqref{eq:parabolic-critical} on $I_0$
+with power $A$.
+On $[a/2,a]$ parabolic scaling gives an extra $a^{1/p}$ and replaces
+$N$ by $\max(2,\sqrt a\,N)$. Sum the $p$th powers over dyadic intervals
+in a bounded time range and use conjugation for negative times.
+
+For the mixed norms in \eqref{eq:parabolic-exact}, choose $p_c<a<p$ and
+take $b=a$ in \eqref{eq:paraboloid-extension-mixed}. The diagonal case of
+\cite[Corollary~1.2]{LRS2013Schrodinger} takes such an $L^a\to L^a$
+extension bound to the first inequality in \eqref{eq:parabolic-exact}
+for every $p\le r\le\infty$. The second follows from spatial
+Littlewood--Paley theory and $\|\cdot\|_{\ell^p}\le\|\cdot\|_{\ell^2}$
+for $p>2$.
+\end{proof}
+
+In $d=1$ this argument gives $(\log(2+N))^{1/2}$ at $p_c=4$.
+The sharp annular power on $I_0$ is $1/4$
+\cite[Theorem~1.4 and \S4.1]{LRS2013Schrodinger}. It is also the sharp
+power for a frequency ball: modulation moves $[-N,N]$ into $[N,3N]$
+and, at each time, only translates the output and multiplies it by a phase.

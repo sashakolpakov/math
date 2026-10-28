@@ -1,0 +1,254 @@
+\section{The determinant and integration by parts}\label{sec:calculus}
+
+The wave current in Proposition~\ref{prop:current} is positive and has
+divergence-free real columns. We shall pair it with a Hessian. The
+essential pairing is the ordinary real contraction
+$A:H(v)=A^{\RR}:D^2v$: each spacetime index still has its three real
+coordinates. The choice of Hessian has two further consequences. The squared modulus of a
+holomorphic function contributes at most one quaternionic direction.
+In $n$ spatial variables, if its nonzero eigenvalue is $\beta$, adding
+$\epsilon I$ gives determinant $(\beta+\epsilon)\epsilon^{n-1}$.
+This is where the denominator in $p_{\mathrm c}=2n/(n-1)$ enters.
+The cofactor of the Hessian also has
+divergence-free columns; this allows us to integrate the determinant
+equation by parts, including at the boundary.
+
+\subsection{The Hessian in real and complex coordinates}
+
+Use the triples $z_a=x_a+P_a\mathbf i\in\mathcal D$ of
+Section~\ref{sec:current}, with $P_a\in\CC_{\mathbf k}$. We allow a
+fourth real coordinate as well: Appendix~\ref{sec:dirichlet} uses it to
+rotate the normal at the boundary. Thus for each of $m$ coordinate
+indices let $z_a=\sum_{\alpha=0}^{k-1} e_\alpha z_{a\alpha}$, where
+$k=3$ or $4$, $(e_0,e_1,e_2,e_3)=(1,\mathbf i,\mathbf j,\mathbf k)$,
+and the $z_{a\alpha}$ are real.
+For a real $C^2$ function $u$ put $\partial_{a\alpha}=\partial/\partial z_{a\alpha}$
+and define
+\begin{equation}\label{eq:quaternionic-hessian}
+  G_a(u)=\sum_\alpha e_\alpha\,\partial_{a\alpha}u,\qquad
+  H_{ab}(u)=\sum_{\alpha,\beta} e_\alpha\bar e_\beta\,
+                        \partial_{a\alpha}\partial_{b\beta}u .
+\end{equation}
+Thus $G(u)$ is the ordinary gradient written as a quaternionic column.
+The symbols $\nabla$, $\Delta$ and $\partial_{\mathbf n}$ denote the
+Euclidean gradient, Laplacian and outward normal derivative.
+
+\begin{lemma}[Hessian calculus]\label{lem:hessian-calculus}
+In either number of slots, $H(u)$ is Hermitian and $\tr H(u)=\Delta u$.
+The linear map from the real Hessian to $H(u)$ sends
+$\xi\xi^{\mathsf t}$ to $gg^*$, where
+$g_a=\sum_\alpha e_\alpha\xi_{a\alpha}$. It sends nonnegative
+real forms to nonnegative quaternionic forms. The product rule is
+\begin{equation}\label{eq:hessian-product}
+ H(uv)=uH(v)+vH(u)+G(u)G(v)^*+G(v)G(u)^* .
+\end{equation}
+In four slots $H$ is covariant under quaternionic unitary changes of
+coordinates, and in three slots under real orthogonal changes of the
+coordinate index applied in all slots.
+
+If $u$ depends only on $P\in\CC_{\mathbf k}^m$, then
+\begin{equation}\label{eq:complex-hessian}
+ G_a(u)=2(\partial_{\bar P_a}u)\mathbf i,\qquad
+ H_{ab}(u)=4\partial_{\bar P_a}\partial_{P_b}u .
+\end{equation}
+In particular, a holomorphic map $F=(F_1,\ldots,F_l)$ with complex
+Jacobian $J_{\nu a}=\partial_{P_a}F_\nu$ satisfies
+\begin{equation}\label{eq:holomorphic-squares}
+ H\Big(\sum_\nu|F_\nu|^2\Big)=4J^*J .
+\end{equation}
+For every smooth real function $\rho$ of $F$,
+$G(\rho\circ F)$ belongs to the quaternionic image of $J^*$.
+\end{lemma}
+
+\begin{proof}
+Interchanging the real derivatives gives Hermitian symmetry. In a
+diagonal entry the terms with $\alpha\ne\beta$ cancel in pairs; the
+remaining terms have coefficient one. Formula~\eqref{eq:quaternionic-hessian}
+applied to $\xi\xi^{\mathsf t}$ gives $gg^*$, and sums of these
+rank-one forms give every nonnegative real form. The same formula and
+the ordinary product rule give \eqref{eq:hessian-product}.
+In four slots the real transpose of a quaternionic unitary $U$ acts
+on the encoded covector as $U^*$. Thus the Hessian rule for a real
+rank-one form gives $H(u\circ U)=U^*(H(u)\circ U)U$; linearity
+extends this to every real Hessian. Real orthogonal matrices on the
+coordinate index also preserve the three-slot subspace, giving the
+stated covariance there.
+
+For $P_a=p_a+\mathbf k q_a$ we have
+$2\partial_{\bar P_a}=\partial_{p_a}+\mathbf k\partial_{q_a}$.
+Since $\mathbf k\mathbf i=\mathbf j$, this gives the gradient in
+\eqref{eq:complex-hessian}. The four terms in $H_{ab}$ have
+coefficients $1,-\mathbf k,\mathbf k,1$ in the order
+$(p_ap_b,p_aq_b,q_ap_b,q_aq_b)$, which gives its Hessian formula.
+The complex chain rule now gives \eqref{eq:holomorphic-squares} and
+$G(\rho\circ F)=2J^*(\partial_{\bar F_\nu}\rho)_\nu\,\mathbf i$,
+with the derivatives of $\rho$ evaluated at $F$.
+\end{proof}
+
+\subsection{The Moore cofactor}
+
+For Hermitian quaternionic matrices use the real inner product
+$A:B=\Rea\tr(AB)$. The real part of the trace is cyclic; in particular
+$A:(vv^*)=v^*Av$. Write $\det A$ for the Moore determinant, the product
+of the $m$ real eigenvalues counted with quaternionic multiplicity.
+These conventions agree with \cite[Section~1.1, especially Theorems
+1.1.8--1.1.9]{Alesker2003LA}. The next identities apply also to the
+full Hessian in the energy argument, whose spatial block is positive
+definite but whose time entry need not have a sign.
+
+\begin{lemma}[Matrix identities]\label{lem:quaternionic-matrices}
+The Moore determinant is a homogeneous polynomial of degree $m$.
+Its cofactor $C(A)$ is the Hermitian matrix defined by
+\begin{equation}\label{eq:cofactor-definition}
+ C(A):B=\left.\frac{d}{dt}\det(A+tB)\right|_{t=0}.
+\end{equation}
+It is polynomial of degree $m-1$, and
+\begin{equation}\label{eq:cofactor-inverse}
+ C(A)=(\det A) A^{-1}\quad (A>0).
+\end{equation}
+If $A\ge0$, then $C(A)\ge0$; if also $A$ is singular, $C(A)$ kills
+the image of $A$. On positive definite matrices $\log\det$ is concave
+and increasing in the matrix order.
+
+For a unit vector $v\in\HH^m$ let $A|_{v^\perp}$ denote the
+compression of the form to its quaternionic orthogonal complement.
+For every Hermitian $A$ and real $t$,
+\begin{equation}\label{eq:cofactor-restriction}
+  v^*C(A)v=\det(A|_{v^\perp}),\qquad
+  \det(A+t vv^*)=\det A+t\,v^*C(A)v.
+\end{equation}
+The determinant on the zero-dimensional space is one. Finally, for a
+Hermitian $M=\bigl(\begin{smallmatrix}\ell&c^*\\ c&D\end{smallmatrix}\bigr)$
+with $D>0$, put $\sigma=\ell-c^*D^{-1}c$ and let $v_0$ be the first
+coordinate vector. Then
+\begin{equation}\label{eq:schur-complement}
+     \det M=(\det D)\sigma,\qquad M-\sigma v_0v_0^*\ge0 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+A Hermitian matrix has a quaternionic orthonormal eigenbasis:
+maximize $v^*Av$ on the unit sphere and repeat on the orthogonal
+complement. By Newton's identities its determinant is a polynomial
+in the power sums $\Rea\tr(A^j)$, $1\le j\le m$. This gives
+\eqref{eq:cofactor-definition} with the stated degrees.
+In the real representation on $\RR^{4m}$ each eigenvalue occurs
+four times. Thus for $A>0$, $\log\det A$ is one fourth of the real
+log determinant. Differentiation proves \eqref{eq:cofactor-inverse},
+monotonicity and concavity. On a diagonal matrix each cofactor
+eigenvalue is the product of the other $m-1$ eigenvalues, first for
+positive matrices by \eqref{eq:cofactor-inverse}, then for all
+diagonal matrices by polynomiality. Unitary invariance proves the
+claims for singular $A$.
+
+Completing the square shows that the form of $M-\sigma v_0v_0^*$ at
+$(b,w)$ is $(w+D^{-1}cb)^*D(w+D^{-1}cb)$. For $\sigma>0$ the real
+Schur determinant formula gives $(\det M)^4=(\det D)^4\sigma^4$;
+take the positive fourth root. Both sides of $\det M=(\det D)\sigma$
+are polynomials in $\ell$, so the identity holds for every $\sigma$.
+In a basis with $v$ first, adding $tvv^*$ changes only $\ell$.
+For positive $A$ the change in its determinant is therefore exactly
+$t\det(A|_{v^\perp})$. Differentiation in $t$ gives the first formula
+in \eqref{eq:cofactor-restriction}; polynomiality extends both to
+every Hermitian $A$. For $m=1$ they hold directly.
+\end{proof}
+
+\subsection{Column divergence and the boundary term}
+
+In $k$ slots the real tensor \eqref{eq:current-real-tensor} of a
+Hermitian field $A(z)$ has coefficients
+\begin{equation}\label{eq:real-coefficients}
+     A^{\RR}_{a\alpha,b\beta}=\Rea(\bar e_\alpha A_{ab}e_\beta).
+\end{equation}
+This symmetric real matrix represents the Hermitian form on the
+encoded real vectors: $(\nabla v)^{\mathsf t} A^{\RR}\nabla u=
+\Rea(G(v)^*A G(u))$. Likewise $A:H(u)=A^{\RR}:D^2u$, where the
+pairing on the right is the ordinary real matrix inner product.
+Consequently, whenever the real columns have zero divergence,
+\begin{equation}\label{eq:real-divergence}
+    A:H(u)=\Div(A^{\RR}\nabla u).
+\end{equation}
+One sufficient condition is the quaternionic row identity
+\begin{equation}\label{eq:strong-divergence}
+     \sum_{a,\alpha}\bar e_\alpha\,\partial_{a\alpha}A_{ab}=0
+           \quad(1\le b\le m):
+\end{equation}
+multiply on the right by $e_\beta$ and take real parts. Also,
+if $A G(w)=0$ for a real scalar function $w$, then $wA$ preserves
+either form of column conservation already satisfied by $A$.
+Indeed the extra row in the product rule is $G(w)^*A=0$.
+
+Alesker showed that the real tensor representing the Moore cofactor
+of a positive definite quaternionic Hessian has divergence-free columns.
+This puts the linearized Monge--Ampère operator in divergence form
+\cite[Lemma~4.6]{Alesker2013Flat}. The following polynomial proof
+also covers the three slots used by the wave current and allows an
+indefinite or singular Hessian.
+
+\begin{lemma}[Cofactor divergence]\label{lem:cofactor-divergence}
+For $k=3$ or $4$ and a smooth real $u$, the Hessian cofactor satisfies
+\begin{equation}\label{eq:cofactor-divergence}
+    \sum_{a,\alpha}\bar e_\alpha\,\partial_{a\alpha} C(H(u))_{ab}=0
+    \quad(1\le b\le m).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For $m=1$ the cofactor is one. Otherwise put $j_0=m-1$. Polarize
+the cofactor: for Hermitian inputs $M_1,\ldots,M_{j_0}$, denote
+the coefficient of $t_1\cdots t_{j_0}$ in $C(\sum_j t_jM_j)$ by
+$Q(M_1,\ldots,M_{j_0})$. This is multilinear, and on the diagonal
+equals $j_0!\,C(M_1)$.
+
+Take $M_j=g_jg_j^*$. For $t_j>0$, $\sum_jt_jg_jg_j^*$ is singular:
+its image is the quaternionic span of the $j_0$ columns. Its cofactor
+therefore kills each $g_j$, by Lemma~\ref{lem:quaternionic-matrices}.
+This polynomial identity in $t$ holds coefficient by coefficient.
+Thus $Q=Q(g_1g_1^*,\ldots,g_{j_0}g_{j_0}^*)$ kills every $g_j$,
+and $g_j^*Q=0$ as well since $Q$ is Hermitian.
+
+Test the polarized identity on $u_j(z)=\exp(\xi_j\cdot z)$ with
+arbitrary real covectors $\xi_j$, using the Euclidean dot product.
+Set $(g_j)_a=\sum_\alpha e_\alpha(\xi_j)_{a\alpha}$. The Hessian
+symbol in Lemma~\ref{lem:hessian-calculus} gives
+$Q(H(u_1),\ldots,H(u_{j_0}))=\exp((\sum_j\xi_j)\cdot z)\,Q$.
+After cancellation of this exponential, its row divergence is
+$(\sum_jg_j)^*Q=0$. To pass to arbitrary smooth inputs, observe
+that the row divergence is a multilinear differential expression with
+constant coefficients: its value on these exponential functions,
+divided by their product, is the polynomial whose coefficients
+multiply the corresponding derivatives of the inputs. That polynomial
+vanishes for all covectors, so all coefficients vanish. Taking every
+input equal to $u$ proves \eqref{eq:cofactor-divergence}.
+\end{proof}
+
+Here is the boundary convention used for both the current and the
+cofactor. On a smooth domain $\Omega=\{r<0\}$ assume $\nabla r\ne0$
+on $\partial\Omega$. Write $\mathbf n=\nabla r/|\nabla r|$ for the
+real outward unit normal and $\nu=G(r)/|\nabla r|$ for the same
+vector in quaternionic coordinates. By \eqref{eq:real-divergence},
+Green's identity for a field with divergence-free real columns is
+\begin{equation}\label{eq:calculus-green}
+ \int_\Omega\!\big(v\,A:H(u)-u\,A:H(v)\big)
+  =\int_{\partial\Omega}\!
+       \Rea\!\left(v\,\nu^*A G(u)-u\,\nu^*A G(v)\right)\dd S .
+\end{equation}
+Volume and surface measure are Euclidean. The same formula holds in
+periodic coordinates, with test functions of compact support in any
+unbounded directions.
+
+If $u$ vanishes on $\partial\Omega$, then $G(u)=\nu\,\partial_{\mathbf n}u$
+there. Also $u=\rho r$ for a smooth $\rho$ near the boundary: use $r$
+as one local coordinate and integrate the derivative of $u$ in that
+coordinate. The cross
+terms of \eqref{eq:hessian-product} then vanish on compression, giving
+\begin{equation}\label{eq:boundary-restriction}
+ H(u)|_{\nu^\perp}=\rho\,H(r)|_{\nu^\perp}\qquad\text{on }\partial\Omega .
+\end{equation}
+In four slots this calculation gives the invariance of the quaternionic
+Levi form under a change of defining function \cite{Alesker2003MA}.
+Functions independent of the fourth slot give the same formula in three slots.
+In particular the normal flux coefficient $\nu^*C(H(u))\nu$ depends
+only on this compressed form, by \eqref{eq:cofactor-restriction}.
+This is why the determinant boundary term can be evaluated without
+knowing the second derivative of $u$ in the real normal direction.

@@ -1,0 +1,69 @@
+\begin{figure}[!htbp]
+\centering
+\definecolor{fiberteal}{RGB}{27,88,96}
+\definecolor{fiberclay}{RGB}{153,73,39}
+\begin{tikzpicture}[
+    font=\small,>=Latex,
+    axis/.style={->,draw=black!72,line width=.5pt},
+    guide/.style={draw=black!53,densely dotted,line width=.5pt},
+    tick/.style={draw=black!70,line width=.5pt},
+    inverse/.style={draw=fiberteal,line width=.8pt,dash pattern=on 3pt off 2pt},
+    center patch/.style={draw=fiberteal,line width=.8pt},
+    heading/.style={font=\small\bfseries,anchor=west,inner sep=0pt},
+    every node/.style={inner sep=2pt}]
+  % The horizontal unit is w_0, the vertical one 1/10.
+  % Only the ratio gamma/w_0 is schematic.
+  \begin{scope}[x=4.15cm,y=3.0cm]
+    \node[heading] at (-.11,1.48) {(a) The fiber wall};
+    \fill[black!3] (0,0) -- (1,0) arc[start angle=0,end angle=90,radius=1] -- cycle;
+    \fill[fiberteal!7] (0,0) rectangle (.22,.1);
+    \fill[fiberteal!28] (0,0) rectangle (.11,.025);
+    \draw[inverse] (0,.1) -- (.22,.1) -- (.22,0);
+    \draw[center patch] (0,.025) -- (.11,.025) -- (.11,0);
+    \draw[guide] (0,.5) -- ({sqrt(3)/2},.5);
+    \draw[black!78,line width=.65pt] (1,0) arc[start angle=0,end angle=90,radius=1];
+    \draw[fiberclay,line width=2.05pt,line cap=round]
+      (1,0) arc[start angle=0,end angle=30,radius=1];
+    \draw[axis] (-.022,0) -- (1.16,0) node[right] {$|W|$};
+    \draw[axis] (0,-.034) -- (0,1.15) node[above right] {$|Q|=|\Phi|/a$};
+    \node[below left] at (0,0) {$0$};
+    \draw[tick] (1,0) -- ++(0,-.025) node[below] {$w_0$};
+    \draw[tick] (0,.5) -- ++(-.022,0) node[left] {$1/20$};
+    \draw[tick] (0,1) -- ++(-.022,0) node[left] {$1/10$};
+    \node at (.37,.71) {$r<0$};
+    \node[anchor=west] at (.74,.76) {$r=0$};
+    \node[fiberclay,anchor=west] (walltext) at (.37,.24) {flux wall};
+    \draw[fiberclay,line width=.55pt] (walltext.east) -- (.80,.24) -- (.963,.257);
+    \draw[fiberteal,line width=.5pt] (.18,.105) -- (.115,.22);
+    \node[anchor=south,text=fiberteal,inner sep=1pt] at (.105,.225) {(b)};
+  \end{scope}
+  % Magnification of the lower left corner; the units are now 2 gamma
+  % and 1/100. The axes in either panel are moduli, not wall pieces.
+  \begin{scope}[xshift=6.85cm,x=3.65cm,y=2.8cm]
+    \node[heading] at (-.14,1.586) {(b) The recovery patch};
+    \fill[fiberteal!7] (0,0) rectangle (1,1);
+    \fill[fiberteal!28] (0,0) rectangle (.5,.25);
+    \draw[inverse] (0,1) -- (1,1) -- (1,0);
+    \draw[center patch] (0,.25) -- (.5,.25) -- (.5,0);
+    \draw[axis] (-.025,0) -- (1.17,0) node[right] {$|W|$};
+    \draw[axis] (0,-.036) -- (0,1.235) node[above right] {$|Q|$};
+    \node[below left] at (0,0) {$0$};
+    \draw[tick] (.5,0) -- ++(0,-.026) node[below] {$\gamma$};
+    \draw[tick] (1,0) -- ++(0,-.026) node[below] {$2\gamma$};
+    \draw[tick] (0,.25) -- ++(-.025,0) node[left] {$1/400$};
+    \draw[tick] (0,1) -- ++(-.025,0) node[left] {$1/100$};
+    \node[align=center] at (.50,.66) {Gaussian inversion\\[-1pt]$g(Q)=1$};
+    \node at (.25,.125) {centers};
+  \end{scope}
+\end{tikzpicture}
+\caption{The fixed fiber in modulus coordinates. The wave flux through
+$r=0$ is supported on the heavy arc, where $|Q|\le1/20$ and hence
+$|W|\ge\sqrt{3}\,w_0/2$. This separation gives Gaussian decay
+$e^{-cs/h}$ even for $|v|\le w_0/3$. In the enlargement (b), once
+$K\gamma$ is large, the radius-$h$ balls about the marked centers
+project into the dashed patch. There $|W-v|\le4\gamma$ on the enlarged cap
+$|v|\le2\gamma$, so Gaussian inversion costs at most $e^{C\gamma^2s/h}$.
+The aperture $\gamma$ is fixed independently of $h$; its size relative
+to $w_0$ is schematic.}
+\label{fig:fiber}
+\end{figure}

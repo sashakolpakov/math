@@ -1,0 +1,238 @@
+\section{Introduction}\label{sec:introduction}
+
+We prove Sogge's local smoothing conjecture for the Euclidean wave
+equation in every spatial dimension \(n\ge2\). A wave arriving from a
+thin spherical shell may have a much larger \(L^p\) norm at the instant
+when its rays come to a focus than it had initially. Sogge asked how
+many derivatives of the initial data are needed to control the norm
+averaged over a time interval \cite[Section~4, Equation~(4.5)]{Sogge1991}.
+
+Write \(U(T)=e^{-\mathrm iT|D|}\) for the half-wave propagator, with
+\(|D|=\sqrt{-\Delta}\). Put \(I=[1,2]\), \(J=(1-\Delta)^{1/2}\), and
+\[
+ s_+(p)=\max\left\{0,\frac{n-1}{2}-\frac np\right\}.
+\]
+
+\begin{theorem}[Euclidean local smoothing]\label{thm:local-smoothing}
+For \(n\ge2\), \(2\le p<\infty\) and \(\varepsilon>0\),
+\begin{equation}\label{eq:sogge}
+ \|U(T)f\|_{L^p(\RR^n\times I)}
+     \le C_{n,p,\varepsilon}\|J^{s_+(p)+\varepsilon} f\|_{L^p(\RR^n)} .
+\end{equation}
+At \(p=2\) one can take \(\varepsilon=0\).
+\end{theorem}
+
+At a fixed nonzero time the sharp Sobolev order is
+\((n-1)(1/2-1/p)\) \cite{Peral1980,Miyachi1980,SSS1991}.
+Thus for \(p\ge\pc=2n/(n-1)\), averaging in time gains every amount
+less than \(1/p\) over the fixed-time estimate. For \(2<p<\pc\),
+arbitrarily small positive regularity suffices. A focusing wave shows
+that \(s_+(p)\) is the smallest possible threshold
+(Proposition~\ref{prop:sharpness}). We state the wave estimates for complex
+Schwartz data; density gives the indicated extensions, and conjugation
+gives the other sign of the half wave. Unqualified \(L^p\) norms of the
+data are spatial norms.
+
+\papercontents
+
+\subsection{Consequences for Fourier analysis and geometry}
+
+\paragraph{Bochner--Riesz means and Stein's square function.}
+The Bochner--Riesz means \(B_R^\alpha=(1-|D|^2/R^2)_+^\alpha\)
+are uniformly bounded on \(L^p\) for \(1\le p\le\infty\) and every
+\(\alpha>\max\{0,n|1/p-1/2|-1/2\}\), as conjectured. For
+\(2\le p<\infty\) the same orders give a strong \(L^p\) bound for
+the supremum over all radii (Theorem~\ref{thm:bochner-riesz}).
+Stein's square function measures their variation with radius~\cite{Stein1958Square}.
+Keeping this variation inside a square integral gives its conjectured
+bounds for \(2\le p<\infty\) and \(\alpha>1/2+s_+(p)\)
+(Theorem~\ref{thm:stein-square}).
+The connection with the wave is that averaging in time against an
+oscillatory weight selects a thin shell in frequency. Sogge used this
+observation to pass from local smoothing to summability of Fourier
+integrals \cite[Equations~(4.5)--(4.6)]{Sogge1991}; for the reductions
+at fixed and variable radii see \cite[Propositions~39 and~40]{BHS2021}.
+
+\paragraph{Fourier restriction and Schr\"odinger waves.}
+Give an incoming spherical wave an amplitude that varies with
+direction. Near the focus, rescaling recovers the Fourier extension
+of this amplitude from the sphere. We obtain the full interior range
+of global Fourier extension estimates \(L^a\to L^b\): for
+\(1<a\le\infty\), \(b<\infty\), it is given by
+\[
+ b>\frac{2n}{n-1},\qquad b>\frac{n+1}{n-1}\,a',
+       \qquad \frac1a+\frac1{a'}=1 .
+\]
+Slicing gives the same bounds for the truncated cone in \(\RR^{n+1}\)
+(Corollary~\ref{cor:spherical-restriction}). Rescaling a small cap
+gives the compact paraboloid estimate \eqref{eq:paraboloid-extension-mixed}
+and local smoothing for Schr\"odinger waves in \(n-1\) spatial dimensions,
+with the exact Sobolev order above their critical exponent
+(Corollary~\ref{cor:parabolic}).
+
+\paragraph{Kakeya and Nikodym sets.}
+Random signs on
+disjoint frequency caps turn the square of the extension into a
+bound for overlaps of tubes. This proves the Kakeya maximal
+conjecture: the operator that takes \(f\) to the largest average of
+\(|f|\) on a unit \(\delta\)-tube in each direction has norm
+\(O_\varepsilon(\delta^{-\varepsilon})\) from \(L^n(\RR^n)\) to
+\(L^n(S^{n-1})\) for every \(\varepsilon>0\). In particular, every subset of \(\RR^n\) containing
+a unit line segment in each direction has Hausdorff dimension \(n\)
+(Corollary~\ref{cor:quant-kakeya}). A projective change of variables
+gives the corresponding Nikodym maximal estimate for tubes through a
+given point (see \eqref{eq:kakeya-nikodym}).
+
+\input{sections/history}
+
+\subsection{An estimate on one frequency annulus}\label{subsec:annular}
+
+The proof is built around a single estimate at \(p=\pc\). It quantifies
+the growth with frequency that the arbitrarily small Sobolev loss in
+Theorem~\ref{thm:local-smoothing} allows. Our Fourier convention is
+\(\widehat f(\xi)=\int_{\RR^n}e^{-\mathrm iX\cdot\xi}f(X)\dd X\),
+so \(U(T)\) has phase \(X\cdot\xi-T|\xi|\) and inverse Fourier factor
+\((2\pi)^{-n}\).
+
+\begin{theorem}[Critical annular estimate]\label{thm:main}
+Let \(n\ge2\), \(p=\pc\), and \(\varphi\in C_c^\infty(\RR^n\setminus\{0\})\).
+For \(N\ge2\) set \(P_N=\varphi(D/N)\). Then
+\begin{equation}\label{eq:main}
+ \|U(T)P_N f\|_{L^p(\RR^n\times I)}
+       \le C_{n,\varphi}[\log(2+N)]^{2/p}\|f\|_{L^p(\RR^n)} .
+\end{equation}
+\end{theorem}
+
+Interpolation and summation over annuli yield
+Theorem~\ref{thm:local-smoothing} (Section~\ref{sec:transfer}).
+For unrestricted data on a full annulus the optimal logarithmic power in \eqref{eq:main}
+lies between \(1/\pc\) and \(2/\pc\). The lower bound comes from the
+focusing example: every dyadic distance from the focus between one
+wavelength and unit distance contributes comparable mass to the
+\(\pc\)-th power of the spacetime norm (Proposition~\ref{prop:sharpness}).
+With any positive angular regularity, the power \(1/\pc\) suffices;
+Appendix~\ref{sec:angular} proves a sharper result with a logarithmic
+angular weight. For unrestricted data the lower bound persists even
+for the weak spacetime norm (Proposition~\ref{prop:weak-obstruction}).
+
+\subsection{A conserved current and two circles}\label{sec:idea}
+
+Consider a finite sum of plane waves with $|\xi|\asymp N$ whose
+directions lie in one small cap. We need to take a square \emph{after} summing these waves:
+summing the squares would discard the interference that produces a
+focus. An imaginary translation along a light ray filters the sum by
+direction. Translation by $-\mathrm i\ell(1,\omega)$, with $|\omega|=1$ and
+$\ell>0$, multiplies a mode of frequency $\xi$ by
+$\exp[-\ell|\xi|\,|\omega-\xi/|\xi||^2/2]$. Its Gaussian width
+in direction is therefore of order $(N\ell)^{-1/2}$ for $N\ell\gg1$.
+The symmetric first-order wave system provides these light rays as
+its quadratic fluxes. The sum of two such fluxes gives the imaginary
+displacement. Two flows built from the continued wave then give a
+positive semidefinite tensor. Each of its real columns has zero divergence,
+and its time component still detects the original wave on the chosen cap
+(Section~\ref{sec:current}).
+
+Here is the estimate that the construction must deliver. Set $h=N^{-1}$,
+let $a=Kh$ for a fixed large $K$, and write $p=\pc$. In addition to the
+physical time $T$, the construction has two auxiliary time coordinates
+$\tau\in\RR^2$. Write $H(T,s)$ for the circular mean at $|\tau|=s$
+of the nonnegative energy $\mathcal F(T,\tau)$ constructed below. For $h$ small and nonzero
+cap data on a fixed spatial torus normalized by $\|f\|_2=1$, we prove
+\begin{align*}
+ \int_1^2\|U(T)f\|_p^p\dd T
+ &\ \lesssim\ a^{-2}\!\int_1^2 H(T,2a)\dd T\\
+ &\ \lesssim\ [\log(2/h)]^2 a^{-2} H(0,4a)
+ \ \lesssim\ [\log(2/h)]^2\|f\|_p^p .
+\end{align*}
+The first and last inequalities compare the energy with the wave. The
+middle one uses only a scalar differential inequality.
+
+To obtain the energy, fix $(T,\tau)$ and let the remaining real and
+auxiliary spatial variables range over a bounded fiber with periodic
+real directions. Write $\mu>0$ for the time component of the regularized
+current. There is a complex scalar $\Phi$ constant along the current.
+With $\lambda>0$ large, take on each fiber the solution with positive
+definite spatial Hessian $H_{\rm fib}(\lambda|\Phi|^2+u)$ of
+\[
+   \det H_{\mathrm{fib}}(\lambda|\Phi|^2+u)=\lambda\mu,
+   \qquad u|_{\partial}=0 .
+\]
+Here $H_{\rm fib}$ is an $n$-by-$n$ quaternionic Hermitian Hessian; its
+determinant on positive matrices is the product of the eigenvalues.
+The background costs nothing in the conservation law: since the
+current is tangent to the levels of $\Phi$, its pairing with
+$H(|\Phi|^2)$ vanishes. In the spatial determinant, however, it
+supplies one direction of curvature. The Hessian of $\lambda|\Phi|^2$ has just one nonzero eigenvalue,
+of size $\lambda$. Adding $\alpha I$ to this background changes its
+determinant to $(\beta+\alpha)\alpha^{n-1}$, where $\beta\asymp\lambda$.
+Thus density $\mu\ge m$ on a small ball forces the depth of $u$ at
+its center to be at least a constant times the squared radius times
+$m^{1/(n-1)}$, in the range of the construction. The integral
+$\int(-u)\mu$ detects the power $m^{n/(n-1)}$. Since $\mu$ recovers
+a square of the wave, the resulting exponent is $2n/(n-1)$.
+
+A correction to $\int(-u)\mu$ makes the full determinant cancel when
+one differentiates the energy in $(T,\tau)$, while leaving the corrected
+energy comparable to that integral. The correction uses the integral
+of the spatial determinant along the segment of potentials from
+$\lambda|\Phi|^2$ to $\lambda|\Phi|^2+u$, as in the classical
+Aubin--Mabuchi energy \cite{Aubin1984,Mabuchi1986}. The two integrations by parts use conservation of the
+wave current and of the Hessian cofactor (Sections~\ref{sec:calculus}
+and~\ref{sec:energy}). The cofactor contributes no boundary term:
+its normal--normal coefficient vanishes.
+Only the wave flux through the side of the fiber can give a positive
+contribution to the Laplacian of the energy. A comparison function made
+from a spatial average of the squared wave bounds $\mathcal F$ on the
+initial circle and the normal derivative of $u$ at the side of the fiber.
+On the part of the boundary that carries wave flux, the Gaussian decay
+is stronger than the cost of recovering the wave in the interior.
+The resulting scalar inequality is
+\[
+ \Delta_{T,\tau}\mathcal F\le C s^{-2}e^{-cs/h}\mathcal F,
+       \qquad 2a\le s=|\tau|\le3
+       \quad\text{(Section~\ref{sec:barrier}).}
+\]
+
+It remains to compare the circles. The scalar inequality carries a
+lower bound at the observed times $1\le T\le2$ from $|\tau|=2a$
+to $|\tau|=1$. At that fixed radius the mean inequality carries it to
+initial time; a second annulus comparison then takes it back to
+$|\tau|=4a$. A radial harmonic function in the plane is affine in the
+logarithm of its radius. Each passage thus loses an inverse logarithm.
+Both losses can occur for a scalar supersolution even with zero
+potential (Remark~\ref{rem:cylinder-power}). Taking a $p$th root and
+summing a fixed number of caps gives the claimed logarithmic bound on
+the torus. Section~\ref{sec:transfer} removes the spatial period to prove
+Theorem~\ref{thm:main}, then sums the frequencies for the Sobolev estimate.
+
+\paragraph{Related constructions.}
+The bilinear flux of a symmetric hyperbolic system is classical
+\cite{Friedrichs1954}. Analytic continuation in an imaginary spacetime
+direction has also been used to study waves \cite{KaiserStreater1992}.
+For positive-energy Klein--Gordon waves, Kaiser found a vector
+conserved in physical spacetime at each fixed imaginary displacement.
+Integration over displacements gives a current with nonnegative time density
+\cite[Section~4.5, Equations~(36)--(40)]{Kaiser1990}. Here the continued wave gives a positive
+symmetric tensor whose columns have zero divergence in the combined
+physical and auxiliary variables.
+
+Serre's compensated integrability estimates pair a positive
+divergence-free tensor with the Hessian of a real Monge--Ampère
+potential to bound a power of its determinant
+\cite[Section~5.1]{Serre2018}. The usual stress tensor of a wave need
+not be positive in \(n\ge2\) spatial dimensions
+\cite[Section~4.1]{Serre2019}. Our lifted tensor is positive
+semidefinite, but before averaging it is a sum of four real squares
+and its determinant vanishes. We use its regularized time component as the prescribed
+density in a quaternionic determinant equation on each spatial fiber
+(Section~\ref{sec:energy}).
+
+The main proof ends in Section~\ref{sec:transfer}; Appendix~\ref{sec:dirichlet}
+supplies the Dirichlet theorem used in the construction.
+Sections~\ref{sec:kakeya}--\ref{sec:parabolic} give the applications.
+Appendix~\ref{sec:planar} replaces the determinant equation by a linear
+Dirichlet problem on a disk in two dimensions. Appendix~\ref{sec:pencil}
+extends the current construction to a simple extremal eigenvalue of a
+real symmetric \(n\)-by-\(n\) pencil in \(n\) spatial variables whose
+transverse Hessian is definite, and gives an example with an irreducible
+cubic characteristic cone.
